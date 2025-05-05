@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1746423462 source:c:\users\hp\proyectop12k25\equipo3\logisticaeq3\src\reportes.cpp
+	"Reportes.h"
+	<iostream>
+	<fstream>
+	<vector>
+
+1746423462 c:\users\hp\proyectop12k25\equipo3\logisticaeq3\include\reportes.h
+	<string>
+
