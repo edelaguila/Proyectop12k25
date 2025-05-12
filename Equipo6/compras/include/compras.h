@@ -1,27 +1,31 @@
 #ifndef COMPRAS_H
 #define COMPRAS_H
 
-#include <vector>
 #include <string>
-#include <iostream>
+#include <vector>
+#include <ctime>
+#include "producto.h"
 
-using namespace std;
-
-struct Producto {
-    string nombre;
-    string proveedor;
-    double precioCompra;
+struct ItemCompra {
+    std::string codigoProducto;
     int cantidad;
-    string fechaCompra;
+    double precioUnitario;
 };
 
-class Compras {
-public:
-    static void mostrarMenu();
-    static void registrarCompra(vector<Producto>& listaCompras);
-    static void mostrarHistorial(const vector<Producto>& listaCompras);
-    static void buscarPorProveedor(const vector<Producto>& listaCompras);
-    static double calcularTotalGastado(const vector<Producto>& listaCompras);
+struct Compra {
+    std::string id;
+    std::string idCliente;
+    std::time_t fecha;
+    std::vector<ItemCompra> items;
+    double total;
 };
+
+void guardarCompra(const Compra& compra);
+std::vector<Compra> cargarCompras();
+void registrarCompra(std::vector<Producto>& listaCompras);
+void mostrarHistorial(const std::vector<Producto>& listaCompras);
+void buscarPorProveedor(const std::vector<Producto>& listaCompras);
+double calcularTotalGastado(const std::vector<Producto>& listaCompras);
+std::string generarIdCompra();
 
 #endif
