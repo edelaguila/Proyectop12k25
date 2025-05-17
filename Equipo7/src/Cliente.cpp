@@ -1,3 +1,4 @@
+//Maria Celeste Mayen Ibarra    9959-23-3775
 #include "Cliente.h"
 #include <iostream>
 #include <iomanip>  // Para formatear la salida en columnas
@@ -5,10 +6,10 @@
 
 using namespace std;
 
-// Inicialización de la lista estática de clientes
+// InicializaciÃ³n de la lista estÃ¡tica de clientes
 vector<Cliente> Cliente::clientes;
 
-// Inicialización del contador para generar códigos únicos de cliente
+// InicializaciÃ³n del contador para generar cÃ³digos Ãºnicos de cliente
 int Cliente::contadorClientes = 1;
 
 // Constructor por defecto
@@ -18,12 +19,12 @@ Cliente::Cliente() {}
 Cliente::Cliente(string n, string t, string nit, string cod)
     : nombre(n), telefono(t), nit(nit), codigo(cod) {}
 
-// Método para obtener la lista de clientes
+// MÃ©todo para obtener la lista de clientes
 std::vector<Cliente>& Cliente::obtenerClientes() {
     return clientes;
 }
 
-// Menú principal del sistema de clientes
+// MenÃº principal del sistema de clientes
 void Cliente::MenuClientes() {
     int opcion;
     do {
@@ -37,10 +38,10 @@ void Cliente::MenuClientes() {
         cout << "\t\t\t 4. REGISTRO DE CLIENTES\n";
         cout << "\t\t\t 5. SALIR\n";
         cout << "\t\t\t-------------------------------\n";
-        cout << "\t\t\tIngresa tu opción: ";
+        cout << "\t\t\tIngresa tu opciÃ³n: ";
         cin >> opcion;
 
-        // Ejecuta la opción seleccionada
+        // Ejecuta la opciÃ³n seleccionada
         switch (opcion) {
             case 1:
                 AgregarCliente();     // Agrega un nuevo cliente
@@ -55,17 +56,17 @@ void Cliente::MenuClientes() {
                 MostrarClientes();    // Muestra la lista de clientes
                 break;
             case 5:
-                return;               // Sale del menú
+                return;               // Sale del menÃº
             default:
-                // Opción inválida
-                cout << "\n\t\t\t Opción inválida...Por favor intenta otra vez...\n";
+                // OpciÃ³n invÃ¡lida
+                cout << "\n\t\t\t OpciÃ³n invÃ¡lida...Por favor intenta otra vez...\n";
                 cin.ignore();
                 cin.get();
         }
     } while (opcion != 5);
 }
 
-// Función para agregar un nuevo cliente
+// FunciÃ³n para agregar un nuevo cliente
 void Cliente::AgregarCliente() {
     system("cls");
     cout << "\t\t\t---------------------\n";
@@ -73,7 +74,7 @@ void Cliente::AgregarCliente() {
     cout << "\t\t\t----------------------\n";
 
     string nombre, telefono, nit;
-    string codigo = to_string(contadorClientes++);  // Genera código único automáticamente
+    string codigo = to_string(contadorClientes++);  // Genera cÃ³digo Ãºnico automÃ¡ticamente
 
     // Solicita datos del cliente
     cout << "\t\t\tIngrese el nombre del cliente: ";
@@ -89,12 +90,12 @@ void Cliente::AgregarCliente() {
     cout << "\t\t\tCliente agregado exitosamente.\n";
 
     // Espera que el usuario presione ENTER para continuar
-    cout << "\nPresione ENTER para regresar al menú...";
+    cout << "\nPresione ENTER para regresar al menÃº...";
     cin.ignore();
     cin.get();
 }
 
-// Función para modificar los datos de un cliente existente
+// FunciÃ³n para modificar los datos de un cliente existente
 void Cliente::ModificarCliente() {
     system("cls");
     cout << "\t\t\t--------------------------\n";
@@ -105,7 +106,7 @@ void Cliente::ModificarCliente() {
     cout << "\t\t\tIngrese el codigo del cliente a modificar: ";
     cin >> codigoBuscado;
 
-    // Busca al cliente por su código
+    // Busca al cliente por su cÃ³digo
     for (auto& cliente : clientes) {
         if (cliente.codigo == codigoBuscado) {
             // Muestra los datos actuales del cliente
@@ -114,22 +115,22 @@ void Cliente::ModificarCliente() {
             cout << "\t\t\tTelefono: " << cliente.telefono << "\n";
             cout << "\t\t\tNIT: " << cliente.nit << "\n";
 
-            // Solicita al usuario qué desea modificar
-            cout << "\t\t\t¿Que desea modificar?\n";
+            // Solicita al usuario quÃ© desea modificar
+            cout << "\t\t\tÂ¿Que desea modificar?\n";
             cout << "\t\t\t1. Telefono\n";
             cout << "\t\t\t2. NIT\n";
             int opcion;
             cin >> opcion;
 
-            // Realiza la modificación correspondiente
+            // Realiza la modificaciÃ³n correspondiente
             if (opcion == 1) {
-                cout << "\t\t\tIngrese nuevo número telefonico: ";
+                cout << "\t\t\tIngrese nuevo nÃºmero telefonico: ";
                 cin >> cliente.telefono;
             } else if (opcion == 2) {
                 cout << "\t\t\tIngrese nuevo NIT: ";
                 cin >> cliente.nit;
             } else {
-                cout << "\t\t\tOpcion inválida.\n";
+                cout << "\t\t\tOpcion invÃ¡lida.\n";
             }
 
             cout << "\t\t\tCliente modificado exitosamente.\n";
@@ -138,12 +139,12 @@ void Cliente::ModificarCliente() {
     }
 
     // Espera que el usuario presione ENTER para continuar
-    cout << "\t\t\tPresione ENTER para regresar al menú...";
+    cout << "\t\t\tPresione ENTER para regresar al menÃº...";
     cin.ignore();
     cin.get();
 }
 
-// Función para eliminar un cliente
+// FunciÃ³n para eliminar un cliente
 void Cliente::EliminarCliente() {
     system("cls");
     cout << "\t\t\t-------------------------\n";
@@ -154,7 +155,7 @@ void Cliente::EliminarCliente() {
     cout << "\t\t\tIngrese el codigo del cliente a eliminar: ";
     cin >> codigoBuscado;
 
-    // Busca al cliente por su código y lo elimina
+    // Busca al cliente por su cÃ³digo y lo elimina
     for (auto it = clientes.begin(); it != clientes.end(); ++it) {
         if (it->codigo == codigoBuscado) {
             clientes.erase(it);
@@ -169,7 +170,7 @@ void Cliente::EliminarCliente() {
     cin.get();
 }
 
-// Función para mostrar el listado de clientes registrados
+// FunciÃ³n para mostrar el listado de clientes registrados
 void Cliente::MostrarClientes() {
     system("cls");
     cout << "\t\t\t----------------------------\n";
