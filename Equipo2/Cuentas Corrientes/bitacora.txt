@@ -118,3 +118,6 @@ Juan           8035           RAR
 Juan           8040           INA            
 >>>>>>> facturas
 Juan           100            LOGS           05-11-2025 10:19 AM
+Juan           100            LOGS           05-14-2025 06:33 PM
+Juan           100            LOGS           05-14-2025 06:34 PM
+Juan           100            LOGS           05-14-2025 06:38 PM

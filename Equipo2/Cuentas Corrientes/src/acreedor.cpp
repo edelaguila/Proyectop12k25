@@ -82,6 +82,8 @@ void acreedor::insertar()
         cin >> id;
         cout << "\t\t\tIngresa Nombre Acreedor     : ";
         cin >> nombreAcreedor;
+        cout << "\t\t\tIngresa Nit Acreedor     : ";
+        cin >> nitAcreedor;
         cout << "\t\t\tIngresa Telefono Acreedor   : ";
         cin >> telefono;
         cout << "\t\t\tIngresa Num.Cuenta Acreedor : ";
@@ -92,6 +94,7 @@ void acreedor::insertar()
         cout << "\nResumen de la información ingresada:\n";
         cout << "\t\t\tID Acreedor        : " << id << endl;
         cout << "\t\t\tNombre Acreedor    : " << nombreAcreedor << endl;
+        cout << "\t\t\tNit Acreedor    : " << nitAcreedor << endl;
         cout << "\t\t\tTelefono Acreedor  : " << telefono << endl;
         cout << "\t\t\tNumero de Cuenta   : " << numCuenta << endl;
         cout << "\t\t\tBanco              : " << banco << endl;
@@ -103,6 +106,7 @@ void acreedor::insertar()
             file.open("acreedor.txt", ios::app | ios::out);
             file << left << setw(15) << id
                  << left << setw(15) << nombreAcreedor
+                 << left << setw(15) << nitAcreedor
                  << left << setw(15) << telefono
                  << left << setw(15) << numCuenta
                  << left << setw(15) << banco << "\n";
@@ -131,16 +135,17 @@ void acreedor::desplegar()
         system("pause");
     }
     else {
-        file >> id >> nombreAcreedor >> telefono >> numCuenta >> banco;
+        file >> id >> nombreAcreedor >> nitAcreedor >> telefono >> numCuenta >> banco;
         while(!file.eof()) {
             total++;
             cout<<"\n\t\t\t ID Acreedor        : "<<id<<endl;
             cout<<"\t\t\t Nombre Acreedor    : "<<nombreAcreedor<<endl;
+            cout<<"\t\t\t Nit Acreedor    : "<<nitAcreedor<<endl;
             cout<<"\t\t\t Telefono Acreedor  : "<<telefono <<endl ;
             cout<<"\t\t\t Num.Cuenta Acreedor: "<<numCuenta<<endl;
             cout<<"\t\t\t Banco Acreedor     : "<<banco<<endl;
 
-            file >> id >> nombreAcreedor >> telefono >> numCuenta >> banco;
+            file >> id >> nombreAcreedor >> nitAcreedor >> telefono >> numCuenta >> banco;
         }
         if(total==0){
             cout<<"\n\t\t\tNo hay informacion...";
@@ -171,12 +176,12 @@ void acreedor::modificar()
         cin>>acreedor_id;
         file1.open("temporal.txt", ios::app | ios::out);
 
-        file >> id >> nombreAcreedor >> telefono >> numCuenta >> banco;
+        file >> id >> nombreAcreedor >> nitAcreedor >> telefono >> numCuenta >> banco;
 
         while(!file.eof())
         {
             if(acreedor_id != id) {
-                file1<<left<<setw(15)<< id << left<<setw(15)<< nombreAcreedor <<left<<setw(15)<< telefono <<left << setw(15)
+                file1<<left<<setw(15)<< id << left<<setw(15)<< nombreAcreedor << left<<setw(15)<< nitAcreedor <<left<<setw(15)<< telefono <<left << setw(15)
                 << numCuenta << left << setw(15)<< banco << "\n";
             }
             else {
@@ -184,6 +189,8 @@ void acreedor::modificar()
                 cin>>id;
                 cout<<"\t\t\tIngrese Nombre Acreedor    : ";
                 cin>>nombreAcreedor;
+                cout<<"\t\t\tIngrese Nit Acreedor    : ";
+                cin>>nitAcreedor;
                 cout<<"\t\t\tIngrese Telefono Acreedor  : ";
                 cin>>telefono;
                 cout<<"\t\t\tIngrese Num.Cuenta Acreedor: ";
@@ -191,11 +198,11 @@ void acreedor::modificar()
                 cout<<"\t\t\tIngrese Banco Acreedor     : ";
                 cin>>banco;
 
-                file1<<left<<setw(15)<< id << left<<setw(15)<< nombreAcreedor <<left<<setw(15)<< telefono <<left << setw(15)
+                file1<<left<<setw(15)<< id << left<<setw(15)<< nombreAcreedor  << left<<setw(15)<< nitAcreedor <<left<<setw(15)<< telefono <<left << setw(15)
                 << numCuenta << left << setw(15)<< banco << "\n";
                 found++;
             }
-            file >> id >> nombreAcreedor >> telefono >> numCuenta >> banco;
+            file >> id >> nombreAcreedor >> nitAcreedor >>telefono >> numCuenta >> banco;
         }
         if(found==0){
             cout<<"\n\t\t\tAcreedor no encontrado...";
@@ -227,18 +234,19 @@ void acreedor::buscar()
         string acreedor_id;
         cout<<"\nIngrese ID del Acreedor que quiere buscar : ";
         cin>>acreedor_id;
-        file>> id >> nombreAcreedor >> telefono >> numCuenta >> banco;
+        file>> id >> nombreAcreedor >> nitAcreedor >> telefono >> numCuenta >> banco;
 
         while(!file.eof()) {
             if(acreedor_id==id) {
                 cout<<"\n\t\t\t ID Acreedor        : "<<id<<endl;
                 cout<<"\t\t\t Nombre Acreedor    : "<<nombreAcreedor<<endl;
+                cout<<"\t\t\t Nit Acreedor    : "<<nitAcreedor<<endl;
                 cout<<"\t\t\t Telefono Acreedor  : "<<telefono<<endl;
                 cout<<"\t\t\t Num.Cuenta Acreedor: "<<numCuenta<<endl;
                 cout<<"\t\t\t Banco Acreedor     : "<<banco<<endl;
                 found++;
             }
-            file >> id >> nombreAcreedor >> telefono >> numCuenta >> banco;
+            file >> id >> nombreAcreedor >> nombreAcreedor >> telefono >> numCuenta >> banco;
         }
         if(found==0) cout<<"\n\t\t\tAcreedor no encontrado...\n";
         system("pause");
@@ -270,14 +278,14 @@ void acreedor::borrar()
         file >> id >> nombreAcreedor >> telefono >> numCuenta >> banco;
         while(!file.eof()) {
             if(acreedor_id!= id) {
-                file1<<left<<setw(15)<< id << left<<setw(15)<< nombreAcreedor <<left<<setw(15)<< telefono <<left << setw(15)
+                file1<<left<<setw(15)<< id << left<<setw(15)<< nombreAcreedor left<<setw(15) << nitAcreedor <<left<<setw(15)<< telefono <<left << setw(15)
                 << numCuenta << left << setw(15)<< banco << "\n";
             } else {
                 found++;
                 cout << "\nAcreedor borrado exitosamente\n";
                 system("pause");
             }
-            file >> id >> nombreAcreedor >> telefono >> numCuenta >> banco;
+            file >> id >> nombreAcreedor >> nitAcreedor >>telefono >> numCuenta >> banco;
         }
         if(found==0) {
             cout<<"\nAcreedor no encontrado\n";
@@ -307,22 +315,22 @@ void acreedor::reporte(){
         reporteFile << "No hay informacion en acreedor.txt\n\n";
     }
     else {
-        cout << left << setw(15) << "ID" << setw(15) << "Nombre"  << setw(15) << "Telefono"
+        cout << left << setw(15) << "ID" << setw(15) << "Nombre" << setw(15) << "Nit" << setw(15) << "Telefono"
              << setw(15) << "Num. Cuenta" << setw(15) << "Banco" << endl;
         cout << "----------------------------------------------------------------------------------\n";
 
         reporteFile << "----------------------------- REPORTE DE ACREEDORES -----------------------------\n";
-        reporteFile << left << setw(15) << "ID" << setw(15) << "Nombre"  << setw(15) << "Telefono"
+        reporteFile << left << setw(15) << "ID" << setw(15) << "Nombre" << setw(15) << "Nit" << setw(15) << "Telefono"
                     << setw(15) << "Num. Cuenta" << setw(15) << "Banco" << "\n";
         reporteFile << "----------------------------------------------------------------------------------\n";
 
-        file >> id >> nombreAcreedor >> telefono >> numCuenta >> banco;
+        file >> id >> nombreAcreedor >> nitAcreedor >> telefono >> numCuenta >> banco;
         while (!file.eof()) {
             found++;
-            cout << left << setw(15) << id << setw(15) << nombreAcreedor << setw(15)
+            cout << left << setw(15) << id << setw(15) << nombreAcreedor << setw(15) << nitAcreedor << setw(15)
                  << telefono << setw(15) << numCuenta << setw(15) << banco << endl;
 
-            reporteFile << left << setw(15) << id << setw(15) << nombreAcreedor << setw(15)
+            reporteFile << left << setw(15) << id << setw(15) << nombreAcreedor << setw(15) << nitAcreedor << setw(15)
                         << telefono << setw(15) << numCuenta << setw(15) << banco << "\n";
 
             file >> id >> nombreAcreedor >> telefono >> numCuenta >> banco;
