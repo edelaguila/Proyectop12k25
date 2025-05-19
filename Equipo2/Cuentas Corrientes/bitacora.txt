@@ -131,6 +131,10 @@ usuario        100            LOGS
 Juan           8011           INS            
 Juan           8011           INS            
 >>>>>>> 5146112496d9c8d6b92a3fa298b46a4da780ddb1
+<<<<<<< HEAD
+Juan           100            LOGS           05-11-2025 01:38 PM
+Juan           100            LOGS           05-11-2025 01:38 PM
+=======
 Luisa          100            LOGS           05-11-2025 01:49 PM
 Luisa          100            LOGS           05-11-2025 01:54 PM
 Luisa          8035           RPR            05-11-2025 01:55 PM
@@ -149,3 +153,4 @@ Luisa          100            SRCH           05-11-2025 02:17 PM
 Luisa          100            DELUS          05-11-2025 02:17 PM
 Luisa          100            SRCH           05-11-2025 02:17 PM
 Luisa          100            BACK           05-11-2025 02:17 PM
+>>>>>>> e6993706f0502f46a3374cd9fd8aa862b1ede42a
