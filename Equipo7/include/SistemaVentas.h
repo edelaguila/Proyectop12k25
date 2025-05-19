@@ -17,6 +17,16 @@ private:
 
     void limpiarPantalla(); // Limpia la consola según el sistema operativo
 
+<<<<<<< HEAD
+=======
+    void cargarClientes();
+    void cargarProductos();
+    void cargarVentas();
+    void guardarClientes();
+    void guardarProductos();
+    void guardarVenta(const Venta& v);
+
+>>>>>>> origin
 public:
      // Agrega un nuevo cliente al sistema.
     // Solicita el nombre y correo del cliente.
@@ -39,6 +49,21 @@ public:
     // Permite al usuario elegir entre agregar clientes, productos, realizar ventas o salir del sistema.
     void mostrarMenu();
 
+<<<<<<< HEAD
+=======
+
+     // Guardado y carga de datos
+    void guardarVentas();
+
+    // Muestra productos
+    void mostrarProductos();
+
+    void mostrarClientes();
+
+
+
+
+>>>>>>> origin
 
 };
 

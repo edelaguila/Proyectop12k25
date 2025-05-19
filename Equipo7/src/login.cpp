@@ -56,11 +56,22 @@ bool iniciarSesion(string& usuarioActual) {
     while (file >> user >> pass) {
         if (user == username && pass == password) {
             usuarioActual = username; // ← Guarda el nombre del usuario para bitácora
+<<<<<<< HEAD
             cout << "Inicio de sesión exitoso. Bienvenido, " << username << ".\n";
             return true;
+=======
+            cout << "\t\n\nInicio de sesion exitoso Bienvenido, " << username << ".\n";
+             system("pause");
+            return true;
+
+>>>>>>> origin
         }
     }
 
     cout << "Credenciales incorrectas.\n";
+<<<<<<< HEAD
+=======
+    system("pause");
+>>>>>>> origin
     return false;
 }

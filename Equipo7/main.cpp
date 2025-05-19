@@ -2,6 +2,12 @@
 #include "SistemaVentas.h"
 #include "Login.h"
 #include "bitacora.h"
+<<<<<<< HEAD
+=======
+#include <fstream>
+#include <string>
+
+>>>>>>> origin
 
 using namespace std;
 
@@ -9,11 +15,19 @@ using namespace std;
 string usuarioActual; // Para guardar el nombre del usuario bitacora
 
 void mostrarMenuPrincipal();
+<<<<<<< HEAD
 
+=======
+void mostrarArchivo();  // Función para mostrar el archivo bitacora.txt
+>>>>>>> origin
 int main() {
     int opcion;
     bool accesoPermitido = false;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin
     do {
 
         system ("cls");
@@ -36,12 +50,20 @@ int main() {
                 cout << "\n\nSaliendo del sistema...\n";
                 return 0;
             default:
+<<<<<<< HEAD
                 cout << "Opción invalida.\n";
+=======
+                cout << "Opcion invalida.\n";
+>>>>>>> origin
         }
     } while (!accesoPermitido);
 
     mostrarMenuPrincipal();
+<<<<<<< HEAD
      registrarEvento(usuarioActual, "Cerró sesión desde menú principal");
+=======
+     registrarEvento(usuarioActual, "Cerro sesion desde menu principal");
+>>>>>>> origin
     return 0;
 }
 
@@ -64,6 +86,7 @@ void mostrarMenuPrincipal() {
 
         switch (opcion) {
             case 1:
+<<<<<<< HEAD
                 registrarEvento(usuarioActual, "Entró a la opción Archivo");
                 cout << "Archivo (sin funciones aun).\n";
                 break;
@@ -81,6 +104,27 @@ void mostrarMenuPrincipal() {
                 break;
             case 5:
                 registrarEvento(usuarioActual, "Salió del menú general");
+=======
+                registrarEvento(usuarioActual, "Entro a la opción Archivo");
+                cout<< "sin funcion\n";
+                system("pause");
+                break;
+            case 2:
+                registrarEvento(usuarioActual, "Entro a la opción Catálogos");
+                sistema.mostrarMenu();
+                break;
+            case 3:
+                registrarEvento(usuarioActual, "Entro a la opción Procesos");
+                sistema.realizarVenta();
+                break;
+            case 4:
+                registrarEvento(usuarioActual, "Entro a la opción Informes");
+                mostrarArchivo(); // Mostrar contenido de bitacora.txt
+                system ("pause");
+                break;
+            case 5:
+                registrarEvento(usuarioActual, "Salio del menú general");
+>>>>>>> origin
                 cout << "Cerrando sesion...\n";
                 break;
             default:
@@ -88,3 +132,29 @@ void mostrarMenuPrincipal() {
         }
     } while (opcion != 5);
 }
+<<<<<<< HEAD
+=======
+
+
+
+void mostrarArchivo() {
+    system("cls");
+    std::ifstream archivo("bitacora.bin", std::ios::binary);
+    if (!archivo) {
+        std::cout << "No se pudo abrir bitacora.bin" << std::endl;
+        return;
+    }
+
+    std::cout << "=== Contenido de bitacora.bin ===" << std::endl;
+    size_t longitud;
+    std::string mensaje;
+
+    while (archivo.read(reinterpret_cast<char*>(&longitud), sizeof(longitud))) {
+        mensaje.resize(longitud);
+        archivo.read(&mensaje[0], longitud);
+        std::cout << mensaje << std::endl;
+    }
+
+    archivo.close();
+}
+>>>>>>> origin
