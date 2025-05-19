@@ -1,0 +1,13 @@
+2025-05-11 18:11:24 | Usuario:  | C骴igo: 1502 (Exportaci髇 de datos) | Detalles: Exportaci髇 manual de datos
+2025-05-18 19:52:06 | Usuario: Emilio | C骴igo: 1200 (Creaci髇 de nuevo cliente) | Detalles: Nuevo usuario registrado.
+2025-05-18 19:52:15 | Usuario: Emilio | C骴igo: 1000 (Inicio de sesi髇 exitoso) | Detalles: Inicio de sesi贸n correcto.
+2025-05-18 19:53:13 | Usuario: Emilio | C骴igo: 1000 (Inicio de sesi髇 exitoso) | Detalles: Inicio de sesi贸n correcto.
+2025-05-18 20:02:21 | Usuario: Emilio  | C骴igo: 1200 (Creaci髇 de nuevo cliente) | Detalles: Nuevo usuario registrado.
+2025-05-18 20:02:29 | Usuario: Emilio  | C骴igo: 1000 (Inicio de sesi髇 exitoso) | Detalles: Inicio de sesi贸n correcto.
+2025-05-18 20:02:39 | Usuario: Emilio  | C骴igo: 1000 (Inicio de sesi髇 exitoso) | Detalles: Inicio de sesi贸n correcto.
+2025-05-18 20:05:18 | Usuario: Emilio | C骴igo: 1200 (Creaci髇 de nuevo cliente) | Detalles: Nuevo usuario registrado.
+2025-05-18 20:05:25 | Usuario: Emilio  | C骴igo: 1001 (Intento fallido de inicio de sesi髇) | Detalles: Intento fallido de inicio de sesi贸n.
+2025-05-18 20:05:29 | Usuario: Emilio  | C骴igo: 1001 (Intento fallido de inicio de sesi髇) | Detalles: Intento fallido de inicio de sesi贸n.
+2025-05-18 20:07:53 | Usuario: Emilio | C骴igo: 1200 (Creaci髇 de nuevo cliente) | Detalles: Nuevo usuario registrado.
+2025-05-18 20:08:01 | Usuario: Emilio | C骴igo: 1000 (Inicio de sesi髇 exitoso) | Detalles: Inicio de sesi贸n correcto.
+2025-05-18 20:08:13 | Usuario: Emilio | C骴igo: 1000 (Inicio de sesi髇 exitoso) | Detalles: Inicio de sesi贸n correcto.

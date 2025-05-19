@@ -1,96 +1,94 @@
 #include <iostream>
-#include "usuario.h"
-#include "compras.h"
-#include <vector>
-#include <iomanip>
 #include <limits>
-#include <windows.h> //Libreria para mostrar tildes
+#include <windows.h>
+#include "usuario.h"
+#include "menu_general.h"
 
 using namespace std;
+
+void limpiarBuffer() {
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+}
+
+void mostrarMenuLogin() {
+    system("cls");
+    cout << "=== SISTEMA DE GESTIÓN ===" << endl;
+    cout << "1. Registrar usuario" << endl;
+    cout << "2. Iniciar sesión" << endl;
+    cout << "3. Salir" << endl;
+    cout << "Seleccione una opción: ";
+}
+
+void procesoRegistro() {
+    string usuario, contrasena;
+    cout << "\n--- REGISTRO ---" << endl;
+    cout << "Usuario: ";
+    getline(cin, usuario);
+
+    cout << "Contraseña: ";
+    contrasena = Usuario::leerContrasenaOculta();
+
+    if (Usuario::registrarUsuario(usuario, contrasena)) {
+        cout << "✅ Usuario registrado exitosamente." << endl;
+    } else {
+        cout << "❌ No se pudo registrar el usuario (¿ya existe?)." << endl;
+    }
+}
+
+void procesoLogin() {
+    string usuario, contrasena;
+    int intentos = 0;
+    const int MAX_INTENTOS = 3;
+
+    while (intentos < MAX_INTENTOS) {
+        cout << "\n--- INICIO DE SESIÓN ---" << endl;
+        cout << "Usuario: ";
+        getline(cin, usuario);
+
+        cout << "Contraseña: ";
+        contrasena = Usuario::leerContrasenaOculta();
+
+        if (Usuario::iniciarSesion(usuario, contrasena)) {
+            cout << "\n✔ Acceso concedido" << endl;
+            MenuGeneral menu;
+            menu.mostrar();  // Ir directamente al menú principal tras login exitoso
+            return;
+        }
+
+        cout << "\n❌ Credenciales incorrectas. ";
+        if (++intentos < MAX_INTENTOS) {
+            cout << "Intentos restantes: " << MAX_INTENTOS - intentos << endl;
+        }
+    }
+    cout << "⛔ Límite de intentos alcanzado" << endl;
+}
 
 int main() {
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
 
-    vector<Producto> listaCompras;
     int opcion;
-    string nombreUsuario, contrasena;
-
-    // Menú de registro e inicio de sesión
-    int opcionLogin;
     do {
-        cout << "\n=== SISTEMA DE REGISTRO E INICIO DE SESION ===" << endl;
-        cout << "1. Registrar nuevo usuario" << endl;
-        cout << "2. Iniciar sesión" << endl;
-        cout << "3. Salir" << endl;
-        cout << "Seleccione una opción: ";
-        cin >> opcionLogin;
+        mostrarMenuLogin();
+        cin >> opcion;
+        limpiarBuffer();
 
-        // Si elige registrar
-        if (opcionLogin == 1) {
-            cout << "Ingrese nombre de usuario: ";
-            cin >> nombreUsuario;
-            cout << "Ingrese contraseña: ";
-            cin >> contrasena;
-            Usuario::registrarUsuario(nombreUsuario, contrasena);
+        switch (opcion) {
+            case 1:
+                procesoRegistro();
+                break;
+            case 2:
+                procesoLogin();
+                break;
+            case 3:
+                cout << "👋 Saliendo del sistema..." << endl;
+                break;
+            default:
+                cout << "❌ Opción inválida" << endl;
         }
-        // Si elige iniciar sesión
-        else if (opcionLogin == 2) {
-            bool sesionExitosa = false;
-            while (!sesionExitosa) {
-                cout << "Ingrese nombre de usuario: ";
-                cin >> nombreUsuario;
-                cout << "Ingrese contraseña: ";
-                cin >> contrasena;
-
-                // Verifica si el inicio de sesión es exitoso
-                if (Usuario::iniciarSesion(nombreUsuario, contrasena)) {
-                    sesionExitosa = true;
-                    cout << "\n¡Bienvenido " << nombreUsuario << "!" << endl;
-
-                    // Menú de compras después de inicio de sesión
-                    do {
-                        Compras::mostrarMenu(); // Mostrar el menú de compras
-                        cin >> opcion;
-
-                        // Dependiendo de la opción, ejecuta las funciones correspondientes
-                        switch (opcion) {
-                            case 1:
-                                Compras::registrarCompra(listaCompras);
-                                break;
-                            case 2:
-                                Compras::mostrarHistorial(listaCompras);
-                                break;
-                            case 3:
-                                Compras::buscarPorProveedor(listaCompras);
-                                break;
-                            case 4:
-                                cout << "\n💰 Total gastado: Q" << fixed << setprecision(2)
-                                     << Compras::calcularTotalGastado(listaCompras) << endl;
-                                break;
-                            case 5:
-                                cout << "\n👋 Saliendo del sistema...\n";
-                                break;
-                            default:
-                                cout << "\n❌ Opción inválida. Intente nuevamente." << endl;
-                                cin.clear();
-                                cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                        }
-                    } while (opcion != 5); // Salir cuando opción 5 es seleccionada
-                } else {
-                    cout << "❌ Usuario o contraseña incorrectos. Intenta nuevamente." << endl;
-                }
-            }
-        }
-        // Si elige salir
-        else if (opcionLogin == 3) {
-            cout << "👋 Saliendo del sistema..." << endl;
-        }
-        // Si elige una opción no válida
-        else {
-            cout << "❌ Opción no válida. El programa se cerrará." << endl;
-        }
-    } while (opcionLogin != 3); // Si elige salir, termina el programa
+        if (opcion != 3) system("pause");
+    } while (opcion != 3);
 
     return 0;
 }
