@@ -2,6 +2,7 @@
 #define USUARIO_H
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 class usuario
 {
@@ -13,6 +14,8 @@ class usuario
 
     private:
 =======
+=======
+>>>>>>> origin
 #include <string>
 
 class Usuario {
@@ -21,6 +24,9 @@ public:
     std::string password;
 
     Usuario(std::string u, std::string p);
+<<<<<<< HEAD
+>>>>>>> origin
+=======
 >>>>>>> origin
 };
 
