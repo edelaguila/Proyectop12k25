@@ -488,3 +488,14 @@
 1747632667 source:c:\users\usuario\documents\progra\programación 1\proyectop12k25\equipo4\sistemainventarios\src\producto.cpp
 	"Producto.h"
 
+1747644644 source:c:\users\usuario\documents\progra\programación 1\proyectop12k25\equipo4\sistemainventarios\src\inventario.cpp
+	"Inventario.h"
+	<iostream>
+	<fstream>
+	<sstream>
+	<algorithm>
+	<cstdlib>
+	<map>
+	<ctime>
+	<iomanip>
+
