@@ -44,6 +44,7 @@
 		<Unit filename="include/menu_producto.h" />
 		<Unit filename="include/producto.h" />
 		<Unit filename="include/usuario.h" />
+		<Unit filename="include/utils.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/bitacora.cpp" />
 		<Unit filename="src/cliente.cpp" />
@@ -55,6 +56,7 @@
 		<Unit filename="src/menu_producto.cpp" />
 		<Unit filename="src/producto.cpp" />
 		<Unit filename="src/usuario.cpp" />
+		<Unit filename="src/utils.cpp" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

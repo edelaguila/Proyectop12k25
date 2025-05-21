@@ -1,18 +1,16 @@
+#include "menu_general.h"  // Para acceder a usuarioActual
 #include "menu_producto.h"
 #include "producto.h"
 #include <iostream>
 
 using namespace std;
 
-<<<<<<< HEAD
-void mostrarMenuProducto() {
-=======
 void MenuProducto::mostrarMenuProducto() {
->>>>>>> 41f2e196da09c1d14a34796eb802d3d5d105e72b
     int opcion;
     do {
         cout << "\n=== GESTIÓN DE PRODUCTOS ==="
-             << "\n1. Registrar nuevo producto"
+             << "\nUsuario: " << MenuGeneral::getUsuarioActual() << "\n"
+             << "1. Registrar nuevo producto"
              << "\n2. Listar productos"
              << "\n3. Modificar producto"
              << "\n4. Eliminar producto"
@@ -21,17 +19,6 @@ void MenuProducto::mostrarMenuProducto() {
         cin >> opcion;
         cin.ignore();
 
-<<<<<<< HEAD
-        switch(opcion) {
-            case 1: ingresarProducto(); break;
-            case 2: consultarProductos(); break;
-            case 3: modificarProducto(); break;
-            case 4: borrarProducto(); break;
-            case 5: cout << "Volviendo...\n"; break;
-            default: cerr << "Opción inválida\n";
-        }
-    } while(opcion != 5);
-=======
         switch (opcion) {
             case 1:
                 Producto::ingresarProducto();
@@ -52,5 +39,4 @@ void MenuProducto::mostrarMenuProducto() {
                 cout << "Opción inválida. Intente de nuevo.\n";
         }
     } while (opcion != 5);
->>>>>>> 41f2e196da09c1d14a34796eb802d3d5d105e72b
 }

@@ -1,36 +1,3 @@
-<<<<<<< HEAD
- #include "menu_general.h"
-#include "menu_cliente.h"
-#include "menu_producto.h"
-#include "menu_compra.h"
-#include "menu_archivo.h"
-#include <iostream>
-
-using namespace std;
-
-void mostrarMenuGeneral() {
-    int opcion;
-    do {
-        cout << "\n=== MENÚ PRINCIPAL ==="
-             << "\n1. Gestión de Clientes"
-             << "\n2. Gestión de Productos"
-             << "\n3. Gestión de Compras"
-             << "\n4. Herramientas de Archivo"
-             << "\n5. Cerrar sesión"
-             << "\nSeleccione una opción: ";
-        cin >> opcion;
-        cin.ignore();
-
-        switch(opcion) {
-            case 1: mostrarMenuCliente(); break;
-            case 2: mostrarMenuProducto(); break;
-            case 3: mostrarMenuCompra(); break;
-            case 4: menuArchivo(); break;
-            case 5: cout << "Cerrando sesión...\n"; break;
-            default: cerr << "Opción inválida\n";
-        }
-    } while(opcion != 5);
-=======
 #include "menu_general.h"
 #include "usuario.h"
 #include "menu_producto.h"
@@ -38,6 +5,19 @@ void mostrarMenuGeneral() {
 #include <string>
 
 using namespace std;
+
+// Definición de la variable estática
+string MenuGeneral::usuarioActual = "";
+
+// Getter estático
+string MenuGeneral::getUsuarioActual() {
+    return usuarioActual;
+}
+
+// Setter estático
+void MenuGeneral::setUsuarioActual(const string& usuario) {
+    usuarioActual = usuario;
+}
 
 void MenuGeneral::mostrar() {
     string usuario, contrasena;
@@ -59,6 +39,7 @@ void MenuGeneral::mostrar() {
 
             if (Usuario::iniciarSesion(usuario, contrasena)) {
                 cout << "Sesión iniciada correctamente.\n";
+                setUsuarioActual(usuario);  // Guardamos usuario actual
                 break;
             } else {
                 cout << "Usuario o contraseña incorrectos.\n";
@@ -76,8 +57,9 @@ void MenuGeneral::mostrar() {
 
     // Menú principal
     do {
-        cout << "\n=== MENÚ PRINCIPAL ===\n"
-             << "1. Gestión de productos\n"
+        cout << "\n=== MENÚ PRINCIPAL ===" << endl;
+        cout << "Usuario actual: " << getUsuarioActual() << endl;  // Mostrar usuario
+        cout << "1. Gestión de productos\n"
              << "2. Salir\n"
              << "Seleccione opción: ";
         cin >> opcion;
@@ -94,5 +76,4 @@ void MenuGeneral::mostrar() {
                 cout << "Opción inválida. Intente de nuevo.\n";
         }
     } while (true);
->>>>>>> 41f2e196da09c1d14a34796eb802d3d5d105e72b
 }

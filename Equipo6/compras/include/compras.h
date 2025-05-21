@@ -2,26 +2,16 @@
 #define COMPRAS_H
 
 #include <vector>
-#include <string>
-#include <iostream>
-
-using namespace std;
-
-struct Producto {
-    string nombre;
-    string proveedor;
-    double precioCompra;
-    int cantidad;
-    string fechaCompra;
-};
+#include "producto.h"
 
 class Compras {
 public:
-    static void mostrarMenu();
-    static void registrarCompra(vector<Producto>& listaCompras);
-    static void mostrarHistorial(const vector<Producto>& listaCompras);
-    static void buscarPorProveedor(const vector<Producto>& listaCompras);
-    static double calcularTotalGastado(const vector<Producto>& listaCompras);
+    void registrarCompra(std::vector<Producto>& listaCompras);
+    void mostrarHistorial(const std::vector<Producto>& listaCompras);
+    void buscarPorProveedor(const std::vector<Producto>& listaCompras);
+    double calcularTotalGastado(const std::vector<Producto>& listaCompras);
+    void guardarCompras(const std::vector<Producto>& listaCompras);
+    std::vector<Producto> cargarCompras();
 };
 
 #endif
