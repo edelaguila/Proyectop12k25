@@ -1,17 +1,13 @@
-// steven vasquez
-// marlon de leon
-
 #include "Vendedores.h"
 #include <iostream>
 #include <iomanip>
 #include <fstream>
 #include <cstdlib>
-#include "encabezado.h"
 
 using namespace std;
 
 vector<Vendedores> Vendedores::vendedores;
-int Vendedores::contadorVendedores = 100; // CÃ³digo inicial
+int Vendedores::contadorVendedores = 100; // Código inicial
 
 Vendedores::Vendedores() {}
 
@@ -26,8 +22,7 @@ void Vendedores::MenuVendedores() {
     int opcion;
     do {
         system("cls");
-        cout << "\n\t\t\t USUARIO ACTUAL: " << usuarioActual; //Marlon De Leon 5001
-        cout << "\n\t\t\t---------------------------\n";
+        cout << "\t\t\t---------------------------\n";
         cout << "\t\t\t |   SISTEMA DE VENDEDORES  |\n";
         cout << "\t\t\t---------------------------\n";
         cout << "\t\t\t 1. NUEVO VENDEDOR\n";
@@ -35,7 +30,7 @@ void Vendedores::MenuVendedores() {
         cout << "\t\t\t 3. ELIMINAR VENDEDOR\n";
         cout << "\t\t\t 4. SALIR\n";
         cout << "\t\t\t-------------------------------\n";
-        cout << "\t\t\tIngresa tu opciÃ³n: ";
+        cout << "\t\t\tIngresa tu opción: ";
         cin >> opcion;
 
         switch (opcion) {
@@ -51,7 +46,7 @@ void Vendedores::MenuVendedores() {
             case 4:
                 return;
             default:
-                cout << "\n\t\t\t OpciÃ³n invÃ¡lida...Intente otra vez...\n";
+                cout << "\n\t\t\t Opción inválida...Intente otra vez...\n";
                 cin.ignore();
                 cin.get();
         }
@@ -60,8 +55,7 @@ void Vendedores::MenuVendedores() {
 
 void Vendedores::AgregarVendedor() {
     system("cls");
-    cout << "\n\t\t\t USUARIO ACTUAL: " << usuarioActual; //Marlon De Leon 5001
-    cout << "\n\t\t\t---------------------\n";
+    cout << "\t\t\t---------------------\n";
     cout << "\t\t\t |   NUEVO VENDEDOR   |\n";
     cout << "\t\t\t----------------------\n";
 
@@ -71,27 +65,26 @@ void Vendedores::AgregarVendedor() {
     cout << "\t\t\tIngrese el nombre del vendedor: ";
     cin.ignore();
     getline(cin, nombre);
-    cout << "\t\t\tIngrese el nÃºmero telefÃ³nico del vendedor: ";
+    cout << "\t\t\tIngrese el número telefónico del vendedor: ";
     cin >> telefono;
 
     vendedores.push_back(Vendedores(nombre, telefono, codigo));
     GuardarEnBinario();
     cout << "\t\t\tVendedor agregado exitosamente.\n";
 
-    cout << "\nPresione ENTER para regresar al menÃº...";
+    cout << "\nPresione ENTER para regresar al menú...";
     cin.ignore();
     cin.get();
 }
 
 void Vendedores::ModificarVendedor() {
     system("cls");
-    cout << "\n\t\t\t USUARIO ACTUAL: " << usuarioActual; //Marlon De Leon 5001
-    cout << "\n\t\t\t--------------------------\n";
+    cout << "\t\t\t--------------------------\n";
     cout << "\t\t\t |   MODIFICAR VENDEDOR   |\n";
     cout << "\t\t\t--------------------------\n";
 
     string codigoBuscado;
-    cout << "\t\t\tIngrese el cÃ³digo del vendedor a modificar: ";
+    cout << "\t\t\tIngrese el código del vendedor a modificar: ";
     cin >> codigoBuscado;
 
     for (auto& vendedor : vendedores) {
@@ -100,7 +93,7 @@ void Vendedores::ModificarVendedor() {
             cout << "\t\t\tNombre: " << vendedor.nombre << "\n";
             cout << "\t\t\tTelefono: " << vendedor.telefono << "\n";
 
-            cout << "\t\t\tÂ¿Que desea modificar?\n";
+            cout << "\t\t\t¿Que desea modificar?\n";
             cout << "\t\t\t1. Nombre\n";
             cout << "\t\t\t2. Telefono\n";
             int opcion;
@@ -111,10 +104,10 @@ void Vendedores::ModificarVendedor() {
                 cin.ignore();
                 getline(cin, vendedor.nombre);
             } else if (opcion == 2) {
-                cout << "\t\t\tIngrese nuevo nÃºmero telefÃ³nico: ";
+                cout << "\t\t\tIngrese nuevo número telefónico: ";
                 cin >> vendedor.telefono;
             } else {
-                cout << "\t\t\tOpciÃ³n invÃ¡lida.\n";
+                cout << "\t\t\tOpción inválida.\n";
             }
 
             GuardarEnBinario();
@@ -123,20 +116,19 @@ void Vendedores::ModificarVendedor() {
         }
     }
 
-    cout << "\t\t\tPresione ENTER para regresar al menÃº...";
+    cout << "\t\t\tPresione ENTER para regresar al menú...";
     cin.ignore();
     cin.get();
 }
 
 void Vendedores::EliminarVendedor() {
     system("cls");
-    cout << "\n\t\t\t USUARIO ACTUAL: " << usuarioActual; //Marlon De Leon 5001
-    cout << "\n\t\t\t-------------------------\n";
+    cout << "\t\t\t-------------------------\n";
     cout << "\t\t\t |   ELIMINAR VENDEDOR   |\n";
     cout << "\t\t\t-------------------------\n";
 
     string codigoBuscado;
-    cout << "\t\t\tIngrese el cÃ³digo del vendedor a eliminar: ";
+    cout << "\t\t\tIngrese el código del vendedor a eliminar: ";
     cin >> codigoBuscado;
 
     for (auto it = vendedores.begin(); it != vendedores.end(); ++it) {
@@ -148,15 +140,14 @@ void Vendedores::EliminarVendedor() {
         }
     }
 
-    cout << "\t\t\tPresione ENTER para regresar al menÃº...";
+    cout << "\t\t\tPresione ENTER para regresar al menú...";
     cin.ignore();
     cin.get();
 }
 
 void Vendedores::MostrarVendedores() {
     system("cls");
-    cout << "\n\t\t\t USUARIO ACTUAL: " << usuarioActual; //Marlon De Leon 5001
-    cout << "\n\t\t\t----------------------------\n";
+    cout << "\t\t\t----------------------------\n";
     cout << "\t\t\t |   LISTADO DE VENDEDORES   |\n";
     cout << "\t\t\t----------------------------\n";
 
@@ -174,7 +165,7 @@ void Vendedores::MostrarVendedores() {
         }
     }
 
-    cout << "\t\t\tPresione ENTER para regresar al menÃº...";
+    cout << "\t\t\tPresione ENTER para regresar al menú...";
     cin.ignore();
     cin.get();
 }

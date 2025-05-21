@@ -1,5 +1,0 @@
-chocolate,5
-arroz,8
-leche,10
-jabon,4
-aguacate,3.5

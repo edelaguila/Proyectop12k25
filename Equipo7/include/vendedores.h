@@ -11,7 +11,7 @@ public:
     std::string telefono;
     std::string codigo;
 
-    Vendedores(); // Constructor vacÃ­o
+    Vendedores(); // Constructor vacío
     Vendedores(std::string n, std::string t, std::string cod);
 
     static void MenuVendedores();

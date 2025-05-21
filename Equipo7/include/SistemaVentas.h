@@ -1,3 +1,10 @@
+// CODIGO POR: Steven andre vasquez chavez carnet: 9959 24 11528
+
+#ifndef SISTEMAVENTAS_H
+#define SISTEMAVENTAS_H
+
+#include <vector>
+#include <string>
 #include "Cliente.h"
 #include "Producto.h"
 #include "Venta.h"

@@ -6,7 +6,6 @@
 #include <fstream>
 #include <sstream>
 #include <algorithm>
-#include "encabezado.h"
 
 
 using namespace std;
@@ -16,12 +15,11 @@ void SistemaVentas::menuVenta() {
     int opcion;
     do {
         limpiarPantalla();
-        cout << "\n\t\t\t USUARIO ACTUAL: " << usuarioActual; //Marlon De Leon 5001
         cout << "\n\t\t\t------------------------\n";
         cout << "\t\t\t |   SISTEMA DE  VENTA   |\n";
         cout << "\t\t\t--------------------------\n";
         cout << "\t\t\t 1. NUEVA VENTA \n";
-        cout << "\t\t\t 2. ELIMINAR VENTA \n"; // Opci贸n nueva
+        cout << "\t\t\t 2. ELIMINAR VENTA \n"; // Opci髇 nueva
         cout << "\t\t\t 3. SALIR\n";
         cout << "\t\t\t--------------------------\n";
         cout << "\t\t\tIngresa tu opcion: ";
@@ -32,7 +30,7 @@ void SistemaVentas::menuVenta() {
                 nuevaVenta();
                 break;
             case 2:
-                EliminarVenta(); // Llamada a la nueva funci贸n
+                EliminarVenta(); // Llamada a la nueva funci髇
                 break;
             case 3:
                 cout << "Saliendo del sistema...\n";
@@ -47,8 +45,7 @@ void SistemaVentas::menuVenta() {
 void SistemaVentas::nuevaVenta() {
     string codCliente, codVendedor;
     limpiarPantalla();
-    cout << "\n\t\t\t USUARIO ACTUAL: " << usuarioActual; //Marlon De Leon 5001
-    cout << "\n\t\t\t---------------------\n";
+    cout << "\t\t\t---------------------\n";
     cout << "\t\t\t |   NUEVA VENTA     |\n";
     cout << "\t\t\t---------------------\n";
 
@@ -105,7 +102,7 @@ void SistemaVentas::nuevaVenta() {
             system("pause");
         }
 
-        cout << "\t\t\t驴Desea agregar otro producto? (s/n): ";
+        cout << "\t\t\t緿esea agregar otro producto? (s/n): ";
         cin >> continuar;
 
     } while (continuar == 's' || continuar == 'S');
@@ -123,8 +120,7 @@ void SistemaVentas::registroVenta() {
 
     int codigo;
     limpiarPantalla();
-    cout << "\n\t\t\t USUARIO ACTUAL: " << usuarioActual; //Marlon De Leon 5001
-    cout << "\n\t\t\t--------------------------\n";
+    cout << "\t\t\t--------------------------\n";
     cout << "\t\t\t |   REGISTRO DE VENTA   |\n";
     cout << "\t\t\t--------------------------\n";
     cout << "\t\t\tIngrese el codigo de venta: ";
@@ -204,7 +200,7 @@ void SistemaVentas::cargarVentasDesdeArchivo() {
 
         ventas.push_back(venta);
 
-        // Actualizar el contador si el c贸digo es mayor
+        // Actualizar el contador si el c骴igo es mayor
         if (venta.codigoVenta >= contadorCodigoVenta)
             contadorCodigoVenta = venta.codigoVenta + 1;
     }
@@ -216,8 +212,7 @@ void SistemaVentas::cargarVentasDesdeArchivo() {
 void SistemaVentas::EliminarVenta() {
     int codigoVenta;
     limpiarPantalla();
-    cout << "\n\t\t\t USUARIO ACTUAL: " << usuarioActual; //Marlon De Leon 5001
-    cout << "\n\t\t\t--------------------------\n";
+    cout << "\t\t\t--------------------------\n";
     cout << "\t\t\t |   ELIMINAR VENTA      |\n";
     cout << "\t\t\t--------------------------\n";
     cout << "\t\t\tIngrese el codigo de venta a eliminar: ";
@@ -230,7 +225,7 @@ void SistemaVentas::EliminarVenta() {
     if (it != ventas.end()) {
         ventas.erase(it);
         cout << "\t\t\tVenta eliminada exitosamente.\n";
-        // Actualizar el archivo eliminando la venta (puedes escribir una nueva versi贸n del archivo sin la venta eliminada)
+        // Actualizar el archivo eliminando la venta (puedes escribir una nueva versi髇 del archivo sin la venta eliminada)
         ofstream archivo("ventas.txt", ios::trunc);  // Abrir en modo truncado para sobrescribir el archivo
         if (archivo.is_open()) {
             for (const auto& v : ventas) {
@@ -286,13 +281,17 @@ void SistemaVentas::eliminarVentaEnArchivo(int codigoVenta) {
 
 
 Vendedores* SistemaVentas::buscarVendedor(const string& codigo) {
+    cout << "\t\t\tBuscando vendedor con c骴igo: " << codigo << endl;
 
     for (auto& vendedor : Vendedores::obtenerVendedores()) {
+        cout << "\t\t\tComparando con vendedor: " << vendedor.codigo << endl;
         if (vendedor.codigo == codigo) {
+            cout << "\t\t\tVendedor encontrado: " << vendedor.nombre << endl;
             return &vendedor;
         }
     }
 
+    cout << "Vendedor no encontrado!" << endl;
     return nullptr;
 }
 
@@ -305,7 +304,7 @@ Venta* SistemaVentas::obtenerVentaPorCodigo(int codigo) {
     return nullptr;
 }
 
-// Implementaci贸n de la funci贸n buscarClientePorCodigo en SistemaVentas.cpp
+// Implementaci髇 de la funci髇 buscarClientePorCodigo en SistemaVentas.cpp
 Cliente* SistemaVentas::obtenerClientePorCodigo(const std::string& codigo) {
     for (auto& cliente : clientes) {
         if (cliente.codigo == codigo) {
