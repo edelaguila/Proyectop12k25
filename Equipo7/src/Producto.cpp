@@ -44,8 +44,8 @@ void Producto::NuevoProducto() {
     productos.push_back(nuevo);
     GuardarEnBinario();
 
-    cout << "\t\t\tProducto agregado con código: " << nuevo.codigo << endl;
-    cout << "\n\t\t\tPresiona ENTER para regresar al menú...";
+    cout << "\t\t\tProducto agregado con cÃ³digo: " << nuevo.codigo << endl;
+    cout << "\n\t\t\tPresiona ENTER para regresar al menÃº...";
     cin.ignore();
     cin.get();
 }
@@ -69,7 +69,7 @@ void Producto::MostrarProductos() {
         }
     }
 
-    cout << "\t\t\t Presiona ENTER para regresar al menú...";
+    cout << "\t\t\t Presiona ENTER para regresar al menÃº...";
     cin.ignore();
     cin.get();
 }
@@ -107,7 +107,7 @@ void Producto::EliminarProducto() {
     }
 
     cout << "\t\t\t No se encontro un producto con ese codigo.\n";
-    cout << "\t\t\t Presiona ENTER para regresar al menú...";
+    cout << "\t\t\t Presiona ENTER para regresar al menÃº...";
     cin.ignore();
     cin.get();
 }
@@ -201,9 +201,9 @@ void Producto::MenuProducto() {
         cout << "\t\t\t |  1. NUEVO PRODUCTO               |\n";
         cout << "\t\t\t |  2. ELIMINAR PRODUCTO            |\n";
         cout << "\t\t\t |  3. AUMENTAR EXISTENCIAS         |\n";
-        cout << "\t\t\t |  4. SALIR AL MENÚ PRINCIPAL      |\n";
+        cout << "\t\t\t |  4. SALIR AL MENÃš PRINCIPAL      |\n";
         cout << "\t\t\t |----------------------------------|\n";
-        cout << "\t\t\t Ingresa tu opción: ";
+        cout << "\t\t\t Ingresa tu opciÃ³n: ";
         cin >> opcion;
 
         switch (opcion) {
@@ -212,7 +212,7 @@ void Producto::MenuProducto() {
             case 3: AumentarExistencias(); break;
             case 4: return;
             default:
-                cout << "\n\t\t\tOpción inválida... Intenta de nuevo...\n";
+                cout << "\n\t\t\tOpciÃ³n invÃ¡lida... Intenta de nuevo...\n";
                 cin.ignore();
                 cin.get();
         }

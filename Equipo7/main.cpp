@@ -47,12 +47,12 @@ int main() {
                 cout << "\n\nSaliendo del sistema...\n";
                 return 0;
             default:
-                cout << "OpciÛn invalida.\n";
+                cout << "Opci√≥n invalida.\n";
         }
     } while (!accesoPermitido);
 
     mostrarMenuPrincipal();
-     registrarEvento(usuarioActual, "CerrÛ sesiÛn desde men˙ principal");
+     registrarEvento(usuarioActual, "Cerr√≥ sesi√≥n desde men√∫ principal");
     return 0;
 }
 
@@ -69,7 +69,7 @@ void mostrarMenuPrincipal() {
         cout << "\t\t\t|------------------------- \n" ;
         cout << "\t\t\t|1. Catalogos\n";
         cout << "\t\t\t|2. Procesos\n";
-        cout << "\t\t\t|3. Archivos\n";  // Nueva opciÛn
+        cout << "\t\t\t|3. Archivos\n";  // Nueva opci√≥n
         cout << "\t\t\t|4. Salir del sistema\n";
         cout << "\t\t\t|Seleccione una opcion: ";
         cin >> opcion;
@@ -188,7 +188,7 @@ void MenuCatalogo() {
                 registrarEvento(usuarioActual, "Entro a la opcion REGISTRO VENDEDORES 5002 ");
                 {
                    Vendedores vendedores; // Instanciar la clase
-                   vendedores.MostrarVendedores(); // Llamar la funciÛn de mostrar vendedores
+                   vendedores.MostrarVendedores(); // Llamar la funci√≥n de mostrar vendedores
                  }
     break;
             case 3:
@@ -223,15 +223,15 @@ void MenuArchivos() {
         cin >> opcion;
 
         switch (opcion) {
-            case 1:// Registrar evento y mostrar la bit·cora
-                registrarEvento(usuarioActual, "Visualizo la bit·cora desde Archivos 5003");
-                Bitacora::mostrarBitacora();// Llamada al mÈtodo est·tico para mostrar bit·cora
+            case 1:// Registrar evento y mostrar la bit√°cora
+                registrarEvento(usuarioActual, "Visualizo la bit√°cora desde Archivos 5003");
+                Bitacora::mostrarBitacora();// Llamada al m√©todo est√°tico para mostrar bit√°cora
                 system("pause");
                 break;
             case 2:
                 break;// SALIR DEL MENU ARCHIVOS
             default:
-                cout << "OpciÛn inv·lida.\n";
+                cout << "Opci√≥n inv√°lida.\n";
         }
     } while (opcion != 2);//Repite hasta que el usuario elija salir
 }

@@ -21,7 +21,7 @@ void SistemaVentas::menuVenta() {
         cout << "\t\t\t |   SISTEMA DE  VENTA   |\n";
         cout << "\t\t\t--------------------------\n";
         cout << "\t\t\t 1. NUEVA VENTA \n";
-        cout << "\t\t\t 2. ELIMINAR VENTA \n"; // Opci髇 nueva
+        cout << "\t\t\t 2. ELIMINAR VENTA \n"; // Opci贸n nueva
         cout << "\t\t\t 3. SALIR\n";
         cout << "\t\t\t--------------------------\n";
         cout << "\t\t\tIngresa tu opcion: ";
@@ -32,7 +32,7 @@ void SistemaVentas::menuVenta() {
                 nuevaVenta();
                 break;
             case 2:
-                EliminarVenta(); // Llamada a la nueva funci髇
+                EliminarVenta(); // Llamada a la nueva funci贸n
                 break;
             case 3:
                 cout << "Saliendo del sistema...\n";
@@ -105,7 +105,7 @@ void SistemaVentas::nuevaVenta() {
             system("pause");
         }
 
-        cout << "\t\t\t緿esea agregar otro producto? (s/n): ";
+        cout << "\t\t\t驴Desea agregar otro producto? (s/n): ";
         cin >> continuar;
 
     } while (continuar == 's' || continuar == 'S');
@@ -204,7 +204,7 @@ void SistemaVentas::cargarVentasDesdeArchivo() {
 
         ventas.push_back(venta);
 
-        // Actualizar el contador si el c骴igo es mayor
+        // Actualizar el contador si el c贸digo es mayor
         if (venta.codigoVenta >= contadorCodigoVenta)
             contadorCodigoVenta = venta.codigoVenta + 1;
     }
@@ -230,7 +230,7 @@ void SistemaVentas::EliminarVenta() {
     if (it != ventas.end()) {
         ventas.erase(it);
         cout << "\t\t\tVenta eliminada exitosamente.\n";
-        // Actualizar el archivo eliminando la venta (puedes escribir una nueva versi髇 del archivo sin la venta eliminada)
+        // Actualizar el archivo eliminando la venta (puedes escribir una nueva versi贸n del archivo sin la venta eliminada)
         ofstream archivo("ventas.txt", ios::trunc);  // Abrir en modo truncado para sobrescribir el archivo
         if (archivo.is_open()) {
             for (const auto& v : ventas) {
@@ -305,7 +305,7 @@ Venta* SistemaVentas::obtenerVentaPorCodigo(int codigo) {
     return nullptr;
 }
 
-// Implementaci髇 de la funci髇 buscarClientePorCodigo en SistemaVentas.cpp
+// Implementaci贸n de la funci贸n buscarClientePorCodigo en SistemaVentas.cpp
 Cliente* SistemaVentas::obtenerClientePorCodigo(const std::string& codigo) {
     for (auto& cliente : clientes) {
         if (cliente.codigo == codigo) {
