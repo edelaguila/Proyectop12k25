@@ -38,11 +38,13 @@
 		<Unit filename="include/Producto.h" />
 		<Unit filename="include/SistemaVentas.h" />
 		<Unit filename="include/Venta.h" />
+		<Unit filename="include/vendedores.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Cliente.cpp" />
 		<Unit filename="src/Producto.cpp" />
 		<Unit filename="src/SistemaVentas.cpp" />
 		<Unit filename="src/Venta.cpp" />
+		<Unit filename="src/vendedores.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
