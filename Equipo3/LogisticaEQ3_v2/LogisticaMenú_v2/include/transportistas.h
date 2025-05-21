@@ -1,7 +1,9 @@
 //Karina Alejandra Arriaza Ortiz 9959-24-14190
 #ifndef TRANSPORTISTAS_H
 #define TRANSPORTISTAS_H
-
+//KARINA ALEJANDRA ARRIAZA ORTIZ
+//MAYO 2025
+//9959--24-14190
 #include <iostream>
 #include <vector>
 #include <string>
@@ -17,12 +19,12 @@ public:
 
     static std::vector<Transportistas> getTransportistasDisponibles();
 
-    // M�todos est�ticos
+    // M todos est ticos
     static std::string generarIdUnico(const std::vector<Transportistas>& lista);
     static bool idDisponible(const std::vector<Transportistas>& lista, const std::string& id);
     static bool esIdValido(const std::string& id);
 
-    // M�todos de instancia
+    // M todos de instancia
     void agregar(std::vector<Transportistas>& lista, const std::string& usuarioActual);
     void mostrar(const std::vector<Transportistas>& lista);
     void modificar(std::vector<Transportistas>& lista, const std::string& usuarioActual, const std::string& id);

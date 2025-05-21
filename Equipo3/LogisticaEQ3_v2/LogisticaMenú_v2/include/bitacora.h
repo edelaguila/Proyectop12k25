@@ -1,61 +1,102 @@
-// LUIS ANGEL MENDEZ FUENTES 9959-24-6845
 #ifndef BITACORA_H
 #define BITACORA_H
-
+//CREADO POR: JENNIFER BARRIOS MAYO 2025
 #include <string>
-#include <fstream>
-#include <chrono>
-#include <iomanip>
-#include <unordered_map>  // Necesario para std::unordered_map
+#include <unordered_map>
 
-class CodigosBitacora {
-private:
-    static std::unordered_map<std::string, int> rangos;
-public:
-    static int getCodigo(const std::string& modulo) {  // Cambiado a un solo parámetro
-        // Asigna códigos incrementales dentro del rango del módulo
-        if (rangos.find(modulo) == rangos.end()) {
-            rangos[modulo] = 3000; // Inicializa el rango base según módulo
-        }
-        return rangos[modulo]++;
-    }
+struct RegistroBitacora {
+    int id_accion;              ///< ID único de la acción basada en el módulo
+    int codigo;                 ///< Código del módulo al que pertenece la acción
+    char usuario[30];           ///< Nombre del usuario que ejecutó la acción
+    char modulo[30];            ///< Nombre del módulo donde se ejecutó la acción
+    char descripcion[100];      ///< Descripción de la acción realizada
+    char fecha_hora[20];        ///< Fecha y hora en que ocurrió la acción
 };
 
-// Inicialización de rangos (debe estar en el .cpp)
-// std::unordered_map<std::string, int> CodigosBitacora::rangos = {
-//     {"PEDIDOS", 3100}, {"ENVIOS", 3300}, {"INVENTARIO", 3200},
-//     {"FACTURACION", 3350}, {"REPORTES", 3400}, {"USUARIOS", 3000}
-// };
+/**
+ * @class CodigosBitacora
+ * @brief Administra los códigos únicos asignados a cada módulo para identificación en la bitácora.
+ *
+ * Esta clase permite obtener un ID específico por módulo, útil para clasificar
+ * y rastrear acciones dentro del sistema.
+ */
+class CodigosBitacora {
+private:
+    static std::unordered_map<std::string, int> rangos;///< Mapa de modulos
 
+public:
+    /**
+     * @brief Devuelve el código único asociado a un módulo.
+     * @param modulo Nombre del módulo (ej. "Clientes", "Pedidos", etc.).
+     * @return Código entero asociado al módulo.
+     */
+    static int getCodigo(const std::string& modulo);
+};
+
+/**
+ * @class bitacora
+ * @brief Clase encargada de registrar y administrar las acciones del sistema en una bitácora binaria.
+ *
+ * Proporciona funciones para registrar eventos, generar respaldos,
+ * realizar búsquedas y mostrar el contenido de la bitácora.
+ */
 class bitacora {
 public:
-    // Método para registrar acciones (cambiar de static a método normal si es necesario)
-    static void registrar(const std::string& usuario,
-                        const std::string& modulo,
-                        const std::string& descripcion);
 
-    // Método alternativo para compatibilidad
-    static void insertar(const std::string& usuario,
-                       const std::string& modulo,
-                       const std::string& descripcion) {
-        registrar(usuario, modulo, descripcion);
-    }
+    /**
+     * @brief Registra una acción en la bitácora.
+     * @param usuario Nombre del usuario que realizó la acción.
+     * @param modulo Nombre del módulo donde ocurrió la acción.
+     * @param descripcion Breve descripción de la acción realizada.
+     */
+    static void registrar(const std::string& usuario, const std::string& modulo, const std::string& descripcion);
 
-    // Método para generar backups
-    static void generarBackup();
+    /**
+     * @brief Inserta un registro en la bitácora (alias de registrar).
+     * @param usuario Nombre del usuario que realizó la acción.
+     * @param modulo Nombre del módulo donde ocurrió la acción.
+     * @param descripcion Breve descripción de la acción realizada.
+     */
+    static void insertar(const std::string& usuario, const std::string& modulo, const std::string& descripcion);
 
-    // Método para mostrar la bitácora
+    /**
+     * @brief Muestra en consola todos los registros almacenados en la bitácora.
+     */
     static void mostrarBitacora();
 
-    // Método del menú de bitácora
-    static void menuBitacora();
+    /**
+     * @brief Genera una copia de seguridad del archivo de la bitácora.
+     */
+    static void generarBackup();
 
-    // Método para reiniciar la bitácora
+    /**
+     * @brief Elimina todos los registros existentes en la bitácora.
+     */
     static void reiniciarBitacora();
 
+    /**
+     * @brief Permite buscar registros por nombre de usuario.
+     */
+    static void buscarPorNombreUsuario();
+
+    /**
+     * @brief Permite buscar registros por fecha.
+     */
+    static void buscarPorFecha();
+
+    /**
+     * @brief Muestra el menú interactivo de gestión de la bitácora.
+     */
+    static void menuBitacora();
+
 private:
-    // Función interna para obtener fecha formateada
+
+    /**
+     * @brief Obtiene la fecha y hora actual en formato de cadena.
+     * @return Fecha y hora actual como string.
+     */
     static std::string obtenerFechaActual();
+
 };
 
 #endif // BITACORA_H
