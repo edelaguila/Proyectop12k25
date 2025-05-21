@@ -7,7 +7,6 @@
 #include "Producto.h"
 #include "vendedores.h"
 #include "venta.h"
-#include "encabezado.h"
 
 using namespace std;
 
@@ -17,7 +16,6 @@ string usuarioActual; // Para guardar el nombre del usuario bitacora
 void mostrarMenuPrincipal();
 void MenuCatalogo();
 void MenuProcesos();
-void MenuArchivos();
 
 int main() {
     int opcion;
@@ -47,12 +45,12 @@ int main() {
                 cout << "\n\nSaliendo del sistema...\n";
                 return 0;
             default:
-                cout << "Opción invalida.\n";
+                cout << "Opci�n invalida.\n";
         }
     } while (!accesoPermitido);
 
     mostrarMenuPrincipal();
-     registrarEvento(usuarioActual, "Cerró sesión desde menú principal");
+     registrarEvento(usuarioActual, "Cerr� sesi�n desde men� principal");
     return 0;
 }
 
@@ -62,15 +60,13 @@ int main() {
 void mostrarMenuPrincipal() {
     int opcion;
     do {
-        system("cls");
-        cout << "\n\t\t\t USUARIO ACTUAL: " << usuarioActual; //Marlon De Leon 5001
+        system ("cls");
         cout << "\n\t\t\t|------------------------ \n" ;
         cout << "\t\t\t|     MENU PRINCIPAL     | \n";
         cout << "\t\t\t|------------------------- \n" ;
         cout << "\t\t\t|1. Catalogos\n";
         cout << "\t\t\t|2. Procesos\n";
-        cout << "\t\t\t|3. Archivos\n";  // Nueva opción
-        cout << "\t\t\t|4. Salir del sistema\n";
+        cout << "\t\t\t|3. Salir del sistema\n";
         cout << "\t\t\t|Seleccione una opcion: ";
         cin >> opcion;
 
@@ -84,17 +80,13 @@ void mostrarMenuPrincipal() {
                 MenuProcesos();
                 break;
             case 3:
-                registrarEvento(usuarioActual, "Entro a la opcion Archivos 5002 ");
-                MenuArchivos();
-                break;
-            case 4:
                 registrarEvento(usuarioActual, "Salio del menu general 5002 ");
                 cout << "Cerrando sesion...\n";
                 break;
             default:
                 cout << "Opcion no valida.\n";
         }
-    } while (opcion != 4);
+    } while (opcion != 3);
 }
 
 void MenuProcesos() {
@@ -102,8 +94,7 @@ void MenuProcesos() {
     int opcion;
     do {
         system ("cls");
-        cout << "\n\t\t\t USUARIO ACTUAL: " << usuarioActual; //Marlon De Leon 5001
-        cout << "\n\t\t\t|------------------------- \n" ;
+        cout << "n\t\t\t|------------------------- \n" ;
         cout << "\t\t\t|      MENU PROCESOS     | \n";
         cout << "\t\t\t|------------------------- \n" ;
         cout << "\t\t\t|1. CLIENTES \n";
@@ -165,8 +156,7 @@ void MenuCatalogo() {
     int opcion;
     do {
         system ("cls");
-        cout << "\n\t\t\t USUARIO ACTUAL: " << usuarioActual; //Marlon De Leon 5001
-        cout << "\n\t\t\t|--------------------------- \n" ;
+        cout << "n\t\t\t|--------------------------- \n" ;
         cout << "\t\t\t|      MENU CATALOGOS      | \n";
         cout << "\t\t\t|--------------------------- \n" ;
         cout << "\t\t\t|1. REGISTRO CLIENTES \n";
@@ -188,7 +178,7 @@ void MenuCatalogo() {
                 registrarEvento(usuarioActual, "Entro a la opcion REGISTRO VENDEDORES 5002 ");
                 {
                    Vendedores vendedores; // Instanciar la clase
-                   vendedores.MostrarVendedores(); // Llamar la función de mostrar vendedores
+                   vendedores.MostrarVendedores(); // Llamar la funci�n de mostrar vendedores
                  }
     break;
             case 3:
@@ -207,33 +197,4 @@ void MenuCatalogo() {
         }
     } while (opcion != 4);
 }
-//meilyn juleisy garcia lima 9959-23-17838
-void MenuArchivos() {
-    int opcion;
-    do {
-        system("cls");
-        //muestra las opciones
-        cout << "\n\t\t\t USUARIO ACTUAL: " << usuarioActual; //Marlon De Leon 5001
-        cout << "\n\t\t\t|-------------------------\n";
-        cout << "\t\t\t|     MENU ARCHIVOS      |\n";
-        cout << "\t\t\t|-------------------------\n";
-        cout << "\t\t\t|1. Ver Bitacora\n";
-        cout << "\t\t\t|2. Regresar al Menu Principal\n";
-        cout << "\t\t\t|Seleccione una opcion: ";
-        cin >> opcion;
-
-        switch (opcion) {
-            case 1:// Registrar evento y mostrar la bitácora
-                registrarEvento(usuarioActual, "Visualizo la bitácora desde Archivos 5003");
-                Bitacora::mostrarBitacora();// Llamada al método estático para mostrar bitácora
-                system("pause");
-                break;
-            case 2:
-                break;// SALIR DEL MENU ARCHIVOS
-            default:
-                cout << "Opción inválida.\n";
-        }
-    } while (opcion != 2);//Repite hasta que el usuario elija salir
-}
-
 

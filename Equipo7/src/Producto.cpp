@@ -3,7 +3,6 @@
 #include <fstream>
 #include <cstdlib>
 #include <ctime>
-#include "encabezado.h" //Marlon De Leon 5001
 
 using namespace std;
 
@@ -25,7 +24,6 @@ int Producto::generarCodigo() {
 void Producto::NuevoProducto() {
     system("cls");
     ProductoInfo nuevo;
-    cout << "\n\t\t\t USUARIO ACTUAL: " << usuarioActual; //Marlon De Leon 5001
     cout << "\n\t\t\t--------------------\n";
     cout << "\t\t\t |   NUEVO PRODUCTO  |\n";
     cout << "\t\t\t----------------------\n";
@@ -44,15 +42,14 @@ void Producto::NuevoProducto() {
     productos.push_back(nuevo);
     GuardarEnBinario();
 
-    cout << "\t\t\tProducto agregado con cÃ³digo: " << nuevo.codigo << endl;
-    cout << "\n\t\t\tPresiona ENTER para regresar al menÃº...";
+    cout << "\t\t\tProducto agregado con código: " << nuevo.codigo << endl;
+    cout << "\n\t\t\tPresiona ENTER para regresar al menú...";
     cin.ignore();
     cin.get();
 }
 
 void Producto::MostrarProductos() {
     system("cls");
-    cout << "\n\t\t\t USUARIO ACTUAL: " << usuarioActual; //Marlon De Leon 5001
     cout << "\n\t\t\t----------------------\n";
     cout << "\t\t\t |   MOSTRAR PRODUCTO  |\n";
     cout << "\t\t\t------------------------\n";
@@ -69,7 +66,7 @@ void Producto::MostrarProductos() {
         }
     }
 
-    cout << "\t\t\t Presiona ENTER para regresar al menÃº...";
+    cout << "\t\t\t Presiona ENTER para regresar al menú...";
     cin.ignore();
     cin.get();
 }
@@ -77,8 +74,7 @@ void Producto::MostrarProductos() {
 void Producto::EliminarProducto() {
     int codigo;
     system("cls");
-    cout << "\n\t\t\t USUARIO ACTUAL: " << usuarioActual; //Marlon De Leon 5001
-    cout << "\n\t\t\t------------------------\n";
+    cout << "\t\t\t------------------------\n";
     cout << "\t\t\t|   ELIMINAR PRODUCTO  |\n";
     cout << "\t\t\t------------------------\n";
 
@@ -107,7 +103,7 @@ void Producto::EliminarProducto() {
     }
 
     cout << "\t\t\t No se encontro un producto con ese codigo.\n";
-    cout << "\t\t\t Presiona ENTER para regresar al menÃº...";
+    cout << "\t\t\t Presiona ENTER para regresar al menú...";
     cin.ignore();
     cin.get();
 }
@@ -115,7 +111,6 @@ void Producto::EliminarProducto() {
 void Producto::AumentarExistencias() {
     int codigo, cantidadExtra;
     system("cls");
-    cout << "\n\t\t\t USUARIO ACTUAL: " << usuarioActual; //Marlon De Leon 5001
     cout << "\n\t\t\t-----------------------------\n";
     cout << "\t\t\t|   AUMENTAR EXISTENCIAS   |\n";
     cout << "\t\t\t-----------------------------\n";
@@ -194,16 +189,15 @@ void Producto::MenuProducto() {
     int opcion;
     do {
         system("cls");
-        cout << "\n\t\t\t USUARIO ACTUAL: " << usuarioActual; //Marlon De Leon 5001
-        cout << "\n\t\t\t |----------------------------------|\n";
+        cout << "\t\t\t |----------------------------------|\n";
         cout << "\t\t\t |  SISTEMA DE PRODUCTOS            |\n";
         cout << "\t\t\t |----------------------------------|\n";
         cout << "\t\t\t |  1. NUEVO PRODUCTO               |\n";
         cout << "\t\t\t |  2. ELIMINAR PRODUCTO            |\n";
         cout << "\t\t\t |  3. AUMENTAR EXISTENCIAS         |\n";
-        cout << "\t\t\t |  4. SALIR AL MENÃš PRINCIPAL      |\n";
+        cout << "\t\t\t |  4. SALIR AL MENÚ PRINCIPAL      |\n";
         cout << "\t\t\t |----------------------------------|\n";
-        cout << "\t\t\t Ingresa tu opciÃ³n: ";
+        cout << "\t\t\t Ingresa tu opción: ";
         cin >> opcion;
 
         switch (opcion) {
@@ -212,7 +206,7 @@ void Producto::MenuProducto() {
             case 3: AumentarExistencias(); break;
             case 4: return;
             default:
-                cout << "\n\t\t\tOpciÃ³n invÃ¡lida... Intenta de nuevo...\n";
+                cout << "\n\t\t\tOpción inválida... Intenta de nuevo...\n";
                 cin.ignore();
                 cin.get();
         }

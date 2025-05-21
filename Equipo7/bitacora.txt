@@ -176,107 +176,208 @@
 [Mon May 19 09:20:55 2025] Usuario:  - SE INICIO SESION 5001
 [Mon May 19 09:21:02 2025] Usuario: steven - Entro a la opcion Procesos 5002 
 [Mon May 19 09:21:04 2025] Usuario: steven - Entro a la opcion PRODUCTOS 5002 
-[Mon May 19 16:16:21 2025] Usuario:  - SE INICIO SESION 5001
-[Mon May 19 16:17:07 2025] Usuario:  - SE INICIO SESION 5001
-[Mon May 19 16:17:44 2025] Usuario:  - SE INICIO SESION 5001
-[Mon May 19 16:18:45 2025] Usuario:  - SE INICIO SESION 5001
-[Mon May 19 16:19:17 2025] Usuario:  - SE INICIO SESION 5001
-[Mon May 19 16:20:00 2025] Usuario:  - SE INICIO SESION 5001
-[Mon May 19 16:20:07 2025] Usuario: marlon - Entro a la opcion Catalogos 5002
-[Mon May 19 16:20:11 2025] Usuario: marlon - Salio del menu de procesos 5002 
-[Mon May 19 16:20:20 2025] Usuario: marlon - Entro a la opcion Catalogos 5002
-[Mon May 19 16:20:58 2025] Usuario:  - SE INICIO SESION 5001
-[Mon May 19 16:21:06 2025] Usuario: marlon - Entro a la opcion Catalogos 5002
-[Mon May 19 16:21:24 2025] Usuario:  - SE INICIO SESION 5001
-[Mon May 19 16:21:29 2025] Usuario: marlon - Entro a la opcion Catalogos 5002
-[Mon May 19 16:21:34 2025] Usuario: marlon - Entro a la opcion REGISTRO CLIENTES 5004
-[Tue May 20 15:44:54 2025] Usuario:  - SE INICIO SESION 5001
-[Tue May 20 15:45:03 2025] Usuario: marlon - Entro a la opcion Catalogos 5002
-[Tue May 20 15:45:07 2025] Usuario: marlon - Salio del menu de procesos 5002 
-[Tue May 20 15:45:09 2025] Usuario: marlon - Entro a la opcion Procesos 5002 
-[Tue May 20 15:45:17 2025] Usuario: marlon - Salio del menu de catalogos 5002 
-[Tue May 20 15:45:19 2025] Usuario: marlon - Salio del menu general 5002 
-[Tue May 20 15:45:19 2025] Usuario: marlon - Cerró sesión desde menú principal
-[Tue May 20 15:45:56 2025] Usuario:  - SE INICIO SESION 5001
-[Tue May 20 15:46:02 2025] Usuario: marlon - Entro a la opcion Catalogos 5002
-[Tue May 20 15:49:49 2025] Usuario: marlon - Salio del menu de procesos 5002 
-[Tue May 20 15:49:52 2025] Usuario: marlon - Entro a la opcion Catalogos 5002
-[Tue May 20 15:51:50 2025] Usuario: marlon - Entro a la opcion REGISTRO CLIENTES 5004
-[Tue May 20 15:53:57 2025] Usuario:  - SE INICIO SESION 5001
-[Tue May 20 15:54:03 2025] Usuario: marlon - Entro a la opcion Catalogos 5002
-[Tue May 20 15:55:07 2025] Usuario: marlon - Salio del menu de procesos 5002 
-[Tue May 20 15:55:09 2025] Usuario: marlon - Entro a la opcion Catalogos 5002
-[Tue May 20 15:55:41 2025] Usuario:  - SE INICIO SESION 5001
-[Tue May 20 15:55:54 2025] Usuario: marlon - Entro a la opcion Catalogos 5002
-[Tue May 20 15:55:58 2025] Usuario: marlon - Entro a la opcion REGISTRO CLIENTES 5004
-[Tue May 20 16:11:33 2025] Usuario:  - SE INICIO SESION 5001
-[Tue May 20 16:11:45 2025] Usuario: marlon - Entro a la opcion Catalogos 5002
-[Tue May 20 16:11:48 2025] Usuario: marlon - Entro a la opcion REGISTRO CLIENTES 5004
-[Tue May 20 16:11:52 2025] Usuario: marlon - Salio del menu de procesos 5002 
-[Tue May 20 16:11:56 2025] Usuario: marlon - Entro a la opcion Procesos 5002 
-[Tue May 20 16:11:59 2025] Usuario: marlon - Salio del menu de catalogos 5002 
-[Tue May 20 16:12:01 2025] Usuario: marlon - Salio del menu general 5002 
-[Tue May 20 16:12:01 2025] Usuario: marlon - Cerró sesión desde menú principal
-[Tue May 20 16:12:31 2025] Usuario:  - SE INICIO SESION 5001
-[Tue May 20 16:12:39 2025] Usuario: marlon - Entro a la opcion Catalogos 5002
-[Tue May 20 16:12:41 2025] Usuario: marlon - Salio del menu de procesos 5002 
-[Tue May 20 16:12:41 2025] Usuario: marlon - Entro a la opcion Procesos 5002 
-[Tue May 20 16:12:43 2025] Usuario: marlon - Entro a la opcion CLIENTES 5004 
-[Tue May 20 16:29:51 2025] Usuario:  - SE INICIO SESION 5001
-[Tue May 20 16:29:58 2025] Usuario: marlon - Salio del menu general 5002 
-[Tue May 20 16:29:58 2025] Usuario: marlon - Cerró sesión desde menú principal
-[Tue May 20 16:30:23 2025] Usuario:  - SE INICIO SESION 5001
-[Tue May 20 16:30:28 2025] Usuario: marlon - Entro a la opcion Catalogos 5002
-[Tue May 20 16:30:32 2025] Usuario: marlon - Salio del menu de procesos 5002 
-[Tue May 20 16:30:33 2025] Usuario: marlon - Entro a la opcion Procesos 5002 
-[Tue May 20 16:30:36 2025] Usuario: marlon - Salio del menu de catalogos 5002 
-[Tue May 20 16:30:39 2025] Usuario: marlon - Entro a la opcion Catalogos 5002
-[Tue May 20 16:30:40 2025] Usuario: marlon - Entro a la opcion REGISTRO CLIENTES 5004
-[Tue May 20 16:30:45 2025] Usuario: marlon - Salio del menu de procesos 5002 
-[Tue May 20 16:30:47 2025] Usuario: marlon - Salio del menu general 5002 
-[Tue May 20 16:30:47 2025] Usuario: marlon - Cerró sesión desde menú principal
-[Tue May 20 16:50:14 2025] Usuario:  - SE INICIO SESION 5001
-[Tue May 20 16:50:23 2025] Usuario: marlon - Salio del menu general 5002 
-[Tue May 20 16:50:23 2025] Usuario: marlon - Cerró sesión desde menú principal
-[Tue May 20 16:51:01 2025] Usuario:  - SE INICIO SESION 5001
-[Tue May 20 16:51:10 2025] Usuario: marlon - Entro a la opcion Catalogos 5002
-[Tue May 20 16:51:15 2025] Usuario: marlon - Salio del menu de procesos 5002 
-[Tue May 20 16:51:16 2025] Usuario: marlon - Entro a la opcion Procesos 5002 
-[Tue May 20 16:51:19 2025] Usuario: marlon - Salio del menu de catalogos 5002 
-[Tue May 20 16:51:20 2025] Usuario: marlon - Entro a la opcion Catalogos 5002
-[Tue May 20 16:51:22 2025] Usuario: marlon - Salio del menu de procesos 5002 
-[Tue May 20 16:51:23 2025] Usuario: marlon - Salio del menu general 5002 
-[Tue May 20 16:51:23 2025] Usuario: marlon - Cerró sesión desde menú principal
-[Tue May 20 16:51:33 2025] Usuario:  - SE INICIO SESION 5001
-[Tue May 20 16:51:38 2025] Usuario: marlon - Entro a la opcion Catalogos 5002
-[Tue May 20 16:51:41 2025] Usuario: marlon - Entro a la opcion REGISTRO CLIENTES 5004
-[Tue May 20 16:51:43 2025] Usuario: marlon - Salio del menu de procesos 5002 
-[Tue May 20 16:51:44 2025] Usuario: marlon - Salio del menu general 5002 
-[Tue May 20 16:51:44 2025] Usuario: marlon - Cerró sesión desde menú principal
-[Tue May 20 16:52:19 2025] Usuario:  - SE INICIO SESION 5001
-[Tue May 20 16:52:25 2025] Usuario: marlon - Entro a la opcion Catalogos 5002
-[Tue May 20 16:52:28 2025] Usuario: marlon - Entro a la opcion REGISTRO CLIENTES 5004
-[Tue May 20 16:52:31 2025] Usuario: marlon - Entro a la opcion REGISTRO CLIENTES 5004
-[Tue May 20 16:52:52 2025] Usuario: marlon - Salio del menu de procesos 5002 
-[Tue May 20 16:53:14 2025] Usuario: marlon - Entro a la opcion Procesos 5002 
-[Tue May 20 16:53:16 2025] Usuario: marlon - Entro a la opcion CLIENTES 5004 
-[Tue May 20 16:53:23 2025] Usuario: marlon - Salio del menu de catalogos 5002 
-[Tue May 20 16:53:24 2025] Usuario: marlon - Salio del menu general 5002 
-[Tue May 20 16:53:24 2025] Usuario: marlon - Cerró sesión desde menú principal
-[Tue May 20 17:51:31 2025] Usuario:  - SE INICIO SESION 5001
-[Tue May 20 17:51:40 2025] Usuario: marlon - Entro a la opcion Catalogos 5002
-[Tue May 20 17:51:42 2025] Usuario: marlon - Entro a la opcion REGISTRO CLIENTES 5004
-[Tue May 20 17:51:45 2025] Usuario: marlon - Entro a la opcion REGISTRO VENDEDORES 5002 
-[Tue May 20 17:51:46 2025] Usuario: marlon - Entro a la opcion REGISTRO PRODUCTOS 5002 
-[Tue May 20 17:51:48 2025] Usuario: marlon - Entro a la opcion  REGISTRO VENTAS 5002 
-[Tue May 20 17:51:51 2025] Usuario: marlon - Salio del menu de procesos 5002 
-[Tue May 20 17:51:54 2025] Usuario: marlon - Entro a la opcion Procesos 5002 
-[Tue May 20 17:51:55 2025] Usuario: marlon - Entro a la opcion CLIENTES 5004 
-[Tue May 20 17:52:24 2025] Usuario: marlon - Entro a la opcion VENDEDORES 5002 
-[Tue May 20 17:55:58 2025] Usuario: marlon - Entro a la opcion PRODUCTOS 5002 
-[Tue May 20 18:08:27 2025] Usuario: marlon - Salio del menu de catalogos 5002 
-[Tue May 20 18:08:29 2025] Usuario: marlon - Salio del menu general 5002 
-[Tue May 20 18:08:29 2025] Usuario: marlon - Cerró sesión desde menú principal
-[Tue May 20 18:31:37 2025] Usuario:  - SE INICIO SESION 5001
-[Tue May 20 18:31:58 2025] Usuario: julio - Salio del menu general 5002 
-[Tue May 20 18:31:58 2025] Usuario: julio - Cerró sesión desde menú principal
+[Mon May 19 13:21:07 2025] Usuario:  - SE INICIO SESION 5001
+[Mon May 19 13:21:14 2025] Usuario: steven - Entro a la opcion Procesos 5002 
+[Mon May 19 13:21:15 2025] Usuario: steven - Entro a la opcion PRODUCTOS 5002 
+[Mon May 19 13:21:53 2025] Usuario: steven - Entro a la opcion PRODUCTOS 5002 
+[Mon May 19 13:21:57 2025] Usuario: steven - Salio del menu de catalogos 5002 
+[Mon May 19 13:21:59 2025] Usuario: steven - Entro a la opcion Catalogos 5002
+[Mon May 19 13:22:01 2025] Usuario: steven - Entro a la opcion REGISTRO PRODUCTOS 5002 
+[Mon May 19 13:22:31 2025] Usuario: steven - Salio del menu de procesos 5002 
+[Mon May 19 13:22:34 2025] Usuario: steven - Entro a la opcion Procesos 5002 
+[Mon May 19 13:22:47 2025] Usuario: steven - Entro a la opcion PRODUCTOS 5002 
+[Mon May 19 13:27:59 2025] Usuario:  - SE INICIO SESION 5001
+[Mon May 19 13:28:08 2025] Usuario: steven - Entro a la opcion Procesos 5002 
+[Mon May 19 13:28:11 2025] Usuario: steven - Entro a la opcion PRODUCTOS 5002 
+[Mon May 19 13:28:46 2025] Usuario: steven - Entro a la opcion CLIENTES 5004 
+[Mon May 19 13:29:02 2025] Usuario: steven - Entro a la opcion VENDEDORES 5002 
+[Mon May 19 13:29:17 2025] Usuario: steven - Entro a la opcion VENTAS 5002 
+[Mon May 19 13:34:44 2025] Usuario:  - SE INICIO SESION 5001
+[Mon May 19 13:34:52 2025] Usuario: steven - Entro a la opcion Procesos 5002 
+[Mon May 19 13:34:53 2025] Usuario: steven - Entro a la opcion VENDEDORES 5002 
+[Tue May 20 10:16:50 2025] Usuario:  - SE INICIO SESION 5001
+[Tue May 20 10:16:56 2025] Usuario: steven - Entro a la opcion Procesos 5002 
+[Tue May 20 10:16:59 2025] Usuario: steven - Entro a la opcion FACTURACION 5002 
+[Tue May 20 10:18:30 2025] Usuario: steven - Entro a la opcion CLIENTES 5004 
+[Tue May 20 10:18:44 2025] Usuario: steven - Entro a la opcion VENDEDORES 5002 
+[Tue May 20 10:19:05 2025] Usuario: steven - Entro a la opcion PRODUCTOS 5002 
+[Tue May 20 10:19:49 2025] Usuario: steven - Entro a la opcion FACTURACION 5002 
+[Tue May 20 10:19:52 2025] Usuario: steven - Salio del menu de catalogos 5002 
+[Tue May 20 10:19:54 2025] Usuario: steven - Entro a la opcion Catalogos 5002
+[Tue May 20 10:19:57 2025] Usuario: steven - Entro a la opcion REGISTRO PRODUCTOS 5002 
+[Tue May 20 10:20:12 2025] Usuario: steven - Salio del menu de procesos 5002 
+[Tue May 20 10:20:16 2025] Usuario: steven - Entro a la opcion Procesos 5002 
+[Tue May 20 10:20:18 2025] Usuario: steven - Entro a la opcion VENTAS 5002 
+[Tue May 20 10:20:57 2025] Usuario: steven - Entro a la opcion FACTURACION 5002 
+[Tue May 20 10:26:08 2025] Usuario:  - SE INICIO SESION 5001
+[Tue May 20 10:26:16 2025] Usuario: steven - Entro a la opcion Procesos 5002 
+[Tue May 20 10:26:18 2025] Usuario: steven - Entro a la opcion CLIENTES 5004 
+[Tue May 20 10:29:03 2025] Usuario:  - SE INICIO SESION 5001
+[Tue May 20 10:29:10 2025] Usuario: steven - Entro a la opcion Procesos 5002 
+[Tue May 20 10:29:12 2025] Usuario: steven - Entro a la opcion PRODUCTOS 5002 
+[Tue May 20 10:44:54 2025] Usuario: steven - Salio del menu de catalogos 5002 
+[Tue May 20 10:44:56 2025] Usuario: steven - Entro a la opcion Catalogos 5002
+[Tue May 20 10:44:58 2025] Usuario: steven - Entro a la opcion REGISTRO PRODUCTOS 5002 
+[Tue May 20 11:17:46 2025] Usuario:  - SE INICIO SESION 5001
+[Tue May 20 11:17:54 2025] Usuario: steven - Entro a la opcion Procesos 5002 
+[Tue May 20 11:17:55 2025] Usuario: steven - Entro a la opcion FACTURACION 5002 
+[Tue May 20 11:18:00 2025] Usuario: steven - Entro a la opcion CLIENTES 5004 
+[Tue May 20 11:18:10 2025] Usuario: steven - Entro a la opcion VENDEDORES 5002 
+[Tue May 20 11:18:26 2025] Usuario: steven - Entro a la opcion PRODUCTOS 5002 
+[Tue May 20 11:18:42 2025] Usuario: steven - Entro a la opcion VENTAS 5002 
+[Tue May 20 11:19:00 2025] Usuario: steven - Entro a la opcion FACTURACION 5002 
+[Tue May 20 11:19:11 2025] Usuario: steven - Entro a la opcion CLIENTES 5004 
+[Tue May 20 11:19:26 2025] Usuario: steven - Entro a la opcion FACTURACION 5002 
+[Tue May 20 11:20:05 2025] Usuario: steven - Entro a la opcion CLIENTES 5004 
+[Tue May 20 11:20:16 2025] Usuario: steven - Entro a la opcion FACTURACION 5002 
+[Tue May 20 11:33:54 2025] Usuario:  - SE INICIO SESION 5001
+[Tue May 20 11:34:01 2025] Usuario: steven - Entro a la opcion Procesos 5002 
+[Tue May 20 11:34:30 2025] Usuario: steven - Entro a la opcion VENDEDORES 5002 
+[Tue May 20 11:37:13 2025] Usuario:  - SE INICIO SESION 5001
+[Tue May 20 11:37:19 2025] Usuario: steven - Entro a la opcion Procesos 5002 
+[Tue May 20 11:37:21 2025] Usuario: steven - Entro a la opcion CLIENTES 5004 
+[Tue May 20 11:37:24 2025] Usuario: steven - Entro a la opcion VENDEDORES 5002 
+[Tue May 20 11:41:37 2025] Usuario:  - SE INICIO SESION 5001
+[Tue May 20 11:41:47 2025] Usuario: steven - Entro a la opcion Procesos 5002 
+[Tue May 20 11:41:49 2025] Usuario: steven - Entro a la opcion VENDEDORES 5002 
+[Tue May 20 11:47:20 2025] Usuario:  - SE INICIO SESION 5001
+[Tue May 20 11:47:27 2025] Usuario: steven - Entro a la opcion Procesos 5002 
+[Tue May 20 11:47:29 2025] Usuario: steven - Entro a la opcion VENDEDORES 5002 
+[Tue May 20 11:52:36 2025] Usuario:  - SE INICIO SESION 5001
+[Tue May 20 11:52:42 2025] Usuario: steven - Entro a la opcion Procesos 5002 
+[Tue May 20 11:52:43 2025] Usuario: steven - Entro a la opcion CLIENTES 5004 
+[Tue May 20 11:52:48 2025] Usuario: steven - Entro a la opcion VENDEDORES 5002 
+[Tue May 20 11:55:35 2025] Usuario:  - SE INICIO SESION 5001
+[Tue May 20 11:55:41 2025] Usuario: steven - Entro a la opcion Procesos 5002 
+[Tue May 20 11:55:44 2025] Usuario: steven - Entro a la opcion VENDEDORES 5002 
+[Tue May 20 11:56:09 2025] Usuario:  - SE INICIO SESION 5001
+[Tue May 20 11:56:17 2025] Usuario: steven - Entro a la opcion Procesos 5002 
+[Tue May 20 11:56:18 2025] Usuario: steven - Entro a la opcion VENDEDORES 5002 
+[Tue May 20 12:01:23 2025] Usuario:  - SE INICIO SESION 5001
+[Tue May 20 12:01:28 2025] Usuario: steven - Entro a la opcion Procesos 5002 
+[Tue May 20 12:01:29 2025] Usuario: steven - Entro a la opcion VENDEDORES 5002 
+[Tue May 20 12:06:49 2025] Usuario:  - SE INICIO SESION 5001
+[Tue May 20 12:06:54 2025] Usuario: steven - Entro a la opcion Procesos 5002 
+[Tue May 20 12:06:56 2025] Usuario: steven - Entro a la opcion CLIENTES 5004 
+[Tue May 20 12:07:08 2025] Usuario: steven - Entro a la opcion VENDEDORES 5002 
+[Tue May 20 12:07:25 2025] Usuario: steven - Entro a la opcion PRODUCTOS 5002 
+[Tue May 20 12:08:00 2025] Usuario: steven - Entro a la opcion VENTAS 5002 
+[Tue May 20 12:08:04 2025] Usuario: steven - Salio del menu de catalogos 5002 
+[Tue May 20 12:08:05 2025] Usuario: steven - Entro a la opcion Catalogos 5002
+[Tue May 20 12:08:06 2025] Usuario: steven - Entro a la opcion REGISTRO CLIENTES 5004
+[Tue May 20 12:08:13 2025] Usuario: steven - Entro a la opcion REGISTRO VENDEDORES 5002 
+[Tue May 20 12:08:18 2025] Usuario: steven - Entro a la opcion REGISTRO PRODUCTOS 5002 
+[Tue May 20 12:08:41 2025] Usuario: steven - Salio del menu de procesos 5002 
+[Tue May 20 12:08:44 2025] Usuario: steven - Entro a la opcion Procesos 5002 
+[Tue May 20 12:08:45 2025] Usuario: steven - Entro a la opcion VENTAS 5002 
+[Tue May 20 12:09:13 2025] Usuario: steven - Entro a la opcion FACTURACION 5002 
+[Tue May 20 12:15:32 2025] Usuario:  - SE INICIO SESION 5001
+[Tue May 20 12:15:38 2025] Usuario: steven - Entro a la opcion Procesos 5002 
+[Tue May 20 12:15:41 2025] Usuario: steven - Entro a la opcion VENDEDORES 5002 
+[Tue May 20 12:17:34 2025] Usuario:  - SE INICIO SESION 5001
+[Tue May 20 12:17:39 2025] Usuario: steven - Entro a la opcion Procesos 5002 
+[Tue May 20 12:17:41 2025] Usuario: steven - Entro a la opcion VENDEDORES 5002 
+[Tue May 20 12:24:29 2025] Usuario:  - SE INICIO SESION 5001
+[Tue May 20 12:24:33 2025] Usuario: steven - Entro a la opcion Procesos 5002 
+[Tue May 20 12:24:35 2025] Usuario: steven - Entro a la opcion VENDEDORES 5002 
+[Tue May 20 12:49:33 2025] Usuario:  - SE INICIO SESION 5001
+[Tue May 20 12:49:42 2025] Usuario: steven - Entro a la opcion Catalogos 5002
+[Tue May 20 12:49:46 2025] Usuario: steven - Entro a la opcion REGISTRO CLIENTES 5004
+[Tue May 20 12:49:48 2025] Usuario: steven - Salio del menu de procesos 5002 
+[Tue May 20 12:49:49 2025] Usuario: steven - Entro a la opcion Procesos 5002 
+[Tue May 20 12:49:50 2025] Usuario: steven - Entro a la opcion CLIENTES 5004 
+[Tue May 20 12:50:00 2025] Usuario: steven - Entro a la opcion FACTURACION 5002 
+[Tue May 20 12:54:37 2025] Usuario:  - SE INICIO SESION 5001
+[Tue May 20 12:54:46 2025] Usuario: steven - Entro a la opcion Procesos 5002 
+[Tue May 20 12:54:48 2025] Usuario: steven - Salio del menu de catalogos 5002 
+[Tue May 20 12:54:49 2025] Usuario: steven - Entro a la opcion Catalogos 5002
+[Tue May 20 12:54:51 2025] Usuario: steven - Entro a la opcion REGISTRO VENDEDORES 5002 
+[Tue May 20 12:54:56 2025] Usuario: steven - Entro a la opcion REGISTRO PRODUCTOS 5002 
+[Tue May 20 12:55:00 2025] Usuario: steven - Entro a la opcion REGISTRO VENDEDORES 5002 
+[Tue May 20 12:55:04 2025] Usuario: steven - Entro a la opcion REGISTRO PRODUCTOS 5002 
+[Tue May 20 12:56:20 2025] Usuario: steven - Salio del menu de procesos 5002 
+[Tue May 20 12:56:22 2025] Usuario: steven - Entro a la opcion Catalogos 5002
+[Tue May 20 12:56:25 2025] Usuario: steven - Entro a la opcion REGISTRO VENDEDORES 5002 
+[Tue May 20 12:56:27 2025] Usuario: steven - Salio del menu de procesos 5002 
+[Tue May 20 12:56:29 2025] Usuario: steven - Entro a la opcion Procesos 5002 
+[Tue May 20 12:56:30 2025] Usuario: steven - Entro a la opcion VENDEDORES 5002 
+[Tue May 20 12:57:08 2025] Usuario: steven - Salio del menu de catalogos 5002 
+[Tue May 20 12:57:09 2025] Usuario: steven - Entro a la opcion Catalogos 5002
+[Tue May 20 12:58:16 2025] Usuario: steven - Salio del menu de procesos 5002 
+[Tue May 20 12:58:18 2025] Usuario: steven - Entro a la opcion Procesos 5002 
+[Tue May 20 12:58:19 2025] Usuario: steven - Entro a la opcion CLIENTES 5004 
+[Tue May 20 12:58:29 2025] Usuario: steven - Entro a la opcion FACTURACION 5002 
+[Tue May 20 13:00:23 2025] Usuario:  - SE INICIO SESION 5001
+[Tue May 20 13:00:32 2025] Usuario: steven - Entro a la opcion Catalogos 5002
+[Tue May 20 13:00:33 2025] Usuario: steven - Entro a la opcion REGISTRO CLIENTES 5004
+[Tue May 20 13:00:35 2025] Usuario: steven - Entro a la opcion REGISTRO VENDEDORES 5002 
+[Tue May 20 13:00:36 2025] Usuario: steven - Entro a la opcion REGISTRO VENDEDORES 5002 
+[Tue May 20 13:00:37 2025] Usuario: steven - Entro a la opcion REGISTRO PRODUCTOS 5002 
+[Tue May 20 13:00:42 2025] Usuario: steven - Entro a la opcion  REGISTRO VENTAS 5002 
+[Tue May 20 13:01:28 2025] Usuario:  - SE INICIO SESION 5001
+[Tue May 20 13:01:36 2025] Usuario: steven - Entro a la opcion Procesos 5002 
+[Tue May 20 13:01:37 2025] Usuario: steven - Entro a la opcion CLIENTES 5004 
+[Tue May 20 13:01:54 2025] Usuario: steven - Entro a la opcion FACTURACION 5002 
+[Tue May 20 13:09:07 2025] Usuario:  - SE INICIO SESION 5001
+[Tue May 20 13:16:42 2025] Usuario:  - SE INICIO SESION 5001
+[Tue May 20 13:19:23 2025] Usuario:  - SE INICIO SESION 5001
+[Tue May 20 13:19:45 2025] Usuario:  - SE INICIO SESION 5001
+[Tue May 20 13:19:51 2025] Usuario: steven - Entro a la opcion Catalogos 5002
+[Tue May 20 13:19:54 2025] Usuario: steven - Entro a la opcion REGISTRO CLIENTES 5004
+[Tue May 20 13:19:57 2025] Usuario: steven - Salio del menu de procesos 5002 
+[Tue May 20 13:19:59 2025] Usuario: steven - Entro a la opcion Procesos 5002 
+[Tue May 20 13:20:00 2025] Usuario: steven - Entro a la opcion CLIENTES 5004 
+[Tue May 20 13:20:10 2025] Usuario: steven - Entro a la opcion VENDEDORES 5002 
+[Tue May 20 13:20:24 2025] Usuario: steven - Entro a la opcion VENTAS 5002 
+[Tue May 20 13:25:00 2025] Usuario:  - SE INICIO SESION 5001
+[Tue May 20 13:25:09 2025] Usuario: steven - Entro a la opcion Procesos 5002 
+[Tue May 20 13:25:11 2025] Usuario: steven - Entro a la opcion VENTAS 5002 
+[Tue May 20 13:26:11 2025] Usuario:  - SE INICIO SESION 5001
+[Tue May 20 13:31:00 2025] Usuario:  - SE INICIO SESION 5001
+[Tue May 20 13:31:06 2025] Usuario: steven - Entro a la opcion Procesos 5002 
+[Tue May 20 13:31:07 2025] Usuario: steven - Entro a la opcion CLIENTES 5004 
+[Tue May 20 13:34:06 2025] Usuario:  - SE INICIO SESION 5001
+[Tue May 20 13:34:11 2025] Usuario: steven - Entro a la opcion Procesos 5002 
+[Tue May 20 13:34:13 2025] Usuario: steven - Entro a la opcion VENDEDORES 5002 
+[Tue May 20 13:36:46 2025] Usuario:  - SE INICIO SESION 5001
+[Tue May 20 13:36:52 2025] Usuario: steven - Entro a la opcion Procesos 5002 
+[Tue May 20 13:36:53 2025] Usuario: steven - Entro a la opcion CLIENTES 5004 
+[Tue May 20 13:37:15 2025] Usuario: steven - Entro a la opcion VENDEDORES 5002 
+[Tue May 20 13:37:33 2025] Usuario: steven - Entro a la opcion VENDEDORES 5002 
+[Tue May 20 13:37:48 2025] Usuario: steven - Entro a la opcion PRODUCTOS 5002 
+[Tue May 20 13:38:06 2025] Usuario: steven - Salio del menu de catalogos 5002 
+[Tue May 20 13:38:08 2025] Usuario: steven - Entro a la opcion Catalogos 5002
+[Tue May 20 13:38:09 2025] Usuario: steven - Entro a la opcion REGISTRO CLIENTES 5004
+[Tue May 20 13:38:12 2025] Usuario: steven - Entro a la opcion REGISTRO VENDEDORES 5002 
+[Tue May 20 13:38:14 2025] Usuario: steven - Entro a la opcion REGISTRO VENDEDORES 5002 
+[Tue May 20 13:38:15 2025] Usuario: steven - Entro a la opcion REGISTRO PRODUCTOS 5002 
+[Tue May 20 13:38:19 2025] Usuario: steven - Salio del menu de procesos 5002 
+[Tue May 20 13:38:24 2025] Usuario: steven - Entro a la opcion Procesos 5002 
+[Tue May 20 13:38:25 2025] Usuario: steven - Entro a la opcion VENTAS 5002 
+[Tue May 20 13:38:52 2025] Usuario: steven - Entro a la opcion VENTAS 5002 
+[Tue May 20 13:39:03 2025] Usuario: steven - Entro a la opcion CLIENTES 5004 
+[Tue May 20 13:39:09 2025] Usuario: steven - Entro a la opcion VENTAS 5002 
+[Tue May 20 13:39:13 2025] Usuario: steven - Entro a la opcion PRODUCTOS 5002 
+[Tue May 20 13:39:28 2025] Usuario: steven - Entro a la opcion VENTAS 5002 
+[Tue May 20 13:39:52 2025] Usuario: steven - Entro a la opcion CLIENTES 5004 
+[Tue May 20 13:40:04 2025] Usuario: steven - Entro a la opcion FACTURACION 5002 
+[Tue May 20 13:45:51 2025] Usuario:  - SE INICIO SESION 5001
+[Tue May 20 13:45:57 2025] Usuario: steven - Entro a la opcion Catalogos 5002
+[Tue May 20 13:45:59 2025] Usuario: steven - Entro a la opcion REGISTRO VENDEDORES 5002 
+[Tue May 20 13:46:19 2025] Usuario:  - SE INICIO SESION 5001
+[Tue May 20 13:46:25 2025] Usuario: steven - Entro a la opcion Procesos 5002 
+[Tue May 20 13:46:26 2025] Usuario: steven - Entro a la opcion VENDEDORES 5002 
+[Tue May 20 13:46:41 2025] Usuario: steven - Entro a la opcion PRODUCTOS 5002 
+[Tue May 20 13:47:30 2025] Usuario:  - SE INICIO SESION 5001
+[Tue May 20 13:47:37 2025] Usuario: steven - Entro a la opcion Procesos 5002 
+[Tue May 20 13:47:39 2025] Usuario: steven - Entro a la opcion VENDEDORES 5002 
+[Tue May 20 13:47:50 2025] Usuario: steven - Salio del menu de catalogos 5002 
+[Tue May 20 13:47:52 2025] Usuario: steven - Entro a la opcion Catalogos 5002
+[Tue May 20 13:47:53 2025] Usuario: steven - Entro a la opcion REGISTRO VENDEDORES 5002 
+[Tue May 20 13:47:58 2025] Usuario: steven - Salio del menu de procesos 5002 
+[Tue May 20 13:48:01 2025] Usuario: steven - Entro a la opcion Procesos 5002 
+[Tue May 20 15:59:34 2025] Usuario:  - SE INICIO SESION 5001
+[Tue May 20 15:59:42 2025] Usuario:  - SE REGISTRO UN NUEVO USUARIO 5001
+[Tue May 20 15:59:49 2025] Usuario:  - SE INICIO SESION 5001
+[Tue May 20 15:59:57 2025] Usuario: maria - Entro a la opcion Procesos 5002 
+[Tue May 20 16:00:00 2025] Usuario: maria - Entro a la opcion CLIENTES 5004 
