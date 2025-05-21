@@ -1,8 +1,8 @@
 #ifndef PEDIDOS_H
 #define PEDIDOS_H
-
-#include <string>
+//JENNIFER BARRIOS COORD:EQ3
 #include <vector>
+#include <string>
 #include <ctime>
 #include <stdexcept>
 #include "usuarios.h"
@@ -17,7 +17,6 @@ class Clientes;
 class Producto;
 class Almacen;
 
-// Declaraciones externas
 extern usuarios usuarioRegistrado;
 extern bitacora auditoria;
 
@@ -29,15 +28,15 @@ public:
         double precioUnitario;
     };
 
-    // Constructor
+    // Declaración del constructor (sin implementación aquí)
     Pedidos();
 
-    // Métodos de gestión
+    static std::vector<Pedidos> listaPedidos;  // Lista estática
+
     void gestionPedidos(const std::vector<Clientes>& clientes,
-                      const std::vector<Producto>& productos,
+                      std::vector<Producto>& productos,
                       const std::vector<Almacen>& almacenes);
 
-    // Métodos CRUD
     void crearPedido(const std::vector<Clientes>& clientes,
                    const std::vector<Producto>& productos,
                    const std::vector<Almacen>& almacenes);
@@ -47,36 +46,33 @@ public:
                         const std::vector<Producto>& productos,
                         const std::vector<Almacen>& almacenes);
     void cancelarPedido();
-    void completarPedido(const std::string& idPedido, std::vector<Producto>& productos);
+    void completarPedido(std::vector<Producto>& productos);
     void verHistorial();
 
-    // Persistencia
-    static void guardarEnArchivo(const std::vector<Pedidos>& lista);
-    static void cargarDesdeArchivo(std::vector<Pedidos>& lista);
+    void setEstado(const std::string& nuevoEstado) { estado = nuevoEstado; }
 
-    // Getters
+    static void guardarEnArchivoBin(const std::vector<Pedidos>& lista);
+    static void cargarDesdeArchivoBin(std::vector<Pedidos>& lista);
+
     std::string getId() const { return id; }
     std::string getDetalles() const;
+    std::string getEstado() const { return estado; }
+    std::string getIdCliente() const { return idCliente; }
 
 private:
+    // Orden correcto de miembros para coincidir con la inicialización
     std::string id;
     std::string idCliente;
     std::string idAlmacen;
     std::time_t fechaPedido;
+    std::string estado;
     std::vector<DetallePedido> detalles;
-    std::string estado; // "pendiente", "procesado", "enviado", "completado", "cancelado"
 
-    // Generación de IDs
     static std::string generarIdUnico(const std::vector<Pedidos>& lista);
     static bool idDisponible(const std::vector<Pedidos>& lista, const std::string& id);
-
-    // Validaciones
     static bool validarCliente(const std::string& idCliente, const std::vector<Clientes>& clientes);
     static bool validarProducto(const std::string& codigoProducto, const std::vector<Producto>& productos);
     static bool validarAlmacen(const std::string& idAlmacen, const std::vector<Almacen>& almacenes);
-
-    // Lista estática de pedidos
-    static std::vector<Pedidos> listaPedidos;
 };
 
 #endif // PEDIDOS_H

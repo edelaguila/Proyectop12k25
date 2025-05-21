@@ -1,3 +1,16 @@
+//LUIS ANGEL MENDEZ FUENTES
+//9959-24-6845
+// Inclusión de encabezados propios
+/**
+ * @file MenuClientes.cpp
+ * @brief Implementación del menú interactivo para la gestión de clientes.
+ *
+ * Este módulo permite al usuario realizar operaciones básicas sobre clientes
+ * tales como agregar, mostrar, modificar, eliminar y guardar cambios.
+ * Cada acción limpia la pantalla antes de mostrarse y pausa para que el usuario
+ * pueda leer mensajes importantes.
+ */
+
 // Inclusión de encabezados propios
 #include "MenuClientes.h"
 #include "Clientes.h"
@@ -6,104 +19,115 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include <limits> // Para manejar entradas inválidas y limpiar el buffer de entrada
+#include <limits> // Para manejo de entradas inválidas y limpieza de buffer
 
 using namespace std;
 
-// Definición de rangos válidos para los ID de clientes
-const int CODIGO_INICIAL = 3107;
-const int CODIGO_FINAL = 3157;
+// Constantes para validar ID de clientes
+const int CODIGO_INICIAL = 3107; /**< ID mínimo válido para clientes */
+const int CODIGO_FINAL = 3157;   /**< ID máximo válido para clientes */
 
 /**
- * Muestra el menú de gestión de clientes.
- * Permite agregar, mostrar, modificar o eliminar clientes.
- * @param listaClientes Vector que contiene la lista de todos los clientes registrados.
- * @param usuarioActual Objeto que representa al usuario que está utilizando el sistema.
+ * @brief Muestra y controla el menú de gestión de clientes.
+ *
+ * Esta función presenta al usuario las opciones disponibles para manejar clientes.
+ * Al seleccionar una opción, la pantalla se limpia y se ejecuta la función correspondiente.
+ * Al finalizar la acción, se pausa la ejecución para que el usuario pueda leer mensajes.
+ *
+ * @param listaClientes Vector con la lista actual de clientes.
+ * @param usuarioActual Objeto que representa al usuario que utiliza el sistema.
  */
 void MenuClientes::mostrar(vector<Clientes>& listaClientes, usuarios& usuarioActual) {
-    int opcion;
-    string input;
+    int opcion;       /**< Opción seleccionada por el usuario */
+    string input;     /**< Entrada para IDs u otros textos */
 
     do {
-        // Limpiar pantalla y mostrar encabezado del menú
-        system("cls");
-        cout << "\t\t=== MENÚ CLIENTES ===\n"
-             << "\t\t| Usuario: " << usuarioActual.getNombre() << "\n"
-             << "\t\t1. Agregar cliente\n"
-             << "\t\t2. Mostrar clientes\n"
-             << "\t\t3. Modificar cliente\n"
-             << "\t\t4. Eliminar cliente\n"
-             << "\t\t5. Volver al menú principal\n"
-             << "\t\t=====================\n"
-             << "\t\tSeleccione una opción: ";
+        system("cls"); // Limpia pantalla antes de mostrar el menú principal
+        cout << "\n--------------------------------------------------------------------------------\n";
+        cout << "                        SISTEMA DE GESTION DE CLIENTES                          \n";
+        cout << "--------------------------------------------------------------------------------\n";
+        cout << "   Usuario actual: " << usuarioActual.getNombre() << "\n";
+        cout << "--------------------------------------------------------------------------------\n";
+        cout << "   [1] Agregar cliente\n";
+        cout << "   [2] Mostrar clientes\n";
+        cout << "   [3] Modificar cliente\n";
+        cout << "   [4] Eliminar cliente\n";
+        cout << "   [5] Volver al menu principal\n";
+        cout << "--------------------------------------------------------------------------------\n";
+        cout << "                     Seleccione una opcion: ";
 
-        // Validación de entrada: solo se aceptan números
+        // Validación para asegurar que la entrada sea un número válido
         while (!(cin >> opcion)) {
-            cin.clear(); // Limpiar estado de error
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Descartar entrada inválida
-            cout << "\t\tEntrada inválida. Por favor ingrese un número: ";
+            cin.clear(); // Limpia el estado de error de cin
+            cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignora entrada inválida
+            cout << "\n   Entrada invalida. Ingrese un numero valido: ";
         }
-        cin.ignore(); // Limpiar el buffer restante
+        cin.ignore(); // Limpia el salto de línea residual del buffer
 
-        // Ejecutar la opción seleccionada por el usuario
-        switch(opcion) {
+        switch (opcion) {
             case 1:
-                // Llamar a la función estática para agregar un cliente
+                system("cls"); // Limpia antes de ejecutar la acción
                 Clientes::agregar(listaClientes, usuarioActual.getNombre());
+                // NO system("pause"); porque 'agregar' ya pausa
                 break;
 
             case 2:
-                // Mostrar la lista de clientes
+                system("cls");
                 Clientes::mostrar(listaClientes);
+                // NO system("pause"); porque 'mostrar' ya pausa
                 break;
 
             case 3: {
-                // Mostrar la lista antes de modificar
+                system("cls");
                 Clientes::mostrar(listaClientes);
                 if (!listaClientes.empty()) {
-                    cout << "\n\t\tIngrese ID del cliente a modificar: ";
+                    cout << "\n   Ingrese ID del cliente a modificar: ";
                     getline(cin, input);
 
-                    // Verificar si el ID ingresado es válido antes de modificar
                     if (Clientes::esIdValido(input)) {
                         Clientes::modificar(listaClientes, usuarioActual.getNombre(), input);
+                        // modificar ya pausa internamente
                     } else {
-                        cout << "\t\tID no válido. Debe estar entre " << CODIGO_INICIAL
+                        cout << "   ID no valido. Debe estar entre " << CODIGO_INICIAL
                              << " y " << CODIGO_FINAL << "\n";
-                        system("pause");
+                        system("pause"); // Pausa solo aquí en caso de ID inválido
                     }
                 }
+                // NO system("pause"); adicional acá
                 break;
             }
 
             case 4: {
-                // Mostrar la lista antes de eliminar
+                system("cls");
                 Clientes::mostrar(listaClientes);
                 if (!listaClientes.empty()) {
-                    cout << "\n\t\tIngrese ID del cliente a eliminar: ";
+                    cout << "\n   Ingrese ID del cliente a eliminar: ";
                     getline(cin, input);
 
-                    // Verificar si el ID ingresado es válido antes de eliminar
                     if (Clientes::esIdValido(input)) {
                         Clientes::eliminar(listaClientes, usuarioActual.getNombre(), input);
+                        // eliminar ya pausa internamente
                     } else {
-                        cout << "\t\tID no válido. Debe estar entre " << CODIGO_INICIAL
+                        cout << "   ID no valido. Debe estar entre " << CODIGO_INICIAL
                              << " y " << CODIGO_FINAL << "\n";
-                        system("pause");
+                        system("pause"); // Pausa solo aquí en caso de ID inválido
                     }
                 }
+                // NO system("pause"); adicional acá
                 break;
             }
 
             case 5:
-                // Guardar datos en archivo antes de volver al menú principal
                 Clientes::guardarEnArchivo(listaClientes);
-                return; // Salir del menú de clientes
+                cout << "\n   Regresando al menu principal...\n";
+                system("pause"); // Pausa para que el usuario vea mensaje de salida
+                break;
 
             default:
-                // Opción inválida
-                cout << "\t\tOpción no válida. Intente nuevamente.\n";
-                system("pause");
+                cout << "\n   Opcion invalida.\n";
+                system("pause"); // Pausa para informar opción inválida
+                break;
         }
-    } while (true); // Bucle infinito hasta que el usuario elija salir
+
+    } while (opcion != 5);
 }
