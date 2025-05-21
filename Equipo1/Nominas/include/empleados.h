@@ -29,6 +29,7 @@ public:
     void mostrarMenuNomina(const string& usuarioRegistrante);
     void calcularNominaAnual();
     void calcularNominaMensual();
+    double calcularIndemnizacion(double sueldo, int anios);
 
 private:
     // Variables para cálculos de nómina XANDER REYES

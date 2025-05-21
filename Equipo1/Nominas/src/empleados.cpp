@@ -385,6 +385,12 @@ void Empleados::cambioEmpleados(const std::string& usuarioRegistrante) {
     bitacoraempleado.insertar(usuarioRegistrante, codigoAplicacion, "Mod");
 }
 
+//Metodo para calcular de indemnizacion
+double Empleados::calcularIndemnizacion(double sueldo, int anios) {
+    return sueldo * anios;
+}
+
+//Metodo para borrar un empleado del archivo y calcular su indemnizacion
 void Empleados::borrarEmpleados(const std::string& usuarioRegistrante)
 {
 // Limpiar la pantalla
@@ -440,8 +446,26 @@ while (getline(file, linea))
         }
         else
         {
-            found++; // Se encontró el empleado a borrar
-            cout << "\n\t\t\tBorrado exitoso" << endl;
+             found++; // Se encontró el empleado a borrar
+                cout << "\nEmpleado encontrado. Procediendo con su despido..." << endl;
+                int anios;
+                cout << "Ingrese los anios trabajados del empleado: ";
+                cin >> anios;
+                //calcular eindemnizacion
+                double indemnizacion = calcularIndemnizacion(sueldo, anios);
+
+                // Mostrar detalles del despido
+                cout << "\n----- Detalles del Despido -----" << endl;
+                cout << "Empleado despedido: " << Nombre << endl;
+                cout << "Sueldo base: Q" << fixed << setprecision(2) << sueldo << endl;
+                cout << "Anios trabajados: " << anios << endl;
+                cout << "Indemnizacion a pagar: Q" << fixed << setprecision(2) << indemnizacion << endl;
+                cout << "--------------------------------" << endl;
+
+                cout << "\n\t\tBorrado exitosamente!" << endl;
+                system("pause");
+                cin.ignore(); //Limpia buffer
+
         }
     }
 }
@@ -632,8 +656,43 @@ void Empleados::calcularNominaMensual() {
     // Muestra el salario neto final que recibirá el empleado
     cout << "Salario neto a recibir: Q" << salarioNeto << endl;
 }
-// Calcula la nómina anual de un empleado (función vacía).
-void Empleados::calcularNominaAnual()
-{
+// Calcula la nómina anual de un empleado
+void Empleados::calcularNominaAnual() {
+    double totalIGSS = 0.0;
+    double totalIRTRA = 0.0;
+    double totalISR = 0.0;
+    double totalBonos = 0.0;
+    double totalsalarioNeto = 0.0;
 
+    // Itera por los 12 meses del a o
+    for (int mes = 1; mes <= 12; ++mes) {
+        // Calcula descuentos mensuales
+        double descuentoIGSS = salarioBruto * IGSS;
+        double descuentoIRTRA = salarioBruto * IRTRA;
+        double descuentoISR = salarioBruto * ISR;
+
+        // Bonos especiales
+        double bono14Mes = (mes == 6) ? salarioBruto : 0.0;
+        double aguinaldoMes = (mes == 12) ? salarioBruto : 0.0;
+
+        // Salario neto del mes
+        double salarioNetoMes = salarioBruto - descuentoISR - descuentoIRTRA - descuentoIGSS + bonoIncentivo + bono14Mes + aguinaldoMes;
+
+        // Acumula totales
+        totalIGSS += descuentoIGSS;
+        totalIRTRA += descuentoIRTRA;
+        totalISR += descuentoISR;
+        totalBonos += bono14Mes + aguinaldoMes;
+        totalsalarioNeto += salarioNetoMes;
+    }
+
+    // Mostrar resumen anual
+    cout << "\nResumen de Nomina Anual" << endl;
+    cout << "-------------------------" << endl;
+    cout << "Total descuento IGSS: Q" << totalIGSS << endl;
+    cout << "Total descuento IRTRA: Q" << totalIRTRA << endl;
+    cout << "Total descuento ISR: Q" << totalISR << endl;
+    cout << "Total bonos (Bono 14 + Aguinaldo): Q" << totalBonos << endl;
+    cout << "Total salario neto anual: Q" << totalsalarioNeto << endl;
+    system("pause");
 }
