@@ -1,27 +1,22 @@
 #include "menu_compra.h"
 #include "compras.h"
+#include "bitacora.h"  // Incluye bitacora para obtener usuario
 #include <iostream>
 #include <iomanip>
-<<<<<<< HEAD
-
-using namespace std;
-
-void mostrarMenuCompra() {
-    vector<Producto> listaCompras;
-=======
 #include <vector>
 
 using namespace std;
 
 void MenuCompra::mostrarMenuCompra() {
-    vector<Producto> listaCompras;
+    vector<Producto> listaCompras = Compras::cargarCompras(); // Mejor cargar las compras guardadas al iniciar
     Compras compras;  // objeto para llamar los métodos
->>>>>>> 41f2e196da09c1d14a34796eb802d3d5d105e72b
+    string usuario = Bitacora::obtenerUsuarioActual(); // Obtener usuario actual
     int opcion;
 
     do {
-        cout << "\n=== MENÚ DE COMPRAS ==="
-             << "\n1. Registrar nueva compra"
+        cout << "\n=== MENÚ DE COMPRAS ===" << endl;
+        cout << "Usuario actual: " << usuario << endl;  // Mostrar usuario
+        cout << "1. Registrar nueva compra"
              << "\n2. Ver historial de compras"
              << "\n3. Buscar por proveedor"
              << "\n4. Ver total gastado"
@@ -32,19 +27,6 @@ void MenuCompra::mostrarMenuCompra() {
 
         switch(opcion) {
             case 1:
-<<<<<<< HEAD
-                registrarCompra(listaCompras);
-                break;
-            case 2:
-                mostrarHistorial(listaCompras);
-                break;
-            case 3:
-                buscarPorProveedor(listaCompras);
-                break;
-            case 4:
-                cout << "\n💰 Total gastado: $" << fixed << setprecision(2)
-                     << calcularTotalGastado(listaCompras) << endl;
-=======
                 compras.registrarCompra(listaCompras);
                 break;
             case 2:
@@ -56,7 +38,6 @@ void MenuCompra::mostrarMenuCompra() {
             case 4:
                 cout << "\nTotal gastado: $" << fixed << setprecision(2)
                      << compras.calcularTotalGastado(listaCompras) << endl;
->>>>>>> 41f2e196da09c1d14a34796eb802d3d5d105e72b
                 break;
             case 5:
                 cout << "Volviendo...\n";

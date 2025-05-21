@@ -4,10 +4,12 @@
 #include <iostream>
 #include <iomanip>
 #include <ctime>
+#include <cstring>  // Incluido para strncpy
+#include "utils.h"
 
 using namespace std;
 
-const string Bitacora::ARCHIVO_BITACORA = "bitacora.txt";
+const string Bitacora::ARCHIVO_BITACORA = "bitacora.dat";
 string Bitacora::usuarioActual = "";
 
 // Mapa completo de descripciones de códigos de acción
@@ -82,6 +84,13 @@ const map<int, string> DESCRIPCIONES_CODIGOS = {
     {CodigosAccion::ADVERTENCIA_SEGURIDAD, "Advertencia de seguridad"}
 };
 
+struct RegistroBitacora {
+    char fechaHora[20];       // Formato: YYYY-MM-DD HH:MM:SS
+    char usuario[50];         // Nombre de usuario
+    int codigoAccion;         // Código de acción
+    char descripcion[200];    // Descripción detallada
+};
+
 string Bitacora::obtenerDescripcionCodigo(int codigo) {
     auto it = DESCRIPCIONES_CODIGOS.find(codigo);
     return (it != DESCRIPCIONES_CODIGOS.end()) ? it->second : "Código no reconocido";
@@ -89,12 +98,31 @@ string Bitacora::obtenerDescripcionCodigo(int codigo) {
 
 void Bitacora::registrarAccion(const string& usuario, int codigoAccion, const string& descripcion) {
     usuarioActual = usuario;
-    ofstream archivo(ARCHIVO_BITACORA, ios::app);
+
+    // Crear estructura de registro
+    RegistroBitacora registro;
+    string fechaHora = obtenerFechaHoraActual();
+
+    // Copiar datos a la estructura
+    strncpy(registro.fechaHora, fechaHora.c_str(), sizeof(registro.fechaHora));
+    registro.fechaHora[sizeof(registro.fechaHora) - 1] = '\0'; // Asegurar terminación nula
+
+    strncpy(registro.usuario, usuario.c_str(), sizeof(registro.usuario));
+    registro.usuario[sizeof(registro.usuario) - 1] = '\0';
+
+    registro.codigoAccion = codigoAccion;
+
+    strncpy(registro.descripcion, descripcion.c_str(), sizeof(registro.descripcion));
+    registro.descripcion[sizeof(registro.descripcion) - 1] = '\0';
+
+    // Cifrar los datos sensibles
+    string usuarioCifrado = xorEncryptDecrypt(usuario);
+    string descripcionCifrada = xorEncryptDecrypt(descripcion);
+
+    // Escribir en archivo binario
+    ofstream archivo(ARCHIVO_BITACORA, ios::binary | ios::app);
     if (archivo.is_open()) {
-        archivo << obtenerFechaHoraActual() << " | "
-                << "Usuario: " << usuario << " | "
-                << "Código: " << codigoAccion << " (" << obtenerDescripcionCodigo(codigoAccion) << ") | "
-                << "Detalles: " << descripcion << endl;
+        archivo.write(reinterpret_cast<const char*>(&registro), sizeof(RegistroBitacora));
         archivo.close();
     } else {
         cerr << "Error: No se pudo abrir el archivo de bitácora para escritura." << endl;
@@ -102,12 +130,21 @@ void Bitacora::registrarAccion(const string& usuario, int codigoAccion, const st
 }
 
 void Bitacora::mostrarBitacora() {
-    ifstream archivo(ARCHIVO_BITACORA);
+    ifstream archivo(ARCHIVO_BITACORA, ios::binary);
     if (archivo.is_open()) {
         cout << "\n=== CONTENIDO DE LA BITÁCORA ===" << endl;
-        string linea;
-        while (getline(archivo, linea)) {
-            cout << linea << endl;
+
+        RegistroBitacora registro;
+        while (archivo.read(reinterpret_cast<char*>(&registro), sizeof(RegistroBitacora))) {
+            // Descifrar los datos
+            string usuarioDescifrado = xorEncryptDecrypt(string(registro.usuario));
+            string descripcionDescifrada = xorEncryptDecrypt(string(registro.descripcion));
+
+            cout << registro.fechaHora << " | "
+                 << "Usuario: " << usuarioDescifrado << " | "
+                 << "Código: " << registro.codigoAccion
+                 << " (" << obtenerDescripcionCodigo(registro.codigoAccion) << ") | "
+                 << "Detalles: " << descripcionDescifrada << endl;
         }
         cout << "=== FIN DE LA BITÁCORA ===" << endl;
         archivo.close();

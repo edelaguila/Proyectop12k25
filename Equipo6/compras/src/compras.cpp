@@ -1,100 +1,113 @@
 #include "compras.h"
+#include <iostream>
 #include <iomanip>
+#include <stdexcept>
 #include <limits>
 
-void Compras::mostrarMenu() {
-    cout << "\n=== SISTEMA DE COMPRAS A PROVEEDORES ===" << endl;
-    cout << "1. Registrar nueva compra" << endl;
-    cout << "2. Mostrar historial de compras" << endl;
-    cout << "3. Buscar compras por proveedor" << endl;
-    cout << "4. Calcular total gastado" << endl;
-    cout << "5. Salir" << endl;
-    cout << "Seleccione una opcion: ";
-}
+using namespace std;
 
 void Compras::registrarCompra(vector<Producto>& listaCompras) {
-    Producto nuevaCompra;
+    try {
+        Producto p;
+        string temp;
 
-    cout << "\n--- REGISTRAR NUEVA COMPRA ---" << endl;
+        cout << "Ingrese código del producto: ";
+        getline(cin, temp);
+        if (temp.empty()) throw invalid_argument("❌ El código no puede estar vacío.");
+        p.setCodigo(temp);
 
-    cout << "Nombre del producto: ";
-    cin.ignore();  // Limpia el buffer
-    getline(cin, nuevaCompra.nombre);
+        cout << "Ingrese nombre del producto: ";
+        getline(cin, temp);
+        if (temp.empty()) throw invalid_argument("❌ El nombre no puede estar vacío.");
+        p.setNombre(temp);
 
-    cout << "Proveedor: ";
-    getline(cin, nuevaCompra.proveedor);
+        cout << "Ingrese descripción del producto: ";
+        getline(cin, temp);
+        if (temp.empty()) throw invalid_argument("❌ La descripción no puede estar vacía.");
+        p.setDescripcion(temp);
 
-    cout << "Precio de compra por unidad (Q): ";
-    while (!(cin >> nuevaCompra.precioCompra) || nuevaCompra.precioCompra <= 0) {
-        cout << "Valor inválido. Ingrese el precio en quetzales (Q): ";
+        double precio;
+        cout << "Ingrese precio: ";
+        if (!(cin >> precio) || precio < 0) throw invalid_argument("❌ Precio inválido.");
+        p.setPrecio(precio);
+
+        int stock;
+        cout << "Ingrese cantidad (stock): ";
+        if (!(cin >> stock) || stock < 0) throw invalid_argument("❌ Stock inválido.");
+        p.setStock(stock);
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+        listaCompras.push_back(p);
+        cout << "✅ Compra registrada exitosamente.\n";
+    }
+    catch (const exception& e) {
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cerr << e.what() << "\n";
     }
-
-    cout << "Cantidad comprada: ";
-    while (!(cin >> nuevaCompra.cantidad) || nuevaCompra.cantidad <= 0) {
-        cout << "Cantidad inválida. Ingrese un número positivo: ";
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    }
-
-    cout << "Fecha de compra (DD/MM/AAAA): ";
-    cin.ignore();
-    getline(cin, nuevaCompra.fechaCompra);
-
-    listaCompras.push_back(nuevaCompra);
-    cout << "\n✅ Compra registrada exitosamente" << endl;
 }
 
 void Compras::mostrarHistorial(const vector<Producto>& listaCompras) {
-    if (listaCompras.empty()) {
-        cout << "\n⚠️ No hay compras registradas." << endl;
-        return;
+    try {
+        if (listaCompras.empty()) {
+            throw runtime_error("⚠ No hay compras registradas.");
+        }
+
+        cout << "\n--- Historial de Compras ---\n";
+        for (const auto& p : listaCompras) {
+            cout << "Código: " << p.getCodigo() << "\n"
+                 << "Nombre: " << p.getNombre() << "\n"
+                 << "Descripción: " << p.getDescripcion() << "\n"
+                 << "Precio: $" << fixed << setprecision(2) << p.getPrecio() << "\n"
+                 << "Cantidad: " << p.getStock() << "\n\n";
+        }
     }
-
-    cout << "\n--- HISTORIAL DE COMPRAS ---" << endl;
-    cout << left << setw(25) << "PRODUCTO" << setw(20) << "PROVEEDOR"
-         << setw(15) << "PRECIO (Q)" << setw(10) << "CANTIDAD"
-         << setw(15) << "TOTAL (Q)" << setw(12) << "FECHA" << endl;
-    cout << string(97, '-') << endl;
-
-    for (const auto& compra : listaCompras) {
-        double total = compra.precioCompra * compra.cantidad;
-        cout << left << setw(25) << compra.nombre
-             << setw(20) << compra.proveedor
-             << "Q" << setw(14) << fixed << setprecision(2) << compra.precioCompra
-             << setw(10) << compra.cantidad
-             << "Q" << setw(14) << total
-             << setw(12) << compra.fechaCompra << endl;
+    catch (const exception& e) {
+        cerr << e.what() << "\n";
     }
 }
 
 void Compras::buscarPorProveedor(const vector<Producto>& listaCompras) {
-    string proveedorBuscado;
-    cout << "\n🔍 Ingrese el nombre del proveedor: ";
-    cin.ignore();
-    getline(cin, proveedorBuscado);
+    try {
+        string proveedor;
+        cout << "Ingrese nombre del proveedor para buscar: ";
+        getline(cin, proveedor);
+        if (proveedor.empty()) throw invalid_argument("❌ El nombre del proveedor no puede estar vacío.");
 
-    bool encontrado = false;
-    for (const auto& compra : listaCompras) {
-        if (compra.proveedor == proveedorBuscado) {
-            encontrado = true;
-            cout << "📦 Producto: " << compra.nombre
-                 << " | Cantidad: " << compra.cantidad
-                 << " | Total: Q" << fixed << setprecision(2) << (compra.precioCompra * compra.cantidad)
-                 << " | Fecha: " << compra.fechaCompra << endl;
+        bool encontrado = false;
+        for (const auto& p : listaCompras) {
+            if (p.getDescripcion() == proveedor) {
+                cout << "Código: " << p.getCodigo() << "\n"
+                     << "Nombre: " << p.getNombre() << "\n"
+                     << "Precio: $" << fixed << setprecision(2) << p.getPrecio() << "\n"
+                     << "Cantidad: " << p.getStock() << "\n\n";
+                encontrado = true;
+            }
+        }
+
+        if (!encontrado) {
+            cout << "⚠ No se encontraron compras de ese proveedor.\n";
         }
     }
-
-    if (!encontrado) {
-        cout << "❌ No se encontraron compras a este proveedor." << endl;
+    catch (const exception& e) {
+        cerr << e.what() << "\n";
     }
 }
 
 double Compras::calcularTotalGastado(const vector<Producto>& listaCompras) {
-    double total = 0;
-    for (const auto& compra : listaCompras) {
-        total += compra.precioCompra * compra.cantidad;
+    try {
+        if (listaCompras.empty()) {
+            throw runtime_error("⚠ No hay compras para calcular el total.");
+        }
+
+        double total = 0.0;
+        for (const auto& p : listaCompras) {
+            total += p.getPrecio() * p.getStock();
+        }
+        return total;
     }
-    return total;
+    catch (const exception& e) {
+        cerr << e.what() << "\n";
+        return 0.0;
+    }
 }

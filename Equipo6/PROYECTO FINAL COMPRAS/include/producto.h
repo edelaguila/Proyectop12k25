@@ -4,30 +4,13 @@
 #include <string>
 #include <vector>
 
-<<<<<<< HEAD
-struct Producto {
-=======
 class Producto {
 private:
->>>>>>> 41f2e196da09c1d14a34796eb802d3d5d105e72b
     std::string codigo;
     std::string nombre;
     std::string descripcion;
     double precio;
     int stock;
-<<<<<<< HEAD
-};
-
-void guardarProductos(const std::vector<Producto>& productos);
-std::vector<Producto> cargarProductos();
-void ingresarProducto();
-void consultarProductos();
-void modificarProducto();
-void borrarProducto();
-std::string generarCodigoProducto();
-
-#endif
-=======
 
     // Contador estático para generar códigos únicos
     static int contadorCodigo;
@@ -69,4 +52,3 @@ public:
 };
 
 #endif // PRODUCTO_H
->>>>>>> 41f2e196da09c1d14a34796eb802d3d5d105e72b

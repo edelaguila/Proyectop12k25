@@ -4,20 +4,12 @@
 #include <string>
 #include <vector>
 
-<<<<<<< HEAD
-struct Cliente {
-=======
 class Cliente {
 private:
->>>>>>> 41f2e196da09c1d14a34796eb802d3d5d105e72b
     std::string id;
     std::string nombre;
     std::string telefono;
     std::string email;
-<<<<<<< HEAD
-};
-
-=======
 
 public:
     // Constructores
@@ -42,7 +34,6 @@ public:
 };
 
 // Funciones relacionadas con almacenamiento y operaciones de cliente
->>>>>>> 41f2e196da09c1d14a34796eb802d3d5d105e72b
 void guardarClientes(const std::vector<Cliente>& clientes);
 std::vector<Cliente> cargarClientes();
 void ingresarCliente();

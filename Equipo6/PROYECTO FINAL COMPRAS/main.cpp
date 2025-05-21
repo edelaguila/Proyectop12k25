@@ -36,7 +36,8 @@ void procesoRegistro() {
     }
 }
 
-void procesoLogin() {
+// Ahora devuelve bool para indicar si el login fue exitoso
+bool procesoLogin() {
     string usuario, contrasena;
     int intentos = 0;
     const int MAX_INTENTOS = 3;
@@ -51,9 +52,7 @@ void procesoLogin() {
 
         if (Usuario::iniciarSesion(usuario, contrasena)) {
             cout << "\n✔ Acceso concedido" << endl;
-            MenuGeneral menu;
-            menu.mostrar();  // Ir directamente al menú principal tras login exitoso
-            return;
+            return true;  // Login exitoso
         }
 
         cout << "\n❌ Credenciales incorrectas. ";
@@ -62,6 +61,7 @@ void procesoLogin() {
         }
     }
     cout << "⛔ Límite de intentos alcanzado" << endl;
+    return false; // Falló el login
 }
 
 int main() {
@@ -69,6 +69,8 @@ int main() {
     SetConsoleCP(CP_UTF8);
 
     int opcion;
+    bool logueado = false;
+
     do {
         mostrarMenuLogin();
         cin >> opcion;
@@ -78,12 +80,22 @@ int main() {
             case 1:
                 procesoRegistro();
                 break;
+
             case 2:
-                procesoLogin();
+                logueado = procesoLogin();
+                if (logueado) {
+                    MenuGeneral menu;
+                    menu.mostrar();  // Mostrar menú general solo si login fue exitoso
+
+                    // Salir del programa después de cerrar menú general
+                    opcion = 3;
+                }
                 break;
+
             case 3:
                 cout << "👋 Saliendo del sistema..." << endl;
                 break;
+
             default:
                 cout << "❌ Opción inválida" << endl;
         }

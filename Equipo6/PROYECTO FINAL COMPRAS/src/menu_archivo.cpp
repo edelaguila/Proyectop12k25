@@ -5,8 +5,10 @@
 
 using namespace std;
 
-void mostrarMenuArchivo() {
+// Modificamos la función para recibir el usuario y mostrarlo
+void mostrarMenuArchivo(const string& usuario) {
     cout << "\n=== MENÚ DE ARCHIVO ===" << endl;
+    cout << "Usuario actual: " << usuario << endl;   // <-- Aquí mostramos el usuario
     cout << "1. Crear respaldo" << endl;
     cout << "2. Restaurar datos" << endl;
     cout << "3. Exportar datos" << endl;
@@ -15,26 +17,19 @@ void mostrarMenuArchivo() {
     cout << "Seleccione una opción: ";
 }
 
-<<<<<<< HEAD
-void menuArchivo() {
-=======
 void MenuArchivo::menuArchivo() {
->>>>>>> 41f2e196da09c1d14a34796eb802d3d5d105e72b
     string usuario = Bitacora::obtenerUsuarioActual();
     int opcion;
 
     do {
-        mostrarMenuArchivo();
+        mostrarMenuArchivo(usuario);
 
         while (!(cin >> opcion)) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cout << "Entrada inválida. Por favor ingrese un número: ";
         }
-<<<<<<< HEAD
-=======
         cin.ignore();
->>>>>>> 41f2e196da09c1d14a34796eb802d3d5d105e72b
 
         switch(opcion) {
             case 1:
