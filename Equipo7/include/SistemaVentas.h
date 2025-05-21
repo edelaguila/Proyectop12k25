@@ -1,44 +1,44 @@
+// CODIGO POR: Steven andre vasquez chavez carnet: 9959 24 11528
+
 #ifndef SISTEMAVENTAS_H
 #define SISTEMAVENTAS_H
 
 #include <vector>
+#include <string>
 #include "Cliente.h"
 #include "Producto.h"
 #include "Venta.h"
+#include "Vendedores.h"
 
-// Clase que representa el sistema de ventas.
-// Se encarga de gestionar clientes, productos y ventas.
 class SistemaVentas {
 private:
-    std::vector<Cliente> clientes; // Lista de clientes registrados en el sistema.
-    std::vector<Producto> productos; // Lista de productos disponibles para la venta.
-    std::vector<Venta> ventas; // Registro de ventas realizadas.
+    std::vector<Cliente> clientes;
+    std::vector<Producto> productos;
+    std::vector<Vendedores> vendedores;
+
+    void limpiarPantalla();
+    Cliente* buscarCliente(const std::string& codigo);
+    Vendedores* buscarVendedor(const std::string& codigo);
+
+
+
+
+    std::vector<Venta> ventas;
+    int contadorCodigoVenta = 300;
+
+    // Funciones internas para persistencia
+    void guardarVentaEnArchivo(const Venta& venta);
+    void eliminarVentaEnArchivo(int codigoVenta); // ← Declarada aquí
 
 public:
+    void menuVenta();
+    void nuevaVenta();
+    void registroVenta();
+    void EliminarVenta();
+    void cargarVentasDesdeArchivo(); // ← MOVER AQUÍ
 
-    // Agrega un nuevo cliente al sistema.
-    // Solicita el nombre y correo del cliente.
-    void agregarCliente();
-
-    // Agrega un nuevo producto al sistema.
-    // Solicita el nombre y el precio del producto.
-    void agregarProducto();
-
-    // Registra una nueva venta en el sistema.
-    // Solicita el nombre del cliente, el nombre del producto y la cantidad a vender.
-    // Verifica la existencia del cliente y del producto antes de registrar la venta.
-    void realizarVenta();
-
-    // Muestra un listado de todas las ventas realizadas.
-    // Incluye el nombre del cliente, el producto adquirido y la cantidad comprada.
-    void mostrarVentas();
-
-    // Muestra el men� principal del sistema de ventas.
-    // Permite al usuario elegir entre agregar clientes, productos, realizar ventas o salir del sistema.
-    void mostrarMenu();
-
-    void mostrarCatalogo();
-    // muestra un listrado princital de todos los productos registrados y su precio
+    Venta* obtenerVentaPorCodigo(int codigo);
+    Cliente* obtenerClientePorCodigo(const std::string& codCliente);
 
 };
 

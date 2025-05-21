@@ -1,48 +1,56 @@
+//Maria Celeste Mayen Ibarra  9959-23-3775
 #ifndef CLIENTE_H
 #define CLIENTE_H
 
 #include <iostream>
 #include <vector>
 #include <string>
+#include <fstream>
 
-// Clase que representa a un cliente dentro del sistema
+// Clase que representa un cliente en el sistema
 class Cliente {
 public:
-    // Atributos públicos del cliente
-    std::string nombre;     // Nombre del cliente
-    std::string telefono;   // Número telefónico del cliente
-    std::string nit;        // Número de Identificación Tributaria (NIT)
-    std::string codigo;     // Código único del cliente
+    // Atributos del cliente
+    std::string nombre;   // Nombre del cliente
+    std::string telefono;  // NÃºmero de telÃ©fono del cliente
+    std::string nit;      // NÃºmero de NIT del cliente
+    std::string codigo;   // CÃ³digo Ãºnico del cliente
 
     // Constructor por defecto
     Cliente();
 
-    // Constructor con parámetros para inicializar los datos del cliente
+    // Constructor que inicializa un cliente con los datos proporcionados
     Cliente(std::string n, std::string t, std::string nit, std::string cod);
 
-    // Menú principal de opciones para gestionar clientes
+    // MÃ©todo estÃ¡tico que muestra el menÃº de opciones para gestionar clientes
     static void MenuClientes();
 
-    // Función para agregar un nuevo cliente
+    // MÃ©todo estÃ¡tico para agregar un nuevo cliente
     static void AgregarCliente();
 
-    // Función para modificar los datos de un cliente existente
+    // MÃ©todo estÃ¡tico para modificar un cliente existente
     static void ModificarCliente();
 
-    // Función para eliminar un cliente del registro
+    // MÃ©todo estÃ¡tico para eliminar un cliente
     static void EliminarCliente();
 
-    // Función para mostrar el listado completo de clientes
+    // MÃ©todo estÃ¡tico para mostrar todos los clientes registrados
     static void MostrarClientes();
 
-    // Retorna la lista completa de clientes registrados
+    // MÃ©todo estÃ¡tico para guardar la lista de clientes en un archivo
+    static void GuardarClientes();
+
+    // MÃ©todo estÃ¡tico para cargar la lista de clientes desde un archivo
+    static void CargarClientes();
+
+    // MÃ©todo estÃ¡tico para obtener la lista de clientes
     static std::vector<Cliente>& obtenerClientes();
 
 private:
-    // Lista estática que almacena todos los clientes registrados
+    // Vector estÃ¡tico que almacena todos los clientes
     static std::vector<Cliente> clientes;
 
-    // Contador estático utilizado para generar códigos únicos para los clientes
+    // Contador estÃ¡tico para generar cÃ³digos Ãºnicos de clientes
     static int contadorClientes;
 };
 
