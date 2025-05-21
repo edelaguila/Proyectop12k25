@@ -488,3 +488,95 @@
 1747632667 source:c:\users\usuario\documents\progra\programación 1\proyectop12k25\equipo4\sistemainventarios\src\producto.cpp
 	"Producto.h"
 
+1747414347 source:c:\users\macoh\onedrive\documents\programacion\progra1\proyectop12k25\equipo4\sistemainventarios\src\facturacion.cpp
+	"Facturacion.h"
+
+1747414319 c:\users\macoh\onedrive\documents\programacion\progra1\proyectop12k25\equipo4\sistemainventarios\include\facturacion.h
+	<iostream>
+	<vector>
+	<iomanip>
+	"Inventario.h"
+
+1747780727 c:\users\macoh\onedrive\documents\programacion\progra1\proyectop12k25\equipo4\sistemainventarios\include\inventario.h
+	<vector>
+	<string>
+	"Producto.h"
+
+1747414347 c:\users\macoh\onedrive\documents\programacion\progra1\proyectop12k25\equipo4\sistemainventarios\include\producto.h
+	"Bitacora.h"
+	<string>
+
+1747414347 c:\users\macoh\onedrive\documents\programacion\progra1\proyectop12k25\equipo4\sistemainventarios\include\bitacora.h
+	<iostream>
+
+1747414347 source:c:\users\macoh\onedrive\documents\programacion\progra1\proyectop12k25\equipo4\sistemainventarios\src\producto.cpp
+	"Producto.h"
+
+1747780727 source:c:\users\macoh\onedrive\documents\programacion\progra1\proyectop12k25\equipo4\sistemainventarios\main.cpp
+	<iostream>
+	"Usuario.h"
+	"Inventario.h"
+	"Facturacion.h"
+	"Bitacora.h"
+	"Menu.h"
+
+1747780727 c:\users\macoh\onedrive\documents\programacion\progra1\proyectop12k25\equipo4\sistemainventarios\include\usuario.h
+	<string>
+
+1747414347 c:\users\macoh\onedrive\documents\programacion\progra1\proyectop12k25\equipo4\sistemainventarios\include\menu.h
+	<iostream>
+	"Inventario.h"
+	"Facturacion.h"
+
+1747780727 source:c:\users\macoh\onedrive\documents\programacion\progra1\proyectop12k25\equipo4\sistemainventarios\src\bitacora.cpp
+	"Bitacora.h"
+	<iostream>
+	<fstream>
+	<stdlib.h>
+	<cstdlib>
+	<conio.h>
+	<iomanip>
+	<algorithm>
+	<ctime>
+	<vector>
+	<sstream>
+	<cstring>
+
+1747780727 source:c:\users\macoh\onedrive\documents\programacion\progra1\proyectop12k25\equipo4\sistemainventarios\src\menu.cpp
+	"Menu.h"
+	"Bitacora.h"
+
+1747780727 source:c:\users\macoh\onedrive\documents\programacion\progra1\proyectop12k25\equipo4\sistemainventarios\src\proveedor.cpp
+	"Proveedor.h"
+	<fstream>
+	<iostream>
+	<sstream>
+	<vector>
+	<cstdlib>
+	<conio.h>
+
+1747780727 c:\users\macoh\onedrive\documents\programacion\progra1\proyectop12k25\equipo4\sistemainventarios\include\proveedor.h
+	<string>
+	"Bitacora.h"
+
+1747780727 source:c:\users\macoh\onedrive\documents\programacion\progra1\proyectop12k25\equipo4\sistemainventarios\src\usuario.cpp
+	"Usuario.h"
+	<fstream>
+	<cstdlib>
+	<conio.h>
+	<iostream>
+	<sstream>
+	"Bitacora.h"
+	<vector>
+
+1747793257 source:c:\users\macoh\onedrive\documents\programacion\progra1\proyectop12k25\equipo4\sistemainventarios\src\inventario.cpp
+	"Inventario.h"
+	<iostream>
+	<fstream>
+	<sstream>
+	<algorithm>
+	<cstdlib>
+	<map>
+	<ctime>
+	<iomanip>
+

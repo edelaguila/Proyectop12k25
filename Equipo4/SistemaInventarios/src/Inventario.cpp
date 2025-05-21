@@ -2,6 +2,8 @@
 //Modificación para guardado y mejoras de interfaz por Anthony Suc, 2 de mayo 2025
 //Implementacion de archivos Kevin Lopez, 2 de mayo de 2025
 //Modificacion Kardex by Marco H. 18/05/25
+//Cambio e implementacion de bodega.bin, kardex_backup.bin e inventario.bin by Marco Hernandez 20/05/25"
+//Implementacion parar agregar un nuevo producto desde Kardex By Marco Hernandez  20/05/25
 #include "Inventario.h"
 #include <iostream>
 #include <fstream>
@@ -44,18 +46,10 @@ void Inventario::mostrarInventarioGeneral() {
     cout << fixed << setprecision(2);
 
 
-    ofstream backup("kardex_backup.txt");
+    ofstream backup("kardex_backup.bin", ios::binary | ios::app);
     if (!backup) {
         cerr << "Error al crear archivo de backup" << endl;
-    } else {
-        backup << fixed << setprecision(2);
-        backup << "==================================================================\n";
-        backup << "| KARDEX GENERAL - INVENTARIO COMPLETO                         |\n";
-        backup << "==================================================================\n";
-        backup << "| Cod | Nombre       | Precio  | Stock | Entradas | Salidas | Total  |\n";
-        backup << "|-----|--------------|---------|-------|----------|---------|--------|\n";
-    }
-
+    } //Eliminacion tabla Kardex para ver en kardex_backup.txt
 
     cout << "==================================================================\n";
     cout << "| KARDEX GENERAL - INVENTARIO COMPLETO                         |\n";
@@ -63,12 +57,19 @@ void Inventario::mostrarInventarioGeneral() {
     cout << "| Cod | Nombre       | Precio  | Stock | Entradas | Salidas | Total  |\n";
     cout << "|-----|--------------|---------|-------|----------|---------|--------|\n";
 
+   int numProductos = productos.size();
+   if(backup) {
+    backup.write(reinterpret_cast<const char*>(&numProductos), sizeof(numProductos));
+   }
+
+
+
     for (const auto& p : productos) {
 
         int entradas = 0;
         int salidas = 0;
 
-        ifstream bodega("bodega.txt");
+        ifstream bodega("bodega.bin");
         if (bodega.is_open()) {
             string linea;
             while (getline(bodega, linea)) {
@@ -105,30 +106,33 @@ void Inventario::mostrarInventarioGeneral() {
              << "$" << setw(6) << right << valorTotal << " |\n";
 
 
+
         if (backup) {
-            backup << "| " << setw(3) << left << p.codigo << " | "
-                  << setw(12) << left << p.nombre << " | "
-                  << setw(7) << right << p.precio << " | "
-                  << setw(5) << right << p.stock << " | "
-                  << setw(8) << right << entradas << " | "
-                  << setw(7) << right << salidas << " | "
-                  << "$" << setw(6) << right << valorTotal << " |\n";
+
+           size_t nombreLenght = p.nombre.size();
+            backup.write(reinterpret_cast<const char*>(&nombreLenght), sizeof(nombreLenght));
+
+
+            backup.write(reinterpret_cast<const char*>(&p.codigo), sizeof(p.codigo));
+            backup.write(reinterpret_cast<const char*>(&p.precio), sizeof(p.precio));
+            backup.write(reinterpret_cast<const char*>(&p.stock), sizeof(p.stock));
+            backup.write(reinterpret_cast<const char*>(&entradas), sizeof(entradas));
+            backup.write(reinterpret_cast<const char*>(&salidas), sizeof(salidas));
+            backup.write(reinterpret_cast<const char*>(&valorTotal), sizeof(valorTotal));
         }
     }
 
-
     cout << "==================================================================\n";
     if (backup) {
-        backup << "==================================================================\n";
         backup.close();
-        cout << "\nBackup generado en: kardex_backup.txt\n";
+        cout << "\nBackup generado en: kardex_backup.bin\n";
     }
 
-
-    cout << "\nOpciones:\n";
+ cout << "\nOpciones:\n";
     cout << "1. Agregar stock (Entrada)\n";
     cout << "2. Sacar stock (Salida)\n";
-    cout << "3. Volver al menu principal\n";
+    cout << "3. Agregar nuevo producto\n";
+    cout << "4. Volver al menu principal\n";
     cout << "Seleccione una opcion: ";
 
     int opcion;
@@ -142,11 +146,52 @@ void Inventario::mostrarInventarioGeneral() {
         cin >> cantidad;
 
         movimientoBodega(codigo, cantidad, opcion == 1);
-
-
         mostrarInventarioGeneral();
     }
+    else if (opcion == 3) {
 
+        system("cls");
+        cout << "=== AGREGAR NUEVO PRODUCTO ===" << endl;
+
+        int codigo, stock;
+        string nombre, tipo;
+        float precio;
+
+        cout << "Ingrese codigo del producto: ";
+        cin >> codigo;
+
+
+        if (buscarProducto(codigo) != nullptr) {
+            cout << "\nError: El codigo " << codigo << " ya existe en el inventario.\n";
+            system("pause");
+            mostrarInventarioGeneral();
+            return;
+        }
+
+        cin.ignore();
+        cout << "Ingrese nombre del producto: ";
+        getline(cin, nombre);
+
+        cout << "Ingrese precio unitario: ";
+        cin >> precio;
+
+        cout << "Ingrese cantidad inicial en stock: ";
+        cin >> stock;
+
+        cout << "Ingrese tipo de producto: ";
+        cin >> tipo;
+
+
+        productos.push_back(Producto(codigo, nombre, precio, stock, tipo));
+        guardarEnArchivo();
+
+
+        movimientoBodega(codigo, stock, true);
+
+        cout << "\nProducto agregado exitosamente!\n";
+        system("pause");
+        mostrarInventarioGeneral();
+    }
 
 }
 
@@ -175,7 +220,7 @@ void Inventario::mostrarInventarioPorTipo(string tipo) {
         int entradas = 0;
         int salidas = 0;
 
-        ifstream bodega("bodega.txt");
+        ifstream bodega("bodega.bin");
         if (bodega.is_open()) {
             string linea;
             while (getline(bodega, linea)) {
@@ -316,11 +361,17 @@ void Inventario::movimientoBodega(int codigo, int cantidad, bool esEntrada) {
         }
 
 
-        ofstream archivo("bodega.txt", ios::app);
+         ofstream archivo("bodega.bin", ios::binary | ios::app);
+
         if (archivo) {
-            archivo << p->codigo << "," << p->nombre << ","
-                    << (esEntrada ? "ENTRADA" : "SALIDA") << ","
-                    << cantidad << "," << p->stock << "\n";
+
+            archivo.write(reinterpret_cast<const char*>(&p->codigo), sizeof(p->codigo));
+            char tipoMovimiento = esEntrada ? 'E' : 'S';
+            archivo.write(&tipoMovimiento, sizeof(char));
+            archivo.write(reinterpret_cast<const char*>(&cantidad), sizeof(cantidad));
+            archivo.write(reinterpret_cast<const char*>(&p->stock), sizeof(p->stock));
+            time_t ahora = time(nullptr);
+            archivo.write(reinterpret_cast<const char*>(&ahora), sizeof(ahora));
         }
         archivo.close();
 
@@ -336,7 +387,7 @@ void Inventario::mostrarMovimientosBodega() {
     cout << "\n--- HISTORIAL DE MOVIMIENTOS DE BODEGA ---\n";
     cout << "Codigo\tNombre\tTipo\tCantidad\tStock\tFecha\n";
 
-    ifstream archivo("bodega.txt");
+    ifstream archivo("bodega.bin");
     if (!archivo) {
         cout << "No hay movimientos registrados." << endl;
         system("pause");
@@ -377,7 +428,7 @@ void Inventario::mostrarKardexBodega() {
 
     std::map<int, std::tuple<string, int, int, int, float>> resumen;
 
-    ifstream archivo("bodega.txt");
+    ifstream archivo("bodega.bin");
     if (archivo) {
         string linea;
         while (getline(archivo, linea)) {
