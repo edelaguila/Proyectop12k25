@@ -1,5 +1,7 @@
 #include "sistema.h"
 #include "Opciones.h"
+#include <iostream>
+#include <fstream>
 #include <conio.h>
 #include <limits>
 //Realizado por ANGEL ROQUEL

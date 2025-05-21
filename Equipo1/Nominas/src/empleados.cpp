@@ -655,6 +655,7 @@ void Empleados::calcularNominaMensual() {
 
     // Muestra el salario neto final que recibirá el empleado
     cout << "Salario neto a recibir: Q" << salarioNeto << endl;
+    system("pause");
 }
 // Calcula la nómina anual de un empleado
 void Empleados::calcularNominaAnual() {
