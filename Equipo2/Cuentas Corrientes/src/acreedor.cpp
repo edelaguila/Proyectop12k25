@@ -89,7 +89,7 @@ void acreedor::insertar()
             cout << "\t\t\tIngresa Banco del Acreedor  : ";
             cin >> banco;
 
-<<<<<<< HEAD
+
         cout << "\t\t\tIngresa ID Acreedor         : ";
         cin >> id;
         cout << "\t\t\tIngresa Nombre Acreedor     : ";
@@ -110,7 +110,7 @@ void acreedor::insertar()
         cout << "\t\t\tTelefono Acreedor  : " << telefono << endl;
         cout << "\t\t\tNumero de Cuenta   : " << numCuenta << endl;
         cout << "\t\t\tBanco              : " << banco << endl;
-=======
+
             cout << "\nResumen de la información ingresada:\n";
             cout << "\t\t\tID Acreedor        : " << id << endl;
             cout << "\t\t\tNombre Acreedor    : " << nombreAcreedor << endl;
@@ -120,7 +120,6 @@ void acreedor::insertar()
 
             cout << "\n Esta seguro de guardar esta informacion? (S/N): ";
             cin >> confirmar;
->>>>>>> 6b3126d8dbb89452cf7d42a6bbe50e7c91e3e9b0
 
             if (confirmar == 's' || confirmar == 'S') {
                 file.open("acreedor.bin", ios::binary | ios::app | ios::out);
@@ -128,7 +127,6 @@ void acreedor::insertar()
                 file.write((char*)this, sizeof(acreedor));
                 file.close();
 
-<<<<<<< HEAD
         if (confirmar == 's' || confirmar == 'S') {
             file.open("acreedor.txt", ios::app | ios::out);
             file << left << setw(15) << id
@@ -138,14 +136,13 @@ void acreedor::insertar()
                  << left << setw(15) << numCuenta
                  << left << setw(15) << banco << "\n";
             file.close();
-=======
+
                 bitacora auditoria;
                 auditoria.insertar(usuariosrRegistrado.getNombre(), "8040", "INA");
                 cout << "\nAcreedor guardado correctamente.\n";
             } else {
                 cout << "\nVolvamos a ingresar los datos...\n";
             }
->>>>>>> 6b3126d8dbb89452cf7d42a6bbe50e7c91e3e9b0
 
         } while (confirmar != 's' && confirmar != 'S');
     } catch (const exception& e) {
@@ -165,7 +162,7 @@ void acreedor::desplegar()
         cout<<"\n\t\t\tNo hay informacion...\n";
     }
     else {
-<<<<<<< HEAD
+
         file >> id >> nombreAcreedor >> nitAcreedor >> telefono >> numCuenta >> banco;
         while(!file.eof()) {
             total++;
@@ -177,7 +174,7 @@ void acreedor::desplegar()
             cout<<"\t\t\t Banco Acreedor     : "<<banco<<endl;
 
             file >> id >> nombreAcreedor >> nitAcreedor >> telefono >> numCuenta >> banco;
-=======
+
         while(file.read((char*)this, sizeof(acreedor))) {
             total++;
             cout<<"\n\t\t\t ID Acreedor        : "<<id<<endl;
@@ -185,7 +182,7 @@ void acreedor::desplegar()
             cout<<"\t\t\t Telefono Acreedor  : "<<telefono<<endl;
             cout<<"\t\t\t Num.Cuenta Acreedor: "<<numCuenta<<endl;
             cout<<"\t\t\t Banco Acreedor     : "<<banco<<endl;
->>>>>>> 6b3126d8dbb89452cf7d42a6bbe50e7c91e3e9b0
+
         }
         if(total==0){
             cout<<"\n\t\t\tNo hay informacion...";
@@ -215,7 +212,7 @@ void acreedor::modificar()
         cin>>acreedor_id;
         tempFile.open("temporal.bin", ios::binary | ios::out);
 
-<<<<<<< HEAD
+
         file >> id >> nombreAcreedor >> nitAcreedor >> telefono >> numCuenta >> banco;
 
         while(!file.eof())
@@ -223,11 +220,11 @@ void acreedor::modificar()
             if(acreedor_id != id) {
                 file1<<left<<setw(15)<< id << left<<setw(15)<< nombreAcreedor << left<<setw(15)<< nitAcreedor <<left<<setw(15)<< telefono <<left << setw(15)
                 << numCuenta << left << setw(15)<< banco << "\n";
-=======
+
         while(file.read((char*)this, sizeof(acreedor))) {
             if(acreedor_id != id) {
                 tempFile.write((char*)this, sizeof(acreedor));
->>>>>>> 6b3126d8dbb89452cf7d42a6bbe50e7c91e3e9b0
+
             }
             else {
                 cout<<"\t\t\tIngrese Id Acreedor        : ";
@@ -243,7 +240,7 @@ void acreedor::modificar()
                 cout<<"\t\t\tIngrese Banco Acreedor     : ";
                 cin>>banco;
 
-<<<<<<< HEAD
+
                 file1<<left<<setw(15)<< id << left<<setw(15)<< nombreAcreedor  << left<<setw(15)<< nitAcreedor <<left<<setw(15)<< telefono <<left << setw(15)
                 << numCuenta << left << setw(15)<< banco << "\n";
                 found++;
@@ -253,11 +250,11 @@ void acreedor::modificar()
         if(found==0){
             cout<<"\n\t\t\tAcreedor no encontrado...";
             system("pause");
-=======
+
                 tempFile.write((char*)this, sizeof(acreedor));
                 found++;
             }
->>>>>>> 6b3126d8dbb89452cf7d42a6bbe50e7c91e3e9b0
+
         }
 
         file.close();
@@ -293,10 +290,9 @@ void acreedor::buscar()
         string acreedor_id;
         cout<<"\nIngrese ID del Acreedor que quiere buscar : ";
         cin>>acreedor_id;
-<<<<<<< HEAD
+
         file>> id >> nombreAcreedor >> nitAcreedor >> telefono >> numCuenta >> banco;
-=======
->>>>>>> 6b3126d8dbb89452cf7d42a6bbe50e7c91e3e9b0
+
 
         while(file.read((char*)this, sizeof(acreedor))) {
             if(acreedor_id==id) {
@@ -309,10 +305,9 @@ void acreedor::buscar()
                 found++;
                 break;
             }
-<<<<<<< HEAD
+
             file >> id >> nombreAcreedor >> nombreAcreedor >> telefono >> numCuenta >> banco;
-=======
->>>>>>> 6b3126d8dbb89452cf7d42a6bbe50e7c91e3e9b0
+
         }
 
         if(found==0){
@@ -342,7 +337,7 @@ void acreedor::borrar()
     else {
         cout<<"\n Ingrese el Id del Acreedor que quiere borrar: ";
         cin>>acreedor_id;
-<<<<<<< HEAD
+
         file1.open("temporal.txt",ios::app | ios::out);
         file >> id >> nombreAcreedor >> telefono >> numCuenta >> banco;
         while(!file.eof()) {
@@ -350,7 +345,7 @@ void acreedor::borrar()
                 file1<<left<<setw(15)<< id << left<<setw(15)<< nombreAcreedor left<<setw(15) << nitAcreedor <<left<<setw(15)<< telefono <<left << setw(15)
                 << numCuenta << left << setw(15)<< banco << "\n";
             } else {
-=======
+
         tempFile.open("temporal.bin", ios::binary | ios::out);
 
         while(file.read((char*)this, sizeof(acreedor))) {
@@ -358,14 +353,13 @@ void acreedor::borrar()
                 tempFile.write((char*)this, sizeof(acreedor));
             }
             else {
->>>>>>> 6b3126d8dbb89452cf7d42a6bbe50e7c91e3e9b0
+
                 found++;
                 cout << "\nAcreedor borrado exitosamente\n";
             }
-<<<<<<< HEAD
+
             file >> id >> nombreAcreedor >> nitAcreedor >>telefono >> numCuenta >> banco;
-=======
->>>>>>> 6b3126d8dbb89452cf7d42a6bbe50e7c91e3e9b0
+
         }
 
         file.close();

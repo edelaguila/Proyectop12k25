@@ -1,4 +1,4 @@
-// clase para mantenimiento Factura Dulce Reyes
+// clase para mantenimiento Factura Dulce Rocio Reyes 9959-24-684
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -6,12 +6,17 @@
 #include <algorithm>
 #include <ctime>
 #include <vector>
+#include <sstream>
 #include "factura.h"
 #include "utilidades.h"
+#include "bitacora.h"
+#include "usuarios.h"
 
 using namespace std;
 
-// Función para obtener fecha actual en formato DD/MM/AAAA
+extern usuarios usuariosrRegistrado;
+
+// Devuelve la fecha actual con el formato DD/MM/YYYY
 string obtenerFechaActual() {
     time_t now = time(0);
     tm *ltm = localtime(&now);
@@ -19,15 +24,13 @@ string obtenerFechaActual() {
     strftime(buffer, 80, "%d/%m/%Y", ltm);
     return string(buffer);
 }
-
-// Función para formatear montos con Q y 2 decimales
+// Convierte un número a una cadena con formato monetario, por ejemplo Q1250.50
 string formatearMonto(double monto) {
     stringstream ss;
     ss << "Q" << fixed << setprecision(2) << monto;
     return ss.str();
 }
-
-// Función para obtener la hora actual
+// Devuelve la hora actual con formato HH:MM:SS
 string obtenerHoraActual() {
     time_t now = time(0);
     tm *ltm = localtime(&now);
@@ -35,77 +38,55 @@ string obtenerHoraActual() {
     strftime(buffer, 80, "%H:%M:%S", ltm);
     return string(buffer);
 }
-
-// Validar formato de fecha (DD/MM/AAAA)
+// Valida que una fecha ingresada tenga el formato correcto y sea una fecha razonable
 bool validarFecha(const string& fecha) {
     if (fecha.length() != 10) return false;
     if (fecha[2] != '/' || fecha[5] != '/') return false;
-
     int dia = stoi(fecha.substr(0, 2));
     int mes = stoi(fecha.substr(3, 2));
     int anio = stoi(fecha.substr(6, 4));
-
-    return (dia >= 1 && dia <= 31) &&
-           (mes >= 1 && mes <= 12) &&
-           (anio >= 2000 && anio <= 2100);
+    return (dia >= 1 && dia <= 31) && (mes >= 1 && mes <= 12) && (anio >= 2000 && anio <= 2100);
 }
-
-// Función para registrar factura por tipo (Cliente, Acreedor, Proveedor)
+// Permite registrar una nueva factura según el tipo de entidad (Cliente, Proveedor,
 void registrarFacturaPorTipo(const string& tipo) {
     Factura f;
-    ofstream archivo("facturas.bin", ios::binary);
-
-    string idBuscar;
-    string nombreCliente = "", nitCliente = "";
-
+    ofstream archivo("facturas.bin", ios::app);
+    string idBuscar, nombreCliente = "", nitCliente = "";
     cout << "\n--- REGISTRAR FACTURA (" << tipo << ") ---\n";
-
-    // Solicitar ID
     cout << "Ingrese ID del " << tipo << ": ";
     cin >> idBuscar;
 
-    // Buscar datos según tipo
+    // Buscar los datos del cliente/proveedor/acreedor según su tipo
     bool encontrado = false;
-
-    if (tipo == "Cliente") {
-        encontrado = obtenerDatosClientePorID(idBuscar, nombreCliente, nitCliente);
-    }
-    else if (tipo == "Acreedor") {
-        encontrado = obtenerDatosAcreedorPorID(idBuscar, nombreCliente, nitCliente);
-    }
-    else if (tipo == "Proveedor") {
-        encontrado = obtenerDatosProveedorPorID(idBuscar, nombreCliente, nitCliente);
-    }
-
+    if (tipo == "Cliente") encontrado = obtenerDatosClientePorID(idBuscar, nombreCliente, nitCliente);
+    else if (tipo == "Acreedor") encontrado = obtenerDatosAcreedorPorID(idBuscar, nombreCliente, nitCliente);
+    else if (tipo == "Proveedor") encontrado = obtenerDatosProveedorPorID(idBuscar, nombreCliente, nitCliente);
     if (!encontrado) {
         cout << tipo << " no encontrado. No se puede registrar la factura.\n";
         pausar();
         return;
     }
-
-    // Código
+     // Ingreso y validación del código de factura
     cout << "Código de factura: ";
     while (!(cin >> f.codigo) || f.codigo <= 0) {
         limpiarEntrada();
         cout << "Error: Ingrese un código válido (número positivo): ";
     }
     cin.ignore();
-
-    // Monto
+    // Ingreso y validación del monto
     cout << "Monto (ejemplo: 1250.50): ";
     while (!(cin >> f.monto) || f.monto <= 0) {
         limpiarEntrada();
-        cout << "Error: Ingrese un monto válido (ejemplo: 1500.75): ";
+        cout << "Error: Ingrese un monto válido: ";
     }
     cin.ignore();
-
-    // Fecha y hora
+    // Generación automática de fecha y hora
     f.fecha = obtenerFechaActual();
     f.hora = obtenerHoraActual();
     f.tipo = tipo;
     f.tipoOperacion = (tipo == "Cliente") ? "Por cobrar" : "Por pagar";
-
-    // Estado
+    f.saldoPendiente = f.monto;
+    // Estado: pendiente o solvente
     cout << "Estado (1. Pendiente / 2. Solvente): ";
     int op;
     while (!(cin >> op) || (op != 1 && op != 2)) {
@@ -114,20 +95,17 @@ void registrarFacturaPorTipo(const string& tipo) {
     }
     f.estado = (op == 1) ? "Pendiente" : "Solvente";
     cin.ignore();
-
-    // Guardar en archivo
+    // Guardar los datos en el archivo binario (como texto plano separado por comas)
     archivo << f.codigo << "," << nombreCliente << "," << nitCliente << ","
             << fixed << setprecision(2) << f.monto << ","
             << f.fecha << "," << f.hora << ","
-            << f.tipo << "," << f.tipoOperacion << "," << f.estado << endl;
-
+            << f.tipo << "," << f.tipoOperacion << ","
+            << f.estado << "," << fixed << setprecision(2) << f.saldoPendiente << endl;
     archivo.close();
-
     cout << "\nFactura registrada con éxito.\n";
     pausar();
 }
-
-// Función para mostrar facturas
+// Muestra todas las facturas registradas de un tipo específico
 void mostrarFacturasPorTipo(const string& tipo) {
     ifstream archivo("facturas.bin");
     if (!archivo) {
@@ -135,56 +113,41 @@ void mostrarFacturasPorTipo(const string& tipo) {
         pausar();
         return;
     }
-
-    vector<Factura> facturas;
     string linea;
-    double totalMonto = 0.0;  // 👉 Variable para acumular el total
-
-    // Leer y filtrar facturas
+    cout << left << setw(8) << "Código" << setw(25) << "Nombre" << setw(15) << "NIT"
+         << setw(15) << "Monto" << setw(12) << "Fecha" << setw(10) << "Hora"
+         << setw(15) << "Operación" << setw(12) << "Estado" << setw(18) << "Saldo Pendiente" << endl;
+    cout << string(135, '-') << endl;
     while (getline(archivo, linea)) {
         stringstream ss(linea);
         string campo;
         Factura f;
-
         string nombreCliente, nitCliente;
-
-        getline(ss, campo, ',');
-        f.codigo = stoi(campo);
+        getline(ss, campo, ','); f.codigo = stoi(campo);
         getline(ss, nombreCliente, ',');
         getline(ss, nitCliente, ',');
-
-        getline(ss, campo, ',');
-        f.monto = stod(campo);
-
+        getline(ss, campo, ','); f.monto = stod(campo);
         getline(ss, f.fecha, ',');
         getline(ss, f.hora, ',');
         getline(ss, f.tipo, ',');
         getline(ss, f.tipoOperacion, ',');
-        getline(ss, f.estado);
-
+        getline(ss, f.estado, ',');
+        getline(ss, campo); f.saldoPendiente = stod(campo);
         if (f.tipo == tipo) {
-            cout << left
-                 << setw(8) << f.codigo
-                 << setw(25) << (nombreCliente.substr(0, 22) + (nombreCliente.length() > 22 ? "..." : ""))
+            cout << left << setw(8) << f.codigo
+                 << setw(25) << nombreCliente
                  << setw(15) << nitCliente
                  << setw(15) << formatearMonto(f.monto)
                  << setw(12) << f.fecha
                  << setw(10) << f.hora
                  << setw(15) << f.tipoOperacion
-                 << setw(12) << f.estado << endl;
-
-            totalMonto += f.monto;  // 👉 Sumar monto
+                 << setw(12) << f.estado
+                 << setw(18) << formatearMonto(f.saldoPendiente) << endl;
         }
     }
-
     archivo.close();
-
-    // 👉 Mostrar total
-    cout << "\nTotal de montos (" << tipo << "): " << formatearMonto(totalMonto) << "\n";
-
     pausar();
 }
-
 
 // Función para modificar facturas
 void modificarFacturaPorTipo(const string& tipo) {
@@ -290,12 +253,13 @@ void modificarFacturaPorTipo(const string& tipo) {
                     break;
             }
 
+            f.saldoPendiente=f.monto;
             f.hora = obtenerHoraActual();
             stringstream nuevaLinea;
             nuevaLinea << f.codigo << "," << nombreCliente << "," << nitCliente << ","
                        << fixed << setprecision(2) << f.monto << ","
                        << f.fecha << "," << f.hora << ","
-                       << f.tipo << "," << f.tipoOperacion << "," << f.estado;
+                       << f.tipo << "," << f.tipoOperacion << "," << f.estado << f.saldoPendiente;
             linea = nuevaLinea.str();
             modificado = true;
             cout << "\n Factura modificada.\n";
@@ -409,7 +373,7 @@ void menuFacturaCliente() {
         cout << "\tSeleccione: ";
 
         cin >> opcion;
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
 
         switch (opcion) {
             case 1: registrarFacturaPorTipo("Cliente"); break;
@@ -438,7 +402,7 @@ void menuFacturaProveedor() {
         cout << "\tSeleccione: ";
 
         cin >> opcion;
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
 
         switch (opcion) {
             case 1: registrarFacturaPorTipo("Proveedor"); break;
@@ -467,7 +431,7 @@ void menuFacturaAcreedor() {
         cout << "\tSeleccione: ";
 
         cin >> opcion;
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
 
         switch (opcion) {
             case 1: registrarFacturaPorTipo("Acreedor"); break;
@@ -493,35 +457,36 @@ void menuReporteFactura() {
 
     // Encabezado del reporte
     cout << "\n\t\tREPORTE GENERAL DE FACTURAS\n";
-    cout << "\t\t==========================\n\n";
+    cout << "\t\t" << string(30, '=') << "\n\n";
 
     cout << left
-         << setw(8) << "Código"
+         << setw(8)  << "Codigo"
          << setw(25) << "Nombre"
          << setw(15) << "NIT"
          << setw(15) << "Monto"
          << setw(12) << "Fecha"
          << setw(10) << "Hora"
          << setw(15) << "Tipo"
-         << setw(15) << "Operación"
-         << setw(12) << "Estado" << endl;
+         << setw(15) << "Operacion"
+         << setw(15) << "Estado"
+         << setw(15) << "SaldoPendiente" << endl;
 
-    cout << string(120, '-') << endl;
+    cout << string(148, '-') << endl;
 
     string linea;
     int totalFacturas = 0;
+    double totalRegistrado = 0.0;
+    double totalPagado = 0.0;
+    double totalSaldoPendiente = 0.0;
 
-    // Leer todas las facturas
     while (getline(archivo, linea)) {
         stringstream ss(linea);
         string campo;
 
-        // Variables para almacenar los datos
         int codigo;
-        string nombre, nit, fecha, hora, tipo, tipoOperation, estado;
+        string nombre, nit, fecha, hora, tipo, tipoOperacion, estado;
         double monto;
 
-        // Leer cada campo separado por comas
         getline(ss, campo, ',');
         codigo = stoi(campo);
 
@@ -530,90 +495,115 @@ void menuReporteFactura() {
 
         getline(ss, campo, ',');
         monto = stod(campo);
+        totalRegistrado += monto;
 
         getline(ss, fecha, ',');
         getline(ss, hora, ',');
         getline(ss, tipo, ',');
-        getline(ss, tipoOperation, ',');
+        getline(ss, tipoOperacion, ',');
         getline(ss, estado);
 
-        // Mostrar la factura
+        double saldoPendiente = (estado == "Solvente") ? 0.0 : monto;
+        if (estado == "Solvente") {
+            totalPagado += monto;
+        } else {
+            totalSaldoPendiente += monto;
+        }
+
         cout << left
-             << setw(8) << codigo
+             << setw(8)  << codigo
              << setw(25) << (nombre.substr(0, 22) + (nombre.length() > 22 ? "..." : ""))
              << setw(15) << nit
              << setw(15) << formatearMonto(monto)
              << setw(12) << fecha
              << setw(10) << hora
              << setw(15) << tipo
-             << setw(15) << tipoOperation
-             << setw(12) << estado << endl;
+             << setw(15) << tipoOperacion
+             << setw(15) << estado
+             << setw(15) << formatearMonto(saldoPendiente) << endl;
 
         totalFacturas++;
     }
 
     archivo.close();
 
-    cout << "\n\t\tTotal de facturas registradas: " << totalFacturas << endl;
+    cout << "\n" << string(148, '-') << endl;
+    cout << fixed << setprecision(2);
+    cout << "\n\t\tTotal de facturas registradas : " << totalFacturas << endl;
+    cout << "\t\tTotal registrado               : Q" << totalRegistrado << endl;
+    cout << "\t\tTotal pagado                   : Q" << totalPagado << endl;
+    cout << "\t\tSaldo pendiente                : Q" << totalSaldoPendiente << endl;
 
-    // Opción para guardar en archivo
-    cout << "\n\t\t¿Desea guardar este reporte en un archivo? (S/N): ";
+    // Guardar en archivo
+    cout << "\n\t\tDesea guardar este reporte en un archivo? (S/N): ";
     char opcion;
     cin >> opcion;
 
     if (toupper(opcion) == 'S') {
         ofstream reporteFile("reporte_facturas.txt");
-
         if (reporteFile) {
             reporteFile << "REPORTE GENERAL DE FACTURAS\n";
-            reporteFile << "===========================\n\n";
+            reporteFile << string(30, '=') << "\n\n";
 
             reporteFile << left
-                       << setw(8) << "Código"
-                       << setw(25) << "Nombre"
-                       << setw(15) << "NIT"
-                       << setw(15) << "Monto"
-                       << setw(12) << "Fecha"
-                       << setw(10) << "Hora"
-                       << setw(15) << "Tipo"
-                       << setw(15) << "Operación"
-                       << setw(12) << "Estado" << endl;
+                        << setw(8)  << "Codigo"
+                        << setw(25) << "Nombre"
+                        << setw(15) << "NIT"
+                        << setw(15) << "Monto"
+                        << setw(12) << "Fecha"
+                        << setw(10) << "Hora"
+                        << setw(15) << "Tipo"
+                        << setw(15) << "Operacion"
+                        << setw(15) << "Estado"
+                        << setw(15) << "SaldoPendiente" << endl;
 
-            reporteFile << string(120, '-') << endl;
+            reporteFile << string(148, '-') << endl;
 
-            // Volver a leer el archivo para guardar en el reporte
             ifstream archivo2("facturas.bin");
             while (getline(archivo2, linea)) {
                 stringstream ss(linea);
                 string campo;
 
-                getline(ss, campo, ',');
-                int codigo = stoi(campo);
+                int codigo;
+                string nombre, nit, fecha, hora, tipo, tipoOperacion, estado;
+                double monto;
 
-                string nombre, nit, fecha, hora, tipo, tipoOperation, estado;
+                getline(ss, campo, ',');
+                codigo = stoi(campo);
+
                 getline(ss, nombre, ',');
                 getline(ss, nit, ',');
 
                 getline(ss, campo, ',');
-                double monto = stod(campo);
+                monto = stod(campo);
 
                 getline(ss, fecha, ',');
                 getline(ss, hora, ',');
                 getline(ss, tipo, ',');
-                getline(ss, tipoOperation, ',');
+                getline(ss, tipoOperacion, ',');
                 getline(ss, estado);
 
+                double saldoPendiente = (estado == "Solvente") ? 0.0 : monto;
+
                 reporteFile << left
-                           << setw(8) << codigo
-                           << setw(25) << nombre
-                           << setw(15) << nit
-                           << setw(15) << formatearMonto(monto)
-                           << setw(12) << fecha
-                           << setw(10) << hora
-                           << setw(15) << tipo
-                           << setw(15) << tipoOperation
-                           << setw(12) << estado << endl;
+                            << setw(8)  << codigo
+                            << setw(25) << nombre
+                            << setw(15) << nit
+                            << setw(15) << formatearMonto(monto)
+                            << setw(12) << fecha
+                            << setw(10) << hora
+                            << setw(15) << tipo
+                            << setw(15) << tipoOperacion
+                            << setw(15) << estado
+                            << setw(15) << formatearMonto(saldoPendiente) << endl;
             }
+
+            reporteFile << "\n" << string(148, '-') << endl;
+            reporteFile << fixed << setprecision(2);
+            reporteFile << "\nTotal de facturas registradas : " << totalFacturas << endl;
+            reporteFile << "Total registrado               : Q" << totalRegistrado << endl;
+            reporteFile << "Total pagado                   : Q" << totalPagado << endl;
+            reporteFile << "Saldo pendiente                : Q" << totalSaldoPendiente << endl;
 
             archivo2.close();
             reporteFile.close();
@@ -624,7 +614,9 @@ void menuReporteFactura() {
         }
     }
 
+    // Bitácora
+    bitacora auditoria;
+    auditoria.insertar(usuariosrRegistrado.getNombre(), "8050", "RPF"); // Reporte Factura
+
     system("pause");
-
-
 }

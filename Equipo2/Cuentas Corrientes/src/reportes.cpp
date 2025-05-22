@@ -3,6 +3,7 @@
 
 //Clases con informes
 #include "pago.h"
+#include "factura.h"
 //...otros
 
 using namespace std;
@@ -51,4 +52,39 @@ void reportes::menuInformes() {
                 system("pause");
         }
     } while (opcion != 6);
+}
+
+void reportes::menuFactura() {
+    menuReporteFactura;
+
+    int opcion;
+    do {
+        system("cls");
+        cout << "\n\t\tMenu de Facturas" << endl;
+        cout << "\t\t-----------------------------" << endl;
+        cout << "\t\t1. Factura de Cliente" << endl;
+        cout << "\t\t2. Factura de Proveedor" << endl;
+        cout << "\t\t3. Factura de Acreedor" << endl;
+        cout << "\t\t4. Reportes Factura " << endl;
+        cout << "\t\t5. Volver al menu anterior" << endl;
+        cout << "\n\t\tSeleccione una opción: ";
+        cin >> opcion;
+
+        switch (opcion) {
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                menuReporteFactura();
+                break;
+            case 5:
+                break;
+            default:
+                cout << "\t\tOpción inválida." << endl;
+                system("pause");
+        }
+    } while (opcion != 5);
 }
