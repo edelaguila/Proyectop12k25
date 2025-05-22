@@ -19,7 +19,15 @@ void mostrarMenuArchivo(const string& usuario) {
     cout << "Seleccione una opción: ";
 }
 
+<<<<<<< HEAD
 void MenuArchivo::menuArchivo() {
+=======
+<<<<<<< HEAD
+void menuArchivo() {
+=======
+void MenuArchivo::menuArchivo() {
+>>>>>>> 41f2e196da09c1d14a34796eb802d3d5d105e72b
+>>>>>>> 042ee62d5f1aa9ff7462cda7db36b88e7c7bb978
     string usuario = Bitacora::obtenerUsuarioActual();
     int opcion;
 
@@ -31,7 +39,14 @@ void MenuArchivo::menuArchivo() {
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cout << "Entrada inválida. Por favor ingrese un número: ";
         }
+<<<<<<< HEAD
         cin.ignore();
+=======
+<<<<<<< HEAD
+=======
+        cin.ignore();
+>>>>>>> 41f2e196da09c1d14a34796eb802d3d5d105e72b
+>>>>>>> 042ee62d5f1aa9ff7462cda7db36b88e7c7bb978
 
         switch(opcion) {
             case 1:

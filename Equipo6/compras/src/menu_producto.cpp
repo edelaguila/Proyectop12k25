@@ -6,7 +6,15 @@
 
 using namespace std;
 
+<<<<<<< HEAD
 void MenuProducto::mostrarMenuProducto() {
+=======
+<<<<<<< HEAD
+void mostrarMenuProducto() {
+=======
+void MenuProducto::mostrarMenuProducto() {
+>>>>>>> 41f2e196da09c1d14a34796eb802d3d5d105e72b
+>>>>>>> 042ee62d5f1aa9ff7462cda7db36b88e7c7bb978
     int opcion;
     do {
         string usuario = MenuGeneral::getUsuarioActual();
@@ -32,6 +40,7 @@ void MenuProducto::mostrarMenuProducto() {
         }
         cin.ignore();
 
+<<<<<<< HEAD
         switch (opcion) {
             case 1:
                 system("cls");
@@ -57,4 +66,38 @@ void MenuProducto::mostrarMenuProducto() {
                 cout << "Opción inválida. Intente de nuevo.\n";
         }
     } while (opcion != 5);
+=======
+<<<<<<< HEAD
+        switch(opcion) {
+            case 1: ingresarProducto(); break;
+            case 2: consultarProductos(); break;
+            case 3: modificarProducto(); break;
+            case 4: borrarProducto(); break;
+            case 5: cout << "Volviendo...\n"; break;
+            default: cerr << "Opción inválida\n";
+        }
+    } while(opcion != 5);
+=======
+        switch (opcion) {
+            case 1:
+                Producto::ingresarProducto();
+                break;
+            case 2:
+                Producto::consultarProductos();
+                break;
+            case 3:
+                Producto::modificarProducto();
+                break;
+            case 4:
+                Producto::borrarProducto();
+                break;
+            case 5:
+                cout << "Volviendo al menú principal...\n";
+                break;
+            default:
+                cout << "Opción inválida. Intente de nuevo.\n";
+        }
+    } while (opcion != 5);
+>>>>>>> 41f2e196da09c1d14a34796eb802d3d5d105e72b
+>>>>>>> 042ee62d5f1aa9ff7462cda7db36b88e7c7bb978
 }

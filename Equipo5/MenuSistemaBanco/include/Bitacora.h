@@ -1,20 +1,14 @@
+//Boris de León 9959-24-6203
 #ifndef BITACORA_H
 #define BITACORA_H
-#include<iostream>
 
-using std::string;
-
-class bitacora
-{
-    public:
-        void menu();
-        void insertar(string nombre, string aplicacion, string accion);
-        void desplegar();
-    protected:
-
-    private:
-		string nombre, aplicacion, accion;
-
+#include <string>
+using namespace std;
+class Bitacora {
+public:
+    void insertar(const string& usuario, int codigo, const string& aplicacion, const string& accion);
+    void mostrar();
+    void menuBitacora();
 };
-#endif // BITACORA_H
 
+#endif

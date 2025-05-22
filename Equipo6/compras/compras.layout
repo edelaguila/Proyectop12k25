@@ -2,7 +2,12 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
+<<<<<<< HEAD
 	<File name="src\menu_archivo.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+=======
+<<<<<<< HEAD
+	<File name="include\compras.h" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+>>>>>>> 042ee62d5f1aa9ff7462cda7db36b88e7c7bb978
 		<Cursor>
 			<Cursor1 position="0" topLine="42" />
 		</Cursor>
@@ -12,9 +17,42 @@
 			<Cursor1 position="6942" topLine="208" />
 		</Cursor>
 	</File>
+<<<<<<< HEAD
 	<File name="include\usuario.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="406" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\menu_producto.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1175" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="include\compras.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+=======
+	<File name="main.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+=======
+	<File name="src\menu_archivo.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+>>>>>>> 41f2e196da09c1d14a34796eb802d3d5d105e72b
+		<Cursor>
+			<Cursor1 position="0" topLine="42" />
+		</Cursor>
+	</File>
+<<<<<<< HEAD
+	<File name="src\usuario.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+>>>>>>> 042ee62d5f1aa9ff7462cda7db36b88e7c7bb978
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+=======
+	<File name="src\producto.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="6942" topLine="208" />
+		</Cursor>
+	</File>
+	<File name="include\usuario.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="406" topLine="0" />
+>>>>>>> 41f2e196da09c1d14a34796eb802d3d5d105e72b
 		</Cursor>
 	</File>
 	<File name="src\menu_producto.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
