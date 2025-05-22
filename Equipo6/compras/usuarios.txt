@@ -4,3 +4,6 @@ andre,5678
 andre,mama45
 Emilio,1234
 Emilio,12345
+andre|12345
+Emilio |1234
+Emilio|54321

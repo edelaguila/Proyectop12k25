@@ -4,19 +4,12 @@
 #include <iostream>
 #include <iomanip>
 #include <ctime>
-<<<<<<< HEAD
 #include <cstring>  // Incluido para strncpy
 #include "utils.h"
 
 using namespace std;
 
 const string Bitacora::ARCHIVO_BITACORA = "bitacora.dat";
-=======
-
-using namespace std;
-
-const string Bitacora::ARCHIVO_BITACORA = "bitacora.txt";
->>>>>>> 042ee62d5f1aa9ff7462cda7db36b88e7c7bb978
 string Bitacora::usuarioActual = "";
 
 // Mapa completo de descripciones de códigos de acción
@@ -91,7 +84,6 @@ const map<int, string> DESCRIPCIONES_CODIGOS = {
     {CodigosAccion::ADVERTENCIA_SEGURIDAD, "Advertencia de seguridad"}
 };
 
-<<<<<<< HEAD
 struct RegistroBitacora {
     char fechaHora[20];       // Formato: YYYY-MM-DD HH:MM:SS
     char usuario[50];         // Nombre de usuario
@@ -99,8 +91,6 @@ struct RegistroBitacora {
     char descripcion[200];    // Descripción detallada
 };
 
-=======
->>>>>>> 042ee62d5f1aa9ff7462cda7db36b88e7c7bb978
 string Bitacora::obtenerDescripcionCodigo(int codigo) {
     auto it = DESCRIPCIONES_CODIGOS.find(codigo);
     return (it != DESCRIPCIONES_CODIGOS.end()) ? it->second : "Código no reconocido";
@@ -108,7 +98,6 @@ string Bitacora::obtenerDescripcionCodigo(int codigo) {
 
 void Bitacora::registrarAccion(const string& usuario, int codigoAccion, const string& descripcion) {
     usuarioActual = usuario;
-<<<<<<< HEAD
 
     // Crear estructura de registro
     RegistroBitacora registro;
@@ -134,14 +123,6 @@ void Bitacora::registrarAccion(const string& usuario, int codigoAccion, const st
     ofstream archivo(ARCHIVO_BITACORA, ios::binary | ios::app);
     if (archivo.is_open()) {
         archivo.write(reinterpret_cast<const char*>(&registro), sizeof(RegistroBitacora));
-=======
-    ofstream archivo(ARCHIVO_BITACORA, ios::app);
-    if (archivo.is_open()) {
-        archivo << obtenerFechaHoraActual() << " | "
-                << "Usuario: " << usuario << " | "
-                << "Código: " << codigoAccion << " (" << obtenerDescripcionCodigo(codigoAccion) << ") | "
-                << "Detalles: " << descripcion << endl;
->>>>>>> 042ee62d5f1aa9ff7462cda7db36b88e7c7bb978
         archivo.close();
     } else {
         cerr << "Error: No se pudo abrir el archivo de bitácora para escritura." << endl;
@@ -149,7 +130,6 @@ void Bitacora::registrarAccion(const string& usuario, int codigoAccion, const st
 }
 
 void Bitacora::mostrarBitacora() {
-<<<<<<< HEAD
     ifstream archivo(ARCHIVO_BITACORA, ios::binary);
     if (archivo.is_open()) {
         cout << "\n=== CONTENIDO DE LA BITÁCORA ===" << endl;
@@ -165,14 +145,6 @@ void Bitacora::mostrarBitacora() {
                  << "Código: " << registro.codigoAccion
                  << " (" << obtenerDescripcionCodigo(registro.codigoAccion) << ") | "
                  << "Detalles: " << descripcionDescifrada << endl;
-=======
-    ifstream archivo(ARCHIVO_BITACORA);
-    if (archivo.is_open()) {
-        cout << "\n=== CONTENIDO DE LA BITÁCORA ===" << endl;
-        string linea;
-        while (getline(archivo, linea)) {
-            cout << linea << endl;
->>>>>>> 042ee62d5f1aa9ff7462cda7db36b88e7c7bb978
         }
         cout << "=== FIN DE LA BITÁCORA ===" << endl;
         archivo.close();

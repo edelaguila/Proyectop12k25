@@ -9,20 +9,6 @@
 
 using namespace std;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-// Función XOR para encriptar/desencriptar
-string xorEncryptDecrypt(const string& texto, char clave = 'K') {
-    string resultado = texto;
-    for (char& c : resultado) {
-        c ^= clave;
-    }
-    return resultado;
-}
-
->>>>>>> 042ee62d5f1aa9ff7462cda7db36b88e7c7bb978
 // Constructor por defecto
 Cliente::Cliente() : id(""), nombre(""), telefono(""), email("") {}
 
@@ -51,10 +37,6 @@ void Cliente::mostrar() const {
 }
 
 // Generador de ID
-<<<<<<< HEAD
-=======
->>>>>>> 41f2e196da09c1d14a34796eb802d3d5d105e72b
->>>>>>> 042ee62d5f1aa9ff7462cda7db36b88e7c7bb978
 string generarIdCliente() {
     static int counter = 0;
     stringstream ss;
@@ -62,11 +44,7 @@ string generarIdCliente() {
     return ss.str();
 }
 
-<<<<<<< HEAD
 // Guardar en archivo binario con cifrado
-=======
-<<<<<<< HEAD
->>>>>>> 042ee62d5f1aa9ff7462cda7db36b88e7c7bb978
 void guardarClientes(const vector<Cliente>& clientes) {
     ofstream archivo("clientes.dat", ios::binary);
     if (archivo.is_open()) {
@@ -134,103 +112,17 @@ void ingresarCliente() {
     nuevo.setTelefono(input);
 
     cout << "Email: ";
-<<<<<<< HEAD
     getline(cin, input);
     nuevo.setEmail(input);
-=======
-    getline(cin, nuevo.email);
-=======
-// Guardar en archivo binario con cifrado
-void guardarClientes(const vector<Cliente>& clientes) {
-    ofstream archivo("clientes.dat", ios::binary);
-    if (archivo.is_open()) {
-        for (const auto& cliente : clientes) {
-            string linea = cliente.getId() + "|" + cliente.getNombre() + "|" + cliente.getTelefono() + "|" + cliente.getEmail();
-            string cifrado = xorEncryptDecrypt(linea);
-            size_t longitud = cifrado.size();
-            archivo.write(reinterpret_cast<const char*>(&longitud), sizeof(longitud));
-            archivo.write(cifrado.c_str(), longitud);
-        }
-        archivo.close();
-    } else {
-        cerr << "❌ No se pudo abrir el archivo para guardar.\n";
-    }
-}
-
-// Cargar desde archivo binario y desencriptar
-vector<Cliente> cargarClientes() {
-    vector<Cliente> clientes;
-    ifstream archivo("clientes.dat", ios::binary);
-    if (!archivo.is_open()) return clientes;
-
-    while (!archivo.eof()) {
-        size_t longitud;
-        archivo.read(reinterpret_cast<char*>(&longitud), sizeof(longitud));
-        if (archivo.eof()) break;
-
-        string cifrado(longitud, '\0');
-        archivo.read(&cifrado[0], longitud);
-
-        string linea = xorEncryptDecrypt(cifrado);
-        stringstream ss(linea);
-
-        string id, nombre, telefono, email;
-        getline(ss, id, '|');
-        getline(ss, nombre, '|');
-        getline(ss, telefono, '|');
-        getline(ss, email);
-
-        clientes.emplace_back(id, nombre, telefono, email);
-    }
-
-    archivo.close();
-    return clientes;
-}
-
-// Registrar nuevo cliente
-void ingresarCliente() {
-    Cliente nuevo;
-    nuevo.setId(generarIdCliente());
-
-    cout << "\n--- REGISTRAR CLIENTE ---\n";
-    cout << "ID: " << nuevo.getId() << endl;
-
-    string input;
-    cout << "Nombre: ";
-    getline(cin, input);
-    nuevo.setNombre(input);
-
-    cout << "Teléfono: ";
-    getline(cin, input);
-    nuevo.setTelefono(input);
-
-    cout << "Email: ";
-    getline(cin, input);
-    nuevo.setEmail(input);
->>>>>>> 41f2e196da09c1d14a34796eb802d3d5d105e72b
->>>>>>> 042ee62d5f1aa9ff7462cda7db36b88e7c7bb978
 
     vector<Cliente> clientes = cargarClientes();
     clientes.push_back(nuevo);
     guardarClientes(clientes);
 
-<<<<<<< HEAD
     cout << "✅ Cliente registrado exitosamente\n";
 }
 
 // Consultar clientes
-=======
-<<<<<<< HEAD
-    cout << "✔ Cliente registrado\n";
-}
-
-=======
-    cout << "Cliente registrado\n";
-}
-
-// Consultar clientes
->>>>>>> 41f2e196da09c1d14a34796eb802d3d5d105e72b
->>>>>>> 042ee62d5f1aa9ff7462cda7db36b88e7c7bb978
 void consultarClientes() {
     vector<Cliente> clientes = cargarClientes();
 
@@ -241,31 +133,12 @@ void consultarClientes() {
     }
 
     for (const auto& cliente : clientes) {
-<<<<<<< HEAD
         cliente.mostrar();
         cout << "------------------------\n";
     }
 }
 
 // Modificar cliente
-=======
-<<<<<<< HEAD
-        cout << "ID: " << cliente.id << "\n"
-             << "Nombre: " << cliente.nombre << "\n"
-             << "Teléfono: " << cliente.telefono << "\n"
-             << "Email: " << cliente.email << "\n\n";
-    }
-}
-
-=======
-        cliente.mostrar();
-        cout << "\n";
-    }
-}
-
-// Modificar cliente
->>>>>>> 41f2e196da09c1d14a34796eb802d3d5d105e72b
->>>>>>> 042ee62d5f1aa9ff7462cda7db36b88e7c7bb978
 void modificarCliente() {
     consultarClientes();
     vector<Cliente> clientes = cargarClientes();
@@ -280,12 +153,7 @@ void modificarCliente() {
     getline(cin, id);
 
     auto it = find_if(clientes.begin(), clientes.end(),
-<<<<<<< HEAD
         [&id](const Cliente& c) { return c.getId() == id; });
-=======
-<<<<<<< HEAD
-        [&id](const Cliente& c) { return c.id == id; });
->>>>>>> 042ee62d5f1aa9ff7462cda7db36b88e7c7bb978
 
     if (it == clientes.end()) {
         cerr << "❌ Cliente no encontrado\n";
@@ -309,37 +177,7 @@ void modificarCliente() {
     cout << "✅ Cliente actualizado exitosamente\n";
 }
 
-<<<<<<< HEAD
 // Borrar cliente
-=======
-=======
-        [&id](const Cliente& c) { return c.getId() == id; });
-
-    if (it == clientes.end()) {
-        cerr << "Cliente no encontrado\n";
-        return;
-    }
-
-    string input;
-    cout << "Nuevo nombre [" << it->getNombre() << "]: ";
-    getline(cin, input);
-    if (!input.empty()) it->setNombre(input);
-
-    cout << "Nuevo teléfono [" << it->getTelefono() << "]: ";
-    getline(cin, input);
-    if (!input.empty()) it->setTelefono(input);
-
-    cout << "Nuevo email [" << it->getEmail() << "]: ";
-    getline(cin, input);
-    if (!input.empty()) it->setEmail(input);
-
-    guardarClientes(clientes);
-    cout << "Cliente actualizado\n";
-}
-
-// Borrar cliente
->>>>>>> 41f2e196da09c1d14a34796eb802d3d5d105e72b
->>>>>>> 042ee62d5f1aa9ff7462cda7db36b88e7c7bb978
 void borrarCliente() {
     consultarClientes();
     vector<Cliente> clientes = cargarClientes();
@@ -353,35 +191,14 @@ void borrarCliente() {
     cout << "Ingrese ID del cliente a eliminar: ";
     getline(cin, id);
 
-<<<<<<< HEAD
     size_t before = clientes.size();
-=======
-<<<<<<< HEAD
->>>>>>> 042ee62d5f1aa9ff7462cda7db36b88e7c7bb978
     clientes.erase(remove_if(clientes.begin(), clientes.end(),
         [&id](const Cliente& c) { return c.getId() == id; }), clientes.end());
 
-<<<<<<< HEAD
     if (clientes.size() == before) {
         cout << "❌ No se encontró un cliente con ese ID\n";
     } else {
         guardarClientes(clientes);
         cout << "✅ Cliente eliminado exitosamente\n";
     }
-=======
-    guardarClientes(clientes);
-    cout << "✔ Cliente eliminado\n";
-=======
-    size_t before = clientes.size();
-    clientes.erase(remove_if(clientes.begin(), clientes.end(),
-        [&id](const Cliente& c) { return c.getId() == id; }), clientes.end());
-
-    if (clientes.size() == before) {
-        cout << "No se encontró un cliente con ese ID\n";
-    } else {
-        guardarClientes(clientes);
-        cout << "Cliente eliminado\n";
-    }
->>>>>>> 41f2e196da09c1d14a34796eb802d3d5d105e72b
->>>>>>> 042ee62d5f1aa9ff7462cda7db36b88e7c7bb978
 }
