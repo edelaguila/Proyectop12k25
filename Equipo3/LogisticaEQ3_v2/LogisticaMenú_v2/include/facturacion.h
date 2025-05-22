@@ -7,17 +7,20 @@
 #include <vector>
 #include "clientes.h"
 #include "pedidos.h"
+#include "bitacora.h"
 
 using namespace std;
 
 // Estructura que representa una factura
 struct Factura {
-    int idFactura;        // Identificador �nico de la factura (num�rico)
-    string idCliente;     // Identificador del cliente asociado a la factura (string)
-    string idPedido;      // Identificador del pedido asociado a la factura (string)
-    double monto;         // Monto total de la factura
-    bool pagada;          // Estado de pago de la factura (true = pagada, false = pendiente)
-    char cliente[50];     // Nombre del cliente (m�ximo 50 caracteres)
+    int idFactura;
+    string idCliente;
+    string idPedido;
+    double monto;
+    bool pagada;
+    string cliente;
+    string nit;
+
 };
 
 // Clase que gestiona las operaciones relacionadas con la facturaci�n
