@@ -10,7 +10,7 @@ using namespace std;
 class acreedor
 {
 private:
-    string id, nombreAcreedor, nitAcreedor, telefono, numCuenta, banco;
+    string id, nombreAcreedor, nit, telefono, numCuenta, banco;
 public:
     void menu();
     void insertar();

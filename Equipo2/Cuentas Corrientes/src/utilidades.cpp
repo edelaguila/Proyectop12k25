@@ -86,13 +86,18 @@ bool esNumeroDecimal(const string& str) {
 }
 
 // Busca cliente por ID (binario)
+// Busca cliente por ID
+// Función para buscar un cliente específico en el archivo binario de cliente
+// Recibe el ID del cliente que queremos encontrar y dos variables por referencia donde guardará el nombre y NIT del cliente si lo encuentra
 bool obtenerDatosClientePorID(const string& idBuscar, string& nombre, string& nit) {
     ifstream archivo("cliente.bin", ios::binary);
     if (!archivo) return false;
 
     ClienteBin temp;
+    //aqui lee cada registro del archivo hasta encontrar el ID que coincida
     while (archivo.read(reinterpret_cast<char*>(&temp), sizeof(ClienteBin))) {
         if (string(temp.id) == idBuscar) {
+            //cliente encontrado, se copian sus datos a las variables de salida
             nombre = string(temp.nombre);
             nit = string(temp.nit);
             archivo.close();
@@ -103,6 +108,7 @@ bool obtenerDatosClientePorID(const string& idBuscar, string& nombre, string& ni
     return false;
 }
 
+//el mismo flujo pero con proveedor
 // Busca proveedor por ID (binario)
 bool obtenerDatosProveedorPorID(const string& idBuscar, string& nombre, string& nit) {
     ifstream archivo("proveedor.bin", ios::binary);
@@ -121,6 +127,7 @@ bool obtenerDatosProveedorPorID(const string& idBuscar, string& nombre, string& 
     return false;
 }
 
+//el mismo flujo pero con proveedor
 // Busca acreedor por ID (binario)
 bool obtenerDatosAcreedorPorID(const string& idBuscar, string& nombre, string& nit) {
     ifstream archivo("acreedor.bin", ios::binary);

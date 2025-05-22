@@ -4,6 +4,10 @@
 //Actualizaciones y correcciiones
 //Programado por Dulce Martìnez 11/05/25
 
+//Actualización de Astrid Ruíz
+//Mishel me ayudó a agregar las funciones de los binarios a este
+//basicamente para este se utilizó lo mismo que acreedores y proveedores, porque debemos traernos las estructuras y ya ahí para que las lea en binario enn el orden q pide utilidades
+
 #include "cliente.h"
 #include "bitacora.h"
 #include<iostream>
@@ -11,12 +15,20 @@
 #include<stdlib.h>
 #include<cstdlib>
 #include<conio.h>
+#include<cstring> // Necesario para strcpy
 #include<iomanip>
 #include "usuarios.h"
 
 using namespace std;
 
 extern usuarios usuariosrRegistrado;
+
+struct ClienteBin {
+    char id[15];
+    char nombre[50];      // Orden igual que en clase cliente
+    char telefono[15];
+    char nit[15];
+};
 
 void cliente::menu()
 {
@@ -26,7 +38,7 @@ void cliente::menu()
 	do
     {
 	system("cls");
-
+	cout << "\t\t\tUsuario en linea: " << usuariosrRegistrado.getNombre() << "\n" << endl;
 	cout<<"\t\t\t-------------------------------"<<endl;
 	cout<<"\t\t\t |   SISTEMA GESTION CLIENTES |"<<endl;
 	cout<<"\t\t\t-------------------------------"<<endl;
@@ -79,18 +91,24 @@ void cliente::menu()
 }
 void cliente::insertar()
 {
-	system("cls");
-	fstream file;
-	char confirmar; //Variable para guardar la respuesta de la confirmacion
-	cout << "\n------------------------------------------------------------------------------------------------------------------------";
+    system("cls");
+    fstream file;
+    char confirmar;
+
+    cout << "\n------------------------------------------------------------------------------------------------------------------------";
     cout << "\n-------------------------------------------------Agregar detalles Cliente ---------------------------------------------" << endl;
+
     cout << "\t\t\tIngresa Id Cliente         : ";
     cin >> id;
+
+    cin.ignore(); // Limpiar buffer
     cout << "\t\t\tIngresa Nombre Cliente     : ";
-    cin >> nombre;
+    getline(cin, nombre);
+
     cout << "\t\t\tIngresa Telefono Cliente   : ";
     cin >> telefono;
-    cout << "\t\t\tIngresa Nit Cliente   : ";
+
+    cout << "\t\t\tIngresa Nit Cliente        : ";
     cin >> nit;
 
     cout << "\n\t\t\t¿Deseas guardar los datos? (s/n): ";
@@ -98,20 +116,42 @@ void cliente::insertar()
 
     if (confirmar == 's' || confirmar == 'S') {
         file.open("cliente.bin", ios::binary | ios::app | ios::out);
-        file.write((char*)this, sizeof(cliente)); // Guarda el objeto actual
+        if (!file) {
+            cerr << "\n\t\t\tError al abrir el archivo 'cliente.bin'.\n";
+            return;
+        }
+
+        ClienteBin clienteStruct;
+
+        memset(&clienteStruct, 0, sizeof(ClienteBin)); // Inicializar con ceros
+
+        strncpy(clienteStruct.id, id.c_str(), sizeof(clienteStruct.id) - 1);
+        strncpy(clienteStruct.nombre, nombre.c_str(), sizeof(clienteStruct.nombre) - 1);
+        strncpy(clienteStruct.telefono, telefono.c_str(), sizeof(clienteStruct.telefono) - 1);
+        strncpy(clienteStruct.nit, nit.c_str(), sizeof(clienteStruct.nit) - 1);
+
+        file.write(reinterpret_cast<char*>(&clienteStruct), sizeof(ClienteBin));
         file.close();
 
-        // El reportes siempre en texto
-        ofstream reporteFile;
-        reporteFile.open("reportesClientes.txt", ios::app);
+        ofstream reporteFile("reportesClientes.txt", ios::app);
+        if (!reporteFile) {
+            cerr << "\n\t\t\tError al abrir el archivo de reporte.\n";
+            return;
+        }
+
         reporteFile << left << setw(15) << id << left << setw(15) << nombre
                     << left << setw(15) << telefono << left << setw(15) << nit << "\n";
         reporteFile.close();
 
         bitacora auditoria;
         auditoria.insertar(usuariosrRegistrado.getNombre(), "8011", "INS");
+
+        cout << "\n\t\t\tDatos guardados exitosamente.\n";
+    } else {
+        cout << "\n\t\t\tOperación cancelada.\n";
     }
 }
+
 
 void cliente::desplegar() {
     system("cls");
@@ -121,11 +161,12 @@ void cliente::desplegar() {
     if (!file) {
         cout << "\n\t\t\tNo hay informacion..." << endl;
     } else {
-        while (file.read((char*)this, sizeof(cliente))) {
-            cout << "\n\n\t\t\t Id Cliente: " << id << endl;
-            cout << "\t\t\t Nombre Cliente: " << nombre << endl;
-            cout << "\t\t\t Telefono Cliente: " << telefono << endl;
-            cout << "\t\t\t Nit Cliente: " << nit << endl;
+        ClienteBin clienteStruct;
+        while (file.read(reinterpret_cast<char*>(&clienteStruct), sizeof(ClienteBin))) {
+            cout << "\n\n\t\t\t Id Cliente: " << clienteStruct.id << endl;
+            cout << "\t\t\t Nombre Cliente: " << clienteStruct.nombre << endl;
+            cout << "\t\t\t Telefono Cliente: " << clienteStruct.telefono << endl;
+            cout << "\t\t\t Nit Cliente: " << clienteStruct.nit << endl;
         }
         file.close();
     }
@@ -143,13 +184,16 @@ void cliente::modificar() {
     file.open("cliente.bin", ios::binary | ios::in);
     if (!file) {
         cout << "\n\t\t\tNo hay informacion..." << endl;
+
     } else {
         cout << "\n Ingrese Id del cliente que quiere modificar: ";
         cin >> participant_id;
         tempFile.open("temporal.bin", ios::binary | ios::out);
-        while (file.read((char*)this, sizeof(cliente))) {
-            if (participant_id != id) {
-                tempFile.write((char*)this, sizeof(cliente));
+
+        ClienteBin clienteStruct;
+        while (file.read(reinterpret_cast<char*>(&clienteStruct), sizeof(ClienteBin))) {
+            if (participant_id != clienteStruct.id) {
+                tempFile.write(reinterpret_cast<char*>(&clienteStruct), sizeof(ClienteBin));
             } else {
                 cout << "\t\t\tIngrese Id Cliente: ";
                 cin >> id;
@@ -159,8 +203,19 @@ void cliente::modificar() {
                 cin >> telefono;
                 cout << "\t\t\tIngrese Nit Cliente: ";
                 cin >> nit;
-                tempFile.write((char*)this, sizeof(cliente));
+                tempFile.write(reinterpret_cast<char*>(&clienteStruct), sizeof(ClienteBin));
+
                 found++;
+
+                memset (&clienteStruct, 0, sizeof(ClienteBin));
+                strncpy(clienteStruct.id, id.c_str(), sizeof(clienteStruct.id) - 1);
+                strncpy(clienteStruct.nombre, nombre.c_str(), sizeof(clienteStruct.nombre) - 1);
+                strncpy(clienteStruct.telefono, telefono.c_str(), sizeof(clienteStruct.telefono) - 1);
+                strncpy(clienteStruct.nit, nit.c_str(), sizeof(clienteStruct.nit) - 1);
+
+                // Escribir la estructura al archivo
+                file.write(reinterpret_cast<char*>(&clienteStruct), sizeof(ClienteBin));
+
             }
         }
         file.close();
@@ -184,12 +239,14 @@ void cliente::buscar() {
         string participant_id;
         cout << "\nIngrese Id del cliente que quiere buscar: ";
         cin >> participant_id;
-        while (file.read((char*)this, sizeof(cliente))) {
-            if (participant_id == id) {
-                cout << "\n\n\t\t\t Id Cliente: " << id << endl;
-                cout << "\t\t\t Nombre Cliente: " << nombre << endl;
-                cout << "\t\t\t Telefono Cliente: " << telefono << endl;
-                cout << "\t\t\t Nit Cliente: " << nit << endl;
+
+        ClienteBin clienteStruct;
+        while (file.read(reinterpret_cast<char*>(&clienteStruct), sizeof(ClienteBin))) {
+            if (participant_id == clienteStruct.id) {
+                cout << "\n\n\t\t\t Id Cliente: " << clienteStruct.id << endl;
+                cout << "\t\t\t Nombre Cliente: " << clienteStruct.nombre << endl;
+                cout << "\t\t\t Telefono Cliente: " << clienteStruct.telefono << endl;
+                cout << "\t\t\t Nit Cliente: " << clienteStruct.nit << endl;
                 found++;
             }
         }
@@ -214,10 +271,13 @@ void cliente::borrar() {
     } else {
         cout << "\n Ingrese el Id del cliente que quiere borrar: ";
         cin >> participant_id;
+
         tempFile.open("temporal.bin", ios::binary | ios::out);
-        while (file.read((char*)this, sizeof(cliente))) {
-            if (participant_id != id) {
-                tempFile.write((char*)this, sizeof(cliente));
+
+        ClienteBin clienteStruct;
+        while (file.read(reinterpret_cast<char*>(&clienteStruct), sizeof(ClienteBin))) {
+            if (participant_id != clienteStruct.id) {
+                tempFile.write(reinterpret_cast<char*>(&clienteStruct), sizeof(ClienteBin));
             } else {
                 found++;
                 cout << "\n\t\t\tBorrado exitoso." << endl;

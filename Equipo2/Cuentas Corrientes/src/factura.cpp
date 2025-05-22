@@ -1,4 +1,5 @@
-// clase para mantenimiento Factura Dulce Rocio Reyes 9959-24-684
+// clase para mantenimiento Factura Dulce Rocio Reyes 9959-24-684 Documentado Dulce Rocio
+//agregué el ios::app para q se pudiera escribir lo de facturas, así ya funciona el archivo - Astrid Ruíz
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -50,7 +51,7 @@ bool validarFecha(const string& fecha) {
 // Permite registrar una nueva factura según el tipo de entidad (Cliente, Proveedor,
 void registrarFacturaPorTipo(const string& tipo) {
     Factura f;
-    ofstream archivo("facturas.bin", ios::app);
+    ofstream archivo("facturas.bin", ios::app | ios::binary);
     string idBuscar, nombreCliente = "", nitCliente = "";
     cout << "\n--- REGISTRAR FACTURA (" << tipo << ") ---\n";
     cout << "Ingrese ID del " << tipo << ": ";

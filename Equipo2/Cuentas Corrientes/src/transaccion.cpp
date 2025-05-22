@@ -1,10 +1,16 @@
-////Clase transacción - Astrid Ruíz 9959242976
+////Clase transacción - Astrid Ruíz 9959242976 Programada 5/5/25
+//Esta clase fue creada para el proceso de transacciones, sin embargo fue indicado por el ingeniero ya no trabajar este proceso
+//Por lo que tiene un CRUD para las transacciones, pero no sé conecta con el demás sistema
+//Sigue con archivos .txt porque se indico no utilizarlos.
 #include "transaccion.h"
 #include "bitacora.h"
+#include "usuarios.h"
 #include <iostream>
 #include <fstream>
 #include <string>
 using namespace std;
+
+extern usuarios  usuariosrRegistrado;
 
 // Constructor por defecto
 transaccion::transaccion() {}
