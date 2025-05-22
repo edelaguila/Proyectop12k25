@@ -1,8 +1,8 @@
 //Clase para mantenimiento de clientes
-//Programado por Dulce Martìnez 02/05/25
+//Programado por Dulce MartÃ¬nez 02/05/25
 
 //Actualizaciones y correcciiones
-//Programado por Dulce Martìnez 11/05/25
+//Programado por Dulce MartÃ¬nez 11/05/25
 
 //Actualización de Astrid Ruíz
 //Mishel me ayudó a agregar las funciones de los binarios a este
@@ -91,11 +91,19 @@ void cliente::menu()
 }
 void cliente::insertar()
 {
+<<<<<<< HEAD
     system("cls");
     fstream file;
     char confirmar;
 
     cout << "\n------------------------------------------------------------------------------------------------------------------------";
+=======
+	system("cls");
+	fstream file;
+	char confirmar; //Variable para guardar la respuesta de la confirmacion
+
+	cout << "\n------------------------------------------------------------------------------------------------------------------------";
+>>>>>>> 9b64738a14d38cfe381c891eba354e261b84cadf
     cout << "\n-------------------------------------------------Agregar detalles Cliente ---------------------------------------------" << endl;
 
     cout << "\t\t\tIngresa Id Cliente         : ";
@@ -111,7 +119,7 @@ void cliente::insertar()
     cout << "\t\t\tIngresa Nit Cliente        : ";
     cin >> nit;
 
-    cout << "\n\t\t\t¿Deseas guardar los datos? (s/n): ";
+    cout << "\n\t\t\tÂ¿Deseas guardar los datos? (s/n): ";
     cin >> confirmar;
 
     if (confirmar == 's' || confirmar == 'S') {
@@ -150,6 +158,36 @@ void cliente::insertar()
     } else {
         cout << "\n\t\t\tOperación cancelada.\n";
     }
+
+	cout<<"\n------------------------------------------------------------------------------------------------------------------------";
+	cout<<"\n-------------------------------------------------Agregar detalles Cliente ---------------------------------------------"<<endl;
+	cout<<"\t\t\tIngresa Id Cliente         : ";
+	cin>>id;
+	cout<<"\t\t\tIngresa Nombre Cliente     : ";
+	cin>>nombre;
+	cout<<"\t\t\tIngresa Telefono Cliente   : ";
+	cin>>telefono;
+	cout<<"\t\t\tIngresa Nit Cliente   : ";
+	cin>>nit;
+
+	cout << "\n\t\t\tÂ¿Deseas guardar los datos? (s/n): ";
+    cin >> confirmar;
+
+    if (confirmar == 's' || confirmar == 'S')
+
+	file.open("cliente.txt", ios::app | ios::out);
+	file<<left<<setw(15)<< id <<left<<setw(15)<< nombre <<left<<setw(15)<< telefono <<left<< setw(15) << nit <<"\n";
+	file.close();
+
+	// Guardar en reportes.txt
+	ofstream reporteFile;
+    reporteFile.open("reportesClientes.txt", ios::app | ios::out);
+    reporteFile << left << setw(15) << id << left << setw(15) << nombre<< left << setw(15) << telefono << left << setw(15) << nit << "\n";
+    reporteFile.close();
+
+    bitacora auditoria;
+    auditoria.insertar(usuariosrRegistrado.getNombre(), "8011", "INS"); //ingreso a las bitÃ¡coras
+
 }
 
 
@@ -172,7 +210,11 @@ void cliente::desplegar() {
     }
     system("pause");
     bitacora auditoria;
+
     auditoria.insertar(usuariosrRegistrado.getNombre(), "8011", "MC");
+
+    auditoria.insertar(usuariosrRegistrado.getNombre(), "8011", "MC");//Muestra el cliente de la bitacora
+
 }
 
 void cliente::modificar() {
@@ -223,6 +265,7 @@ void cliente::modificar() {
         remove("cliente.bin");
         rename("temporal.bin", "cliente.bin");
         bitacora auditoria;
+
         auditoria.insertar(usuariosrRegistrado.getNombre(), "8011", "UPD");
     }
 }
@@ -257,6 +300,49 @@ void cliente::buscar() {
     }
     bitacora auditoria;
     auditoria.insertar(usuariosrRegistrado.getNombre(), "8011", "BC");
+
+        auditoria.insertar(usuariosrRegistrado.getNombre(), "8011", "UPD"); //Actualizacion datos cliente
+	}
+}
+void cliente::buscar()
+{
+	system("cls");
+	fstream file;
+	int found=0;
+	file.open("cliente.txt",ios::in);
+	if(!file)
+	{
+		cout<<"\n-------------------------Datos del Cliente Buscado------------------------"<<endl;
+		cout<<"\n\t\t\tNo hay informacion...";
+	}
+	else
+	{
+		string participant_id;
+		cout<<"\n-------------------------Datos del Cliente Buscado------------------------"<<endl;
+		cout<<"\nIngrese Id del cliente que quiere buscar: ";
+		cin>>participant_id;
+		file >> id >> nombre >> telefono >> nit;
+		while(!file.eof())
+		{
+			if(participant_id==id)
+			{
+				cout<<"\n\n\t\t\t Id Cliente: "<<id<<endl;
+				cout<<"\t\t\t Nombre Cliente: "<<nombre<<endl;
+				cout<<"\t\t\t Telefono Cliente: "<<telefono<<endl;
+				cout<<"\t\t\t Nit Cliente: "<<nit<<endl;
+				found++;
+			}
+			file >> id >> nombre >> telefono >> nit;
+		}
+		if(found==0)
+		{
+			cout<<"\n\t\t\t Persona no encontrada...";
+		}
+		file.close();
+        bitacora auditoria;
+        auditoria.insertar(usuariosrRegistrado.getNombre(), "8011", "BC"); //Busqueda cliente en bitacora
+	}
+
 }
 
 void cliente::borrar() {
@@ -288,8 +374,13 @@ void cliente::borrar() {
         remove("cliente.bin");
         rename("temporal.bin", "cliente.bin");
         bitacora auditoria;
+
         auditoria.insertar(usuariosrRegistrado.getNombre(), "8011", "DEL");
     }
+
+        auditoria.insertar(usuariosrRegistrado.getNombre(), "8011", "DEL"); //Eliminar cliente de bitacora
+	}
+
 }
 
 void cliente::reporte(){
@@ -301,7 +392,7 @@ void cliente::reporte(){
     file.open("cliente.txt", ios::in);
 
     if (!file) {
-        cout << "\n\t\t\tNo hay información...\n";
+        cout << "\n\t\t\tNo hay informaciÃ³n...\n";
     }
     else {
         // Encabezado del reporte
@@ -312,7 +403,7 @@ void cliente::reporte(){
         // Leer datos del archivo
         while (file >> id) {
             // Usamos getline para leer nombres con espacios
-            file.ignore();  // Ignorar el salto de línea después del ID
+            file.ignore();  // Ignorar el salto de lÃ­nea despuÃ©s del ID
             getline(file, nombre);
             file >> telefono >> nit;
 
@@ -338,7 +429,7 @@ void cliente::reporte(){
     // Reabrimos el archivo para escribir todos los clientes
     file.open("cliente.txt", ios::in);
     while (file >> id) {
-        file.ignore(); // Ignorar salto de línea después del ID
+        file.ignore(); // Ignorar salto de lÃ­nea despuÃ©s del ID
         getline(file, nombre);
         file >> telefono >> nit;
 
@@ -348,7 +439,7 @@ void cliente::reporte(){
     }
     reporteFile.close();
 
-    // Bitácora
+    // BitÃ¡cora
     bitacora auditoria;
     auditoria.insertar(usuariosrRegistrado.getNombre(), "8011", "RPC"); // Reporte Cliente
 }
