@@ -660,7 +660,7 @@ void pago::reporteCuentasPorPagar(){
 
                 reportefile << left << setw(15) << idFactura << setw(15) << nombre << setw(15) << cuenta << setw (15) << montoTotal
                             << setw(15) << fecha << setw(15) << hora << setw(15) << tipo << setw(15) << clasificacion << setw(15) << estado
-                            << setw(15) << saldoPendiente << endl;
+                            << saldoPendiente << endl;
             }
         }
         cout << "--------------------------------------------------------------------------------------------------------------------------------------------\n";
