@@ -10,6 +10,7 @@
 #include <limits>          // Para numeric_limits
 #include <cstring>         // Funciones para manejar cadenas de caracteres tipo C
 #include <ctime>           // Manejo de tiempo (aunque no se usa aquí explícitamente)
+#include <iomanip>
 
 using namespace std;
 
@@ -121,14 +122,29 @@ void Proveedor::agregar(vector<Proveedor>& lista, const string& usuarioActual) {
     system("pause");
 }
 
-// Muestra todos los proveedores en pantalla
+// Muestra todos los proveedores en pantalla con formato estético
 void Proveedor::mostrar(const vector<Proveedor>& lista) {
-    cout << "\n\t\t--- LISTA DE PROVEEDORES ---\n";
-    for (const auto& p : lista) {
-        cout << "\t\tID: " << p.getId()
-             << " | Nombre: " << p.getNombre()
-             << " | Telefono: " << p.getTelefono() << '\n';
+    system("cls"); // Limpia la pantalla
+
+    cout << "\n=====================================================\n";
+    cout << "               LISTADO DE PROVEEDORES\n";
+    cout << "=====================================================\n";
+    cout << left << setw(10) << "ID"
+         << setw(30) << "Nombre"
+         << setw(15) << "Telefono" << '\n';
+    cout << "-----------------------------------------------------\n";
+
+    if (lista.empty()) {
+        cout << "No hay proveedores registrados.\n";
+    } else {
+        for (const auto& p : lista) {
+            cout << left << setw(10) << p.getId()
+                 << setw(30) << p.getNombre()
+                 << setw(15) << p.getTelefono() << '\n';
+        }
     }
+
+    cout << "=====================================================\n";
     system("pause");
 }
 

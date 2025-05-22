@@ -64,8 +64,7 @@ void MenuInformes::mostrar(const usuarios& usuarioActual) {
              << "\t\t 2. Informe mensual de ventas\n"
              << "\t\t 3. Resumen de inventario\n"
              << "\t\t 4. Historico de envios\n"
-             << "\t\t 5. Exportar datos maestros\n"
-             << "\t\t 6. Volver al menu principal\n"
+             << "\t\t 5. Volver al menu principal\n"
              << "\t\t========================================\n"
              << "\t\tIngresa tu opcion: ";
 
@@ -120,7 +119,7 @@ void MenuInformes::mostrar(const usuarios& usuarioActual) {
         int idCliente;
         float monto;
         bool pagada;
-        char cliente[50]; // Esto lo ignoraremos aquí
+        char cliente[50]; // Esto lo ignoraremos aquï¿½
     } factura;
 
     float total = 0.0;
@@ -217,13 +216,7 @@ void MenuInformes::mostrar(const usuarios& usuarioActual) {
                 break;
             }
 
-            case 5: {
-                registrarInforme("Accedio a exportar datos maestros", usuarioActual.getNombre());
-                cout << "\n\t\t[Exportacion de datos maestros aun no implementada.]\n";
-                break;
-            }
-
-            case 6:
+            case 5:
                 cout << "\n\t\tVolviendo al menu principal...\n";
                 break;
 
@@ -231,9 +224,9 @@ void MenuInformes::mostrar(const usuarios& usuarioActual) {
                 cout << "\n\t\tOpcion invalida... Intenta de nuevo.\n";
         }
 
-        if (opcion != 6) {
+        if (opcion != 5) {
             system("pause");
         }
 
-    } while(opcion != 6);
+    } while(opcion != 5);
 }
