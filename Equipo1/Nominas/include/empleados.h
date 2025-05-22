@@ -1,6 +1,7 @@
 #ifndef EMPLEADOS_H
 #define EMPLEADOS_H
 //Bibliotecas
+#include <vector>
 #include<iostream>
 #include<fstream>
 #include<stdlib.h>
