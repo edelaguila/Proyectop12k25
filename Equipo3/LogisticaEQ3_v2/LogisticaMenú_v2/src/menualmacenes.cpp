@@ -1,4 +1,4 @@
-//9959 24 11603 GABRIELA ESCOBAR
+//9959 24 11603 Gabriela Escobar
 #include "MenuAlmacenes.h"
 #include "Almacen.h"
 #include <iostream>

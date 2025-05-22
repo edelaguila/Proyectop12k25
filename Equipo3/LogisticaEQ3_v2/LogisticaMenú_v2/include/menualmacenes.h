@@ -1,4 +1,4 @@
-//9959 24 11603 GE
+//9959 24 11603 Gabriela Escobar
 #ifndef MENUALMACENES_H
 #define MENUALMACENES_H
 
