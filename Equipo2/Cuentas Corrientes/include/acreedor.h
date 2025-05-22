@@ -19,6 +19,7 @@ public:
     void buscar();
     void reporte();
     void borrar();
+    bool backupAcreedores();
 };
 
 #endif // ACREEDOR_H

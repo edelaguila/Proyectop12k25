@@ -28,7 +28,7 @@ public:
     static void mostrarTodasDesdeArchivo();
     static void editarTransaccion(string id);
     static void eliminarTransaccion(string id);
-    //bool backupTransacciones ();
+    bool backupTransacciones ();
 };
 
 #endif

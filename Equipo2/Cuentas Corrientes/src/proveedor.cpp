@@ -394,3 +394,41 @@ void proveedor::reporte() {
     bitacora auditoria;
     auditoria.insertar(usuariosrRegistrado.getNombre(), "8035", "RPR"); // Reporte Proveedor
 }
+
+//Realizando respaldo de proveedores
+//Se copia todo el contenido de proveedor.bin a BackupProveedores.bin
+bool proveedor::backupProveedores() {
+    system("cls");
+    ifstream file;
+    ofstream backupFile;
+    cout << "\n\t\t---------------------------------" << endl;
+    cout << "\t\t  BACKUP DE PROVEEDORES   " << endl;
+    cout << "\t\t---------------------------------" << endl << endl;
+
+    file.open("proveedor.bin", ios::binary | ios::in);
+    if (!file) {
+        cout << "\n\t\tNo hay información disponible para realizar el backup..." << endl;
+        return false;
+    }
+
+    backupFile.open("BackupProveedores.bin", ios::binary | ios::out);
+    if (!backupFile) {
+        cout << "\n\t\tError al crear el archivo de backup." << endl;
+        file.close();
+        return false;
+    }
+
+    cout << "\n\t\tRealizando backup de datos..." << endl;
+
+    // Copia binaria directa
+    backupFile << file.rdbuf();
+
+    file.close();
+    backupFile.close();
+
+    cout << "\n\t\tBackup realizado con éxito" << endl;
+
+    bitacora auditoria;
+    auditoria.insertar(usuariosrRegistrado.getNombre(), "8036", "BKP");
+    return true;
+}

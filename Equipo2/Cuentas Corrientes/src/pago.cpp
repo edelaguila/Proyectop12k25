@@ -581,3 +581,40 @@ void pago::reporteCuentasPorPagar(){
     auditoria.insertar(usuariosrRegistrado.getNombre(),"8200", "ReCP"); //Reporte cuentas por pagar
 
 }
+
+//Realizando respaldo de pagos - Astrid Ruíz
+bool pago::backupPagos() {
+    system("cls");
+    ifstream file;
+    ofstream backupFile;
+    cout << "\n\t\t---------------------------------" << endl;
+    cout << "\t\t          BACKUP DE PAGOS        " << endl;
+    cout << "\t\t---------------------------------" << endl << endl;
+
+    file.open("pago.bin", ios::binary | ios::in);
+    if (!file) {
+        cout << "\n\t\tNo hay información disponible para realizar el backup..." << endl;
+        return false;
+    }
+
+    backupFile.open("BackupPagos.bin", ios::binary | ios::out);
+    if (!backupFile) {
+        cout << "\n\t\tError al crear el archivo de backup." << endl;
+        file.close();
+        return false;
+    }
+
+    cout << "\n\t\tRealizando backup de datos..." << endl;
+
+    // Copia binaria directa
+    backupFile << file.rdbuf();
+
+    file.close();
+    backupFile.close();
+
+    cout << "\n\t\tBackup realizado con éxito'" << endl;
+
+    bitacora auditoria;
+    auditoria.insertar(usuariosrRegistrado.getNombre(), "8200", "BKP");
+    return true;
+}

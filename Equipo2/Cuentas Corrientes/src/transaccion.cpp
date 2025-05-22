@@ -182,3 +182,48 @@ void transaccion::eliminarTransaccion(string id) {
         cout << "Error al abrir los archivos.\n";
     }
 }
+
+//agregar un backup al archivo
+//Realizando respaldo de transacciones
+bool transaccion::backupTransacciones() {
+    system("cls");
+    fstream file, backupFile;
+    string currentId, currentName, currentPass;
+
+    cout << "\n\t\t---------------------------------" << endl;
+    cout << "\t\t  BACKUP DE TRANSACCIONES  " << endl;
+    cout << "\t\t---------------------------------" << endl << endl;
+
+    file.open("transacciones.txt", ios::in);
+    if (!file) {
+        cout << "\n\t\tNo hay información disponible para realizar el backup..." << endl;
+        return false;
+    }
+
+    backupFile.open("Transacciones_Backup.txt", ios::out);
+    if (!backupFile) {
+        cout << "\n\t\tError al crear el archivo de backup." << endl;
+        file.close();
+        return false;
+    }
+
+    cout << "\n\t\tRealizando backup de datos..." << endl;
+
+    // Copia línea por línea del archivo original al de backup
+    file >> currentId >> currentName >> currentPass;
+    while (!file.eof()) {
+        backupFile << currentId << "        " << currentName << "       " << currentPass << "       " << endl;
+        file >> currentId >> currentName >> currentPass;
+    }
+
+    file.close();
+    backupFile.close();
+
+    cout << "\n\t\tBackup realizado con éxito" << endl;
+
+    // Registrar en bitácora
+    bitacora auditoria;
+    auditoria.insertar(usuariosrRegistrado.getNombre(), "8100", "BACK");
+
+    return true;
+}

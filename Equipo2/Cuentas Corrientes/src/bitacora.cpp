@@ -1,26 +1,28 @@
 //Documentado por Britany Hernandez 10/05/2025 9959-24-4178
-//Implementacion de la bitacora para el registro y visualizacion de acciones realizadas
+//Implementacion de la bitacora para el registro y visualizacion de acciones realizadas por Britany Mishel y Astrid Ruíz
+//Documentado Astrid Ruíz
+//Modificación archivos binarios - Astrid Ruíz 9959 24 2976
+//Implementación de hora y fecha a la bitacora de despliegue (mejora requerida)
 #include "bitacora.h"
-
 #include<iostream>
 #include<fstream>
 #include<cstdlib>
 #include<conio.h>
-#include<iomanip>
 #include <ctime>
+#include<iomanip>
+#include<cstring> // Para strcpy
 
 using namespace std;
-using namespace std;
-//Constructor de la clase
+
+
 bitacora::bitacora()
 {
     //ctor
 }
-//Menu principal para la gestion de la bitacora
+
 void bitacora::menu(){
     int choice;
     char x;
-    //Ciclo que muestra el menu hasta que se elija salir
     do{
         system("cls");
         cout<<"\t\t\t-------------------------------"<<endl;
@@ -41,60 +43,121 @@ void bitacora::menu(){
         case 2:
             break;
         default:
-            cout <<"\n\t\t\t Opccion invalida intente denuevo...";
-            system("pause");
+            cout <<"\n\t\t\t Opcion invalida intente denuevo...";
+            cin.get();
         }
     }while (choice !=2);
 }
 
-//Se encarga de llevar el registro de acciones que se realizan insertando un nuevo registro
-//Toma como parametros el nombre del usuario registrado, su aplicacion y  la accion realizada
+// Se encarga de llevar el registro de acciones que se realizan
 void bitacora::insertar(string nombre, string aplicacion, string accion){
     system("cls");
     fstream file;
-    file.open("bitacora.txt", ios::app | ios::out);//Abre o crea el archivo bitacora
+    file.open("bitacora.bin", ios::app | ios::out | ios::binary);
 
-    //Se obtiene la fecha y la hora en que se realize la accion
-    time_t now =time(0);
-    tm* ltm = localtime(&now);
-    char dt[30];
-    strftime(dt, sizeof(dt), "%m-%d-%Y %I:%M %p", ltm);// Formato: mm-dd-yyyy hh:mm AM/PM
+    // Obtener fecha y hora actual
+    time_t now = time(0);
+    tm *ltm = localtime(&now);
+    char fechaHora[50];
+    strftime(fechaHora, sizeof(fechaHora), "%Y-%m-%d %H:%M:%S", ltm);
 
-    //Acrear al archivo
-    file<<left<<setw(15)<<nombre<<left<<setw(15)<<aplicacion
-        <<left<<setw(15)<<accion<<dt<<"\n";
+    // Convertimos strings a arrays de char con tamaño fijo
+    char nombreArr[50], aplicacionArr[50], accionArr[50];
+    strcpy(nombreArr, nombre.c_str());
+    strcpy(aplicacionArr, aplicacion.c_str());
+    strcpy(accionArr, accion.c_str());
+
+    // Escribimos en el archivo binario
+    file.write(nombreArr, sizeof(nombreArr));
+    file.write(aplicacionArr, sizeof(aplicacionArr));
+    file.write(accionArr, sizeof(accionArr));
+    file.write(fechaHora, sizeof(fechaHora));
+
     file.close();
 }
-//Muestra todos los registros de la bitacora
-void bitacora::desplegar(){
 
+void bitacora::desplegar(){
     system("cls");
     fstream file;
     int total=0;
-	cout<<"\n-------------------------Tabla de Detalles de Bitacora -------------------------"<<endl;
-	file.open("bitacora.txt", ios::in); //Apertura el archivo bitacore solo para lectura
+    cout<<"\n-------------------------Tabla de Detalles de Bitacora -------------------------"<<endl;
+    file.open("bitacora.bin", ios::in | ios::binary);
 
-	if(!file){
-	    cout<<"\n\t\t\tNo hay informacion.."; //Mensaje si el archivo esta vacio o no existe
-	    file.close();
-	}
-	else{
-        cout << left << setw(15) << "Nombre" << setw(15) << "Aplicacion"  << setw(15) << "accion"
-        << setw(15) << "Fecha y hora"<< endl;
-        cout << "------------------------------------------------------------------------------\n";
-        //Ciclo para desplegar los registros en la bitacora
-        while (file >> nombre >> aplicacion >> accion){
+    if(!file){
+        cout<<"\n\t\t\tNo hay informacion..";
+        file.close();
+    }
+    else{
+        char nombreArr[50], aplicacionArr[50], accionArr[50],fechaHora[50];
+
+        while(file.read(nombreArr, sizeof(nombreArr))){
             total++;
-            //Se usa gerline para leer la fecha con espacios y para que salga completa
-            getline(file,fecha);
-            cout << left << setw(15) << nombre << setw(15) << aplicacion  << setw(15)
-            << accion << fecha << endl;
+            file.read(aplicacionArr, sizeof(aplicacionArr));
+            file.read(accionArr, sizeof(accionArr));
+            file.read(fechaHora, sizeof(fechaHora));
+
+            cout <<"\n\t\t\t Nombre Usuario: " << nombreArr << endl;
+            cout <<"\t\t\t No. Aplicacion: " << aplicacionArr << endl;
+            cout <<"\t\t\t Accion Realizada: "<< accionArr << endl;
+            cout <<"\t\t\t Fecha-Hora: "<< fechaHora << endl;
+            cout << "\t\t\t---------------------------------" << endl;
         }
+        system("pause");
+
+        file.close();
 
         if (total==0){
             cout <<"\n\t\t\t No hay informacion...";
         }
-	}
-	system("pause");
-	file.close();
+        system("pause");
+    }
+}
+
+//agregandole backup a la bitacora - astrid
+bool bitacora::backupBitacora() {
+    system("cls");
+    fstream file, backupFile;
+    char nombreArr[50], aplicacionArr[50], accionArr[50],fechaHora[50];
+
+    cout << "\n\t\t---------------------------------" << endl;
+    cout << "\t\t  BACKUP DE BITACORA   " << endl;
+    cout << "\t\t---------------------------------" << endl << endl;
+
+    file.open("bitacora.bin", ios::in | ios::binary);
+    if (!file) {
+        cout << "\n\t\tNo hay información disponible para realizar el backup..." << endl;
+        return false;
+    }
+
+    backupFile.open("Bitacora_Backup.bin", ios::out | ios::binary);
+    if (!backupFile) {
+        cout << "\n\t\tError al crear el archivo de backup." << endl;
+        file.close();
+        return false;
+    }
+
+    cout << "\n\t\tRealizando backup de datos..." << endl;
+
+    // Leemos y escribimos los registros uno por uno
+    while (file.read(nombreArr, sizeof(nombreArr))) {
+        // Escribimos el nombre al archivo de backup
+        backupFile.write(nombreArr, sizeof(nombreArr));
+
+        // Leemos y escribimos los demás campos
+        file.read(aplicacionArr, sizeof(aplicacionArr));
+        backupFile.write(aplicacionArr, sizeof(aplicacionArr));
+
+        file.read(accionArr, sizeof(accionArr));
+        backupFile.write(accionArr, sizeof(accionArr));
+
+        file.read(fechaHora, sizeof(fechaHora));
+        backupFile.write(fechaHora, sizeof(fechaHora));
+    }
+
+    file.close();
+    backupFile.close();
+
+    cout << "\n\t\tBackup realizado con éxito en 'Bitacora_Backup.bin'" << endl;
+
+    return true;
 }

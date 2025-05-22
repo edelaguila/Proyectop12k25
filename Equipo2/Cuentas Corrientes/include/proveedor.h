@@ -23,5 +23,6 @@ public:
     void buscar();
     void borrar();
     void reporte();
+    bool backupProveedores();
 };
 #endif

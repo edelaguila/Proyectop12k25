@@ -33,7 +33,7 @@ void acreedor::menu()
     char x;
     do {
         system("cls");
-        //cout << "\t\t\tUsuario en linea: " << usuariosrRegistrado.getNombre() << "\n" << endl;
+        cout << "\t\t\tUsuario en linea: " << usuariosrRegistrado.getNombre() << "\n" << endl;
         cout<<"\t\t\t-------------------------------"<<endl;
         cout<<"\t\t\t|  SISTEMA GESTION ACREEDORES |"<<endl;
         cout<<"\t\t\t-------------------------------"<<endl;
@@ -396,4 +396,53 @@ void acreedor::reporte(){
     system("pause");
     bitacora auditoria;
     auditoria.insertar(usuariosrRegistrado.getNombre(), "8045", "REPORTEAC"); // Reporte Acreedor
+}
+
+bool acreedor::backupAcreedores() {
+    system("cls");
+    ifstream file;
+    ofstream backupFile;
+    AcreedorBin acreedorStruct;
+
+    cout << "\n\t\t---------------------------------" << endl;
+    cout << "\t\t  BACKUP DE ACREEDORES   " << endl;
+    cout << "\t\t---------------------------------" << endl << endl;
+
+    // Abrir archivo fuente en modo binario (solo lectura)
+    file.open("acreedor.bin", ios::binary);
+    if (!file.is_open()) {
+        cout << "\n\t\tNo hay información disponible para realizar el backup..." << endl;
+        system("pause");
+        return false;
+    }
+
+    // Crear archivo de backup en modo binario (solo escritura)
+    backupFile.open("Acreedor_Backup.bin", ios::binary);
+    if (!backupFile.is_open()) {
+        cout << "\n\t\tError al crear el archivo de backup." << endl;
+        file.close();
+        system("pause");
+        return false;
+    }
+
+    cout << "\n\t\tRealizando backup de datos..." << endl;
+
+    int contador = 0;
+    // Leer estructura por estructura y escribir al backup
+    while (file.read(reinterpret_cast<char*>(&acreedorStruct), sizeof(AcreedorBin))) {
+        backupFile.write(reinterpret_cast<const char*>(&acreedorStruct), sizeof(AcreedorBin));
+        contador++;
+    }
+
+    file.close();
+    backupFile.close();
+
+    cout << "\n\t\tBackup realizado con éxito en 'Acreedor_Backup.bin'" << endl;
+    cout << "\t\tTotal de acreedores respaldados: " << contador << endl;
+
+    bitacora auditoria;
+    auditoria.insertar(usuariosrRegistrado.getNombre(), "8046", "BACK");
+
+    system("pause");
+    return true;
 }

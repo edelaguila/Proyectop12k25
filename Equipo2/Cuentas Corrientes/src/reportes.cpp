@@ -1,12 +1,15 @@
 #include "reportes.h"
 #include <iostream>
+#include "usuarios.h"
 
 //Clases con informes
 #include "pago.h"
 #include "factura.h"
-//...otros
+//otros
 
 using namespace std;
+
+extern usuarios usuariosrRegistrado;
 reportes::reportes()
 {
     //ctor
@@ -18,15 +21,16 @@ void reportes::menuInformes() {
     int opcion;
     do {
         system("cls");
-        cout << "\n\n\t\tMenú de Reportes" << endl;
-        cout << "\t\t-----------------------------" << endl;
-        cout << "\t\t1. Listado de Cuentas por Pagar" << endl;
-        cout << "\t\t2. Listado de Cuentas por Cobrar" << endl;
-        cout << "\t\t3. Reporte de Pagos Realizados" << endl;
-        cout << "\t\t4. Reporte de Ingresos Recibidos" << endl;
-        cout << "\t\t5. Reporte de Transacciones Bancarias" << endl;
-        cout << "\t\t9. Volver al menú principal" << endl;
-        cout << "\n\t\tIngresa tu Opcion: ";
+        cout << "\t\t\tUsuario en linea: " << usuariosrRegistrado.getNombre() << "\n" << endl;
+        cout<<"\t\t\t-------------------------------"<<endl;
+        cout<<"\t\t\t |   Menu de reportes      |"<<endl;
+        cout<<"\t\t\t-------------------------------"<<endl;
+        cout <<"\t\t\t1. Listado de Cuentas por Pagar" << endl;
+        cout <<"\t\t\t2. Listado de Cuentas por Cobrar" << endl;
+        cout <<"\t\t\t3. Reporte de Pagos Realizados" << endl;
+        cout <<"\t\t\t4. Reporte de Ingresos Recibidos" << endl;
+        cout <<"\t\t\t5. Volver al menú principal" << endl;
+        cout <<"\n\t\tIngresa tu Opcion: ";
         cin >> opcion;
 
         switch (opcion) {
@@ -43,15 +47,12 @@ void reportes::menuInformes() {
                 //reporteIngresos() ---pagos de clientes
                 break;
             case 5:
-                //pag.reporteTransaccionesBancarias(); Este creo que no
-                break;
-            case 6:
                 break;
             default:
                 cout << "\t\tOpción inválida..." << endl;
                 system("pause");
         }
-    } while (opcion != 6);
+    } while (opcion != 5);
 }
 
 void reportes::menuFactura() {

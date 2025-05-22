@@ -17,6 +17,7 @@ class pago
 
         void reportePagos(); //Reporte todos los pagos registrados
         void reporteCuentasPorPagar(); //Reporte para todas las facturas pendientes de pago
+        bool backupPagos();
 
     private:
         string idPago;
