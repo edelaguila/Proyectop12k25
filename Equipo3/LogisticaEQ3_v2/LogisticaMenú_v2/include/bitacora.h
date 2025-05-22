@@ -1,13 +1,14 @@
 #ifndef BITACORA_H
 #define BITACORA_H
-//CREADO POR: JENNIFER BARRIOS MAYO 2025
+//LUIS ANGEL MENDEZ FUENTES.
+//MAYO 2023
 #include <string>
 #include <unordered_map>
 
 struct RegistroBitacora {
     int id_accion;              ///< ID único de la acción basada en el módulo
     int codigo;                 ///< Código del módulo al que pertenece la acción
-    char usuario[30];           ///< Nombre del usuario que ejecutó la acción
+    char usuario[50];           ///< Nombre del usuario que ejecutó la acción
     char modulo[30];            ///< Nombre del módulo donde se ejecutó la acción
     char descripcion[100];      ///< Descripción de la acción realizada
     char fecha_hora[20];        ///< Fecha y hora en que ocurrió la acción
