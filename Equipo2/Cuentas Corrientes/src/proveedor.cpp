@@ -1,12 +1,18 @@
 //Clase para mantenimiento de Proveedores
 //Programado por Britany Hernandez 04/05/25
-//Programado por Astrid Ruíz 11/05/25 (agregué funciones CRUD y binarios)
+//Programado por Astrid Ruï¿½z 11/05/25 (agreguï¿½ funciones CRUD y binarios)
 
 //Actualizacion y correcciones
 //Programado por Britany Hernandez 11/05/25
-//Modificación para uso de archivos binarios 18/05/25 Astrid Ruíz
-//Actualizado para uso correcto de estructuras binarias 21/05/25 Astrid Ruíz (por el error q daba utilidades d dulce)
-//Aquí se cambio los archivos binarios como clientes y acreedores (basicamente es el mismo flujo) Astrid Ruíz
+
+//Modificaciï¿½n para uso de archivos binarios 18/05/25 Astrid Ruï¿½z
+//Actualizado para uso correcto de estructuras binarias 21/05/25 Astrid Ruï¿½z (por el error q daba utilidades d dulce)
+//Aquï¿½ se cambio los archivos binarios como clientes y acreedores (basicamente es el mismo flujo) Astrid Ruï¿½z
+
+
+//ModificaciÃ³n para uso de archivos binarios 18/05/25
+
+
 
 #include "proveedor.h"
 #include "bitacora.h"
@@ -84,7 +90,7 @@ void proveedor::menu()
             cout<<"\n\t\t\t Opcion invalida...Por favor prueba otra vez..";
             cin.get();
         }
-    } while(choice!= 7); // Corregido: ahora sale cuando la opción es 7
+    } while(choice!= 7); // Corregido: ahora sale cuando la opciï¿½n es 7
 }
 
 void proveedor::insertar()
@@ -108,10 +114,12 @@ void proveedor::insertar()
     cout << "\t\t\tIngresa Banco del Proveedor  : ";
     cin >> banco;
 
-    cout << "\n\t\t\t¿Deseas guardar los datos? (s/n): ";
+
+    cout << "\n\t\t\tÂ¿Deseas guardar los datos? (s/n): ";
     cin >> guardar;
 
     if(guardar=='s' || guardar=='S'){
+
         try {
             // Guardar en archivo binario principal
             file.open("proveedor.bin", ios::binary | ios::app | ios::out);
@@ -148,6 +156,43 @@ void proveedor::insertar()
         } catch (const exception& e) {
             cout << "\n\t\t\t Error ocurrido: " << e.what() << endl;
         }
+
+        // Guardar en archivo binario principal
+        file.open("proveedor.bin", ios::binary | ios::app | ios::out);
+        file.write((char*)this, sizeof(proveedor));
+        file.close();
+
+        // Guardar en reporte (opcional, puede mantenerse como texto)
+        ofstream reporteFile;
+        reporteFile.open("reportesProveedores.txt", ios::app);
+        reporteFile << left << setw(15) << id << left << setw(15) << nombreProveedor
+                    << left << setw(15) << telefono << left << setw(15) << numCuenta
+                    << left << setw(15) << banco << "\n";
+        reporteFile.close();
+
+        bitacora auditoria;
+        auditoria.insertar(usuariosrRegistrado.getNombre(), "8030", "INP");
+
+
+    cout << "\n\t\t\tÂ¿Deseas guardar los datos? (s/n): ";
+    cin >> guardar;
+
+    if(guardar=='s' || guardar=='S'){
+        file.open("proveedor.txt", ios::app | ios::out);
+        file<<left<<setw(15)<< id <<left<<setw(15)<< nombreProveedor <<left<<setw(15)<<telefono <<left << setw(15)<< numCuenta <<left << setw(15) << banco << "\n";
+        file.close();
+
+        ofstream reporteFile;
+        file.open("reportesProveedores.txt", ios::app | ios::out);
+        file<<left<<setw(15)<< id <<left<<setw(15)<< nombreProveedor <<left<<setw(15)<<telefono <<left << setw(15)<< numCuenta <<left << setw(15) << banco << "\n";
+        file.close();
+
+        bitacora auditoria;
+        auditoria.insertar(usuariosrRegistrado.getNombre(), "8030", "INP"); //Ingreso a la bitacoras
+
+
+        cout << "\n\t\t\t Proveedor registrado exitosamente!" << endl;
+
     }
     else {
         cout << "\n\t\t\t Ingreso cancelado..." << endl;
@@ -167,6 +212,7 @@ void proveedor::desplegar()
         system("pause");
     }
     else {
+
         // Leer como estructura ProveedorBin
         ProveedorBin proveedorStruct;
         while(file.read(reinterpret_cast<char*>(&proveedorStruct), sizeof(ProveedorBin))) {
@@ -177,6 +223,24 @@ void proveedor::desplegar()
             cout<<"\n\t\t\t Telefono proveedor  : " << proveedorStruct.telefono;
             cout<<"\n\t\t\t Banco proveedor     : " << proveedorStruct.banco;
             cout<<"\n\t\t\t Num.Cuenta proveedor: " << proveedorStruct.numCuenta<<endl;
+
+
+        while(file.read((char*)this, sizeof(proveedor))) {
+
+        file >> id >> nombreProveedor >> telefono >> numCuenta>> banco ;
+        while(!file.eof()) {
+
+            total++;
+            cout<<"\n\t\t\t ID proveedor        : "<<id;
+            cout<<"\n\t\t\t Nombre proveedor    : "<<nombreProveedor;
+            cout<<"\n\t\t\t Telefono proveedor  : "<<telefono;
+            cout<<"\n\t\t\t Banco proveedor     : "<<banco;
+            cout<<"\n\t\t\t Num.Cuenta proveedor: "<<numCuenta<<endl;
+
+
+            file >> id >> nombreProveedor >> telefono >> numCuenta >> banco ;
+
+
         }
         if(total==0){
             cout<<"\n\t\t\tNo hay informacion...";
@@ -185,7 +249,11 @@ void proveedor::desplegar()
     }
     file.close();
     bitacora auditoria;
+
     auditoria.insertar(usuariosrRegistrado.getNombre(), "8031", "MP");
+
+    auditoria.insertar(usuariosrRegistrado.getNombre(), "8031", "MP"); //Mostrar Proveedor
+
 }
 
 void proveedor::modificar()
@@ -204,16 +272,33 @@ void proveedor::modificar()
     else {
         cout<<"\nIngrese ID del proveedor que quiere modificar: ";
         cin>>proveedor_id;
+
         tempFile.open("temporal.bin", ios::binary | ios::out);
+
 
         // Leer como estructura ProveedorBin
         ProveedorBin proveedorStruct;
         while(file.read(reinterpret_cast<char*>(&proveedorStruct), sizeof(ProveedorBin))) {
             if(proveedor_id != proveedorStruct.id) {
                 tempFile.write(reinterpret_cast<char*>(&proveedorStruct), sizeof(ProveedorBin));
+
+        file1.open("temporal.txt", ios::app | ios::out);
+        file >> id >> nombreProveedor >> telefono >> numCuenta>> banco ;
+
+
+        while(file.read((char*)this, sizeof(proveedor))) {
+            if(proveedor_id != id) {
+
+                tempFile.write((char*)this, sizeof(proveedor));
+
+                file1<<left<<setw(15)<< id <<left<<setw(15)<< nombreProveedor <<left<<setw(15)<< telefono <<
+                left << setw(15)<< numCuenta <<left << setw(15) << banco << "\n";
+
+
             }
             else {
                 cout<<"\t\t\tIngrese Id proveedor        : ";
+
                 cin>>id;
                 cout<<"\t\t\tIngrese Nombre proveedor    : ";
                 cin>>nombreProveedor;
@@ -238,6 +323,24 @@ void proveedor::modificar()
                 tempFile.write(reinterpret_cast<char*>(&proveedorStruct), sizeof(ProveedorBin));
                 found++;
             }
+
+				cin>>id;
+				cout<<"\t\t\tIngrese Nombre proveedor    : ";
+				cin>>nombreProveedor;
+				cout<<"\t\t\tIngrese Telefono proveedor  : ";
+				cin>>telefono;
+				cout<<"\t\t\tIngrese Num.Cuenta proveedor: ";
+				cin >>numCuenta;
+				cout<<"\t\t\tIngrese Banco proveedor     : ";
+				cin>>banco;
+
+
+                file1<<left<<setw(15)<< id <<left<<setw(15)<< nombreProveedor <<left<<setw(15)<< telefono <<
+                left << setw(15)<< numCuenta  <<left << setw(15) << banco << "\n";
+                found++;
+            }
+            file >> id >> nombreProveedor >> telefono >> numCuenta >> banco;
+
         }
 
         file.close();
@@ -273,6 +376,7 @@ void proveedor::buscar()
         cout<<"\nIngrese ID del proveedor que quiere buscar : ";
         cin>>proveedor_id;
 
+
         // Leer como estructura ProveedorBin
         ProveedorBin proveedorStruct;
         while(file.read(reinterpret_cast<char*>(&proveedorStruct), sizeof(ProveedorBin))) {
@@ -283,9 +387,25 @@ void proveedor::buscar()
                 cout<<"\t\t\t Telefono Proveedor  : " << proveedorStruct.telefono << endl;
                 cout<<"\t\t\t Num.Cuenta Proveedor: " << proveedorStruct.numCuenta << endl;
                 cout<<"\t\t\t Banco Proveedor     : " << proveedorStruct.banco << endl;
+
+        file >> id >> nombreProveedor >> telefono >> numCuenta >> banco;
+
+
+        while(file.read((char*)this, sizeof(proveedor))) {
+            if(proveedor_id==id) {
+                cout<<"\n\t\t\t ID Proveedor        : "<<id<<endl;
+                cout<<"\t\t\t Nombre Proveedor    : "<<nombreProveedor<<endl;
+                cout<<"\t\t\t Telefono Proveedor  : "<<telefono<<endl;
+                cout<<"\t\t\t Num.Cuenta Proveedor: "<<numCuenta<<endl;
+                cout<<"\t\t\t Banco Proveedor     : "<<banco<<endl;
+
                 found++;
                 break;
             }
+
+            file >> id >> nombreProveedor >> telefono >> numCuenta >> banco ;
+
+
         }
 
         if(found==0){
@@ -305,6 +425,7 @@ void proveedor::borrar()
     string proveedor_id;
     int found=0;
     cout<<"\n---------------- Borrar Proveedor ----------------"<<endl;
+
     file.open("proveedor.bin", ios::binary | ios::in);
 
     if(!file)
@@ -342,6 +463,49 @@ void proveedor::borrar()
         bitacora auditoria;
         auditoria.insertar(usuariosrRegistrado.getNombre(), "8034", "DPR");
     }
+
+    file.open("proveedor.txt", ios::in);
+
+	if(!file)
+	{
+		cout<<"\n\t\t\tNo hay informacion...";
+		system("pause");
+		file.close();
+	}
+	else
+	{
+		cout<<"\n Ingrese el Id del Proveedor que quiere borrar: ";
+		cin>>proveedor_id;
+		file1.open("temporal.txt",ios::app | ios::out);
+		file >> id >> nombreProveedor >> telefono >> numCuenta >> banco;
+		while(!file.eof())
+		{
+			if(proveedor_id!= id)
+			{
+				file1<<left<<setw(15)<< id <<left<<setw(15)<< nombreProveedor <<left<<setw(15)<< telefono <<
+                left << setw(15)<< numCuenta <<left << setw(15) << banco << "\n";
+			}
+			else
+			{
+				found++;
+				cout << "\nProveedor borrado exitosamente\n";
+				system("pause");
+			}
+			file >> id >> nombreProveedor >> telefono >> numCuenta >> banco;
+		}
+		if(found==0)
+		{
+			cout<<"\nProveedor no encontrado\n";
+			system("pause");
+		}
+		file1.close();
+		file.close();
+		remove("proveedor.txt");
+		rename("temporal.txt","proveedor.txt");
+        bitacora auditoria;
+        auditoria.insertar(usuariosrRegistrado.getNombre(), "8034", "DPR"); //Eliminar preedor de bitacora
+	}
+
 }
 
 void proveedor::reporte() {
@@ -349,9 +513,18 @@ void proveedor::reporte() {
     fstream file, reporteFile;
     int found = 0;
 
+
     cout << "\n----------------------------- Reporte de Proveedores -----------------------------\n" << endl;
     file.open("proveedor.txt", ios::in);
     reporteFile.open("reportesproveedor.txt", ios::app | ios::out); // Archivo de reporte
+
+    cout<<"\n----------------------------- Reporte de Proveedores -----------------------------\n\n"<<endl;
+
+    file.open("proveedor.dat", ios::in | ios::binary);
+
+
+    file.open("proveedor.txt", ios::in);
+
 
     if (!file) {
         cout << "\n\t\t\tNo hay informacion ...\n";
@@ -391,6 +564,7 @@ void proveedor::reporte() {
     reporteFile.close();
     system("pause");
 
+
     bitacora auditoria;
     auditoria.insertar(usuariosrRegistrado.getNombre(), "8035", "RPR"); // Reporte Proveedor
 }
@@ -407,13 +581,22 @@ bool proveedor::backupProveedores() {
 
     file.open("proveedor.bin", ios::binary | ios::in);
     if (!file) {
-        cout << "\n\t\tNo hay información disponible para realizar el backup..." << endl;
+        cout << "\n\t\tNo hay informaciï¿½n disponible para realizar el backup..." << endl;
         return false;
     }
 
     backupFile.open("BackupProveedores.bin", ios::binary | ios::out);
     if (!backupFile) {
         cout << "\n\t\tError al crear el archivo de backup." << endl;
+
+    ofstream reporteFile;
+
+        file.open("reportesProveedores.dat", ios::app | ios::out | ios::binary);
+
+        file.open("reportesProveedores.txt", ios::app | ios::out);
+
+        file<<left<<setw(15)<< id <<left<<setw(15)<< nombreProveedor <<left<<setw(15)<<telefono <<left << setw(15)<< numCuenta <<left << setw(15) << banco << "\n";
+
         file.close();
         return false;
     }
@@ -426,7 +609,7 @@ bool proveedor::backupProveedores() {
     file.close();
     backupFile.close();
 
-    cout << "\n\t\tBackup realizado con éxito" << endl;
+    cout << "\n\t\tBackup realizado con ï¿½xito" << endl;
 
     bitacora auditoria;
     auditoria.insertar(usuariosrRegistrado.getNombre(), "8036", "BKP");
