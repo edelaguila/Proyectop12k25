@@ -577,3 +577,102 @@
 1747782341 c:\users\isaia\onedrive\escritorio\equipo1\nominas\include\prestaciones.h
 	<string>
 
+1747782341 source:c:\users\isaia\onedrive\escritorio\repositorios github\proyectop12k25\equipo1\nominas\main.cpp
+	<iostream>
+	<fstream>
+	<limits>
+	"Opciones.h"
+	"usuarios.h"
+	"bitacora.h"
+	"sistema.h"
+
+1747875820 c:\users\isaia\onedrive\escritorio\repositorios github\proyectop12k25\equipo1\nominas\include\opciones.h
+	<iostream>
+
+1747782341 c:\users\isaia\onedrive\escritorio\repositorios github\proyectop12k25\equipo1\nominas\include\usuarios.h
+	<iostream>
+
+1747880451 c:\users\isaia\onedrive\escritorio\repositorios github\proyectop12k25\equipo1\nominas\include\bitacora.h
+	<iostream>
+	<fstream>
+	<string>
+	<iomanip>
+	<sstream>
+	<chrono>
+	<ctime>
+	<iomanip>
+	<filesystem>
+
+1747875820 c:\users\isaia\onedrive\escritorio\repositorios github\proyectop12k25\equipo1\nominas\include\sistema.h
+	<fstream>
+	<vector>
+	<limits>
+	"usuarios.h"
+
+1747782341 source:c:\users\isaia\onedrive\escritorio\repositorios github\proyectop12k25\equipo1\nominas\src\usuarios.cpp
+	"usuarios.h"
+	<fstream>
+	<cstdlib>
+	<conio.h>
+	<bitacora.h>
+	<iostream>
+
+1747886989 source:c:\users\isaia\onedrive\escritorio\repositorios github\proyectop12k25\equipo1\nominas\src\empleados.cpp
+	"Empleados.h"
+	<iostream>
+	<fstream>
+	<stdlib.h>
+	<cstdlib>
+	<conio.h>
+	<iomanip>
+	<string>
+	<sstream>
+	<chrono>
+	<ctime>
+	<filesystem>
+	"bitacora.h"
+
+1747885546 c:\users\isaia\onedrive\escritorio\repositorios github\proyectop12k25\equipo1\nominas\include\empleados.h
+	<vector>
+	<iostream>
+	<fstream>
+	<stdlib.h>
+	<cstdlib>
+	<conio.h>
+	<iomanip>
+	<limits>
+	"bitacora.h"
+
+1747875820 source:c:\users\isaia\onedrive\escritorio\repositorios github\proyectop12k25\equipo1\nominas\src\opciones.cpp
+	"Opciones.h"
+	"bitacora.h"
+	<iostream>
+	<fstream>
+	<stdlib.h>
+	<cstdlib>
+	<conio.h>
+	<iomanip>
+	"usuarios.h"
+	"Prestaciones.h"
+	"Empleados.h"
+
+1747782341 c:\users\isaia\onedrive\escritorio\repositorios github\proyectop12k25\equipo1\nominas\include\prestaciones.h
+	<string>
+
+1747875820 source:c:\users\isaia\onedrive\escritorio\repositorios github\proyectop12k25\equipo1\nominas\src\sistema.cpp
+	"sistema.h"
+	"Opciones.h"
+	<iostream>
+	<fstream>
+	<conio.h>
+	<limits>
+
+1747884472 source:c:\users\isaia\onedrive\escritorio\repositorios github\proyectop12k25\equipo1\nominas\src\bitacora.cpp
+	"bitacora.h"
+	<iostream>
+	<fstream>
+	<cstdlib>
+	<iomanip>
+	<ctime>
+	<limits>
+
