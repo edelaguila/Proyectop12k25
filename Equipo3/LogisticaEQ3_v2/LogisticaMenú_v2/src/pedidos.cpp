@@ -510,58 +510,83 @@ void Pedidos::guardarEnArchivoBin(const vector<Pedidos>& lista) {
         return;
     }
 
-    try {
-        // Escribir cantidad de pedidos
+       try {
+        // Obtener la cantidad total de pedidos en la lista
         size_t cantidad = lista.size();
+
+        // Escribir la cantidad de pedidos al archivo binario
         archivo.write(reinterpret_cast<const char*>(&cantidad), sizeof(cantidad));
 
-        // Escribir cada pedido
+        // Recorrer cada pedido en la lista
         for (const auto& pedido : lista) {
-            // Escribir campos básicos
+            // Escribir el tamaño del campo 'id' y luego el valor de 'id'
             size_t idSize = pedido.id.size();
             archivo.write(reinterpret_cast<const char*>(&idSize), sizeof(idSize));
             archivo.write(pedido.id.c_str(), idSize);
 
+            // Escribir el tamaño y valor del campo 'idCliente'
             size_t clienteSize = pedido.idCliente.size();
             archivo.write(reinterpret_cast<const char*>(&clienteSize), sizeof(clienteSize));
             archivo.write(pedido.idCliente.c_str(), clienteSize);
 
+            // Escribir el tamaño y valor del campo 'idAlmacen'
             size_t almacenSize = pedido.idAlmacen.size();
             archivo.write(reinterpret_cast<const char*>(&almacenSize), sizeof(almacenSize));
             archivo.write(pedido.idAlmacen.c_str(), almacenSize);
 
+            // Escribir directamente la fecha del pedido (se asume que es un tipo POD como time_t)
             archivo.write(reinterpret_cast<const char*>(&pedido.fechaPedido), sizeof(pedido.fechaPedido));
 
+            // Escribir el tamaño y valor del campo 'estado'
             size_t estadoSize = pedido.estado.size();
             archivo.write(reinterpret_cast<const char*>(&estadoSize), sizeof(estadoSize));
             archivo.write(pedido.estado.c_str(), estadoSize);
 
-            // Escribir detalles del pedido
+            // Escribir la cantidad de detalles que contiene el pedido
             size_t detallesSize = pedido.detalles.size();
             archivo.write(reinterpret_cast<const char*>(&detallesSize), sizeof(detallesSize));
 
+            // Escribir cada detalle del pedido
             for (const auto& detalle : pedido.detalles) {
+                // Escribir el tamaño y valor del código del producto
                 size_t codigoSize = detalle.codigoProducto.size();
                 archivo.write(reinterpret_cast<const char*>(&codigoSize), sizeof(codigoSize));
                 archivo.write(detalle.codigoProducto.c_str(), codigoSize);
 
+                // Escribir cantidad y precio unitario del producto
                 archivo.write(reinterpret_cast<const char*>(&detalle.cantidad), sizeof(detalle.cantidad));
                 archivo.write(reinterpret_cast<const char*>(&detalle.precioUnitario), sizeof(detalle.precioUnitario));
             }
         }
 
+        // Forzar el vaciado del búfer de salida al archivo
         archivo.flush();
+
+        // Verificar si ocurrió un error al escribir
         if (!archivo) {
+            // Si hubo un error, lanzar una excepción
             throw runtime_error("Error al escribir en archivo");
         }
+
     } catch (const exception& e) {
+        // Este bloque se ejecuta solo si ocurre una excepción en el bloque try
+
+        // Mostrar el mensaje de error en la consola
         cerr << "\n\t\tError al guardar pedidos: " << e.what() << "\n";
+
+        // Cerrar el archivo para liberar recursos
         archivo.close();
+
+        // Eliminar el archivo corrupto si ocurrió un error
         remove("pedidos.bin");
+
+        // Salir de la función
         return;
     }
 
+    // Si todo salió bien, cerrar el archivo normalmente
     archivo.close();
+
 }
 
 // Función para cargar pedidos desde archivo binario

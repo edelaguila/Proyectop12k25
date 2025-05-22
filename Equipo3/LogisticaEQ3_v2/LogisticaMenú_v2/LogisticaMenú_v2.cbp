@@ -37,6 +37,8 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="CODIGOS_BITACORA.md" />
+		<Unit filename="backup.cpp" />
+		<Unit filename="backup.h" />
 		<Unit filename="include/Inventario.h" />
 		<Unit filename="include/Reportes.h" />
 		<Unit filename="include/administracion.h" />
