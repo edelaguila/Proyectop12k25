@@ -1,6 +1,9 @@
 #ifndef MENU_ARCHIVO_H
 #define MENU_ARCHIVO_H
 
-void menuArchivo();
+class MenuArchivo {
+public:
+    static void menuArchivo();
+};
 
 #endif

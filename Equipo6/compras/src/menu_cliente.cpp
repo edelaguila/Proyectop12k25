@@ -1,14 +1,17 @@
 #include "menu_cliente.h"
 #include "cliente.h"
+#include "bitacora.h"   // Incluye para poder obtener el usuario actual
 #include <iostream>
 
 using namespace std;
 
-void mostrarMenuCliente() {
+void MenuCliente::mostrarMenuCliente() {
+    string usuario = Bitacora::obtenerUsuarioActual();  // Obtener usuario actual
     int opcion;
     do {
-        cout << "\n=== GESTIÓN DE CLIENTES ==="
-             << "\n1. Registrar nuevo cliente"
+        cout << "\n=== GESTIÓN DE CLIENTES ===" << endl;
+        cout << "Usuario actual: " << usuario << endl;   // Mostrar usuario
+        cout << "1. Registrar nuevo cliente"
              << "\n2. Listar clientes"
              << "\n3. Modificar cliente"
              << "\n4. Eliminar cliente"

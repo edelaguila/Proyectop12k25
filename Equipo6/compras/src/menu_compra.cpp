@@ -1,17 +1,22 @@
 #include "menu_compra.h"
 #include "compras.h"
+#include "bitacora.h"  // Incluye bitacora para obtener usuario
 #include <iostream>
 #include <iomanip>
+#include <vector>
 
 using namespace std;
 
-void mostrarMenuCompra() {
-    vector<Producto> listaCompras;
+void MenuCompra::mostrarMenuCompra() {
+    vector<Producto> listaCompras = Compras::cargarCompras(); // Mejor cargar las compras guardadas al iniciar
+    Compras compras;  // objeto para llamar los métodos
+    string usuario = Bitacora::obtenerUsuarioActual(); // Obtener usuario actual
     int opcion;
 
     do {
-        cout << "\n=== MENÚ DE COMPRAS ==="
-             << "\n1. Registrar nueva compra"
+        cout << "\n=== MENÚ DE COMPRAS ===" << endl;
+        cout << "Usuario actual: " << usuario << endl;  // Mostrar usuario
+        cout << "1. Registrar nueva compra"
              << "\n2. Ver historial de compras"
              << "\n3. Buscar por proveedor"
              << "\n4. Ver total gastado"
@@ -22,17 +27,17 @@ void mostrarMenuCompra() {
 
         switch(opcion) {
             case 1:
-                registrarCompra(listaCompras);
+                compras.registrarCompra(listaCompras);
                 break;
             case 2:
-                mostrarHistorial(listaCompras);
+                compras.mostrarHistorial(listaCompras);
                 break;
             case 3:
-                buscarPorProveedor(listaCompras);
+                compras.buscarPorProveedor(listaCompras);
                 break;
             case 4:
-                cout << "\n💰 Total gastado: $" << fixed << setprecision(2)
-                     << calcularTotalGastado(listaCompras) << endl;
+                cout << "\nTotal gastado: $" << fixed << setprecision(2)
+                     << compras.calcularTotalGastado(listaCompras) << endl;
                 break;
             case 5:
                 cout << "Volviendo...\n";

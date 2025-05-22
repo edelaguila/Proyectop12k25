@@ -35,12 +35,28 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="include/bitacora.h" />
+		<Unit filename="include/cliente.h" />
 		<Unit filename="include/compras.h" />
+		<Unit filename="include/menu_archivo.h" />
+		<Unit filename="include/menu_cliente.h" />
+		<Unit filename="include/menu_compra.h" />
+		<Unit filename="include/menu_general.h" />
+		<Unit filename="include/menu_producto.h" />
+		<Unit filename="include/producto.h" />
 		<Unit filename="include/usuario.h" />
+		<Unit filename="include/utils.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/bitacora.cpp" />
+		<Unit filename="src/cliente.cpp" />
 		<Unit filename="src/compras.cpp" />
+		<Unit filename="src/menu_archivo.cpp" />
+		<Unit filename="src/menu_cliente.cpp" />
+		<Unit filename="src/menu_compra.cpp" />
+		<Unit filename="src/menu_general.cpp" />
+		<Unit filename="src/menu_producto.cpp" />
+		<Unit filename="src/producto.cpp" />
 		<Unit filename="src/usuario.cpp" />
+		<Unit filename="src/utils.cpp" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
