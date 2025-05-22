@@ -1,3 +1,7 @@
+//Implementacion de la clase pago para la gestion de pagos para facturas de proveedores y
+//acreedores
+//Programado por Britany Mishel Hernandez Davila 20/05/2025
+
 #include "pago.h"
 #include "bitacora.h"
 #include "usuarios.h"
@@ -5,15 +9,17 @@
 #include <fstream>
 #include <iomanip>
 #include <string>
+#include <ctime>
 
 using namespace std;
 
 extern usuarios usuariosrRegistrado;
-
+//Constructor de la clase
 pago::pago()
 {
     //ctor
 }
+//Menu principal de pagos
 void pago::menuPagos(){
     int opcion;
     char x;
@@ -27,7 +33,7 @@ void pago::menuPagos(){
         cout << "\t\t4. Busqueda por Factura" << endl;
         cout << "\t\t5. Mostrar Pagos por Acreedor/Proveedor" << endl;
         cout << "\t\t6. Volver al menu Principal" << endl;
-        cout << "\n\t\tIngrese una opción: ";
+        cout << "\n\t\tIngrese una opciï¿½n: ";
         cin >> opcion;
 
         switch (opcion){
@@ -67,7 +73,7 @@ void pago::menuPagos(){
     } while (opcion != 6);
 
 }
-
+//Metodo para el registro de los pagos para los acreedores y los proveedores
 void pago::registrarPago(){
     bitacora auditoria;
     //Archivos
@@ -75,7 +81,7 @@ void pago::registrarPago(){
 
     //Variables de factura
     string lineaFactura;
-    string idFactura, nombre, cuenta, montoStr, fecha, hora, tipo, clasificacion, estado/*, saldoStr*/;
+    string idFactura, nombre, cuenta, montoStr, fecha, hora, tipo, clasificacion, estado, saldoStr;
     float montoTotal, saldoPendiente;
     string idFacturaRegistrada;
 
@@ -88,7 +94,9 @@ void pago::registrarPago(){
     cout << "\n\t Ingrese el ID de la factura: "; //Ingreso del id de la factura a pagar
     cin >> idFacturaRegistrada;
 
-    fileFacturas.open("facturas.bin", ios::in |ios::binary);
+    //Apertura del archivo factura en modo de lectura
+    fileFacturas.open("facturas.bin", ios::in);
+    //Abre el archivo temporal para almacenar la modificaciones
     fileTemporal.open("facturas_temporal.bin", ios::app | ios::out |ios::binary);
 
     if (!fileFacturas){
@@ -109,14 +117,14 @@ void pago::registrarPago(){
         getline(ss, hora, ',');
         getline(ss, tipo, ',');
         getline(ss, clasificacion, ',');
-        getline(ss, estado);
-        /*getline(ss, saldoStr, ',');*/
+        getline(ss, estado, ',');
+        getline(ss, saldoStr);
 
         //Convercion de monto y de saldo pendiente
         montoTotal = stof(montoStr);
-        /*saldoPendiente=montoTotal;
-        /*saldoPendiente = stof(saldoStr);*/
+        saldoPendiente = stof(saldoStr);
 
+        //Verificacion de las condiciones para registrar un pago
         if (idFactura == idFacturaRegistrada && (tipo == "Proveedor" || tipo == "Acreedor")&&
             clasificacion == "Por pagar" && (estado=="Pendiente" || estado == "pagada_parcial")){
 
@@ -125,27 +133,38 @@ void pago::registrarPago(){
             cout << "\nFactura encontrada Saldo pendiente: Q" << fixed << setprecision(2) << saldoPendiente << endl;
             cout << "\n------------------------------------------------\n";
             cout << "Ingrese ID del pago    : "; cin >> idPago;
-            cout << "Ingrese fecha del pago : "; cin >> fechaPago;
             cout << "Ingrese monto pagado   : Q "; cin >> montoPago;
             cout << "Ingrese metodo de pago : "; cin >> metodoPago;
 
+            //Obtiene la fecha actual
+            time_t now = time(0);
+            tm* timeinfo = localtime(&now);
+            char buffer[80];
+            strftime(buffer, 80, "%d/%m/%Y", timeinfo);
+            fechaPago = buffer;
+
+            //Asignacion de datos
             nitEntidad = cuenta;
             tipoEntidad = tipo;
 
+            //Informacion ingresada para los pagos
             system ("cls");
             cout << "\n--------- Resumen de la informacion ingresada ---------\n";
-            cout << "ID Pago         :" << idPago << endl;
-            cout << "Fecha del pago  :" << fechaPago << endl;
-            cout << "Metodo del pago :" << metodoPago << endl;
+            cout << "ID Pago         :   " << idPago << endl;
+            cout << "ID Factura      :   " << idFactura << endl;
+            cout << "Fecha del pago  :   " << fechaPago << endl;
+            cout << "Metodo del pago :   " << metodoPago << endl;
             cout << "Monto a Pagar   : Q " << fixed << setprecision(2) << montoPago << endl;
             cout << "Saldo Actual    : Q " << saldoPendiente << endl;
-            cout << "Nit entidad      :" << nitEntidad << endl;
-            cout << "Tipo Entidad    :" << tipoEntidad << endl;
+            cout << "Nit entidad     :   " << nitEntidad << endl;
+            cout << "Tipo Entidad    :   " << tipoEntidad << endl;
 
             cout << "\n Esta seguro de guardar esta informacion? (S/N): ";
             cin >> confirmar;
 
+            //Confirmacion para guardar la informacion
             if (confirmar == 's' || confirmar == 'S') {
+                //Validacion del monto ingresado
                 if (montoPago > saldoPendiente) {
                     cout << "El monto ingresado excede al valor del saldo (Q" << saldoPendiente << ")\n";
                     estadoPago = "rechazado";
@@ -155,8 +174,9 @@ void pago::registrarPago(){
                     estadoPago = "rechazado";
                     montoPago = 0;
                 } else {
-                    saldoPendiente -=montoPago;
+                    saldoPendiente -=montoPago; //Resta del pago al saldo
 
+                    //Actualizacion del estado de la factura
                     if (saldoPendiente == 0) {
                         estado = "solvente";
                         estadoPago = "ejecutado";
@@ -172,9 +192,8 @@ void pago::registrarPago(){
                 montoPago=0;
             }
             // Guardar factura actualizada
-            fileTemporal << idFactura << "," << nombre << "," << cuenta << "," << fixed << setprecision(2)
-            << montoTotal << "," << fecha << "," << hora << "," << tipo << "," << clasificacion << ","
-            << estado << "," << fixed << setprecision(2) << saldoPendiente << "\n";
+            fileTemporal << idFactura << "," << nombre << "," << cuenta << "," << fixed << setprecision(2) << montoTotal << ","
+             << fecha << "," << hora << "," << tipo << "," << clasificacion << "," << estado << "," << fixed << setprecision(2) << saldoPendiente << "\n";
 
 
         } else {
@@ -196,19 +215,21 @@ void pago::registrarPago(){
     remove("facturas.bin");
     rename("facturas_temporal.bin", "facturas.bin");
 
-    filePagos.open("pagos.bin", ios::app | ios::out | ios::binary);
+    //Registro del pago en el archivo pago
+    filePagos.open("pagos.bin", ios::app | ios::out);
     if (!filePagos){
         cout << "No se encontro informacion..." << endl;
         system("pause");
         return;
     }
-
-    filePagos << idPago << left << setw(15) << idFactura << left << setw(15) << fechaPago << left
-        << setw(15) << fixed << setprecision(2) << montoPago << left << setw(15) << metodoPago
-        << left << setw(15) << nitEntidad << left << setw(15) << tipoEntidad << left << setw(15) << estadoPago << endl;
+    //Escritura en el archivo
+    filePagos << idPago << "," << idFactura << "," << fechaPago << ","
+              << fixed << setprecision(2) << montoPago << "," << metodoPago << ","
+              << nitEntidad << "," << tipoEntidad << "," << estadoPago << endl;
 
     filePagos.close();
 
+    //El estado en que se registro en el archivo pago
     if (estadoPago == "rechazado") {
         cout << "\nEl pago fue rechazado y registrado como tal\n";
     } else {
@@ -218,45 +239,67 @@ void pago::registrarPago(){
 
     auditoria.insertar(usuariosrRegistrado.getNombre(),"8200", "AddP"); //Registrar pagos
 }
-
+//Metodo para mostrar los pagos segun el nit de un proveedor o acreedor
+//segun el nit que se decea buscar
 void pago::listarPagosPorProveedor(){
     system("cls");
     fstream filePagos;
 
-    string idIngresado;
+    //variables
+    string nitIngresado, linea, montoPag;
+    float montoStr;
     int total=0;
 
     cout << "\n--------- Lista de pagos a proveedor o acreedor ---------\n" << endl;
+    //Ingreso del nit que se desea buscar
     cout << "Ingrese Nit del proveedor o acreedor: ";
-    cin >> idIngresado;
+    cin >> nitIngresado;
 
-    filePagos.open("pagos.bin", ios::in | ios::binary);
+    filePagos.open("pagos.bin", ios::in);
     if (!filePagos) {
         cout << "No se encontro informacion..." << endl;
         system("pause");
         return;
     }
 
-    cout << "\nPagos registrados para el ID: " << idIngresado << endl;
+
+    cout << "\nPagos registrados para el ID: " << nitIngresado << endl;
     cout << "----------------------------------------------------------------------------------\n";
     cout << left << setw(10) << "ID Pago|" << left << setw(10) << "Factura|" << left << setw(10) << "Fecha|"
          << left << setw(10) << "Monto|" << left << setw(10) << "Metodo|" << left << setw(10) << "Nit Entidad|"
          << left << setw(10) << "Tipo Entidad|" << left << setw(10) << "Estado" << endl;
     cout << "----------------------------------------------------------------------------------\n";
 
-    while (filePagos >> idPago >> idFactura >> fechaPago >> montoPago >> metodoPago >> nitEntidad >> tipoEntidad >> estadoPago) {
-        if (nitEntidad == idIngresado) {
+    while (getline(filePagos, linea)) {
+        stringstream ss(linea);//Ayuda a extrar cada campo de forma individual
+        //Extrae el flujo ss hasta la primera coma
+        getline(ss, idPago, ',');
+        getline(ss, idFactura, ',');
+        getline(ss, fechaPago, ',');
+        getline(ss, montoPag, ',');
+        getline(ss, metodoPago, ',');
+        getline(ss, nitEntidad, ',');
+        getline(ss, tipoEntidad, ',');
+        getline(ss, estadoPago);
+
+        montoPago = stof(montoPag);
+
+        //Verificacion del id ingresado con el id en pagos
+        if (nitEntidad == nitIngresado) {
             total++;
-            cout << left << setw(10) << idPago << "|" << left << setw(10) << idFactura << "|" << left << setw(10) << fechaPago << "|"
-                 << left << setw(10) << fixed << setprecision(2) << montoPago << "|" << left << setw(10) << metodoPago << "|"
-                 << left << setw(10) << nitEntidad << "|" << left << setw(10) << tipoEntidad << "|"  << left << setw(10) << estadoPago << "|" << endl;
+            //Despliegue de la informacion de los pagos realizados por el acreedor/Proveedor
+            cout << left << setw(10) << idPago << left << setw(10) << idFactura << left << setw(10) << fechaPago << "|"
+                 << left << setw(10) << montoPago << left << setw(10) << metodoPago << left << setw(10) << nitEntidad
+                 << left << setw(10) << tipoEntidad  << left << setw(10) << estadoPago << "|" << endl;
         }
     }
 
     if (total == 0) {
-        cout << "\nEl ID Ingresado no cuenta con pagos\n";
+        //Si el total de pagos es 0
+        cout << "\n\nEl ID Ingresado no cuenta con pagos\n";
     }else{
-        cout << "El ID " << idIngresado << "tiene un total de " << total << "pagos." << endl;
+        //Muestra el total de pagos realizados por el acreedor/proveedor
+        cout << "\n\nEl ID " << nitIngresado << "tiene un total de " << total << "pagos." << endl;
 
     }
     filePagos.close();
@@ -265,12 +308,15 @@ void pago::listarPagosPorProveedor(){
     auditoria.insertar(usuariosrRegistrado.getNombre(),"8200", "SeaPE"); //Mostrar pagos por entidad
 
 }
-
+//Metodo que muestra todos los registros de pagos
 void pago::listarHistorialPagos(){
     system("cls");
     fstream filePagos;
 
-    filePagos.open("pagos.bin", ios::in | ios::binary);
+    string linea, montoPag;
+    float montoStr;
+
+    filePagos.open("pagos.bin", ios::in);
     if (!filePagos) {
         cout << "No se encontro informacion..." << endl;
         system("pause");
@@ -283,9 +329,23 @@ void pago::listarHistorialPagos(){
          << left << setw(15) << "Nit Entidad" << left << setw(15) << "Tipo Entidad" << left << setw(15) << "Estado" << endl;
     cout << "----------------------------------------------------------------------------------\n";
 
-    while (filePagos >> idPago >> idFactura >> fechaPago >> montoPago >> metodoPago >> nitEntidad >> tipoEntidad >> estadoPago){
+    while (getline(filePagos, linea)) {
+        stringstream ss(linea);//Ayuda a extrar cada campo de forma individual
+        //Extrae el flujo ss hasta la primera coma
+        getline(ss, idPago, ',');
+        getline(ss, idFactura, ',');
+        getline(ss, fechaPago, ',');
+        getline(ss, montoPag, ',');
+        getline(ss, metodoPago, ',');
+        getline(ss, nitEntidad, ',');
+        getline(ss, tipoEntidad, ',');
+        getline(ss, estadoPago);
+
+        montoPago = stof(montoPag);
+
+        //Despliegue de los datos guardados
         cout << left << setw(15) << idPago<< left << setw(15) << idFactura<< left << setw(15) << fechaPago
-             << left << setw(15) << fixed << setprecision(2) << montoPago << left << setw(15) << metodoPago
+             << left << setw(15) << montoPago << left << setw(15) << metodoPago
              << left << setw(15) << nitEntidad << left << setw(15) << tipoEntidad << left << setw(15) << estadoPago << endl;
     }
     filePagos.close();
@@ -298,18 +358,19 @@ void pago::mostrarCuentasPorPagar(){
     fstream fileFacturas;
     //Variables de factura
     string lineaFactura;
-    string idFactura, nombre, cuenta, montoStr, fecha, hora, tipo, clasificacion, estado/*, saldoStr*/;
-    float montoTotal/*, saldoPendiente*/;
+    string idFactura, nombre, cuenta, montoStr, fecha, hora, tipo, clasificacion, estado, saldoStr;
+    float montoTotal, saldoPendiente;
+
     bool facturasPendientes=false;
 
     system("cls");
     cout << "\n------------- Facturas Pendientes de Pago -------------\n" << endl;
-    cout << left << setw(15) << "ID Factura" << left << setw(15) << "Nombre" << left << setw(15) << "Cuenta"
-         << left << setw(15) << "Monto Total" << left << setw(15) << "Fecha"  << left << setw(15) << "Tipo"
+    cout << left << setw(15) << "ID Factura" << left << setw(15) << "Nombre" << left << setw(15) << "Nit Cuenta"
+         << left << setw(15) << "Monto Total" << left << setw(15) << "Fecha"  << left << setw(15) << "  Tipo"
          << left << setw(15) << "Clasificacion" << left << setw(15) << "Estado" << left << setw(15) << "Saldo Pendiente" << endl;
     cout << "----------------------------------------------------------------------------------\n";
 
-    fileFacturas.open("facturas.bin", ios::in | ios::binary);
+    fileFacturas.open("facturas.bin", ios::in);
     if (!fileFacturas) {
         cout << "No se encontro informacion..." << endl;
         system("pause");
@@ -329,36 +390,38 @@ void pago::mostrarCuentasPorPagar(){
         getline(ss, tipo, ',');
         getline(ss, clasificacion, ',');
         getline(ss, estado, ',');
-        /*getline(ss, saldoStr, ',');*/
+        getline(ss, saldoStr);
 
         //Convercion de monto y de saldo
         montoTotal = stof(montoStr);
-        /*saldoPendiente = stof(saldoStr);*/
+        saldoPendiente = stof(saldoStr);
 
+        //verificacion del estado de la factura
         if (estado == "Pendiente" || estado == "pagada_parcial"){
+            //Muestra la informacion si aun no esta pendiente de pago
             facturasPendientes = true;
-            cout << left << setw(15) << idFactura << left << setw(15) << nombre << left << setw(15) << cuenta
-                 << left << setw(15) << "Q. " << montoStr << left << setw(15) << fecha << left << setw(15) << tipo
-                 << left << setw(15) << clasificacion << left << setw(15) << estado/* << left << setw(15) << "Q " << saldoStr */<< endl;
+            cout << left << setw(15) << idFactura << setw(15) << nombre << setw(15) << cuenta
+                  << "Q. " << setw(15) << montoTotal  << setw(15) << fecha << setw(15) << tipo
+                  << setw(15) << clasificacion << setw(15) << estado  << "   Q " << saldoPendiente << endl;
         }
     }
 
     fileFacturas.close();
-    if (!facturasPendientes){
-        cout << "\n No ahi facturas pendientes de pago..." << endl;
+    if (!facturasPendientes){ //Muestra el mensaje si no se encuentran pagos pendientes
+        cout << "\n No ahi facturas pendientes de pago...\n\n" << endl;
     }
     system("pause");
     bitacora auditoria;
     auditoria.insertar(usuariosrRegistrado.getNombre(),"8200", "ViCP"); //Mostrar Cuentas por pagar
 }
-
+//Filtra los pagos realizados segun su numero de factura
 void pago::buscarPagosPorFacura(){
     fstream fileFacturas, filePagos;
 
     //Variables de factura
-    string lineaFactura;
-    string idFactura, nombre, cuenta, montoStr, fecha, hora, tipo, clasificacion, estado/*, saldoStr*/;
-    float montoTotal/*, saldoPendiente*/;
+    string lineaFactura, linea;
+    string idFactura, nombre, cuenta, montoStr, fecha, hora, tipo, clasificacion, estado, saldoStr;
+    float montoTotal, saldoPendiente;
 
     string idFacturaBuscada;
     bool facturaExiste= false;
@@ -369,7 +432,7 @@ void pago::buscarPagosPorFacura(){
     cout << "Ingrese el ID de la factura que desea buscar: ";
     cin >> idFacturaBuscada;
 
-    fileFacturas.open("facturas.bin", ios::in | ios::binary);
+    fileFacturas.open("facturas.bin", ios::in);
     if (!fileFacturas) {
         cout << "No se encontro informacion..." << endl;
         system("pause");
@@ -389,45 +452,63 @@ void pago::buscarPagosPorFacura(){
         getline(ss, tipo, ',');
         getline(ss, clasificacion, ',');
         getline(ss, estado, ',');
-        /*getline(ss, saldoStr, ',');*/
+        getline(ss, saldoStr);
 
         //Convercion de monto y de saldo
         montoTotal = stof(montoStr);
-        /*saldoPendiente = stof(saldoStr);*/
+        saldoPendiente = stof(saldoStr);
 
         if (idFactura == idFacturaBuscada){
             facturaExiste=true;
 
+            //Muestra los datos de la factura con el id ingresado
             cout << "\n--- Datos de la Factura ---\n";
             cout << "ID Factura     : " << idFactura << endl;
             cout << "Entidad        : " << nombre << " (" << tipo << ")" << endl;
-            cout << "Cuenta        : " << cuenta << endl;
+            cout << "Cuenta         : " << cuenta << endl;
             cout << "Monto total    : Q" << fixed << setprecision(2) << montoTotal << endl;
-            /*cout << "Saldo pendiente: Q" << saldoPendiente << endl;*/
+            cout << "Saldo pendiente: Q" << saldoPendiente << endl;
             cout << "Estado actual  : " << estado << endl;
             break;
         }
     }
-    fileFacturas.close();
 
-    if (!facturaExiste){
+    if (!facturaExiste){ //Mensaje si la factura no existe
         cout << "\nFactura no encontrada...\n";
         system("pause");
         return;
     }
 
-    filePagos.open("pagos.bin", ios::in | ios::binary);
+    fileFacturas.close();
+
+    filePagos.open("pagos.bin", ios::in);
     if (!filePagos) {
-        cout << "No se encontro informacion..." << endl;
+        cout << "\nNo se encontro informacion...\n" << endl;
         system("pause");
         return;
     }
 
+    //Muestra la informacion de los pagos asociados a una factura
     cout << "\n--- Pagos Asociados a la Factura ---\n";
-    while (filePagos >> idPago >> idFactura >> fechaPago >> montoPago >> metodoPago >> nitEntidad >> tipoEntidad >> estadoPago){
+    while (getline(filePagos, linea)) {
+        stringstream ss(linea);//Ayuda a extrar cada campo de forma individual
+        //Extrae el flujo ss hasta la primera coma
+        getline(ss, idPago, ',');
+        getline(ss, idFactura, ',');
+        getline(ss, fechaPago, ',');
+        getline(ss, montoStr, ',');
+        getline(ss, metodoPago, ',');
+        getline(ss, nitEntidad, ',');
+        getline(ss, tipoEntidad, ',');
+        getline(ss, estadoPago);
+
+        montoPago = stof(montoStr);
+
         if (idFactura==idFacturaBuscada){
-            total++;
+            total++; //Contador para el total de pagos realizados
+            //Muestra la informacion de los pagos realizados
             cout << "\nID Pago       : " << idPago;
+            cout << "\nID Factura    : " << idFactura;
             cout << "\nNit Entidad   :" << nitEntidad;
             cout << "\nFecha         : " << fechaPago;
             cout << "\nMonto pagado  : Q" << fixed << setprecision(2) << montoPago;
@@ -439,29 +520,31 @@ void pago::buscarPagosPorFacura(){
 
     filePagos.close();
 
+    //Mensajes para el total de pagos realizados asociados a la factura
      if (total == 0) {
         cout << "\n\nNo se encontraron pagos asociados a la factura con ID: " << idFacturaBuscada << endl;
     }else{
-        cout << "\n\nEl total de pagos registrados para la factura " << idFacturaBuscada << "es de: " << total << endl;
+        cout << "\n\nEl total de pagos registrados para la factura " << idFacturaBuscada << " es de: " << total << endl <<endl;
     }
 
     system("pause");
     bitacora auditoria;
     auditoria.insertar(usuariosrRegistrado.getNombre(),"8200", "SeaPF"); //Buscar pagos por factura
 }
-
+//Metodo para generar el reporte de pagos
 void pago::reportePagos(){
     system("cls");
     fstream file, reportefile;
     int found = 0;
+    string linea, montoPag;
 
     cout<<"\n----------------------------- Reporte de Pagos -----------------------------\n"<<endl;
-    file.open("pagos.bin", ios::in | ios::binary);
+    file.open("pagos.bin", ios::in);
     reportefile.open("reporte_Pagos.txt", ios::app | ios::out);
 
     if(!file){
         cout << "\n\tNo hay informacion de pagos...\n";
-        reportefile << "No hay informacion en pagos.txt \n\n";
+        reportefile << "No hay informacion de pagos \n\n";
     } else{
         cout << left << setw(15) << "ID Pago" << setw(15) << "ID Factura" << setw(15) << "Fecha Pago"
              << setw(15) << "Monto" << setw(15) << "Metodo Pago" << setw(15) << "ID Entidad"
@@ -474,20 +557,32 @@ void pago::reportePagos(){
              << setw(15) << "Tipo" << setw(15) << "Estado" << endl;
         reportefile << "----------------------------------------------------------------------------------\n";
 
-        file >> idPago >> idFactura >> fechaPago >> montoPago >> metodoPago >> nitEntidad >> tipoEntidad >> estadoPago;
+        while (getline(file, linea)) {
+            stringstream ss(linea);//Ayuda a extrar cada campo de forma individual
+            //Extrae el flujo ss hasta la primera coma
+            getline(ss, idPago, ',');
+            getline(ss, idFactura, ',');
+            getline(ss, fechaPago, ',');
+            getline(ss, montoPag, ',');
+            getline(ss, metodoPago, ',');
+            getline(ss, nitEntidad, ',');
+            getline(ss, tipoEntidad, ',');
+            getline(ss, estadoPago);
 
-        while (!file.eof()){
+            montoPago = stof(montoPag);
             found++;
 
+            //Muestra la informacion del informe
             cout << left << setw(15) << idPago << setw(15) << idFactura << setw(15) << fechaPago
                  << setw(15) << fixed << setprecision(2) << montoPago << setw(15) << metodoPago
                  << setw(15) << nitEntidad << setw(15) << tipoEntidad << setw(15) << estadoPago << endl;
 
+            //Informacion que se guarda en el informe
             reportefile << left << setw(15) << idPago << setw(15) << idFactura << setw(15) << fechaPago
                  << setw(15) << fixed << setprecision(2) << montoPago << setw(15) << metodoPago
                  << setw(15) << nitEntidad << setw(15) << tipoEntidad << setw(15) << estadoPago << endl;
 
-            file >> idPago >> idFactura >> fechaPago >> montoPago >> metodoPago >> nitEntidad >> tipoEntidad >> estadoPago;
+            //file >> idPago >> idFactura >> fechaPago >> montoPago >> metodoPago >> nitEntidad >> tipoEntidad >> estadoPago;
         }
 
         reportefile << "----------------------------------------------------------------------------------\n\n";
@@ -497,13 +592,15 @@ void pago::reportePagos(){
             reportefile << "No hay pagos registrados...\n\n";
         }
     }
+
+    system("pause");
     file.close();
     reportefile.close();
 
     bitacora auditoria;
     auditoria.insertar(usuariosrRegistrado.getNombre(),"8200", "ReP"); //Reporte pagos
 }
-
+//Metodo para generar un reporte de las cuentas por pagar
 void pago::reporteCuentasPorPagar(){
     system("cls");
     fstream file, reportefile;
@@ -511,12 +608,12 @@ void pago::reporteCuentasPorPagar(){
 
     //Variables de factura
     string lineaFactura;
-    string idFactura, nombre, cuenta, montoStr, fecha, hora, tipo, clasificacion, estado/*, saldoStr*/;
-    float montoTotal/*, saldoPendiente*/;
+    string idFactura, nombre, cuenta, montoStr, fecha, hora, tipo, clasificacion, estado, saldoStr;
+    float montoTotal, saldoPendiente;
 
     cout<<"\n---------------------- Reporte de cuentas por pagar ----------------------\n"<<endl;
 
-    file.open("facturas.bin", ios::in | ios::binary);
+    file.open("facturas.bin", ios::in);
     reportefile.open("reporte_PorPagar.txt", ios::app | ios::out);
 
     if(!file){
@@ -526,13 +623,13 @@ void pago::reporteCuentasPorPagar(){
         cout << left << setw(15) << "ID Factura" << setw(15) << "Nombre" << setw(15) << "Cuenta"
              << setw(15) << "Monto Total" << setw(15) << "Fecha" << setw(15) << "Hora" << setw(15) << "Tipo"
              << setw(15) << "Clasificacion" << setw(15) << "Estado" << setw(15) << "Saldo Pendiente" << endl;
-        cout << "----------------------------------------------------------------------------------\n";
+        cout << "--------------------------------------------------------------------------------------------------------------------------------------------\n";
 
         reportefile << "-------------------------- REPORTE DE CUENTAS POR PAGAR --------------------------\n";
         reportefile << left << setw(15) << "ID Factura" << setw(15) << "Nombre" << setw(15) << "Cuenta"
                     << setw(15) << "Monto Total" << setw(15) << "Fecha" << setw(15) << "Hora" << setw(15) << "Tipo"
                     << setw(15) << "Clasificacion" << setw(15) << "Estado" << setw(15) << "Saldo Pendiente" << endl;
-        reportefile << "----------------------------------------------------------------------------------------\n";
+        reportefile << "-------------------------------------------------------------------------------------------------------------------------\n";
 
 
         //Lectura del archivo factura line por linea y la guarda en lineaFactura
@@ -548,24 +645,25 @@ void pago::reporteCuentasPorPagar(){
         getline(ss, tipo, ',');
         getline(ss, clasificacion, ',');
         getline(ss, estado, ',');
-        /*getline(ss, saldoStr, ',');*/
+        getline(ss, saldoStr);
 
             //Convercion de monto y de saldo
             montoTotal = stof(montoStr);
-            /*saldoPendiente = stof(saldoStr);*/
+            saldoPendiente = stof(saldoStr);
 
             if ((tipo== "Proveedor" || tipo == "Acreedor") && (estado=="Pendiente" || estado == "pagada_parcial")){
                 found++;
 
                 cout << left << setw(15) << idFactura << setw(15) << nombre << setw(15) << cuenta << setw (15) << montoTotal
                      << setw(15) << fecha << setw(15) << hora << setw(15) << tipo << setw(15) << clasificacion << setw(15) << estado
-                     /*<< setw(15) << saldoPendiente */<< endl;
+                     << "  Q." <<saldoPendiente << endl;
 
                 reportefile << left << setw(15) << idFactura << setw(15) << nombre << setw(15) << cuenta << setw (15) << montoTotal
                             << setw(15) << fecha << setw(15) << hora << setw(15) << tipo << setw(15) << clasificacion << setw(15) << estado
-                            /*<< setw(15) << saldoPendiente */<< endl;
+                            << setw(15) << saldoPendiente << endl;
             }
         }
+        cout << "--------------------------------------------------------------------------------------------------------------------------------------------\n";
         reportefile << "----------------------------------------------------------------------------------------\n";
 
         if (found == 0){
@@ -573,6 +671,7 @@ void pago::reporteCuentasPorPagar(){
             reportefile << "No hay pagos registrados...\n\n";
         }
     }
+    system("pause");
 
     file.close();
     reportefile.close();
@@ -582,7 +681,7 @@ void pago::reporteCuentasPorPagar(){
 
 }
 
-//Realizando respaldo de pagos - Astrid Ruíz
+//Realizando respaldo de pagos - Astrid RuÃ­z
 bool pago::backupPagos() {
     system("cls");
     ifstream file;
@@ -593,7 +692,7 @@ bool pago::backupPagos() {
 
     file.open("pago.bin", ios::binary | ios::in);
     if (!file) {
-        cout << "\n\t\tNo hay información disponible para realizar el backup..." << endl;
+        cout << "\n\t\tNo hay informaciÃ³n disponible para realizar el backup..." << endl;
         return false;
     }
 
@@ -612,7 +711,7 @@ bool pago::backupPagos() {
     file.close();
     backupFile.close();
 
-    cout << "\n\t\tBackup realizado con éxito'" << endl;
+    cout << "\n\t\tBackup realizado con Ã©xito'" << endl;
 
     bitacora auditoria;
     auditoria.insertar(usuariosrRegistrado.getNombre(), "8200", "BKP");

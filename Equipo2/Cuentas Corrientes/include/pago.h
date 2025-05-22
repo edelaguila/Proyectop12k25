@@ -1,3 +1,6 @@
+//Programado por Britany Mishel Hernandez Davila 9959-24-4178
+
+
 #ifndef PAGO_H
 #define PAGO_H
 
@@ -20,13 +23,13 @@ class pago
         bool backupPagos();
 
     private:
-        string idPago;
-        string idFactura;
-        string fechaPago;
-        float montoPago;
+        string idPago; //Id del pago realizado
+        string idFactura; //Id de la factura asociada al pago
+        string fechaPago; //Fecha en que se realizo el pago
+        float montoPago; //Monto del pago realizado
         string metodoPago; // efectivo, transferencia, cheque, etc.
-        string nitEntidad;
-        string tipoEntidad;
+        string nitEntidad; //Nit del acreedor o proveedor a quien se le pago
+        string tipoEntidad; //Tipo de entidad a quien se pago
         string estadoPago; // programado, ejecutado, rechazado
 };
 #endif // PAGO_H
