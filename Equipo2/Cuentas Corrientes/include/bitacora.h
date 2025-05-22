@@ -16,6 +16,7 @@ class bitacora
         //Agrega un nuevo registro en la bitacora
         void insertar(string nombre, string aplicacion, string accion);
         void desplegar();//Muestra todos los registros de la bitacora
+        bool backupBitacora();
 
     protected:
 

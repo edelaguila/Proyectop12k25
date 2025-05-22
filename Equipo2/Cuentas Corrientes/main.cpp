@@ -1,4 +1,9 @@
+//Main iniciado a programar por Astrid Ruíz (Agregué el menu general, el d inicio, todo el de usuarios para asegurarme d que inicie sesión antes d modficar un usuasio)
 ////Menu modificado por Astrid Ruíz 9959 24 2976 - Agregué menu de seguridad para usuarios y agregué backup
+//Astrid Ruíz - Terminé de agregar todos los backups wuuuuu
+
+//El día de la exposición se requirio como mejora integrar el nombre del usuario que está en el programa (el usuario en línea) se realizó en todos los menus
+//Mejora implementada por Astrid Ruíz
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
@@ -6,9 +11,18 @@
 #include "catalogos.h"
 #include "procesos.h"
 #include "bitacora.h"
+#include "proveedor.h"
+#include "reportes.h"
+#include "acreedor.h"
+#include "cliente.h"
+#include "pago.h"
+#include "transaccion.h"
 #include <limits>
+#include "factura.h"
 
 using namespace std;
+
+extern cliente clientes;
 
 void menuGeneral ();
 void menuInicio();
@@ -19,10 +33,21 @@ void menuBackup();
 usuarios usuariosrRegistrado;
 Catalogos catalogo;
 bitacora auditorias;
+proveedor proveedoress;
+reportes reporte;
+acreedor acreedoress;
+pago pagos;
+transaccion transa;
+//GestionCobros cobro;
+
 
 int main()
 {
-    menuInicio();
+    try {
+        menuInicio();
+    } catch (exception &e){
+        cout << "\n\t\t Error ocurrido: " << e.what() << endl; //En caso de un erro en medio de la ejecucion
+    }
 
     system("cls");
     cout << "\n\t\tSALIENDO DEL SISTEMA...\n";
@@ -99,6 +124,7 @@ void menuUsuarios() {
     int choice;
     do {
         system("cls");
+        cout << "\t\t\tUsuario en linea: " << usuariosrRegistrado.getNombre() << "\n" << endl;
         cout << "\t\t\t-------------------------------------------------------" << endl;
         cout << "\t\t\t | SISTEMA GESTION DE SEGURIDAD - Usuarios |" << endl;
         cout << "\t\t\t-------------------------------------------------------" << endl;
@@ -141,12 +167,20 @@ void menuBackup() {
     int opcion;
     do {
         system("cls");
+        cout << "\t\t\tUsuario en linea: " << usuariosrRegistrado.getNombre() << "\n" << endl;
         cout << "\n\t\t---------------------------------" << endl;
         cout << "\t\t  MENÚ DE BACKUP Y RESPALDO     " << endl;
-        cout << "\t\t---------------------------------" << endl << endl;
+        cout << "\t\t-----------------------------------" << endl << endl;
         cout << "\t\t1. Realizar backup de usuarios" << endl;
-        cout << "\t\t2. Restaurar desde backup" << endl;
-        cout << "\t\t3. Retornar al menú anterior" << endl;
+        cout << "\t\t2. Restaurar backup de usuarios" << endl;
+        cout << "\t\t3. Realizar backup de bitacora" << endl;
+        cout << "\t\t4. Realizar backup de proveedores" << endl;
+        cout << "\t\t5. Realizar backup de acreedores" << endl;
+        cout << "\t\t6. Realizar backup de clientes" << endl;
+        cout << "\t\t7. Realizar backup de gestión de pagos" << endl;
+        cout << "\t\t8. Realizar backup de gestión de cobros" << endl;
+        cout << "\t\t9. Realizar backup de transacciones" << endl;
+        cout << "\t\t10. Retornar al menú anterior" << endl;
         cout << "\t\tSeleccione una opción: ";
         cin >> opcion;
         cin.ignore();
@@ -159,12 +193,34 @@ void menuBackup() {
                 usuariosrRegistrado.restaurarBackup();
                 break;
             case 3:
+               auditorias.backupBitacora();
                 break;
+            case 4:
+                proveedoress.backupProveedores();
+                break;
+            case 5:
+                acreedoress.backupAcreedores();
+                break;
+            case 6:
+                clientes.backupClientes();
+                break;
+            case 7:
+                pagos.backupPagos();
+                break;
+            case 8:
+                //cobro.backupCobros();
+                break;
+            case 9:
+                transa.backupTransacciones();
+                break;
+            case 10:
+               return;
             default:
                 cout << "\n\t\tOpción inválida. Intente de nuevo." << endl;
+                system("pause");
         }
 
-        if (opcion != 3) {
+        if (opcion != 11) {
             cout << "\n\t\tPresione Enter para continuar...";
             cin.get();
         }
@@ -175,16 +231,17 @@ void menuGeneral(){
     int opciones;
     do{
         system("cls"); // Limpia la pantalla
+        cout << "\t\t\tUsuario en linea: " << usuariosrRegistrado.getNombre() << "\n" << endl;
         cout << "\t\t\t---------------------- " << endl;
         cout << "\t\t\t | CUENTAS POR COBRAR |" << endl;
         cout << "\t\t\t-----------------------" << endl;
-        cout << "\t\t1. Menu de Catalogos" << endl;
-        cout << "\t\t2. Menu de Procesos" << endl;
-        cout << "\t\t3. Menu de Reportes" << endl;
-        cout << "\t\t4. Menu de Configuracion" << endl;
-        cout << "\t\t5. Menu de Bitacora" << endl;
-        cout << "\t\t6. Menu de Archivos (Usuarios)" << endl; //Astrid agregó menú para los archivos
-        cout << "\t\t7. Salir" << endl;
+        cout << "\t\t\t1. Menu de Catalogos" << endl;
+        cout << "\t\t\t2. Menu de Procesos" << endl;
+        cout << "\t\t\t3. Menu de Reportes" << endl;
+        cout << "\t\t\t4. Menu de Configuracion" << endl;
+        cout << "\t\t\t5. Menu de Bitacora" << endl;
+        cout << "\t\t\t6. Menu de Archivos (Usuarios)" << endl; //Astrid agregó menú para los archivos
+        cout << "\t\t\t7. Salir" << endl;
         cout << "\n\t\tIngrese una opcion: ";
         cin >> opciones;
 
@@ -196,7 +253,7 @@ void menuGeneral(){
                 menuProcesos();
                 break;
             case 3:
-                //menuReportes();
+                reporte.menuInformes();
                 break;
             case 4:
                 //menuConfiguracion();

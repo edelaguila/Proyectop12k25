@@ -43,6 +43,7 @@
 		<Unit filename="include/pago.h" />
 		<Unit filename="include/procesos.h" />
 		<Unit filename="include/proveedor.h" />
+		<Unit filename="include/reportes.h" />
 		<Unit filename="include/transaccion.h" />
 		<Unit filename="include/usuarios.h" />
 		<Unit filename="include/utilidades.h" />
@@ -56,6 +57,7 @@
 		<Unit filename="src/pago.cpp" />
 		<Unit filename="src/procesos.cpp" />
 		<Unit filename="src/proveedor.cpp" />
+		<Unit filename="src/reportes.cpp" />
 		<Unit filename="src/transaccion.cpp" />
 		<Unit filename="src/usuarios.cpp" />
 		<Unit filename="src/utilidades.cpp" />
