@@ -13,25 +13,36 @@
 #include "envios.h"
 #include "transportistas.h"
 
+//Declaraciones anticipadas de clases para evitar dependencias crï¿½ticas
 class Clientes;
 class Producto;
 class Almacen;
 
+//variables globales de usuarios y bitacora
 extern usuarios usuarioRegistrado;
 extern bitacora auditoria;
 
 class Pedidos {
 public:
+
+    double getMontoTotal() const {
+    double total = 0.0;
+    for (const auto& detalle : detalles) {
+        total += detalle.cantidad * detalle.precioUnitario;
+    }
+    return total;
+}
+
     struct DetallePedido {
         std::string codigoProducto;
         int cantidad;
         double precioUnitario;
     };
 
-    // Declaración del constructor (sin implementación aquí)
+    // Declaraciï¿½n del constructor
     Pedidos();
 
-    static std::vector<Pedidos> listaPedidos;  // Lista estática
+    static std::vector<Pedidos> listaPedidos;  // Lista estï¿½tica
 
     void gestionPedidos(const std::vector<Clientes>& clientes,
                       std::vector<Producto>& productos,
@@ -60,7 +71,7 @@ public:
     std::string getIdCliente() const { return idCliente; }
 
 private:
-    // Orden correcto de miembros para coincidir con la inicialización
+    // Orden correcto de miembros para coincidir con la inicializaciï¿½n
     std::string id;
     std::string idCliente;
     std::string idAlmacen;

@@ -6,15 +6,18 @@
 
 class MenuInformes {
 public:
-    // Muestra el menú de informes y recibe el usuario actual para registrar acciones
+    // Muestra el menï¿½ de informes y recibe el usuario actual para registrar acciones
     void mostrar(const usuarios& usuarioActual);
 
 private:
-    // Registra una acción en el archivo informes.bin
+    // Registra una acciï¿½n en el archivo informes.bin
     void registrarAccion(const char* nombreUsuario, const char* accion);
 };
 
 #endif
+
+
+
 
 
 
