@@ -1,0 +1,23 @@
+commit 68dc2d12baf8270f965e5c8c6169f243d681baa2
+Author: [Xander <[xreyeso@miumg.edu.gt]>
+Date:   Mon May 19 08:02:40 2025 -0600
+
+    Documentacion del programa
+
+commit 9a1d0e315cf6a53337497bdd5a0589401f3fbfcb
+Author: [Xander <[xreyeso@miumg.edu.gt]>
+Date:   Mon May 19 00:07:39 2025 -0600
+
+    Actualizacion de implementacion de Nomina
+
+commit 3a2fdacc6b9d45253b01e97aa449a50afe1ffca9
+Author: [Xander <[xreyeso@miumg.edu.gt]>
+Date:   Wed May 7 09:43:42 2025 -0600
+
+    Primera implementacion bitacora
+
+commit 2f13db6967d5089ef7997e4d8b99575eeb7f983b
+Author: [Xander <[xreyeso@miumg.edu.gt]>
+Date:   Mon May 5 09:38:29 2025 -0600
+
+    Actualizacion de bitacora
