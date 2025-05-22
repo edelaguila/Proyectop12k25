@@ -1,24 +1,24 @@
 #ifndef MENUPROCESOS_H
 #define MENUPROCESOS_H
 
-//JENNIFER ALBA DAYAMI BARRIOS FLORES
-//9959-24-10016
-//MAYO 2025
-
 #include <vector>
+
 // Forward declarations
 class Clientes;
 class Producto;
 class Almacen;
+class Proveedor; // Asegúrate de incluir esta línea si usas Proveedor
 class usuarios;
 
 class MenuProcesos
 {
 public:
-    // Método para mostrar el menú principal
+    // Declaración del método con el nuevo parámetro
     void mostrar(std::vector<Clientes>& clientes,
-            std::vector<Producto>& productos,
-            std::vector<Almacen>& almacenes);
+                 std::vector<Producto>& productos,
+                 std::vector<Almacen>& almacenes,
+                 std::vector<Proveedor>& proveedores); // Actualizado
 };
 
 #endif // MENUPROCESOS_H
+

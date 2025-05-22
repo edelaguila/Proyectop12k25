@@ -24,7 +24,7 @@ usuarios::usuarios() : id(""), nombre(""), contrasena(""), nivelAcceso(0) {}
 
 // Implementación de métodos
 string usuarios::generarCodigoUnico() {
-    ifstream archivo("usuarios.bin"; ios::binary);
+    ifstream archivo("usuarios.bin", ios::binary);
     set<string> codigosExistentes;
     string linea;
 
@@ -88,7 +88,7 @@ string usuarios::leerPasswordSegura() {
 bool usuarios::loginUsuarios() {
     string user, pass;
     int intentos = 0;
-    bool autenticado = false; // Cambiado de 'acceso' a 'autenticado'
+    bool autenticado = false;
 
     do {
         system("cls");
@@ -130,11 +130,24 @@ bool usuarios::loginUsuarios() {
                 registrarUsuario();
                 break;
 
+            default:
+                cout << "\t\tOpcion invalida!\n";
+                system("pause");
+        }
+    } while (intentos < 3 && !autenticado);
+
+    if (!autenticado) {
+        cout << "\n\t\tDemasiados intentos fallidos. Acceso denegado.\n";
+        system("pause");
+    }
+    return autenticado;
 }
+
+
 
 void usuarios::registrarUsuario() {
     system("cls");
-    ofstream archivo("usuarios.bin", ios::binary);
+    ofstream archivo("usuarios.bin", ios::binary | ios::app);
     if (!archivo.is_open()) {
         cerr << "\n\t\tError al abrir archivo de usuarios!\n";
         return;

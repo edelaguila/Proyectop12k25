@@ -8,6 +8,7 @@
 #include <iomanip>
 #include <vector>
 #include <algorithm>
+#include <map>
 
 using namespace std;
 
@@ -33,14 +34,15 @@ void Inventario::controlInventario(vector<Producto>& productos,
         cout << "\t\t 2. Registrar mercancia" << endl;
         cout << "\t\t 3. Ajustar inventario" << endl;
         cout << "\t\t 4. Reporte de existencias" << endl;
-        cout << "\t\t 5. Volver al menu anterior" << endl;
+        cout << "\t\t 5. Transferir entre almacenes" << endl;  // Cambiado de "Volver" a nombre descriptivo
+        cout << "\t\t 6. Volver al menu anterior" << endl;     // Nueva opción para salir
         cout << "\t\t========================================" << endl;
         cout << "\t\tOpcion a escoger: ";
 
-        while (!(cin >> opcion) || opcion < 1 || opcion > 5) {
+        while (!(cin >> opcion) || opcion < 1 || opcion > 6) {  // Cambiado a 6 opciones
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "\t\tEntrada inválida. Ingrese un número del 1 al 5: ";
+            cout << "\t\tEntrada inválida. Ingrese un número del 1 al 6: ";
         }
 
         switch(opcion) {
@@ -66,8 +68,9 @@ void Inventario::controlInventario(vector<Producto>& productos,
                                   "Salida de gestión de inventario");
                 break;
         }
-    } while(opcion != 6);
-     auditoria.insertar(usuarioRegistrado.getNombre(), "200", "REPORTE");
+    } while(opcion != 6);  // Cambiado para salir con opción 6
+
+    auditoria.insertar(usuarioRegistrado.getNombre(), "200", "REPORTE");
     system("pause");
 }
 
@@ -97,6 +100,22 @@ void Inventario::registrarMercancia(vector<Producto>& productos,
     }
 
     Inventario nuevo;
+
+    // Generar código automático en el rango 3600-3699
+    static int contadorCodigo = 0;
+    nuevo.codigoProducto = std::string("36") + (contadorCodigo < 10 ? "0" : "") + to_string(contadorCodigo);
+    contadorCodigo = (contadorCodigo + 1) % 100; // Para mantener en rango 00-99
+
+    // Mostrar productos disponibles
+    cout << "\n\t\t--- PRODUCTOS DISPONIBLES ---\n";
+    for (const auto& producto : productos) {
+        cout << "\t\tCódigo: " << producto.getCodigo()
+             << " | Nombre: " << producto.getNombre() << endl;
+    }
+
+    // Mostrar código asignado automáticamente
+    cout << "\n\t\tSe ha asignado automáticamente el código: " << nuevo.codigoProducto << endl;
+
 
     // Mostrar productos disponibles
     cout << "\n\t\t--- PRODUCTOS DISPONIBLES ---\n";
@@ -226,8 +245,8 @@ void Inventario::consultarStock(const vector<Producto>& productos,
 
     for (const auto& item : listaInventario) {
         // Aplicar filtro si es necesario
-        if ((tolower(filtro) == 'p' && item.codigoProducto != codigoFiltro) continue;
-        if ((tolower(filtro) == 'a' && item.idAlmacen != codigoFiltro) continue;
+        if ((tolower(filtro) == 'p' && item.codigoProducto != codigoFiltro)) continue;
+        if ((tolower(filtro) == 'a' && item.idAlmacen != codigoFiltro)) continue;
 
         // Obtener nombres en lugar de IDs
         string nombreProducto = "No encontrado";
