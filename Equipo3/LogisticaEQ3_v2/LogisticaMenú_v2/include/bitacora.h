@@ -6,21 +6,12 @@
 #include <unordered_map>
 
 struct RegistroBitacora {
-<<<<<<< HEAD
-    int id_accion;              ///< ID único de la acción basada en el módulo
-    int codigo;                 ///< Código del módulo al que pertenece la acción
-    char usuario[50];           ///< Nombre del usuario que ejecutó la acción
-    char modulo[30];            ///< Nombre del módulo donde se ejecutó la acción
-    char descripcion[100];      ///< Descripción de la acción realizada
-    char fecha_hora[20];        ///< Fecha y hora en que ocurrió la acción
-=======
-    int id_accion;              ///< ID ï¿½nico de la acciï¿½n basada en el mï¿½dulo
-    int codigo;                 ///< Cï¿½digo del mï¿½dulo al que pertenece la acciï¿½n
-    char usuario[50];           ///< Nombre del usuario que ejecutï¿½ la acciï¿½n
-    char modulo[30];            ///< Nombre del mï¿½dulo donde se ejecutï¿½ la acciï¿½n
-    char descripcion[100];      ///< Descripciï¿½n de la acciï¿½n realizada
-    char fecha_hora[20];        ///< Fecha y hora en que ocurriï¿½ la acciï¿½n
->>>>>>> f432235ec7a7ee37d9ae0aed0a67dd2ab32ad176
+    int id_accion;            ///< ID único de la acción basada en el módulo
+    int codigo;                ///< Código del módulo al que pertenece la acción
+    char usuario[50];          ///< Nombre del usuario que ejecutó la acción
+    char modulo[30];           ///< Nombre del módulo donde se ejecutó la acción
+    char descripcion[100];     ///< Descripción de la acción realizada
+    char fecha_hora[20];       ///< Fecha y hora en que ocurrió la acción
 };
 
 /**

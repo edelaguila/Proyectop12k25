@@ -13,11 +13,8 @@
 #include "envios.h"
 #include "transportistas.h"
 
-<<<<<<< HEAD
+
 //Declaraciones anticipadas de clases para evitar dependencias críticas
-=======
-//Declaraciones anticipadas de clases para evitar dependencias crï¿½ticas
->>>>>>> d4e2c3414200cc1e55439bf28f3dd74d8a52e7bf
 class Clientes;
 class Producto;
 class Almacen;
@@ -43,11 +40,7 @@ public:
         double precioUnitario;
     };
 
-<<<<<<< HEAD
     // Declaración del constructor
-=======
-    // Declaraciï¿½n del constructor
->>>>>>> d4e2c3414200cc1e55439bf28f3dd74d8a52e7bf
     Pedidos();
 
     static std::vector<Pedidos> listaPedidos;  // Lista estï¿½tica
