@@ -1,0 +1,47 @@
+commit 334cca89e4c1fbad953a1cdf6345893834b7a02f
+Author: [Angel <[aroquelm1@miumg.edu.gt]>
+Date:   Wed May 21 21:20:54 2025 -0600
+
+    Log Angel Roquel
+
+commit 6ce900b3885bd0370f7015459e5c75474b4f813b
+Author: [Angel <[aroquelm1@miumg.edu.gt]>
+Date:   Wed May 21 08:36:48 2025 -0600
+
+    correcion errores
+
+commit eee66f04dde9d45d0c44f2045b65af5d83ed8220
+Author: [Angel <[aroquelm1@miumg.edu.gt]>
+Date:   Mon May 19 06:46:49 2025 -0600
+
+    implementacion de interrupcion
+
+commit cf69a7cdc48aec0a5433bcf048f8bbdd50384372
+Author: [Angel <[aroquelm1@miumg.edu.gt]>
+Date:   Sun May 18 23:27:23 2025 -0600
+
+    Implementación de calculo de nominas
+
+commit bd59eb58ac0b3d6cc0c16ddd149f6f38c5f44de2
+Author: [Angel <[aroquelm1@miumg.edu.gt]>
+Date:   Sun May 11 20:22:19 2025 -0600
+
+    Actualizacion
+
+commit 8d3c95607722f79d6af6cb021ce7ab257f881f0a
+Author: [Angel <[aroquelm1@miumg.edu.gt]>
+Date:   Sun May 11 20:01:49 2025 -0600
+
+    Implementacion de orden de menus
+
+commit d175d6efc68aebe98fe24de8cdefed94c438d8f2
+Author: [Angel <[aroquelm1@miumg.edu.gt]>
+Date:   Sun May 4 20:25:12 2025 -0600
+
+    Proyecto de nominas con sistema de seguridad login
+
+commit 6ac1937550329615464b8cdb47ae405142cb27f0
+Author: [Angel <[aroquelm1@miumg.edu.gt]>
+Date:   Fri May 2 10:00:11 2025 -0600
+
+    Primera prueba
