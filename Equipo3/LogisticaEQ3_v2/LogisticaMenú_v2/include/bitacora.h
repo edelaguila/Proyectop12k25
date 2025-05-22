@@ -1,23 +1,24 @@
 #ifndef BITACORA_H
 #define BITACORA_H
-//CREADO POR: JENNIFER BARRIOS MAYO 2025
+//LUIS ANGEL MENDEZ FUENTES.
+//MAYO 2023
 #include <string>
 #include <unordered_map>
 
 struct RegistroBitacora {
-    int id_accion;              ///< ID único de la acción basada en el módulo
-    int codigo;                 ///< Código del módulo al que pertenece la acción
-    char usuario[30];           ///< Nombre del usuario que ejecutó la acción
-    char modulo[30];            ///< Nombre del módulo donde se ejecutó la acción
-    char descripcion[100];      ///< Descripción de la acción realizada
-    char fecha_hora[20];        ///< Fecha y hora en que ocurrió la acción
+    int id_accion;              ///< ID ï¿½nico de la acciï¿½n basada en el mï¿½dulo
+    int codigo;                 ///< Cï¿½digo del mï¿½dulo al que pertenece la acciï¿½n
+    char usuario[50];           ///< Nombre del usuario que ejecutï¿½ la acciï¿½n
+    char modulo[30];            ///< Nombre del mï¿½dulo donde se ejecutï¿½ la acciï¿½n
+    char descripcion[100];      ///< Descripciï¿½n de la acciï¿½n realizada
+    char fecha_hora[20];        ///< Fecha y hora en que ocurriï¿½ la acciï¿½n
 };
 
 /**
  * @class CodigosBitacora
- * @brief Administra los códigos únicos asignados a cada módulo para identificación en la bitácora.
+ * @brief Administra los cï¿½digos ï¿½nicos asignados a cada mï¿½dulo para identificaciï¿½n en la bitï¿½cora.
  *
- * Esta clase permite obtener un ID específico por módulo, útil para clasificar
+ * Esta clase permite obtener un ID especï¿½fico por mï¿½dulo, ï¿½til para clasificar
  * y rastrear acciones dentro del sistema.
  */
 class CodigosBitacora {
@@ -26,51 +27,51 @@ private:
 
 public:
     /**
-     * @brief Devuelve el código único asociado a un módulo.
-     * @param modulo Nombre del módulo (ej. "Clientes", "Pedidos", etc.).
-     * @return Código entero asociado al módulo.
+     * @brief Devuelve el cï¿½digo ï¿½nico asociado a un mï¿½dulo.
+     * @param modulo Nombre del mï¿½dulo (ej. "Clientes", "Pedidos", etc.).
+     * @return Cï¿½digo entero asociado al mï¿½dulo.
      */
     static int getCodigo(const std::string& modulo);
 };
 
 /**
  * @class bitacora
- * @brief Clase encargada de registrar y administrar las acciones del sistema en una bitácora binaria.
+ * @brief Clase encargada de registrar y administrar las acciones del sistema en una bitï¿½cora binaria.
  *
  * Proporciona funciones para registrar eventos, generar respaldos,
- * realizar búsquedas y mostrar el contenido de la bitácora.
+ * realizar bï¿½squedas y mostrar el contenido de la bitï¿½cora.
  */
 class bitacora {
 public:
 
     /**
-     * @brief Registra una acción en la bitácora.
-     * @param usuario Nombre del usuario que realizó la acción.
-     * @param modulo Nombre del módulo donde ocurrió la acción.
-     * @param descripcion Breve descripción de la acción realizada.
+     * @brief Registra una acciï¿½n en la bitï¿½cora.
+     * @param usuario Nombre del usuario que realizï¿½ la acciï¿½n.
+     * @param modulo Nombre del mï¿½dulo donde ocurriï¿½ la acciï¿½n.
+     * @param descripcion Breve descripciï¿½n de la acciï¿½n realizada.
      */
     static void registrar(const std::string& usuario, const std::string& modulo, const std::string& descripcion);
 
     /**
-     * @brief Inserta un registro en la bitácora (alias de registrar).
-     * @param usuario Nombre del usuario que realizó la acción.
-     * @param modulo Nombre del módulo donde ocurrió la acción.
-     * @param descripcion Breve descripción de la acción realizada.
+     * @brief Inserta un registro en la bitï¿½cora (alias de registrar).
+     * @param usuario Nombre del usuario que realizï¿½ la acciï¿½n.
+     * @param modulo Nombre del mï¿½dulo donde ocurriï¿½ la acciï¿½n.
+     * @param descripcion Breve descripciï¿½n de la acciï¿½n realizada.
      */
     static void insertar(const std::string& usuario, const std::string& modulo, const std::string& descripcion);
 
     /**
-     * @brief Muestra en consola todos los registros almacenados en la bitácora.
+     * @brief Muestra en consola todos los registros almacenados en la bitï¿½cora.
      */
     static void mostrarBitacora();
 
     /**
-     * @brief Genera una copia de seguridad del archivo de la bitácora.
+     * @brief Genera una copia de seguridad del archivo de la bitï¿½cora.
      */
     static void generarBackup();
 
     /**
-     * @brief Elimina todos los registros existentes en la bitácora.
+     * @brief Elimina todos los registros existentes en la bitï¿½cora.
      */
     static void reiniciarBitacora();
 
@@ -85,7 +86,7 @@ public:
     static void buscarPorFecha();
 
     /**
-     * @brief Muestra el menú interactivo de gestión de la bitácora.
+     * @brief Muestra el menï¿½ interactivo de gestiï¿½n de la bitï¿½cora.
      */
     static void menuBitacora();
 

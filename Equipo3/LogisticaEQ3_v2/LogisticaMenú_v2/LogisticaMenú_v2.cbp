@@ -49,7 +49,6 @@
 		<Unit filename="include/menualmacenes.h" />
 		<Unit filename="include/menuarchivo.h" />
 		<Unit filename="include/menucatalogos.h" />
-		<Unit filename="include/menuinformes.h" />
 		<Unit filename="include/menuprincipal.h" />
 		<Unit filename="include/menuprocesos.h" />
 		<Unit filename="include/menuproductos.h" />
@@ -75,7 +74,6 @@
 		<Unit filename="src/menualmacenes.cpp" />
 		<Unit filename="src/menuarchivo.cpp" />
 		<Unit filename="src/menucatalogos.cpp" />
-		<Unit filename="src/menuinformes.cpp" />
 		<Unit filename="src/menuprincipal.cpp" />
 		<Unit filename="src/menuprocesos.cpp" />
 		<Unit filename="src/menuproductos.cpp" />
