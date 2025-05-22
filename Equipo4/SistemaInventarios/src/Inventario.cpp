@@ -269,52 +269,76 @@ void Inventario::ventas(int codigo, int stock) {
 }
 
 void Inventario::guardarEnArchivo() const {
-    ofstream archivo(nombreArchivo);
+    ofstream archivo("inventario.dat", ios::binary);
     if (!archivo) {
-        cerr << "Error al abrir archivo para escritura." << endl;
+        cerr << "Error al abrir archivo binario para escritura." << endl;
         return;
     }
 
+    int cantidad = productos.size();
+    archivo.write(reinterpret_cast<const char*>(&cantidad), sizeof(cantidad));
+
     for (const auto& p : productos) {
-        archivo << p.codigo << "," << p.nombre << ","
-                << p.precio << "," << p.stock << ","
-                << p.tipo << "\n";
+        archivo.write(reinterpret_cast<const char*>(&p.codigo), sizeof(p.codigo));
+
+        // Codificar nombre
+        string nombreCodificado = p.nombre;
+        for (char& c : nombreCodificado) c ^= 0xAA;
+        size_t lenNombre = nombreCodificado.size();
+        archivo.write(reinterpret_cast<const char*>(&lenNombre), sizeof(lenNombre));
+        archivo.write(nombreCodificado.c_str(), lenNombre);
+
+        archivo.write(reinterpret_cast<const char*>(&p.precio), sizeof(p.precio));
+        archivo.write(reinterpret_cast<const char*>(&p.stock), sizeof(p.stock));
+
+        // Codificar tipo
+        string tipoCodificado = p.tipo;
+        for (char& c : tipoCodificado) c ^= 0xAA;
+        size_t lenTipo = tipoCodificado.size();
+        archivo.write(reinterpret_cast<const char*>(&lenTipo), sizeof(lenTipo));
+        archivo.write(tipoCodificado.c_str(), lenTipo);
     }
+
+    archivo.close();
 }
 
 void Inventario::cargarDesdeArchivo() {
-    ifstream archivo(nombreArchivo);
+    ifstream archivo("inventario.dat", ios::binary);
     if (!archivo) {
-        cerr << "No se encontró archivo. Se creará uno nuevo." << endl;
+        cerr << "No se encontró archivo binario. Se creará uno nuevo." << endl;
         return;
     }
 
     productos.clear();
-    string linea;
-    while (getline(archivo, linea)) {
-        stringstream ss(linea);
-        string item;
-        string datos[5];
-        int i = 0;
+    int cantidad;
+    archivo.read(reinterpret_cast<char*>(&cantidad), sizeof(cantidad));
 
-        while (getline(ss, item, ',') && i < 5) {
-            datos[i++] = item;
-        }
+    for (int i = 0; i < cantidad; ++i) {
+        int codigo;
+        archivo.read(reinterpret_cast<char*>(&codigo), sizeof(codigo));
 
-        if (i == 5) {
-            try {
-                productos.emplace_back(
-                    stoi(datos[0]),
-                    datos[1],
-                    stof(datos[2]),
-                    stoi(datos[3]),
-                    datos[4]
-                );
-            } catch (...) {
-                cerr << "Error en línea: " << linea << endl;
-            }
-        }
+        size_t lenNombre;
+        archivo.read(reinterpret_cast<char*>(&lenNombre), sizeof(lenNombre));
+        string nombre(lenNombre, ' ');
+        archivo.read(&nombre[0], lenNombre);
+        for (char& c : nombre) c ^= 0xAA;  // Decodificar
+
+        float precio;
+        archivo.read(reinterpret_cast<char*>(&precio), sizeof(precio));
+
+        int stock;
+        archivo.read(reinterpret_cast<char*>(&stock), sizeof(stock));
+
+        size_t lenTipo;
+        archivo.read(reinterpret_cast<char*>(&lenTipo), sizeof(lenTipo));
+        string tipo(lenTipo, ' ');
+        archivo.read(&tipo[0], lenTipo);
+        for (char& c : tipo) c ^= 0xAA;  // Decodificar
+
+        productos.emplace_back(codigo, nombre, precio, stock, tipo);
     }
+
+    archivo.close();
 }
 
 bool Inventario::eliminarProducto(int codigo) {

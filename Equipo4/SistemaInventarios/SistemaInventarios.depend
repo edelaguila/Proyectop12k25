@@ -89,7 +89,7 @@
 1747615267 c:\users\antho\onedrive\documents\progra\progra1\proyectop12k25\equipo4\sistemainventarios\include\bitacora.h
 	<iostream>
 
-1747623337 source:c:\users\antho\onedrive\documents\progra\progra1\proyectop12k25\equipo4\sistemainventarios\main.cpp
+1747887041 source:c:\users\antho\onedrive\documents\progra\progra1\proyectop12k25\equipo4\sistemainventarios\main.cpp
 	<iostream>
 	"Usuario.h"
 	"Inventario.h"
@@ -97,10 +97,10 @@
 	"Bitacora.h"
 	"Menu.h"
 
-1747615267 c:\users\antho\onedrive\documents\progra\progra1\proyectop12k25\equipo4\sistemainventarios\include\usuario.h
+1747887041 c:\users\antho\onedrive\documents\progra\progra1\proyectop12k25\equipo4\sistemainventarios\include\usuario.h
 	<string>
 
-1747615267 c:\users\antho\onedrive\documents\progra\progra1\proyectop12k25\equipo4\sistemainventarios\include\inventario.h
+1747887041 c:\users\antho\onedrive\documents\progra\progra1\proyectop12k25\equipo4\sistemainventarios\include\inventario.h
 	<vector>
 	<string>
 	"Producto.h"
@@ -116,7 +116,7 @@
 	"Inventario.h"
 	"Facturacion.h"
 
-1747615267 source:c:\users\antho\onedrive\documents\progra\progra1\proyectop12k25\equipo4\sistemainventarios\src\bitacora.cpp
+1747887041 source:c:\users\antho\onedrive\documents\progra\progra1\proyectop12k25\equipo4\sistemainventarios\src\bitacora.cpp
 	"Bitacora.h"
 	<iostream>
 	<fstream>
@@ -126,19 +126,25 @@
 	<iomanip>
 	<algorithm>
 	<ctime>
+	<vector>
+	<sstream>
+	<cstring>
 
 1747615267 source:c:\users\antho\onedrive\documents\progra\progra1\proyectop12k25\equipo4\sistemainventarios\src\facturacion.cpp
 	"Facturacion.h"
 
-1747615267 source:c:\users\antho\onedrive\documents\progra\progra1\proyectop12k25\equipo4\sistemainventarios\src\inventario.cpp
+1747887174 source:c:\users\antho\onedrive\documents\progra\progra1\proyectop12k25\equipo4\sistemainventarios\src\inventario.cpp
 	"Inventario.h"
 	<iostream>
 	<fstream>
 	<sstream>
 	<algorithm>
 	<cstdlib>
+	<map>
+	<ctime>
+	<iomanip>
 
-1747615267 source:c:\users\antho\onedrive\documents\progra\progra1\proyectop12k25\equipo4\sistemainventarios\src\usuario.cpp
+1747887041 source:c:\users\antho\onedrive\documents\progra\progra1\proyectop12k25\equipo4\sistemainventarios\src\usuario.cpp
 	"Usuario.h"
 	<fstream>
 	<cstdlib>
@@ -146,8 +152,9 @@
 	<iostream>
 	<sstream>
 	"Bitacora.h"
+	<vector>
 
-1747623187 source:c:\users\antho\onedrive\documents\progra\progra1\proyectop12k25\equipo4\sistemainventarios\src\menu.cpp
+1747887041 source:c:\users\antho\onedrive\documents\progra\progra1\proyectop12k25\equipo4\sistemainventarios\src\menu.cpp
 	"Menu.h"
 	"Bitacora.h"
 
@@ -555,4 +562,17 @@
 	<map>
 	<ctime>
 	<iomanip>
+
+1747887041 source:c:\users\antho\onedrive\documents\progra\progra1\proyectop12k25\equipo4\sistemainventarios\src\proveedor.cpp
+	"Proveedor.h"
+	<fstream>
+	<iostream>
+	<sstream>
+	<vector>
+	<cstdlib>
+	<conio.h>
+
+1747887041 c:\users\antho\onedrive\documents\progra\progra1\proyectop12k25\equipo4\sistemainventarios\include\proveedor.h
+	<string>
+	"Bitacora.h"
 
