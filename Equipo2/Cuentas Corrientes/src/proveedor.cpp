@@ -1,6 +1,10 @@
 //Clase para mantenimiento de Proveedores
 //Programado por Britany Hernandez 04/05/25
 
+//Actualizacion y correcciones
+//Programado por Britany Hernandez 11/05/25
+//Modificación para uso de archivos binarios 18/05/25
+
 #include "proveedor.h"
 #include "bitacora.h"
 #include "usuarios.h"
@@ -9,7 +13,10 @@
 #include<stdlib.h>
 #include<conio.h>
 #include<iomanip>
+
 using namespace std;
+
+extern usuarios usuariosrRegistrado; //Objeto usuario declarado en el main
 
 void proveedor::menu()
 {
@@ -25,10 +32,10 @@ void proveedor::menu()
         cout<<"\t\t\t 3. Modifica Proveedores"<<endl;
         cout<<"\t\t\t 4. Busca Proveedores"<<endl;
         cout<<"\t\t\t 5. Borra Proveedores"<<endl;
-        cout<<"\t\t\t 6. Salida"<<endl;
-
+        cout<<"\t\t\t 6. Reporte Proveedores"<<endl;
+        cout<<"\t\t\t 7. Salida"<<endl;
         cout<<"\t\t\t-------------------------------"<<endl;
-        cout<<"\t\t\tOpcion a escoger:[1/2/3/4/5/6]"<<endl;
+        cout<<"\t\t\tOpcion a escoger:[1/2/3/4/5/6/7]"<<endl;
         cout<<"\t\t\tIngresa tu Opcion: ";
         cin>>choice;
 
@@ -54,6 +61,9 @@ void proveedor::menu()
             borrar();
             break;
         case 6:
+            reporte();
+            break;
+        case 7:
             break;
         default:
 		cout<<"\n\t\t\t Opcion invalida...Por favor prueba otra vez..";
@@ -66,6 +76,8 @@ void proveedor::insertar()
 {
     system("cls");
     fstream file;
+    char guardar; //Variable para guardar la respuesta de la confirmacion
+
     cout<<"\n-----------------------------------------------------------------------------------";
     cout<<"\n-------------------------------- Agregar Proveedor --------------------------------"<<endl;
     cout << "\t\t\tIngresa ID Proveedor         : ";
@@ -74,62 +86,78 @@ void proveedor::insertar()
     cin >> nombreProveedor;
     cout << "\t\t\tIngresa Telefono Proveedor   : ";
     cin >> telefono;
-    cout << "\t\t\tIngresa Banco del Proveedor  : ";
-    cin >> banco;
     cout << "\t\t\tIngresa Num.Cuenta Proveedor : ";
     cin >> numCuenta;
+    cout << "\t\t\tIngresa Banco del Proveedor  : ";
+    cin >> banco;
 
-    file.open("proveedor.txt", ios::app | ios::out);
-    file<<left<<setw(15)<< id <<left<<setw(15)<< nombreProveedor <<left<<setw(15)<< telefono <<
-                left << setw(15)<< banco <<left << setw(15) << numCuenta << "\n";
-    file.close();
+    cout << "\n\t\t\t¿Deseas guardar los datos? (s/n): ";
+    cin >> guardar;
 
-    bitacora auditoria;
-    auditoria.insertar("usuario registrado", "8012", "INP");
+    if(guardar=='s' || guardar=='S'){
+        // Guardar en archivo binario principal
+        file.open("proveedor.bin", ios::binary | ios::app | ios::out);
+        file.write((char*)this, sizeof(proveedor));
+        file.close();
+
+        // Guardar en reporte (opcional, puede mantenerse como texto)
+        ofstream reporteFile;
+        reporteFile.open("reportesProveedores.txt", ios::app);
+        reporteFile << left << setw(15) << id << left << setw(15) << nombreProveedor
+                    << left << setw(15) << telefono << left << setw(15) << numCuenta
+                    << left << setw(15) << banco << "\n";
+        reporteFile.close();
+
+        bitacora auditoria;
+        auditoria.insertar(usuariosrRegistrado.getNombre(), "8030", "INP");
+
+        cout << "\n\t\t\t Proveedor registrado exitosamente!" << endl;
+    }
+    else {
+        cout << "\n\t\t\t Ingreso cancelado..." << endl;
+    }
+    system("pause");
 }
 
 void proveedor::desplegar()
 {
     system("cls");
-    fstream file;
+    ifstream file;
     int total=0;
     cout<<"\n------------------------ Lista de Proveedores ------------------------"<<endl;
-    file.open("proveedor.txt", ios::in);
+    file.open("proveedor.bin", ios::binary | ios::in);
     if(!file) {
         cout<<"\n\t\t\tNo hay informacion...\n";
         system("pause");
     }
     else {
-        file >> id >> nombreProveedor >> telefono >> banco >> numCuenta;
-        while(!file.eof()) {
+        while(file.read((char*)this, sizeof(proveedor))) {
             total++;
             cout<<"\n\t\t\t ID proveedor        : "<<id;
             cout<<"\n\t\t\t Nombre proveedor    : "<<nombreProveedor;
             cout<<"\n\t\t\t Telefono proveedor  : "<<telefono;
             cout<<"\n\t\t\t Banco proveedor     : "<<banco;
             cout<<"\n\t\t\t Num.Cuenta proveedor: "<<numCuenta<<endl;
-
-            file >> id >> nombreProveedor >> telefono >> banco >> numCuenta;
         }
         if(total==0){
             cout<<"\n\t\t\tNo hay informacion...";
-            system("pause");
         }
-		system("pause");
-		}
+        system("pause");
+    }
     file.close();
     bitacora auditoria;
-    auditoria.insertar("usuario registrado", "8012", "MP"); //Mostrar Proveedor
+    auditoria.insertar(usuariosrRegistrado.getNombre(), "8031", "MP");
 }
+
 
 void proveedor::modificar()
 {
     system("cls");
-    fstream file, file1;
+    fstream file, tempFile;
     string proveedor_id;
     int found=0;
     cout<<"\n---------------- Modificar Proveedor ----------------"<<endl;
-    file.open("proveedor.txt", ios::in);
+    file.open("proveedor.bin", ios::binary | ios::in);
     if(!file) {
         cout<<"\n\t\t\tNo hay informacion...";
         system("pause");
@@ -138,137 +166,167 @@ void proveedor::modificar()
     else {
         cout<<"\nIngrese ID del proveedor que quiere modificar: ";
         cin>>proveedor_id;
-        file1.open("temporal.txt", ios::app | ios::out);
-        file >> id >> nombreProveedor >> telefono >> banco >> numCuenta;
+        tempFile.open("temporal.bin", ios::binary | ios::out);
 
-        while(!file.eof())
-        {
+        while(file.read((char*)this, sizeof(proveedor))) {
             if(proveedor_id != id) {
-                file1<<left<<setw(15)<< id <<left<<setw(15)<< nombreProveedor <<left<<setw(15)<< telefono <<
-                left << setw(15)<< banco <<left << setw(15) << numCuenta << "\n";
+                tempFile.write((char*)this, sizeof(proveedor));
             }
-        else {
+            else {
                 cout<<"\t\t\tIngrese Id proveedor        : ";
-				cin>>id;
-				cout<<"\t\t\tIngrese Nombre proveedor    : ";
-				cin>>nombreProveedor;
-				cout<<"\t\t\tIngrese Telefono proveedor  : ";
-				cin>>telefono;
-				cout<<"\t\t\tIngrese Banco proveedor     : ";
-				cin>>banco;
-				cout<<"\t\t\tIngrese Num.Cuenta proveedor: ";
-				cin >>numCuenta;
+                cin>>id;
+                cout<<"\t\t\tIngrese Nombre proveedor    : ";
+                cin>>nombreProveedor;
+                cout<<"\t\t\tIngrese Telefono proveedor  : ";
+                cin>>telefono;
+                cout<<"\t\t\tIngrese Num.Cuenta proveedor: ";
+                cin>>numCuenta;
+                cout<<"\t\t\tIngrese Banco proveedor     : ";
+                cin>>banco;
 
-                file1<<left<<setw(15)<< id <<left<<setw(15)<< nombreProveedor <<left<<setw(15)<< telefono <<
-                left << setw(15)<< banco <<left << setw(15) << numCuenta << "\n";
+                tempFile.write((char*)this, sizeof(proveedor));
                 found++;
             }
-            file >> id >> nombreProveedor >> telefono >> banco >> numCuenta;
-        }
-        if(found==0){
-            cout<<"\n\t\t\tProveedor no encontrado...";
-            system("pause");
         }
 
-        file1.close();
         file.close();
-        remove("proveedor.txt");
-        rename("temporal.txt","proveedor.txt");
+        tempFile.close();
+        remove("proveedor.bin");
+        rename("temporal.bin", "proveedor.bin");
+
+        if(found==0){
+            cout<<"\n\t\t\tProveedor no encontrado...";
+        }
+        else {
+            cout<<"\n\t\t\tProveedor modificado exitosamente!";
+        }
+        system("pause");
         bitacora auditoria;
-        auditoria.insertar("usuario registrado", "8012", "UPD");
+        auditoria.insertar(usuariosrRegistrado.getNombre(), "8032", "UPD");
     }
 }
 
 void proveedor::buscar()
 {
     system("cls");
-    fstream file;
+    ifstream file;
     int found=0;
 
-
-    file.open("proveedor.txt", ios::in);
     cout<<"\n---------------- Buscar Proveedor ----------------"<<endl;
+    file.open("proveedor.bin", ios::binary | ios::in);
     if(!file) {
         cout<<"\n\t\t\tNo hay informacion...";
-        file.close();
-
-    } else {
+    }
+    else {
         string proveedor_id;
         cout<<"\nIngrese ID del proveedor que quiere buscar : ";
         cin>>proveedor_id;
-        file >> id >> nombreProveedor >> telefono >> banco >> numCuenta;
 
-        while(!file.eof()) {
+        while(file.read((char*)this, sizeof(proveedor))) {
             if(proveedor_id==id) {
                 cout<<"\n\t\t\t ID Proveedor        : "<<id<<endl;
                 cout<<"\t\t\t Nombre Proveedor    : "<<nombreProveedor<<endl;
                 cout<<"\t\t\t Telefono Proveedor  : "<<telefono<<endl;
-                cout<<"\t\t\t Banco Proveedor     : "<<banco<<endl;
                 cout<<"\t\t\t Num.Cuenta Proveedor: "<<numCuenta<<endl;
+                cout<<"\t\t\t Banco Proveedor     : "<<banco<<endl;
                 found++;
-                system("pause");
+                break;
             }
-            file >> id >> nombreProveedor >> telefono >> banco >> numCuenta;
-
         }
 
         if(found==0){
             cout<<"\nProveedor no encontrado...\n";
-            system("pause");
         }
         file.close();
+        system("pause");
     }
     bitacora auditoria;
-    auditoria.insertar("usuario registrado", "8012", "BPR");
+    auditoria.insertar(usuariosrRegistrado.getNombre(), "8033", "BPR");
 }
 
 void proveedor::borrar()
 {
     system("cls");
-    fstream file, file1;
+    fstream file, tempFile;
     string proveedor_id;
     int found=0;
     cout<<"\n---------------- Borrar Proveedor ----------------"<<endl;
-    file.open("proveedor.txt", ios::in);
+    file.open("proveedor.bin", ios::binary | ios::in);
 
-	if(!file)
-	{
-		cout<<"\n\t\t\tNo hay informacion...";
-		system("pause");
-		file.close();
-	}
-	else
-	{
-		cout<<"\n Ingrese el Id del Proveedor que quiere borrar: ";
-		cin>>proveedor_id;
-		file1.open("temporal.txt",ios::app | ios::out);
-		file >> id >> nombreProveedor >> telefono >> banco >> numCuenta;
-		while(!file.eof())
-		{
-			if(proveedor_id!= id)
-			{
-				file1<<left<<setw(15)<< id <<left<<setw(15)<< nombreProveedor <<left<<setw(15)<< telefono <<
-                left << setw(15)<< banco <<left << setw(15) << numCuenta << "\n";
-			}
-			else
-			{
-				found++;
-				cout << "\nProveedor borrado exitosamente\n";
-				system("pause");
-			}
-			file >> id >> nombreProveedor >> telefono >> banco >> numCuenta;
-		}
-		if(found==0)
-		{
-			cout<<"\nProveedor no encontrado\n";
-			system("pause");
-		}
-		file1.close();
-		file.close();
-		remove("proveedor.txt");
-		rename("temporal.txt","proveedor.txt");
+    if(!file)
+    {
+        cout<<"\n\t\t\tNo hay informacion...";
+    }
+    else
+    {
+        cout<<"\n Ingrese el Id del Proveedor que quiere borrar: ";
+        cin>>proveedor_id;
+        tempFile.open("temporal.bin", ios::binary | ios::out);
+
+        while(file.read((char*)this, sizeof(proveedor))) {
+            if(proveedor_id != id) {
+                tempFile.write((char*)this, sizeof(proveedor));
+            }
+            else {
+                found++;
+                cout << "\nProveedor borrado exitosamente\n";
+            }
+        }
+
+        file.close();
+        tempFile.close();
+        remove("proveedor.bin");
+        rename("temporal.bin","proveedor.bin");
+
+        if(found==0)
+        {
+            cout<<"\nProveedor no encontrado\n";
+        }
+        system("pause");
         bitacora auditoria;
-        auditoria.insertar("usuario registrado", "8012", "DPR"); //Eliminar preedor de bitacora
-	}
+        auditoria.insertar(usuariosrRegistrado.getNombre(), "8034", "DPR");
+    }
 }
 
+void proveedor::reporte(){
+    system("cls");
+    fstream file;
+    int found = 0;
+
+    cout<<"\n----------------------------- Reporte de Proveedores -----------------------------\n\n"<<endl;
+    file.open("proveedor.dat", ios::in | ios::binary);
+
+    if (!file) {
+        cout << "\n\t\t\tNo hay informacion ...\n";
+    }
+    else{
+        cout << left << setw(15) << "ID" << setw(15) << "Nombre"  << setw(15) << "Telefono"
+        << setw(15) << "Num. Cuenta" << setw(15) << "Banco" << endl;
+
+        cout << "------------------------------------------------------------------------------\n";
+
+        file >> id >> nombreProveedor >> telefono >> numCuenta >> banco;
+        while (!file.eof()){
+            found++;
+            cout << left << setw(15) << id << setw(15) << nombreProveedor  << setw(15)
+            << telefono << setw(15) << numCuenta << setw(15) << banco << endl;
+
+            file >> id >> nombreProveedor >> telefono >> numCuenta >> banco;
+        }
+
+        if(found==0){
+            cout<<"\n\t\t\tNo hay proveedores registrados...\n";
+        }
+    }
+    cout << endl;
+    file.close();
+    system("pause");
+
+    ofstream reporteFile;
+        file.open("reportesProveedores.dat", ios::app | ios::out | ios::binary);
+        file<<left<<setw(15)<< id <<left<<setw(15)<< nombreProveedor <<left<<setw(15)<<telefono <<left << setw(15)<< numCuenta <<left << setw(15) << banco << "\n";
+        file.close();
+
+    bitacora auditoria;
+    auditoria.insertar(usuariosrRegistrado.getNombre(), "8035", "RPR"); // Reporte Proveedor
+}
