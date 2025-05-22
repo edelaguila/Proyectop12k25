@@ -5,10 +5,12 @@
 #include "transaccion.h"
 #include "factura.h"  // Incluimos el encabezado de facturas - Dulce Reyes
 #include "pago.h"
+#include "cobros.h"
 using namespace std;
 
 // Menú principal de procesos
 void menuProcesos() {
+    GestionCobros cob;
     pago pag;
     int opcion;
     do {
@@ -33,8 +35,7 @@ void menuProcesos() {
                 system("pause");
                 break;
             case 3:
-                cout << "\t\tOpción en desarrollo..." << endl;
-                system("pause");
+                cob.menuCobros();
                 break;
             case 4:
                 menuTransacciones();
