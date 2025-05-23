@@ -1,24 +1,29 @@
 // Angoly Araujo Mayo 2025 9959-24-17623
 
-
 #ifndef FACTURACION_H
 #define FACTURACION_H
 
-// Se incluye la biblioteca estándar de cadenas de texto
 #include <string>
+#include <vector>
+#include "clientes.h"
+#include "pedidos.h"
+#include "bitacora.h"
+
 using namespace std;
 
 // Estructura que representa una factura
 struct Factura {
-    int idFactura;        // Identificador único de la factura
-    int idCliente;        // Identificador del cliente asociado a la factura
-    int idPedido;         // Identificador del pedido asociado a la factura
-    float monto;          // Monto total de la factura
-    bool pagada;          // Estado de pago de la factura (true = pagada, false = pendiente)
-    char cliente[50];     // Nombre del cliente (máximo 50 caracteres)
+    int idFactura;
+    string idCliente;
+    string idPedido;
+    double monto;
+    bool pagada;
+    string cliente;
+    string nit;
+
 };
 
-// Clase que gestiona las operaciones relacionadas con la facturación
+// Clase que gestiona las operaciones relacionadas con la facturaciï¿½n
 class Facturacion {
 public:
     // Crea una nueva factura y la guarda en el archivo
@@ -30,21 +35,26 @@ public:
     // Permite modificar una factura existente
     static void modificarFactura();
 
-    // Elimina una factura específica del archivo
+    // Elimina una factura especï¿½fica del archivo
     static void eliminarFactura();
 
-    // Muestra el menú principal de opciones de facturación
+    // Muestra el menï¿½ principal de opciones de facturaciï¿½n
     static void mostrarMenuFacturacion();
 
 private:
-    // Genera un ID único para una nueva factura
+    // Genera un ID ï¿½nico para una nueva factura
     static int generarIdFactura();
 
     // Guarda una factura en el archivo correspondiente
     static void guardarEnArchivo(const Factura& factura);
 
-    // Registra una acción (crear, modificar, eliminar) en una bitácora con el usuario que la realizó
-    static void registrarBitacora(const Factura& factura, const string& accion, const string& usuario);
+    // Carga una factura desde archivo binario
+    static Factura cargarDesdeArchivo(ifstream& archivo);
+
+    // Registra una acciï¿½n en la bitï¿½cora
+    static void registrarBitacora(const Factura& factura,
+                                const string& accion,
+                                const string& usuario);
 };
 
 #endif // FACTURACION_H

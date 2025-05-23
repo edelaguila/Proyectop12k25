@@ -10,9 +10,8 @@
 #include "clientes.h"
 #include "producto.h"
 #include "Almacen.h"
-#include "menuinformes.h"
 
-///CREADO POR: JENNIFER BARRIOS EQ3
+//CREADO POR JENNIFER BARRIOS COORD EQ3
 
 using namespace std;
 
@@ -22,7 +21,8 @@ extern usuarios usuarioRegistrado;
 // Muestra el menú principal de procesos y redirige según la opción elegida
 void MenuProcesos::mostrar(std::vector<Clientes>& clientes,
                          std::vector<Producto>& productos,
-                         std::vector<Almacen>& almacenes) {
+                         std::vector<Almacen>& almacenes,
+                         std::vector<Proveedor>& proveedores) { // Added proveedores as a parameter
     int choice;
     do {
         // Limpiar pantalla antes de mostrar el menú
@@ -56,7 +56,7 @@ void MenuProcesos::mostrar(std::vector<Clientes>& clientes,
             case 2:
                 {
                     Inventario gestorInventario;
-                    Inventario.controlInventario(productos, almacenes, proveedores); // Cambiado a Inventario
+                    gestorInventario.controlInventario(productos, almacenes, proveedores); // Corrected function call
                 }
                 break;
 

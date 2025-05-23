@@ -2,6 +2,7 @@
 
 #include "MenuProveedores.h"  // Incluye el encabezado donde se declara la clase MenuProveedores
 #include <iostream>           // Librería estándar para entrada y salida
+#include <limits>             // Para limpiar buffer con numeric_limits
 using namespace std;          // Permite evitar el uso del prefijo std::
 
 /*
@@ -17,20 +18,23 @@ void MenuProveedores::mostrar(vector<Proveedor>& lista, usuarios& usuarioActual)
 
     do {
         system("cls"); // Limpia la pantalla (Windows)
-        // Muestra el encabezado del menú y el nombre del usuario actual
-        cout << "\t\t=== MENÚ PROVEEDORES ===\n"
-             << "\t\t| Usuario: " << usuarioActual.getNombre() << "\n"
-             << "\t\t1. Agregar proveedor\n"
-             << "\t\t2. Mostrar proveedores\n"
-             << "\t\t3. Modificar proveedor\n"
-             << "\t\t4. Eliminar proveedor\n"
-             << "\t\t5. Volver\n"
-             << "\t\t========================\n"
-             << "\t\tIngrese opción: ";
-        cin >> opcion; // Lee la opción seleccionada
+        // Diseño mejorado del menú
+        cout << "===========================================\n";
+        cout << "           SISTEMA DE PROVEEDORES\n";
+        cout << "     Usuario: " << usuarioActual.getNombre() << "\n";
+        cout << "===========================================\n";
+        cout << " [1] Agregar proveedor\n";
+        cout << " [2] Mostrar proveedores\n";
+        cout << " [3] Modificar proveedor\n";
+        cout << " [4] Eliminar proveedor\n";
+        cout << " [5] Volver\n";
+        cout << "-------------------------------------------\n";
+        cout << "Seleccione una opcion: ";
+        cin >> opcion;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Limpia el buffer de entrada
 
         string id; // Variable para capturar el ID del proveedor cuando se requiere
-        switch(opcion) {
+        switch (opcion) {
             case 1:
                 Proveedor::agregar(lista, usuarioActual.getNombre());
                 break;
@@ -44,13 +48,14 @@ void MenuProveedores::mostrar(vector<Proveedor>& lista, usuarios& usuarioActual)
                 Proveedor::eliminar(lista, usuarioActual.getNombre(), "");
                 break;
             case 5:
+                cout << "\nSaliendo del modulo de proveedores...\n";
                 return;
             default:
-                cout << "\t\tOpción inválida\n";
+                cout << "Opcion invalida. Intente de nuevo.\n";
+                break;
         }
 
-        cout << "\n\t\tPresione Enter para continuar...";
-        cin.ignore(); // Limpia el buffer de entrada
-        cin.get();    // Espera a que el usuario presione Enter
-    } while(opcion != 5); // Se repite hasta que el usuario elija volver
+        system("pause"); // Espera que el usuario presione una tecla
+    } while (true);
 }
+

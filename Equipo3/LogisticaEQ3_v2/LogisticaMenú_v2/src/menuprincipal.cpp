@@ -12,7 +12,6 @@ using namespace std;
 //Creado JENNIFER ALBA DAYAMI BARRIOS FLORES
 //9959-24-10016
 //MAYO 2025
-// Modificado por Camila Araujo
 
 void MenuPrincipal::mostrar(std::vector<Clientes>& clientes,
                           std::vector<Proveedor>& proveedores,
@@ -33,9 +32,8 @@ void MenuPrincipal::mostrar(std::vector<Clientes>& clientes,
              << "\t\t 1. Archivo\n"
              << "\t\t 2. Catalogos\n"
              << "\t\t 3. Procesos\n"
-             << "\t\t 4. Informes\n"
-             << "\t\t 5. Bitacora\n"
-             << "\t\t 6. Salir\n"
+             << "\t\t 4. Bitacora\n"
+             << "\t\t 5. Salir\n"
              << "\t\t========================================\n"
              << "\t\tIngresa tu opcion: ";
 
@@ -55,26 +53,21 @@ void MenuPrincipal::mostrar(std::vector<Clientes>& clientes,
             case 3:
                 // Llamada corregida pasando los vectores necesarios
                 MenuProcesos menuProcesos;
-                menuProcesos.mostrar(clientes, productos, almacenes);
+                menuProcesos.mostrar(clientes, productos, almacenes, proveedores);
                 break;
 
-            case 4:
-                MenuInformes menuInformes;
-                menuInformes.mostrar(usuarioActual);
-                break;
-
-            case 5: {
+            case 4: {
                 bitacora b;
                 b.menuBitacora();
                 break;
             }
 
-            case 6:
+            case 5:
                 return;
 
             default:
                 cout << "\n\t\tOpcion invalida... Intenta de nuevo...";
         }
-    } while(choice != 6);
+    } while(choice != 5);
 }
 
