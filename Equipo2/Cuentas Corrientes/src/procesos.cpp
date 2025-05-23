@@ -5,7 +5,7 @@
 #include "transaccion.h"
 #include "factura.h"  // Incluimos el encabezado de facturas - Dulce Reyes
 #include "pago.h"
-//#include "cobros.h"
+#include "cobros.h"
 #include "usuarios.h"
 using namespace std;
 
@@ -39,13 +39,11 @@ void menuProcesos() {
                 pag.menuPagos();
                 system("pause");
                 break;
-            case 3:
-<<<<<<< HEAD
-
-=======
-                //cob.menuCobros();
->>>>>>> 72b1f2a34ad5e16186d671f4cccbba2ab53aa377
+            case 3: {
+                GestionCobros gc;
+                gc.menuCobros();
                 break;
+            }
             case 4:
                 menuTransacciones();
                 break;
