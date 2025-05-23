@@ -5,7 +5,7 @@
 //Clases con informes
 #include "pago.h"
 #include "factura.h"
-//#include "cobros.h"
+#include "cobros.h"
 //otros
 
 using namespace std;
@@ -19,6 +19,7 @@ reportes::reportes()
 void reportes::menuInformes() {
     pago pag;
     Factura fac;
+    GestionCobros cob;
 
     int opcion;
     do {
@@ -41,13 +42,13 @@ void reportes::menuInformes() {
                 pag.reporteCuentasPorPagar(); //Muestra todas las facturas pendientes de pago
                 break;
             case 2:
-                //reporte Cuentas Por Cobrar
+                cob.listarHistorialCobros();
                 break;
             case 3:
                 pag.reportePagos(); //Muestra todos los pagos registrados por acreedores/proveedores
                 break;
             case 4:
-                //reporteIngresos() ---pagos de clientes
+                cob.listarHistorialCobros();
                 break;
             case 5:
                 menuReporteFactura();
@@ -60,7 +61,7 @@ void reportes::menuInformes() {
         }
     } while (opcion != 5);
 }
-
+//esto ya no era necesario por eso esta comentado
 /*void reportes::menuFactura() {
     menuReporteFactura;
 

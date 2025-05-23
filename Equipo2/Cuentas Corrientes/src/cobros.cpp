@@ -101,7 +101,7 @@ void GestionCobros::listarCuentasPorCobrar() {
         saldoPendiente = stof(saldoStr);
 
         // Mostrar solo si no está solvente o pagada
-        if (estado != "solvente" && estado != "pagada") {
+        if ((estado != "solvente" && estado != "pagada") && tipo=="Cliente") {
             cout << idFactura << " | " << nombre << " | Q" << fixed << setprecision(2) << montoTotal
                  << " | Q" << saldoPendiente << " | " << estado << endl;
         }

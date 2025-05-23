@@ -397,7 +397,7 @@ void pago::mostrarCuentasPorPagar(){
         saldoPendiente = stof(saldoStr);
 
         //verificacion del estado de la factura
-        if (estado == "Pendiente" || estado == "pagada_parcial"){
+        if ((estado == "Pendiente" || estado == "pagada_parcial")&& (tipo=="Acreedor"||tipo=="Proveedor")){
             //Muestra la informacion si aun no esta pendiente de pago
             facturasPendientes = true;
             cout << left << setw(15) << idFactura << setw(15) << nombre << setw(15) << cuenta
