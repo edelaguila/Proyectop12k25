@@ -1,3 +1,22 @@
+<<<<<<< HEAD
+commit 160434cb7c64cd37870e4e2f23bd9b150903af76
+Author: L-A-V-2-2 <lav80111@gmail.com>
+Date:   Sun May 18 20:58:04 2025 -0600
+
+    menú de usuarios terminado, creación de la clase proveedor
+
+commit 13334e99a77893d876b20ecfc47c822183f32bd6
+Author: L-A-V-2-2 <lav80111@gmail.com>
+Date:   Sun May 11 20:30:47 2025 -0600
+
+    funcionalidad de lista de usuarios, Luis Valenzuela
+
+commit 30994a8927226ed36cefe725557cc8c32e05c056
+Author: L-A-V-2-2 <lav80111@gmail.com>
+Date:   Fri May 2 21:11:40 2025 -0600
+
+    correción errores de desbordamiento, Luis
+=======
 kevin          100            LOGS           
 Inventario inventario;100            LOGF           
 kevin          100            LOGS           
@@ -69,3 +88,4 @@ kevin          Informes       RevisiÃ³n de bitÃ¡coraSun May 11 22:42:06 2025
 kevin          Ver Inventario VentasVisualización de inventario de ventasSun May 11 22:42:21 2025 22:42:21  
 kevin          CatÃ¡logo      Acceso al mÃ³dulo de inventarioSun May 11 22:42:30 2025 22:42:30  
 
+>>>>>>> 9deb7fed52d368ba952cf9a210107c58ec192e06
