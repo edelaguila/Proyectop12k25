@@ -1,3 +1,4 @@
+//Luis Valenzuela 9959-24-12583, funcionalidad CRUD usuarios
 #include "Usuario.h"
 #include <fstream>
 #include <cstdlib>
@@ -6,6 +7,8 @@
 #include <sstream>
 #include "Bitacora.h"
 #include <vector>
+#include <cstring>
+
 using namespace std;
 
 usuarios::usuarios()
@@ -38,19 +41,19 @@ bool usuarios::loginUsuarios()
         char caracter;
         contra = "";
         caracter = getch();
-        while (caracter != 13) // Enter
+        while (caracter != 13)
         {
-            if (caracter != 8) // Retroceso
+            if (caracter != 8)
             {
                 contra.push_back(caracter);
                 cout << "*";
             }
             else
             {
-                if (contra.length() > 0)
+                if (!contra.empty())
                 {
                     cout << "\b \b";
-                    contra = contra.substr(0, contra.length() - 1);
+                    contra.pop_back();
                 }
             }
             caracter = getch();
@@ -61,7 +64,7 @@ bool usuarios::loginUsuarios()
             ingresa = true;
             cout << "\n=== Bienvenido al Sistema ===" << endl;
             bitacora auditoria;
-            auditoria.insertar(name, 100, "LOGS", "Inicio exitoso");
+            auditoria.insertar(usuario, 100, "LOGS", "Inicio exitoso");
             cin.get();
         }
         else
@@ -83,6 +86,7 @@ bool usuarios::loginUsuarios()
 
     return ingresa;
 }
+
 
 void usuarios::consultarUsuarios()
 {
@@ -173,29 +177,31 @@ void usuarios::menuUsuarios()
     } while (choice != 5);
 }
 
+struct UsuarioRegistro {
+    int id;
+    char nombre[30];
+    char contrasena[30];
+};
+
 bool usuarios::buscar(string user, string passw)
 {
-    fstream file;
-    file.open("Usuarios.txt", ios::in);
-
+    ifstream file("Usuarios.dat", ios::binary);
     if (!file)
     {
-        cout  << "\nNo hay informacion de usuarios..." << endl;
+        cout << "\nNo hay informacion de usuarios..." << endl;
         return false;
     }
 
-    string linea;
-    while (getline(file, linea))
-    {
-        istringstream iss(linea);
-        int tempId;
-        string tempName, tempPass;
+    UsuarioRegistro temp;
 
-        iss >> tempId >> tempName >> tempPass;
+    while (file.read((char*)&temp, sizeof(temp)))
+    {
+        string tempName(temp.nombre);
+        string tempPass(temp.contrasena);
 
         if (user == tempName && passw == tempPass)
         {
-            id = tempId;
+            id = temp.id;
             name = tempName;
             pass = tempPass;
             file.close();
@@ -206,8 +212,9 @@ bool usuarios::buscar(string user, string passw)
     file.close();
     return false;
 }
-void usuarios::agregarUsuarios()
-{
+
+
+void usuarios::agregarUsuarios() {
     system("cls");
     cout << "\t\t\t-------------------------------------------------------" << endl;
     cout << "\t\t\t |   INGRESO DE USUARIOS                              |" << endl;
@@ -216,53 +223,33 @@ void usuarios::agregarUsuarios()
     string nuevoUsuario, nuevaContrasena;
     int nuevoId = 1;
 
-    fstream file("Usuarios.txt", ios::in);
-    if (file.is_open())
-    {
-        string linea;
-        while (getline(file, linea))
-        {
-            istringstream iss(linea);
-            int tempId;
-            string tempName, tempPass;
-            if (iss >> tempId >> tempName >> tempPass)
-            {
-                if (tempId >= nuevoId)
-                {
-                    nuevoId = tempId + 1; // Generar id
-                }
-            }
-        }
-        file.close();
+    // Abrir archivo binario para contar cuantos usuarios hay
+    ifstream archivoIn("Usuarios.dat", ios::binary);
+    if (archivoIn.is_open()) {
+        archivoIn.seekg(0, ios::end);
+        int size = archivoIn.tellg();
+        nuevoId = size / sizeof(UsuarioRegistro) + 1;
+        archivoIn.close();
     }
 
     cout << "\n\tIngrese Nombre de Usuario: ";
     getline(cin, nuevoUsuario);
 
-    file.open("Usuarios.txt", ios::in);
+    // Verificar si existe usuario
+    ifstream archivoLeer("Usuarios.dat", ios::binary);
     bool usuarioExiste = false;
-    if (file.is_open())
-    {
-        string linea;
-        while (getline(file, linea))
-        {
-            istringstream iss(linea);
-            int tempId;
-            string tempName, tempPass;
-            if (iss >> tempId >> tempName >> tempPass)
-            {
-                if (tempName == nuevoUsuario)
-                {
-                    usuarioExiste = true;
-                    break;
-                }
+    if (archivoLeer.is_open()) {
+        UsuarioRegistro temp;
+        while (archivoLeer.read((char*)&temp, sizeof(temp))) {
+            if (nuevoUsuario == string(temp.nombre)) {
+                usuarioExiste = true;
+                break;
             }
         }
-        file.close();
+        archivoLeer.close();
     }
 
-    if (usuarioExiste)
-    {
+    if (usuarioExiste) {
         cout << "\n\t\t\t Error: El usuario ya existe." << endl;
         bitacora auditoria;
         auditoria.insertar(nuevoUsuario, 100, "LOGF", "Intento de registro fallido: usuario existente");
@@ -275,35 +262,36 @@ void usuarios::agregarUsuarios()
     char caracter;
     nuevaContrasena = "";
     caracter = getch();
-    while (caracter != 13)
-    {
-        if (caracter != 8)
-        {
+    while (caracter != 13) {
+        if (caracter != 8) {
             nuevaContrasena.push_back(caracter);
             cout << "*";
-        }
-        else
-        {
-            if (nuevaContrasena.length() > 0)
-            {
+        } else {
+            if (!nuevaContrasena.empty()) {
                 cout << "\b \b";
-                nuevaContrasena = nuevaContrasena.substr(0, nuevaContrasena.length() - 1);
+                nuevaContrasena.pop_back();
             }
         }
         caracter = getch();
     }
     cout << endl;
 
-    file.open("Usuarios.txt", ios::app);
-    if (!file)
-    {
-        cout << "\n\t\t\t Error al abrir el archivo de usuarios." << endl;
+    // Guardar usuario en binario
+    UsuarioRegistro nuevoUsuarioRegistro;
+    nuevoUsuarioRegistro.id = nuevoId;
+    strncpy(nuevoUsuarioRegistro.nombre, nuevoUsuario.c_str(), sizeof(nuevoUsuarioRegistro.nombre));
+    nuevoUsuarioRegistro.nombre[sizeof(nuevoUsuarioRegistro.nombre) - 1] = '\0'; // Asegurar terminación
+    strncpy(nuevoUsuarioRegistro.contrasena, nuevaContrasena.c_str(), sizeof(nuevoUsuarioRegistro.contrasena));
+    nuevoUsuarioRegistro.contrasena[sizeof(nuevoUsuarioRegistro.contrasena) - 1] = '\0';
+
+    ofstream archivoOut("Usuarios.dat", ios::binary | ios::app);
+    if (!archivoOut) {
+        cout << "\n\t\t\t Error al abrir el archivo binario de usuarios." << endl;
         cin.get();
         return;
     }
-
-    file << nuevoId << " " << nuevoUsuario << " " << nuevaContrasena << endl;
-    file.close();
+    archivoOut.write((char*)&nuevoUsuarioRegistro, sizeof(nuevoUsuarioRegistro));
+    archivoOut.close();
 
     bitacora auditoria;
     auditoria.insertar(nuevoUsuario, 100, "LOGS", "Usuario registrado exitosamente");
@@ -312,6 +300,7 @@ void usuarios::agregarUsuarios()
     cout << "\n\t\t\t Presione Enter para continuar...";
     cin.get();
 }
+
 void usuarios::modificarUsuarios()
 {
     system("cls");
@@ -583,6 +572,47 @@ void usuarios::eliminarUsuarios()
     cout << "\n\t\t\t Usuario eliminado con exito." << endl;
     cout << "\n\t\t\t Presione Enter para continuar...";
     cin.get();
+}
+
+
+
+void agregarUsuarioBinario() {
+    Usuario u;
+    cout << "ID: ";
+    cin >> u.id;
+    cin.ignore();
+
+    cout << "Nombre: ";
+    cin.getline(u.nombre, 30);
+
+    cout << "Contraseña: ";
+    cin.getline(u.contrasena, 30);
+
+    ofstream file("usuarios.dat", ios::binary | ios::app);
+    if (!file) {
+        cout << "Error abriendo archivo\n";
+        return;
+    }
+
+    file.write((char*)&u, sizeof(Usuario));
+    file.close();
+
+    cout << "Usuario agregado.\n";
+}
+
+void consultarUsuariosBinario() {
+    ifstream file("usuarios.dat", ios::binary);
+    if (!file) {
+        cout << "No hay usuarios\n";
+        return;
+    }
+
+    Usuario u;
+    cout << "Usuarios registrados:\n";
+    while (file.read((char*)&u, sizeof(Usuario))) {
+        cout << "ID: " << u.id << ", Nombre: " << u.nombre << ", Contraseña: " << u.contrasena << endl;
+    }
+    file.close();
 }
 string usuarios::getNombre()
 {
