@@ -1,4 +1,6 @@
+//Implementacion de archivos binarios Kevin Lopez 21/05/2025
 #include <iostream>
+#include <fstream>
 #include "Usuario.h"
 #include "Inventario.h"
 #include "Facturacion.h"
@@ -10,6 +12,16 @@ usuarios usuarioRegistrado;
 Menu menu;
 
 int main() {
+        // Verificar si el archivo binario de usuarios existe
+    ifstream archivoUsuarios("Usuarios.dat", ios::binary);
+    if (!archivoUsuarios.is_open()) {
+        cout << "\nNo se encontró el archivo de usuarios.\n";
+        cout << "Debes registrar al menos un usuario para iniciar el sistema.\n\n";
+        usuarioRegistrado.agregarUsuarios();
+    }
+    archivoUsuarios.close();
+
+
     bool accesoUsuarios = false;
     char intentarDeNuevo;
 
@@ -50,7 +62,7 @@ int main() {
         switch (opcionGeneral) {
             case 1:
                 menu.mostrarOpciones(inventario, factura, nombreUsuario);
-                bit.insertar(nombreUsuario, 2001, "Catálogo", "Acceso al módulo de inventario");
+                bit.insertar(nombreUsuario, 1999, "Catálogo", "Acceso al submenú de inventario");
                 break;
 
             case 2: {
