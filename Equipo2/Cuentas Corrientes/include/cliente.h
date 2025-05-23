@@ -10,8 +10,7 @@ using namespace std;
 class cliente
 {
     private:
-		string nombre, telefono, nit;
-		string id;
+		string id, nombre, telefono, nit;
 	public:
 		void menu();
 		void insertar();
@@ -20,6 +19,7 @@ class cliente
 		void buscar();
 		void borrar();
 		void reporte();
+		bool backupClientes ();
 };
 
 #endif // CLIENTE_H

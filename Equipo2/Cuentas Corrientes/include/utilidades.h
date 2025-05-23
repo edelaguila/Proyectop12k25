@@ -1,6 +1,6 @@
 // Archivo: utilidades.h
 // Declaración de funciones auxiliares
-// Autora: Dulce Reyes - Mayo 2025
+// Elaborado por: Dulce Rocio Reyes Pirir
 
 #ifndef UTILIDADES_H
 #define UTILIDADES_H

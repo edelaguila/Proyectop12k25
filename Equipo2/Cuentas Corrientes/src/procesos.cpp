@@ -5,14 +5,21 @@
 #include "transaccion.h"
 #include "factura.h"  // Incluimos el encabezado de facturas - Dulce Reyes
 #include "pago.h"
+#include "cobros.h"
+#include "usuarios.h"
 using namespace std;
+
+extern usuarios usuariosrRegistrado;
 
 // Menú principal de procesos
 void menuProcesos() {
+    GestionCobros cob;
     pago pag;
+    //GestionCobros cob;
     int opcion;
     do {
         system("cls");
+        cout << "\t\t\tUsuario en linea: " << usuariosrRegistrado.getNombre() << "\n" << endl;
         cout << "\n\n\t\tMenu Procesos" << endl;
         cout << "\t\t------------------------" << endl;
         cout << "\t\t1. Facturas (Clientes/Proveedores/Acreedores)" << endl;
@@ -32,10 +39,11 @@ void menuProcesos() {
                 pag.menuPagos();
                 system("pause");
                 break;
-            case 3:
-                cout << "\t\tOpción en desarrollo..." << endl;
-                system("pause");
+            case 3: {
+                GestionCobros gc;
+                gc.menuCobros();
                 break;
+            }
             case 4:
                 menuTransacciones();
                 break;
@@ -53,6 +61,7 @@ void menuFactura() {
     int opcion;
     do {
         system("cls");
+        cout << "\t\t\tUsuario en linea: " << usuariosrRegistrado.getNombre() << "\n" << endl;
         cout << "\n\t\tMenu de Facturas" << endl;
         cout << "\t\t-----------------------------" << endl;
         cout << "\t\t1. Factura de Cliente" << endl;

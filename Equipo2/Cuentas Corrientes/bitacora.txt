@@ -15,6 +15,12 @@ usuario        100            LOGS
 usuario        100            LOGS           
 usuario        100            LOGS           
 usuario        100            LOGS           
+
+usuario        100            LOGS           
+usuario1       Transacci�n    Registro de nueva transacci�n ID: 8701
+usuario        100            LOGS           
+usuario        100            LOGS           
+
 usuario        100            LOGS          
 
 usuario1       Transacci�n    Registro de nueva transacci�n ID: 8701
@@ -129,9 +135,21 @@ Juan           8035           RAR
 Juan           8040           INA            
 
 Juan           100            LOGS           05-11-2025 10:19 AM
+<<<<<<< HEAD
+<<<<<<< HEAD
+Juan           100            LOGS           05-14-2025 06:33 PM
+Juan           100            LOGS           05-14-2025 06:34 PM
+Juan           100            LOGS           05-14-2025 06:38 PM
+=======
+=======
+>>>>>>> 7089f74027bc95a7f499a060c93850f247e5f731
+=======
+>>>>>>> 9e2dc4df2e4741ff1bec7737c74ace018bc7e39d
+=======
 
 
 
+>>>>>>> 9b64738a14d38cfe381c891eba354e261b84cadf
 usuario        100            LOGS           
 usuario        100            LOGS           
 usuario        100            LOGS           
@@ -159,3 +177,4 @@ Luisa          100            SRCH           05-11-2025 02:17 PM
 Luisa          100            DELUS          05-11-2025 02:17 PM
 Luisa          100            SRCH           05-11-2025 02:17 PM
 Luisa          100            BACK           05-11-2025 02:17 PM
+

@@ -1,5 +1,8 @@
 //Clase para mantenimiento de Acreedores
 //Programado por Britany Hernandez  04/05/25
+//Programado por Astrid Ruíz - binarios y usuario
+//Actualización de Astrid Ruíz (se actualizaron los archivos binarios con estructuras por el error d utilidades)
+//Documentación Astrid Ruíz
 
 #include "acreedor.h"
 #include "bitacora.h"
@@ -9,9 +12,20 @@
 #include<stdlib.h>
 #include<conio.h>
 #include<iomanip>
+#include<cstring> // Necesario para strcpy
 using namespace std;
 
 extern usuarios usuariosrRegistrado;
+
+// Definición de estructura para compatibilidad
+struct AcreedorBin {
+    char id[15];
+    char nombreAcreedor[50];
+    char nit[15];
+    char telefono[15];
+    char numCuenta[20];
+    char banco[30];
+};
 
 void acreedor::menu()
 {
@@ -19,6 +33,7 @@ void acreedor::menu()
     char x;
     do {
         system("cls");
+        cout << "\t\t\tUsuario en linea: " << usuariosrRegistrado.getNombre() << "\n" << endl;
         cout<<"\t\t\t-------------------------------"<<endl;
         cout<<"\t\t\t|  SISTEMA GESTION ACREEDORES |"<<endl;
         cout<<"\t\t\t-------------------------------"<<endl;
@@ -30,7 +45,7 @@ void acreedor::menu()
         cout<<"\t\t\t 6. Reportes Acreedores"<<endl;
         cout<<"\t\t\t 7. Salida"<<endl;
         cout<<"\t\t\t-------------------------------"<<endl;
-        cout<<"\t\t\tOpcion a escoger:[1/2/3/4/5/6]"<<endl;
+        cout<<"\t\t\tOpcion a escoger:[1/2/3/4/5/6/7]"<<endl; // Corregido para incluir 7
         cout<<"\t\t\tIngresa tu Opcion: ";
         cin>>choice;
 
@@ -64,7 +79,7 @@ void acreedor::menu()
             cout<<"\n\t\t\t Opcion invalida...Por favor prueba otra vez..";
             cin.get();
         }
-    } while(choice!= 7);
+    } while(choice!= 7); // Corregido para salir cuando se seleccione 7
 }
 
 // Inserta un nuevo acreedor con validación y confirmación de datos
@@ -73,6 +88,7 @@ void acreedor::insertar()
     system("cls");
     fstream file;
     char confirmar;
+    //implementación del trycatch
     try{
         do {
             cout << "\n----------------------------------------------------------------------------------";
@@ -82,6 +98,8 @@ void acreedor::insertar()
             cin >> id;
             cout << "\t\t\tIngresa Nombre Acreedor     : ";
             cin >> nombreAcreedor;
+            cout << "\t\t\tIngresa Nit Acreedor        : ";
+            cin >> nit;
             cout << "\t\t\tIngresa Telefono Acreedor   : ";
             cin >> telefono;
             cout << "\t\t\tIngresa Num.Cuenta Acreedor : ";
@@ -92,6 +110,7 @@ void acreedor::insertar()
             cout << "\nResumen de la información ingresada:\n";
             cout << "\t\t\tID Acreedor        : " << id << endl;
             cout << "\t\t\tNombre Acreedor    : " << nombreAcreedor << endl;
+            cout << "\t\t\tNombre Nit         : " << nit << endl;
             cout << "\t\t\tTelefono Acreedor  : " << telefono << endl;
             cout << "\t\t\tNumero de Cuenta   : " << numCuenta << endl;
             cout << "\t\t\tBanco              : " << banco << endl;
@@ -100,9 +119,26 @@ void acreedor::insertar()
             cin >> confirmar;
 
             if (confirmar == 's' || confirmar == 'S') {
+                //Abrir archivo en modo binario para agregar datos al final
                 file.open("acreedor.bin", ios::binary | ios::app | ios::out);
                 if (!file.is_open()) throw runtime_error("No se pudo abrir el archivo");
-                file.write((char*)this, sizeof(acreedor));
+
+                // Convertir atributos de la clase a la estructura AcreedorBin
+                AcreedorBin acreedorStruct;
+                memset(&acreedorStruct, 0, sizeof(AcreedorBin)); // Inicializar con ceros
+
+                // Copiar las cadenas string a los arrays de char d la estructura
+                //usando strncpy para evitar lo del buffer (que se desborde)
+                strncpy(acreedorStruct.id, id.c_str(), sizeof(acreedorStruct.id) - 1);
+                strncpy(acreedorStruct.nombreAcreedor, nombreAcreedor.c_str(), sizeof(acreedorStruct.nombreAcreedor) - 1);
+                strncpy(acreedorStruct.nit, nit.c_str(), sizeof(acreedorStruct.nit) - 1);
+                strncpy(acreedorStruct.telefono, telefono.c_str(), sizeof(acreedorStruct.telefono) - 1);
+                strncpy(acreedorStruct.numCuenta, numCuenta.c_str(), sizeof(acreedorStruct.numCuenta) - 1);
+                strncpy(acreedorStruct.banco, banco.c_str(), sizeof(acreedorStruct.banco) - 1);
+
+                // Escribir la estructura al archivo binario, aquí si la deje como antes
+                //reinterpret_cast para convertir el puntero a la estructura en un puntero char
+                file.write(reinterpret_cast<char*>(&acreedorStruct), sizeof(AcreedorBin));
                 file.close();
 
                 bitacora auditoria;
@@ -130,13 +166,17 @@ void acreedor::desplegar()
         cout<<"\n\t\t\tNo hay informacion...\n";
     }
     else {
-        while(file.read((char*)this, sizeof(acreedor))) {
+        //Cree la estructura temporal para almacenar cada registro leido
+        //lo cambie pq si no, no iba jalar el id para lo de la factura
+        AcreedorBin acreedorStruct;
+        while(file.read(reinterpret_cast<char*>(&acreedorStruct), sizeof(AcreedorBin))) {
             total++;
-            cout<<"\n\t\t\t ID Acreedor        : "<<id<<endl;
-            cout<<"\t\t\t Nombre Acreedor    : "<<nombreAcreedor<<endl;
-            cout<<"\t\t\t Telefono Acreedor  : "<<telefono<<endl;
-            cout<<"\t\t\t Num.Cuenta Acreedor: "<<numCuenta<<endl;
-            cout<<"\t\t\t Banco Acreedor     : "<<banco<<endl;
+            cout<<"\n\t\t\t ID Acreedor        : " << acreedorStruct.id << endl;
+            cout<<"\t\t\t Nombre Acreedor    : " << acreedorStruct.nombreAcreedor << endl;
+            cout<<"\t\t\t Nit Acreedodor     : " << acreedorStruct.nit << endl;
+            cout<<"\t\t\t Telefono Acreedor  : " << acreedorStruct.telefono << endl;
+            cout<<"\t\t\t Num.Cuenta Acreedor: " << acreedorStruct.numCuenta << endl;
+            cout<<"\t\t\t Banco Acreedor     : " << acreedorStruct.banco << endl;
         }
         if(total==0){
             cout<<"\n\t\t\tNo hay informacion...";
@@ -166,15 +206,21 @@ void acreedor::modificar()
         cin>>acreedor_id;
         tempFile.open("temporal.bin", ios::binary | ios::out);
 
-        while(file.read((char*)this, sizeof(acreedor))) {
-            if(acreedor_id != id) {
-                tempFile.write((char*)this, sizeof(acreedor));
+        // Leer y escribir como estructura AcreedorBin
+        AcreedorBin acreedorStruct;
+        while(file.read(reinterpret_cast<char*>(&acreedorStruct), sizeof(AcreedorBin))) {
+                //si el id no concide, copiar el registro sin cambios al archivo temporal
+            if(acreedor_id != acreedorStruct.id) {
+                tempFile.write(reinterpret_cast<char*>(&acreedorStruct), sizeof(AcreedorBin));
             }
             else {
+                // si coincide, agregar los nuevos datos del usuario
                 cout<<"\t\t\tIngrese Id Acreedor        : ";
                 cin>>id;
                 cout<<"\t\t\tIngrese Nombre Acreedor    : ";
                 cin>>nombreAcreedor;
+                cout<<"\t\t\tIngrese Nit de Acreedor    : ";
+                cin>>nit;
                 cout<<"\t\t\tIngrese Telefono Acreedor  : ";
                 cin>>telefono;
                 cout<<"\t\t\tIngrese Num.Cuenta Acreedor: ";
@@ -182,7 +228,16 @@ void acreedor::modificar()
                 cout<<"\t\t\tIngrese Banco Acreedor     : ";
                 cin>>banco;
 
-                tempFile.write((char*)this, sizeof(acreedor));
+                // Convertir a la estructura y guardar (lo mismo de arriba) aquí utilizo strncpy para copiar un numero limitado de caracteres de una cadena a otra, lo del buffer xD
+                memset(&acreedorStruct, 0, sizeof(AcreedorBin));
+                strncpy(acreedorStruct.id, id.c_str(), sizeof(acreedorStruct.id) - 1);
+                strncpy(acreedorStruct.nombreAcreedor, nombreAcreedor.c_str(), sizeof(acreedorStruct.nombreAcreedor) - 1);
+                strncpy(acreedorStruct.nit, nit.c_str(), sizeof(acreedorStruct.nit) - 1);
+                strncpy(acreedorStruct.telefono, telefono.c_str(), sizeof(acreedorStruct.telefono) - 1);
+                strncpy(acreedorStruct.numCuenta, numCuenta.c_str(), sizeof(acreedorStruct.numCuenta) - 1);
+                strncpy(acreedorStruct.banco, banco.c_str(), sizeof(acreedorStruct.banco) - 1);
+
+                tempFile.write(reinterpret_cast<char*>(&acreedorStruct), sizeof(AcreedorBin)); //el reinterpret_cast lo del libro para reinterpretar un bloque de memoria de un tipo como si fuera d otro tipo (binario)
                 found++;
             }
         }
@@ -221,13 +276,16 @@ void acreedor::buscar()
         cout<<"\nIngrese ID del Acreedor que quiere buscar : ";
         cin>>acreedor_id;
 
-        while(file.read((char*)this, sizeof(acreedor))) {
-            if(acreedor_id==id) {
-                cout<<"\n\t\t\t ID Acreedor        : "<<id<<endl;
-                cout<<"\t\t\t Nombre Acreedor    : "<<nombreAcreedor<<endl;
-                cout<<"\t\t\t Telefono Acreedor  : "<<telefono<<endl;
-                cout<<"\t\t\t Num.Cuenta Acreedor: "<<numCuenta<<endl;
-                cout<<"\t\t\t Banco Acreedor     : "<<banco<<endl;
+        // MODIFICADO: Leer como estructura AcreedorBin
+        AcreedorBin acreedorStruct;
+        while(file.read(reinterpret_cast<char*>(&acreedorStruct), sizeof(AcreedorBin))) {
+            if(acreedor_id == acreedorStruct.id) {
+                cout<<"\n\t\t\t ID Acreedor        : " << acreedorStruct.id << endl;
+                cout<<"\t\t\t Nombre Acreedor    : " << acreedorStruct.nombreAcreedor << endl;
+                cout<<"\t\t\t Nit acreedor       : " << acreedorStruct.nit << endl;
+                cout<<"\t\t\t Telefono Acreedor  : " << acreedorStruct.telefono << endl;
+                cout<<"\t\t\t Num.Cuenta Acreedor: " << acreedorStruct.numCuenta << endl;
+                cout<<"\t\t\t Banco Acreedor     : " << acreedorStruct.banco << endl;
                 found++;
                 break;
             }
@@ -242,7 +300,6 @@ void acreedor::buscar()
     bitacora auditoria;
     auditoria.insertar(usuariosrRegistrado.getNombre(), "8043", "BAR");
 }
-
 
 // Elimina un acreedor según su ID
 void acreedor::borrar()
@@ -262,9 +319,11 @@ void acreedor::borrar()
         cin>>acreedor_id;
         tempFile.open("temporal.bin", ios::binary | ios::out);
 
-        while(file.read((char*)this, sizeof(acreedor))) {
-            if(acreedor_id != id) {
-                tempFile.write((char*)this, sizeof(acreedor));
+        // MODIFICADO: Leer como estructura AcreedorBin
+        AcreedorBin acreedorStruct;
+        while(file.read(reinterpret_cast<char*>(&acreedorStruct), sizeof(AcreedorBin))) {
+            if(acreedor_id != acreedorStruct.id) {
+                tempFile.write(reinterpret_cast<char*>(&acreedorStruct), sizeof(AcreedorBin));
             }
             else {
                 found++;
@@ -287,13 +346,14 @@ void acreedor::borrar()
 }
 
 // Genera un reporte tabular con todos los acreedores y guarda una copia en reportes.txt
+//los reportes deben quedar .txt
 void acreedor::reporte(){
     system("cls");
     fstream file, reporteFile;
     int found = 0;
 
     cout<<"\n----------------------------- Reporte de Acreedores -----------------------------\n"<<endl;
-    file.open("acreedor.txt", ios::in);
+    file.open("acreedor.bin", ios::in);
     reporteFile.open("reportes.txt", ios::app | ios::out); // nuevo archivo
 
     if (!file) {
@@ -301,28 +361,28 @@ void acreedor::reporte(){
         reporteFile << "No hay informacion en acreedor.txt\n\n";
     }
     else {
-        cout << left << setw(15) << "ID" << setw(15) << "Nombre"  << setw(15) << "Telefono"
+        cout << left << setw(15) << "ID" << setw(15) << "Nombre"  << setw(15) << "Nit" << setw(15) << "Telefono"
              << setw(15) << "Num. Cuenta" << setw(15) << "Banco" << endl;
-        cout << "----------------------------------------------------------------------------------\n";
+        cout << "------------------------------------------------------------------------------------------------\n";
 
-        reporteFile << "----------------------------- REPORTE DE ACREEDORES -----------------------------\n";
-        reporteFile << left << setw(15) << "ID" << setw(15) << "Nombre"  << setw(15) << "Telefono"
+        reporteFile << "------------------------------------- REPORTE DE ACREEDORES ---------------------------------------- \n";
+        reporteFile << left << setw(15) << "ID" << setw(15) << "Nombre"  << setw(15) << "Nit" << setw(15) << "Telefono"
                     << setw(15) << "Num. Cuenta" << setw(15) << "Banco" << "\n";
-        reporteFile << "----------------------------------------------------------------------------------\n";
+        reporteFile << "-------------------------------------------------------------------------------------------\n";
 
-        file >> id >> nombreAcreedor >> telefono >> numCuenta >> banco;
+        file >> id >> nombreAcreedor >> nit >> telefono >> numCuenta >> banco;
         while (!file.eof()) {
             found++;
-            cout << left << setw(15) << id << setw(15) << nombreAcreedor << setw(15)
-                 << telefono << setw(15) << numCuenta << setw(15) << banco << endl;
+            cout << left << setw(15) << id << setw(15) << nombreAcreedor << setw(15) << nit
+            << setw(15) << telefono << setw(15) << numCuenta << setw(15) << banco << endl;
 
-            reporteFile << left << setw(15) << id << setw(15) << nombreAcreedor << setw(15)
-                        << telefono << setw(15) << numCuenta << setw(15) << banco << "\n";
+            reporteFile << left << setw(15) << id << setw(15) << nombreAcreedor << setw(15) << nit
+            << setw(15) << telefono << setw(15) << numCuenta << setw(15) << banco << "\n";
 
-            file >> id >> nombreAcreedor >> telefono >> numCuenta >> banco;
+            file >> id >> nombreAcreedor >> nit >> telefono >> numCuenta >> banco;
         }
 
-        reporteFile << "----------------------------------------------------------------------------------\n\n";
+        reporteFile << "----------------------------------------------------------------------------------------------\n\n";
 
         if(found==0){
             cout<<"\n\t\t\tNo hay Acreedores registrados...\n";
@@ -335,5 +395,54 @@ void acreedor::reporte(){
     reporteFile.close();
     system("pause");
     bitacora auditoria;
-    auditoria.insertar(usuariosrRegistrado.getNombre(), "8035", "RAR"); // Reporte Acreedor
+    auditoria.insertar(usuariosrRegistrado.getNombre(), "8045", "REPORTEAC"); // Reporte Acreedor
+}
+
+bool acreedor::backupAcreedores() {
+    system("cls");
+    ifstream file;
+    ofstream backupFile;
+    AcreedorBin acreedorStruct;
+
+    cout << "\n\t\t---------------------------------" << endl;
+    cout << "\t\t  BACKUP DE ACREEDORES   " << endl;
+    cout << "\t\t---------------------------------" << endl << endl;
+
+    // Abrir archivo fuente en modo binario (solo lectura)
+    file.open("acreedor.bin", ios::binary);
+    if (!file.is_open()) {
+        cout << "\n\t\tNo hay información disponible para realizar el backup..." << endl;
+        system("pause");
+        return false;
+    }
+
+    // Crear archivo de backup en modo binario (solo escritura)
+    backupFile.open("Acreedor_Backup.bin", ios::binary);
+    if (!backupFile.is_open()) {
+        cout << "\n\t\tError al crear el archivo de backup." << endl;
+        file.close();
+        system("pause");
+        return false;
+    }
+
+    cout << "\n\t\tRealizando backup de datos..." << endl;
+
+    int contador = 0;
+    // Leer estructura por estructura y escribir al backup
+    while (file.read(reinterpret_cast<char*>(&acreedorStruct), sizeof(AcreedorBin))) {
+        backupFile.write(reinterpret_cast<const char*>(&acreedorStruct), sizeof(AcreedorBin));
+        contador++;
+    }
+
+    file.close();
+    backupFile.close();
+
+    cout << "\n\t\tBackup realizado con éxito en 'Acreedor_Backup.bin'" << endl;
+    cout << "\t\tTotal de acreedores respaldados: " << contador << endl;
+
+    bitacora auditoria;
+    auditoria.insertar(usuariosrRegistrado.getNombre(), "8046", "BACK");
+
+    system("pause");
+    return true;
 }

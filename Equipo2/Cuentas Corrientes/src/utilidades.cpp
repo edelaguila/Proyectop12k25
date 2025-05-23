@@ -1,6 +1,11 @@
 // Archivo: utilidades.cpp
 // Implementación de funciones auxiliares para validación y utilidades comunes
-// Autora: Dulce Reyes - Mayo 2025
+// Autora: Dulce Rocio Reyes Pirir
+
+//Programación secundaria Astrid Ruíz (no toque nada de limpiar pantalla y esas cosas,
+//arreglé todos los errores con las funciones de traer los datos de clientes, proveedores, acreedor.
+//Tambien arreglé los errores q daba con los archivos (tuve q modificar las clases d clientes, proveedor, acreedor para q funcionara)
+//- astrid
 
 #include "utilidades.h"
 #include "factura.h"
@@ -11,6 +16,32 @@
 #include <algorithm>
 
 using namespace std;
+
+// Estructuras para lectura binaria
+struct ClienteBin {
+    char id[15];
+    char nombre[50];      // Orden igual que en clase cliente
+    char telefono[15];
+    char nit[15];
+};
+
+struct ProveedorBin {
+    char id[15];          // Orden igual que en clase proveedor
+    char nombreProveedor[50];
+    char nit[15];
+    char telefono[15];
+    char numCuenta[20];
+    char banco[30];
+};
+
+struct AcreedorBin {
+    char id[15];          // Orden igual que en clase acreedor
+    char nombreAcreedor[50];
+    char nit[15];
+    char telefono[15];
+    char numCuenta[20];
+    char banco[30];
+};
 
 void limpiarEntrada() {
     cin.clear();
@@ -54,71 +85,63 @@ bool esNumeroDecimal(const string& str) {
     return !str.empty();
 }
 
+// Busca cliente por ID (binario)
+// Busca cliente por ID
+// Función para buscar un cliente específico en el archivo binario de cliente
+// Recibe el ID del cliente que queremos encontrar y dos variables por referencia donde guardará el nombre y NIT del cliente si lo encuentra
 bool obtenerDatosClientePorID(const string& idBuscar, string& nombre, string& nit) {
-    ifstream archivo("cliente.txt");
+    ifstream archivo("cliente.bin", ios::binary);
     if (!archivo) return false;
 
-    string id, telefono;
-    while (archivo >> id >> nombre >> telefono >> nit) {
-        if (id == idBuscar) {
-            return true;
-        }
-    }
-    return false;
-}
-
-// En utilidades.cpp
-
-bool obtenerDatosProveedorPorID(const string& idBuscar, string& nombre, string& nit) {
-    ifstream archivo("proveedor.txt");
-    if (!archivo) return false;
-
-    string id, telefono, banco, numCuenta;
-
-    // Leer línea por línea
-    string linea;
-    while (getline(archivo, linea)) {
-        stringstream ss(linea);
-
-        // Leer cada campo considerando el ancho fijo (15 caracteres)
-        ss >> setw(15) >> id >> setw(15) >> nombre >> setw(15) >> nit
-           >> setw(15) >> telefono >> setw(15) >> banco >> setw(15) >> numCuenta;
-
-        // Eliminar espacios en blanco sobrantes
-        id = id.substr(0, id.find_first_of(' '));
-        if (id == idBuscar) {
+    ClienteBin temp;
+    //aqui lee cada registro del archivo hasta encontrar el ID que coincida
+    while (archivo.read(reinterpret_cast<char*>(&temp), sizeof(ClienteBin))) {
+        if (string(temp.id) == idBuscar) {
+            //cliente encontrado, se copian sus datos a las variables de salida
+            nombre = string(temp.nombre);
+            nit = string(temp.nit);
             archivo.close();
             return true;
         }
     }
-
     archivo.close();
     return false;
 }
 
-bool obtenerDatosAcreedorPorID(const string& idBuscar, string& nombre, string& nit) {
-    ifstream archivo("acreedor.txt");
+//el mismo flujo pero con proveedor
+// Busca proveedor por ID (binario)
+bool obtenerDatosProveedorPorID(const string& idBuscar, string& nombre, string& nit) {
+    ifstream archivo("proveedor.bin", ios::binary);
     if (!archivo) return false;
 
-    string id, telefono, banco, numCuenta;
-
-    // Leer línea por línea
-    string linea;
-    while (getline(archivo, linea)) {
-        stringstream ss(linea);
-
-        // Leer cada campo considerando el ancho fijo (15 caracteres)
-        ss >> setw(15) >> id >> setw(15) >> nombre >> setw(15) >> nit
-           >> setw(15) >> telefono >> setw(15) >> numCuenta >> setw(15) >> banco;
-
-        // Eliminar espacios en blanco sobrantes
-        id = id.substr(0, id.find_first_of(' '));
-        if (id == idBuscar) {
+    ProveedorBin temp;
+    while (archivo.read(reinterpret_cast<char*>(&temp), sizeof(ProveedorBin))) {
+        if (string(temp.id) == idBuscar) {
+            nombre = string(temp.nombreProveedor);
+            nit = string(temp.nit);
             archivo.close();
             return true;
         }
     }
+    archivo.close();
+    return false;
+}
 
+//el mismo flujo pero con proveedor
+// Busca acreedor por ID (binario)
+bool obtenerDatosAcreedorPorID(const string& idBuscar, string& nombre, string& nit) {
+    ifstream archivo("acreedor.bin", ios::binary);
+    if (!archivo) return false;
+
+    AcreedorBin temp;
+    while (archivo.read(reinterpret_cast<char*>(&temp), sizeof(AcreedorBin))) {
+        if (string(temp.id) == idBuscar) {
+            nombre = string(temp.nombreAcreedor);
+            nit = string(temp.nit);
+            archivo.close();
+            return true;
+        }
+    }
     archivo.close();
     return false;
 }

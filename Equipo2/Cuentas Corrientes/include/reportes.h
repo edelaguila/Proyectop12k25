@@ -7,6 +7,7 @@ class reportes
     public:
         reportes();
         void menuInformes();
+        void menuFactura();
     private:
 };
 
