@@ -20,7 +20,7 @@ public:
     std::string getUsuarioActual() const { return usuarioActual; }
 
 private:
-    string archivoUsuarios = "usuarios.txt";
+    string archivoUsuarios = "usuarios.bin";
     string usuarioActual = "";
 };
 

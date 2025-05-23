@@ -1,8 +1,11 @@
 #include "sistema.h"
 #include "Opciones.h"
+#include <iostream>
+#include <fstream>
 #include <conio.h>
 #include <limits>
-//Realizado por ANGEL ROQUEL
+#include <vector>
+//Realizado por ANGEL ROQUEL y Modificado por Roli Cedillo
 Opciones opcion; // Se crea un objeto global de la clase Opciones
 
 sistema::sistema()
@@ -41,9 +44,14 @@ void sistema::registrarUsuario() {
     }
     cout << endl;  // Salto de línea al final de la contraseña
 
-    ofstream archivo(archivoUsuarios, ios::app);  // Abre archivo para agregar usuarios
+    ofstream archivo(archivoUsuarios, ios::binary|ios::app|ios::out);  // Abre archivo para agregar usuarios
     if (archivo.is_open()) {
-        archivo << nombre << "," << contrasenia << endl;  // Guarda el usuario y contraseña
+        size_t nombretamano = nombre.size();
+        archivo.write(reinterpret_cast<const char*>(&nombretamano), sizeof(nombretamano));  // Guarda el usuario y contraseña
+        archivo.write(nombre.c_str(), nombretamano);
+        size_t contratamano = contrasenia.size();
+        archivo.write(reinterpret_cast<const char*>(&contratamano), sizeof(contratamano));  // Guarda el usuario y contraseña
+        archivo.write(contrasenia.c_str(), contratamano);
         archivo.close();                                  // Cierra el archivo
         cout << "Usuario registrado con exito." << endl;  // Mensaje de éxito
     } else {
@@ -51,15 +59,14 @@ void sistema::registrarUsuario() {
     }
 }
 
-// Función para ingresar (iniciar sesión) un usuario existente
 void sistema::ingresarUsuario() {
     system("cls");       // Limpia la pantalla
 
     string nombre, contrasenia;  // Variables para ingresar datos del usuario
 
-    cout << "Ingrese nombre de usuario: ";
-    cin >> nombre;       // Captura el nombre
-
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cout << "Ingrese nombre de usuario: ";       // Captura el nombre
+    getline(cin, nombre);
     cout << "Ingrese contrasenia: ";
     char caracter;
 
@@ -77,51 +84,90 @@ void sistema::ingresarUsuario() {
     }
     cout << endl;
 
-    ifstream archivo(archivoUsuarios);  // Abre el archivo de usuarios en modo lectura
+    ifstream archivo(archivoUsuarios, ios::binary);  // Abre el archivo en modo binario
     if (archivo.is_open()) {
-        string linea;
-        while (getline(archivo, linea)) {      // Lee cada línea del archivo
-            size_t coma = linea.find(",");     // Encuentra la posición de la coma
-            string usuario = linea.substr(0, coma);             // Extrae el nombre de usuario
-            string contraseniaArchivo = linea.substr(coma + 1); // Extrae la contraseña
+        bool encontrado = false;
 
-            // Compara los datos ingresados con los del archivo
+        while (true) {
+            // Leer tamaño del nombre de usuario
+            size_t tamUsuario;
+            archivo.read(reinterpret_cast<char*>(&tamUsuario), sizeof(tamUsuario));
+            if (archivo.eof()) break;
+
+            // Leer nombre de usuario
+            vector<char> usuarioBuffer(tamUsuario);
+            archivo.read(usuarioBuffer.data(), tamUsuario);
+            string usuario(usuarioBuffer.data(), tamUsuario);
+
+            // Leer tamaño de la contraseña
+            size_t tamContrasenia;
+            archivo.read(reinterpret_cast<char*>(&tamContrasenia), sizeof(tamContrasenia));
+
+            // Leer contraseña
+            vector<char> contraseniaBuffer(tamContrasenia);
+            archivo.read(contraseniaBuffer.data(), tamContrasenia);
+            string contraseniaArchivo(contraseniaBuffer.data(), tamContrasenia);
+
+            // Comparar credenciales
             if (usuario == nombre && contraseniaArchivo == contrasenia) {
                 usuarioActual = nombre;
                 cout << "Ingreso exitoso." << endl;
-                archivo.close();      // Cierra el archivo
-                opcion.menu(usuario);        // Llama al menú principal del sistema
-                return;               // Sale de la función
+                encontrado = true;
+                archivo.close();
+                opcion.menu(usuario);
+                return;
             }
         }
-        archivo.close();  // Cierra el archivo si no se encontró coincidencia
-        cout << "Nombre de usuario o contrasena incorrecta." << endl;
+
+        archivo.close();
+        if (!encontrado) {
+            cout << "Nombre de usuario o contrasena incorrecta." << endl;
+        }
     } else {
         cout << "No se pudo abrir el archivo." << endl;
     }
 }
-
-// Función para mostrar todos los usuarios registrados
 void sistema::mostrarUsuarios() {
-    system("cls");  // Limpia la pantalla
+    system("cls");  // Limpiar pantalla
 
-    ifstream archivo(archivoUsuarios);  // Abre el archivo en modo lectura
-    if (archivo.is_open()) {
-        string linea;
-        while (getline(archivo, linea)) {     // Lee línea por línea
-            size_t coma = linea.find(",");    // Encuentra la coma
-            string usuario = linea.substr(0, coma);            // Extrae el nombre de usuario
-            string contrasenia = linea.substr(coma + 1);       // Extrae la contraseña
-
-            string asteriscos(contrasenia.length(), '*');      // Crea una cadena de asteriscos del mismo largo
-
-            // Muestra el usuario y su contraseña oculta
-            cout << "Nombre de usuario: " << usuario << endl;
-            cout << "Contrasenia: " << asteriscos << endl;
-            cout << "===============================" << endl << endl;
-        }
-        archivo.close();  // Cierra el archivo después de leer
-    } else {
-        cout << "No se pudo abrir el archivo." << endl;  // Mensaje si el archivo no se puede abrir
+    // 1. Abrir archivo binario
+    ifstream archivo(archivoUsuarios, ios::binary);
+    if (!archivo.is_open()) {
+        cout << "No se pudo abrir el archivo de usuarios." << endl;
+        system("pause");
+        return;
     }
+
+    cout << "============ LISTA DE USUARIOS ============\n\n";
+
+    // 2. Leer cada usuario del archivo
+    while (true) {
+        // 2.1 Leer tamaño del nombre de usuario
+        size_t tamUsuario;
+        archivo.read((char*)&tamUsuario, sizeof(tamUsuario));
+
+        // Si llegamos al final del archivo, salir
+        if (archivo.eof()) break;
+
+        // 2.2 Leer el nombre de usuario
+        string usuario;
+        usuario.resize(tamUsuario);
+        archivo.read(&usuario[0], tamUsuario);
+
+        // 2.3 Leer tamaño de la contraseña
+        size_t tamContrasenia;
+        archivo.read((char*)&tamContrasenia, sizeof(tamContrasenia));
+
+        // 2.4 Leer la contraseña (pero no la guardamos)
+        archivo.seekg(tamContrasenia, ios::cur);
+
+        // 3. Mostrar la información
+        cout << "Usuario: " << usuario << endl;
+        cout << "Contraseña: " << string(tamContrasenia, '*') << endl; // Mostrar asteriscos
+        cout << "-----------------------------" << endl << endl;
+    }
+
+    // 4. Cerrar archivo
+    archivo.close();
+    system("pause");
 }

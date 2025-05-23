@@ -79,7 +79,7 @@
 	"sistema.h"
 	"Opciones.h"
 
-1747661264 source:c:\users\reyes\documents\progra\proyectop12k25\equipo1\nominas\main.cpp
+1747797604 source:c:\users\reyes\documents\progra\proyectop12k25\equipo1\nominas\main.cpp
 	<iostream>
 	<fstream>
 	<limits>
@@ -88,21 +88,22 @@
 	"bitacora.h"
 	"sistema.h"
 
-1747522825 c:\users\reyes\documents\progra\proyectop12k25\equipo1\nominas\include\opciones.h
+1747797604 c:\users\reyes\documents\progra\proyectop12k25\equipo1\nominas\include\opciones.h
 	<iostream>
 
 1746458798 c:\users\reyes\documents\progra\proyectop12k25\equipo1\nominas\include\usuarios.h
 	<iostream>
 
-1747632957 c:\users\reyes\documents\progra\proyectop12k25\equipo1\nominas\include\bitacora.h
+1747797604 c:\users\reyes\documents\progra\proyectop12k25\equipo1\nominas\include\bitacora.h
 	<string>
 
-1747662128 c:\users\reyes\documents\progra\proyectop12k25\equipo1\nominas\include\sistema.h
+1747797604 c:\users\reyes\documents\progra\proyectop12k25\equipo1\nominas\include\sistema.h
 	<fstream>
 	<vector>
+	<limits>
 	"usuarios.h"
 
-1747632957 source:c:\users\reyes\documents\progra\proyectop12k25\equipo1\nominas\src\bitacora.cpp
+1747797604 source:c:\users\reyes\documents\progra\proyectop12k25\equipo1\nominas\src\bitacora.cpp
 	"bitacora.h"
 	<iostream>
 	<fstream>
@@ -111,7 +112,7 @@
 	<ctime>
 	<limits>
 
-1747662128 source:c:\users\reyes\documents\progra\proyectop12k25\equipo1\nominas\src\opciones.cpp
+1747797604 source:c:\users\reyes\documents\progra\proyectop12k25\equipo1\nominas\src\opciones.cpp
 	"Opciones.h"
 	"bitacora.h"
 	<iostream>
@@ -124,10 +125,11 @@
 	"Prestaciones.h"
 	"Empleados.h"
 
-1747662617 source:c:\users\reyes\documents\progra\proyectop12k25\equipo1\nominas\src\sistema.cpp
+1747797604 source:c:\users\reyes\documents\progra\proyectop12k25\equipo1\nominas\src\sistema.cpp
 	"sistema.h"
 	"Opciones.h"
 	<conio.h>
+	<limits>
 
 1746458798 source:c:\users\reyes\documents\progra\proyectop12k25\equipo1\nominas\src\usuarios.cpp
 	"usuarios.h"
@@ -137,29 +139,31 @@
 	<bitacora.h>
 	<iostream>
 
-1747522296 source:c:\users\angel r\documents\progra\proyectop12k25\equipo1\nominas\main.cpp
+1747792858 source:c:\users\angel r\documents\progra\proyectop12k25\equipo1\nominas\main.cpp
 	<iostream>
 	<fstream>
+	<limits>
 	"Opciones.h"
 	"usuarios.h"
 	"bitacora.h"
 	"sistema.h"
 
-1747522296 c:\users\angel r\documents\progra\proyectop12k25\equipo1\nominas\include\opciones.h
+1747837750 c:\users\angel r\documents\progra\proyectop12k25\equipo1\nominas\include\opciones.h
 	<iostream>
 
 1747007819 c:\users\angel r\documents\progra\proyectop12k25\equipo1\nominas\include\usuarios.h
 	<iostream>
 
-1747631553 c:\users\angel r\documents\progra\proyectop12k25\equipo1\nominas\include\bitacora.h
+1747837750 c:\users\angel r\documents\progra\proyectop12k25\equipo1\nominas\include\bitacora.h
 	<string>
 
-1747007819 c:\users\angel r\documents\progra\proyectop12k25\equipo1\nominas\include\sistema.h
+1747837953 c:\users\angel r\documents\progra\proyectop12k25\equipo1\nominas\include\sistema.h
 	<fstream>
 	<vector>
+	<limits>
 	"usuarios.h"
 
-1747631553 source:c:\users\angel r\documents\progra\proyectop12k25\equipo1\nominas\src\bitacora.cpp
+1747837750 source:c:\users\angel r\documents\progra\proyectop12k25\equipo1\nominas\src\bitacora.cpp
 	"bitacora.h"
 	<iostream>
 	<fstream>
@@ -175,10 +179,11 @@
 1747522296 c:\users\angel r\documents\progra\proyectop12k25\equipo1\nominas\include\prestaciones.h
 	<string>
 
-1747522296 source:c:\users\angel r\documents\progra\proyectop12k25\equipo1\nominas\src\sistema.cpp
+1747837750 source:c:\users\angel r\documents\progra\proyectop12k25\equipo1\nominas\src\sistema.cpp
 	"sistema.h"
 	"Opciones.h"
 	<conio.h>
+	<limits>
 
 1747007819 source:c:\users\angel r\documents\progra\proyectop12k25\equipo1\nominas\src\usuarios.cpp
 	"usuarios.h"
@@ -188,7 +193,7 @@
 	<bitacora.h>
 	<iostream>
 
-1747632066 source:c:\users\angel r\documents\progra\proyectop12k25\equipo1\nominas\src\opciones.cpp
+1747837750 source:c:\users\angel r\documents\progra\proyectop12k25\equipo1\nominas\src\opciones.cpp
 	"Opciones.h"
 	"bitacora.h"
 	<iostream>
@@ -201,7 +206,7 @@
 	"Prestaciones.h"
 	"Empleados.h"
 
-1747632154 source:c:\users\angel r\documents\progra\proyectop12k25\equipo1\nominas\src\empleados.cpp
+1747837839 source:c:\users\angel r\documents\progra\proyectop12k25\equipo1\nominas\src\empleados.cpp
 	"Empleados.h"
 	<iostream>
 	<fstream>
@@ -211,7 +216,7 @@
 	<iomanip>
 	"bitacora.h"
 
-1747631960 c:\users\angel r\documents\progra\proyectop12k25\equipo1\nominas\include\empleados.h
+1747837750 c:\users\angel r\documents\progra\proyectop12k25\equipo1\nominas\include\empleados.h
 	<iostream>
 	<fstream>
 	<stdlib.h>
@@ -467,7 +472,7 @@
 	"bitacora.h"
 	"sistema.h"
 
-1747661264 source:c:\users\reyes\documents\progra\proyectop12k25\equipo1\nominas\src\empleados.cpp
+1747837194 source:c:\users\reyes\documents\progra\proyectop12k25\equipo1\nominas\src\empleados.cpp
 	"Empleados.h"
 	<iostream>
 	<fstream>
@@ -477,7 +482,7 @@
 	<iomanip>
 	"bitacora.h"
 
-1747662128 c:\users\reyes\documents\progra\proyectop12k25\equipo1\nominas\include\empleados.h
+1747798335 c:\users\reyes\documents\progra\proyectop12k25\equipo1\nominas\include\empleados.h
 	<iostream>
 	<fstream>
 	<stdlib.h>
@@ -571,4 +576,103 @@
 
 1747782341 c:\users\isaia\onedrive\escritorio\equipo1\nominas\include\prestaciones.h
 	<string>
+
+1747782341 source:c:\users\isaia\onedrive\escritorio\repositorios github\proyectop12k25\equipo1\nominas\main.cpp
+	<iostream>
+	<fstream>
+	<limits>
+	"Opciones.h"
+	"usuarios.h"
+	"bitacora.h"
+	"sistema.h"
+
+1747875820 c:\users\isaia\onedrive\escritorio\repositorios github\proyectop12k25\equipo1\nominas\include\opciones.h
+	<iostream>
+
+1747782341 c:\users\isaia\onedrive\escritorio\repositorios github\proyectop12k25\equipo1\nominas\include\usuarios.h
+	<iostream>
+
+1747880451 c:\users\isaia\onedrive\escritorio\repositorios github\proyectop12k25\equipo1\nominas\include\bitacora.h
+	<iostream>
+	<fstream>
+	<string>
+	<iomanip>
+	<sstream>
+	<chrono>
+	<ctime>
+	<iomanip>
+	<filesystem>
+
+1747875820 c:\users\isaia\onedrive\escritorio\repositorios github\proyectop12k25\equipo1\nominas\include\sistema.h
+	<fstream>
+	<vector>
+	<limits>
+	"usuarios.h"
+
+1747782341 source:c:\users\isaia\onedrive\escritorio\repositorios github\proyectop12k25\equipo1\nominas\src\usuarios.cpp
+	"usuarios.h"
+	<fstream>
+	<cstdlib>
+	<conio.h>
+	<bitacora.h>
+	<iostream>
+
+1747886989 source:c:\users\isaia\onedrive\escritorio\repositorios github\proyectop12k25\equipo1\nominas\src\empleados.cpp
+	"Empleados.h"
+	<iostream>
+	<fstream>
+	<stdlib.h>
+	<cstdlib>
+	<conio.h>
+	<iomanip>
+	<string>
+	<sstream>
+	<chrono>
+	<ctime>
+	<filesystem>
+	"bitacora.h"
+
+1747885546 c:\users\isaia\onedrive\escritorio\repositorios github\proyectop12k25\equipo1\nominas\include\empleados.h
+	<vector>
+	<iostream>
+	<fstream>
+	<stdlib.h>
+	<cstdlib>
+	<conio.h>
+	<iomanip>
+	<limits>
+	"bitacora.h"
+
+1747875820 source:c:\users\isaia\onedrive\escritorio\repositorios github\proyectop12k25\equipo1\nominas\src\opciones.cpp
+	"Opciones.h"
+	"bitacora.h"
+	<iostream>
+	<fstream>
+	<stdlib.h>
+	<cstdlib>
+	<conio.h>
+	<iomanip>
+	"usuarios.h"
+	"Prestaciones.h"
+	"Empleados.h"
+
+1747782341 c:\users\isaia\onedrive\escritorio\repositorios github\proyectop12k25\equipo1\nominas\include\prestaciones.h
+	<string>
+
+1747875820 source:c:\users\isaia\onedrive\escritorio\repositorios github\proyectop12k25\equipo1\nominas\src\sistema.cpp
+	"sistema.h"
+	"Opciones.h"
+	<iostream>
+	<fstream>
+	<conio.h>
+	<limits>
+
+1747884472 source:c:\users\isaia\onedrive\escritorio\repositorios github\proyectop12k25\equipo1\nominas\src\bitacora.cpp
+	"bitacora.h"
+	<iostream>
+	<fstream>
+	<cstdlib>
+	<iomanip>
+	<ctime>
+	<limits>
 

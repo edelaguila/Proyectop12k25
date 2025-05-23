@@ -1,6 +1,7 @@
 #ifndef EMPLEADOS_H
 #define EMPLEADOS_H
 //Bibliotecas
+#include <vector>
 #include<iostream>
 #include<fstream>
 #include<stdlib.h>
@@ -29,6 +30,7 @@ public:
     void mostrarMenuNomina(const string& usuarioRegistrante);
     void calcularNominaAnual();
     void calcularNominaMensual();
+    double calcularIndemnizacion(double sueldo, int anios);
 
 private:
     // Variables para cálculos de nómina XANDER REYES

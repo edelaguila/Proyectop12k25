@@ -44,48 +44,8 @@ void bitacora::menu()
                 break;
             case 2: {
                 // Solicita los datos al usuario
-                string nombre, aplicacion, accion;
-                cout << "\n\t\t\tIngrese nombre del usuario: ";
-                getline(cin, nombre);
-                // Generar código de aplicación automáticamente (de 7000 a 7999)
-                fstream readFile("bitacora.txt", ios::in);
-                int codigoApp = 7000;
-
-                    if (readFile)
-                        {
-                        string lastNombre, lastAplicacion, lastAccion, lastTimestamp;
-                        while (readFile >> std::quoted(lastNombre))
-                            {
-                                readFile.ignore();
-                                readFile >> std::quoted(lastAplicacion);
-                                readFile.ignore();
-                                readFile >> std::quoted(lastAccion);
-                                readFile.ignore();
-                                getline(readFile, lastTimestamp);
-
-                                try
-                                {
-                                    int cod = stoi(lastAplicacion);
-                                    if (cod >= 7000 && cod < 7999)
-                                        {
-                                            codigoApp = cod + 1;
-                                        }
-                                        else if (cod >= 7999)
-                                        {
-                                            codigoApp = 7000; // Reinicia a 7000 si supera el rango
-                                        }
-                                }
-                                catch (...)
-                                {
-            // Si la aplicación no es un número, se ignora
-                                }
-                            }
-                    }
-readFile.close();
-
-// Asigna el código como string
-aplicacion = to_string(codigoApp);
-
+                string nombre, accion;
+                int aplicacion;
                 cout << "\t\t\tIngrese accion realizada: ";
                 getline(cin, accion);
                 insertar(nombre, aplicacion, accion); // Agrega el registro
@@ -101,34 +61,37 @@ aplicacion = to_string(codigoApp);
 }
 
 // Agrega un nuevo registro al archivo bitacora.txt
-void bitacora::insertar(string nombre, string aplicacion, string accion)
+void bitacora::insertar(string nombre, int aplicacion, string accion)
 {
+    this->FechaLogger = chrono::system_clock::now();
     system("cls"); // Limpia la pantalla
-    fstream file("bitacora.txt", ios::app | ios::out); // Abre archivo para agregar contenido
-
-    // Obtiene la fecha y hora actual
-    time_t now = time(0);
-    tm* ltm = localtime(&now);
-    char timestamp[30];
-    strftime(timestamp, sizeof(timestamp), "%Y-%m-%d %H:%M:%S", ltm); // Formato: año-mes-día hora:min:seg
-
+    ofstream file("bitacora.bin", ios::binary | ios::app | ios::out); // Abre archivo para agregar contenido
     // Guarda los datos en el archivo con comillas para evitar errores con espacios
     file << std::quoted(nombre) << ","
-         << std::quoted(aplicacion) << ","
-         << std::quoted(accion) << ","
-         << timestamp << "\n";
+        << std::quoted(std::to_string(aplicacion)) << ","
+        << std::quoted(accion) << ","
+        <<generarHora() << "\n";
 
     file.close(); // Cierra el archivo
 
     cout << "\n\t\t\tRegistro agregado exitosamente.\n";
     system("pause"); // Pausa para que el usuario vea el mensaje
 }
-
-// Muestra los registros almacenados en bitacora.txt
+string bitacora::generarHora() const
+{
+    //se guarda en variable local el dato de fechalogger
+    time_t tiempo = chrono::system_clock::to_time_t(FechaLogger);
+    //el dato se convierte a formato local
+    tm*tm_ptr = localtime(&tiempo);
+    std::ostringstream registrotiempo;
+    registrotiempo << std::put_time(tm_ptr, "%Y-%m-%d %H:%M:%S");  // Formato personalizado
+    return registrotiempo.str();
+}
+// Muestra los registros almacenados en bitacora
 void bitacora::desplegar()
 {
     system("cls"); // Limpia pantalla
-    fstream file("bitacora.txt", ios::in); // Abre el archivo para lectura
+    fstream file("bitacora.bin", ios::binary | ios::in); // Abre el archivo para lectura
     int total = 0;
     string nombre, aplicacion, accion, timestamp;
 
@@ -164,7 +127,8 @@ void bitacora::desplegar()
     cout << "\n\n";
     system("pause"); // Pausa para que el usuario vea los resultados
 }
-
+//OBSOLETO PERO UTIL PARA POSIBLES PROYECTOS
+/*
 std::string bitacora::generarCodigoAplicacion()
  {
    // Abre el archivo "bitacora.txt" en modo lectura para examinar los registros existentes
@@ -218,3 +182,4 @@ if (readFile) {  // Verifica si el archivo se abrió correctamente
 readFile.close();
     return to_string(codigoApp);
 }
+*/

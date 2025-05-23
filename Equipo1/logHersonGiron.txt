@@ -1,0 +1,13 @@
+commit 8831c8b5b0f9114777907ed4697914fa8527c870
+Merge: 6ce900b 9deb7fe
+Author: Herson Girón <gironnnherson@gmail.com>
+Date:   Wed May 21 19:16:00 2025 -0600
+
+    Merge branch 'edelaguila:main' into main
+
+commit 6fa2d12efd24c73df4d34caeffd4e5ce1d653327
+Merge: 3a2fdac 769572a
+Author: Herson Girón <gironnnherson@gmail.com>
+Date:   Wed May 7 09:53:03 2025 -0600
+
+    Merge branch 'edelaguila:main' into bitacora_9959241733

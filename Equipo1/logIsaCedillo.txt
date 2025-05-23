@@ -1,0 +1,29 @@
+commit 9665927e663e444ead2b343a0c3daa252b178cc7
+Author: IsaC-8bBit (laptop) <isaiascedillo1313@gmail.com>
+Date:   Tue May 20 21:04:46 2025 -0600
+
+    Actualizacion de bitacora con solucion de bugs y guardado del nombre de usuario en uso
+
+commit 09a2ebf7689cb3f08858c54aa37f12db788ec029
+Author: IsaC8-bit <isaiascedillo1313@gmail.com>
+Date:   Sun May 18 20:51:33 2025 -0600
+
+    Mejora de bitacora e implementacion a clase empleados
+
+commit 4017566d1904ef6d7aecacb6b804551b6c2338bc
+Author: IsaC8-bit <isaiascedillo1313@gmail.com>
+Date:   Thu May 8 21:06:04 2025 -0600
+
+    Clase Empleados
+
+commit 38d5daf972e11349eb87c8b5d19d72e8ad1d37e9
+Author: IsaC-8bBit (laptop) <isaiascedillo1313@gmail.com>
+Date:   Sun May 4 22:04:42 2025 -0600
+
+    mi commit acerca de los empleados
+
+commit 5993c6eb760dd728b0e647089bce5a0e48048203
+Author: IsaC-8bBit (laptop) <isaiascedillo1313@gmail.com>
+Date:   Sun May 4 22:01:47 2025 -0600
+
+    Bobes ponja (Prueba de branch)

@@ -1,0 +1,2992 @@
+commit 984d2c0b3ae2ce30541afc2564bafd19a4497a2b
+Merge: 9e496b6 0fa6aa0
+Author: [Herson <[Herson>
+Date:   Thu May 22 13:38:58 2025 -0600
+
+    Merge branch 'ISACEDILLO24_1672_21_MAYO' of https://github.com/HersonGiron/Proyectop12k25
+
+commit 9e496b68fcfcd11c28f8b46ca83432c2915ddb3c
+Author: IsaC-8bBit (laptop) <isaiascedillo1313@gmail.com>
+Date:   Wed May 21 22:42:43 2025 -0600
+
+    log de isaias cedillo
+
+commit 0fa6aa0d5403ff60bf368477c98eb72d08dca8f9
+Author: IsaC-8bBit (laptop) <isaiascedillo1313@gmail.com>
+Date:   Wed May 21 22:35:01 2025 -0600
+
+    update a binarios y solucion de problema del ing
+
+commit 5f6c5fe7b2c1733385c99f5dffa1d9f69913837c
+Author: [Herson <[Herson>
+Date:   Wed May 21 22:04:44 2025 -0600
+
+    log herson giron
+
+commit bab53f62a827763ad35a0caf32a3bccc9987e2ac
+Merge: 97a4d2e cd3718c
+Author: [Herson <[Herson>
+Date:   Wed May 21 21:59:33 2025 -0600
+
+    prueba
+
+commit cd3718c663c073f0058c9daded3ca039a77b2f24
+Author: [Xander <[xreyeso@miumg.edu.gt]>
+Date:   Wed May 21 21:56:35 2025 -0600
+
+    log xander reyes
+
+commit 97a4d2e68e2cb859509b0e9acfb340e32550ba63
+Author: [Angel <[aroquelm1@miumg.edu.gt]>
+Date:   Wed May 21 21:43:26 2025 -0600
+
+    LOG ANGEL ROQUEL
+
+commit 334cca89e4c1fbad953a1cdf6345893834b7a02f
+Author: [Angel <[aroquelm1@miumg.edu.gt]>
+Date:   Wed May 21 21:20:54 2025 -0600
+
+    Log Angel Roquel
+
+commit 8831c8b5b0f9114777907ed4697914fa8527c870
+Merge: 6ce900b 9deb7fe
+Author: Herson Girón <gironnnherson@gmail.com>
+Date:   Wed May 21 19:16:00 2025 -0600
+
+    Merge branch 'edelaguila:main' into main
+
+commit 6ce900b3885bd0370f7015459e5c75474b4f813b
+Author: [Angel <[aroquelm1@miumg.edu.gt]>
+Date:   Wed May 21 08:36:48 2025 -0600
+
+    correcion errores
+
+commit 853f832bdab828821ef9ddfbbda204fa3df787d2
+Author: [Xander <[xreyeso@miumg.edu.gt]>
+Date:   Wed May 21 08:24:15 2025 -0600
+
+    Implementacion nomina anual e Indemnizacion
+
+commit 9deb7fed52d368ba952cf9a210107c58ec192e06
+Merge: 0d10d39 ef67f56
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed May 21 05:53:45 2025 -0600
+
+    Merge pull request #70 from sarai701/main
+    
+    Grupo No.5 Sistema Bancario
+
+commit 0d10d39f17f574edb19459dd3ec829923e541693
+Merge: 78a8b4d df13c15
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed May 21 05:53:08 2025 -0600
+
+    Merge pull request #67 from KevinRLE/main
+    
+    Actualizaciones Grupo4
+
+commit 78a8b4d7f8d4ac74b1be3a683b2a4bbaf75dfdd4
+Merge: a8a32bb 9665927
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed May 21 05:52:56 2025 -0600
+
+    Merge pull request #66 from HersonGiron/main
+    
+    Fase 4 de proyecto nominas
+
+commit a8a32bbf0bb0097d73f0792a4e0e26ae25bfbe79
+Merge: e376d62 55da9e0
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed May 21 05:52:42 2025 -0600
+
+    Merge pull request #64 from JennBF/main
+    
+    MANTENIMIENTO 3 TRANSACCIONALES 50% EQUIPO 3 LOGISTICA.
+
+commit e376d623a747ffb4a279e14f5884401882ff0f48
+Merge: 5d24811 aba77e6
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed May 21 05:52:29 2025 -0600
+
+    Merge pull request #63 from astridrl/pagos
+    
+    Pagos
+
+commit 5d24811f01767382d76ebc0380dc5f5a843e068f
+Merge: 1ee4864 54bd5bb
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed May 21 05:51:50 2025 -0600
+
+    Merge pull request #60 from ArmandoAJD/main
+    
+    Actualizacion de todos
+
+commit 1ee4864030ba4798b01489abc21b369c91a64c00
+Merge: d044597 9cb98a9
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed May 21 05:51:38 2025 -0600
+
+    Merge pull request #59 from ArmandoAJD/AndreCastellanos9959-24-3019
+    
+    Crud andre
+
+commit d044597bbacfba3d71634328d2f05b438cd57c2e
+Merge: 0652da2 03c475c
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed May 21 05:51:25 2025 -0600
+
+    Merge pull request #57 from ArmandoAJD/ArmandoDeLeon9959-24-155
+    
+    Bitacora general
+
+commit 0652da24d7e1402c84ba4472705e33fb090623ac
+Merge: b122e0f 63f2d05
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed May 21 05:51:10 2025 -0600
+
+    Merge pull request #56 from JennBF/kari
+    
+    Kari
+
+commit b122e0f760b76d85057c8cb38cd51912ffbb52aa
+Merge: 585ed18 8b8ac6e
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed May 21 05:50:52 2025 -0600
+
+    Merge pull request #55 from JennBF/Karina
+    
+    Karina
+
+commit 585ed1877148d80d632f38eb6024432dc4681572
+Merge: 5a0f229 a1755a0
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed May 21 05:49:33 2025 -0600
+
+    Merge pull request #52 from Marice26/main
+    
+    actualizacion 2
+
+commit 5a0f229ff3f7ebea9a7af98857c7b59c068889cf
+Merge: 29a221b 8985f6e
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed May 21 05:49:06 2025 -0600
+
+    Merge pull request #51 from JennBF/ramaale
+    
+    Ramaale
+
+commit a1755a00a3c2bc3f08afeb77e581d132c212cff4
+Merge: 40dfa89 29a221b
+Author: Marice26 <mmayeni1@miumg.edu.gt>
+Date:   Wed May 21 03:24:09 2025 -0500
+
+    Merge branch 'main' into main
+
+commit ef67f56f921b95464ff2fda1ca9d63873bdf37f3
+Author: Jonathan Samuel Gonzalez <jgonzalezi7@miumg.edu.gt>
+Date:   Tue May 20 23:15:01 2025 -0600
+
+    modificaciones contabilidad, auditores Jonathan Gonzalez
+
+commit 55da9e08fe8a40902619c1a49b8f0259c4aa7bb0
+Merge: eee3765 3bd2a6e
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Tue May 20 22:45:03 2025 -0600
+
+    merge rama de Angoly
+
+commit 3bd2a6eb4b7f28ff69ffca5d5c08283560eaf7be
+Author: ¨[Angoly <¨[aaraujom@miumg.edu.gt]¨>
+Date:   Tue May 20 22:42:07 2025 -0600
+
+    Cambios Camila
+
+commit 55908de8c4ad84b4217d6fb7d0093ed3e759fd1d
+Author: Ivan774gt <deleonboris6@gmail.com>
+Date:   Tue May 20 22:39:52 2025 -0600
+
+    Segunda version de binarios
+
+commit eee376505dfd0d9488251e940c41ad21fa9cb92c
+Merge: 1b7209a 63f2d05
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Tue May 20 22:26:36 2025 -0600
+
+    uniendo rama kari
+
+commit e500d2ba0b5729ea532d1f76d1141700b81c5bc5
+Author: Sarai Calgua <sarai.calgua701@gmaol.com>
+Date:   Tue May 20 21:59:40 2025 -0600
+
+    arreglo de bitacora, try y usuario
+
+commit 9665927e663e444ead2b343a0c3daa252b178cc7
+Author: IsaC-8bBit (laptop) <isaiascedillo1313@gmail.com>
+Date:   Tue May 20 21:04:46 2025 -0600
+
+    Actualizacion de bitacora con solucion de bugs y guardado del nombre de usuario en uso
+
+commit 63f2d05f93669f045a2b9b130e36a13b8b19922f
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Tue May 20 19:46:39 2025 -0600
+
+    documentación
+
+commit df1f94e7df10c74f4e9dc93483533b51e61e63c4
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Tue May 20 19:42:02 2025 -0600
+
+    arreglos usuarios
+
+commit cc97e4af1365bef0cbcbde85f139a2111eb65883
+Author: [Herson <[Herson>
+Date:   Tue May 20 19:18:10 2025 -0600
+
+    codigo documentado
+
+commit 1b7209abe2d5ca221412055e32a828d9056d52c7
+Author: [Angel Mendez] <[lmendezf1@miumg.edu.gt]>
+Date:   Tue May 20 19:13:08 2025 -0600
+
+    Arreglos en clientes esteticos
+
+commit 40dfa89039976cc64291ceae859b55b8b15c7ce1
+Merge: 10086b2 c021038
+Author: marlondeleon17 <100364159+marlondeleon17@users.noreply.github.com>
+Date:   Tue May 20 19:05:41 2025 -0600
+
+    Merge pull request #8 from marlondeleon17/main
+    
+    marlon19460(5001) actualización de vent
+
+commit 4ba17577a7476b70da61ad73fd25e3586da9f05e
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Tue May 20 19:02:58 2025 -0600
+
+    Inventario casi funciona
+
+commit c021038b02651031552cbf2042e8c6df3616166e
+Author: marlon de leon <mdeleong17@miumg.edu.gt>
+Date:   Tue May 20 19:01:05 2025 -0600
+
+    cambios a v
+
+commit 3a6b5aa863f48562378c158dbe01cb7873a9d896
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Tue May 20 18:39:00 2025 -0600
+
+    arreglos inventario
+
+commit c4424a189b2a916a2528ac46c0197aab6a59272c
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 19 18:41:21 2025 -0600
+
+    arreglando error parcialmente
+
+commit fff4c4e2b78f420bb0df1c0c3a0e9e927d01d672
+Merge: ecf43d4 3d4a574
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 19 18:38:09 2025 -0600
+
+    Merge Rama Angel
+
+commit 3d4a574d489fe73a3e1368132e5179ee8a48a9e5
+Author: [Angel Mendez] <[lmendezf1@miumg.edu.gt]>
+Date:   Mon May 19 18:33:53 2025 -0600
+
+    Arreglos en bitacora, y solucion de errores varios
+
+commit ecf43d4ed6b037d71687fe604edf5e2eade974f0
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 19 09:38:23 2025 -0600
+
+    arreglando errores
+
+commit faaebbb6e81385718198a3aef3744d5e95f552d2
+Author: [Herson <[Herson>
+Date:   Mon May 19 09:24:01 2025 -0600
+
+    Actualizacion del proyecto nominas
+
+commit 3f21c5b790aa6728599c05371e756b302edfc1f2
+Merge: 4142fa4 a86a5a9
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 19 08:52:20 2025 -0600
+
+    uniendo rama KARI
+
+commit 4142fa498394f51018fd3fbe64c04b18e08c991e
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 19 08:51:47 2025 -0600
+
+    probando el programa
+
+commit a86a5a9b3f394118831d376f1604a3b74d1a05e3
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Mon May 19 08:48:36 2025 -0600
+
+    arreglos previos
+
+commit 33f1407d0d2b4556dd3234da56a91b2825b45821
+Author: [Herson <[Herson>
+Date:   Mon May 19 08:38:22 2025 -0600
+
+    Documentacion del programa
+
+commit 68dc2d12baf8270f965e5c8c6169f243d681baa2
+Author: [Xander <[xreyeso@miumg.edu.gt]>
+Date:   Mon May 19 08:02:40 2025 -0600
+
+    Documentacion del programa
+
+commit eee66f04dde9d45d0c44f2045b65af5d83ed8220
+Author: [Angel <[aroquelm1@miumg.edu.gt]>
+Date:   Mon May 19 06:46:49 2025 -0600
+
+    implementacion de interrupcion
+
+commit 10ab2fe84c93ae0ef68c489d15b22cdd45fe0769
+Author: Sarai Calgua <sarai.calgua701@gmaol.com>
+Date:   Mon May 19 04:07:42 2025 -0600
+
+    Programa
+
+commit df13c15fb22d21b3cd7454094f221035d29a30e0
+Merge: 834bebb 25a8a46
+Author: Kevin Rodrigo López Espinoza <klopeze14@miumg.edu.gt>
+Date:   Mon May 19 02:56:28 2025 -0600
+
+    Actualizaciones Grupo4
+    
+    Actualizaciones
+
+commit 25a8a465c7b158ae160e2d572d67cf289e0ae617
+Author: Kevin Lopez <klopeze14@miumg.edu.gt>
+Date:   Mon May 19 02:55:19 2025 -0600
+
+    Actualizaciones
+
+commit 834bebb41ff24ca5ba159f3a3d69af3d0d17d6d2
+Merge: eb8d21e ec7f771
+Author: Kevin Rodrigo López Espinoza <klopeze14@miumg.edu.gt>
+Date:   Mon May 19 02:53:30 2025 -0600
+
+    Actualizaciones Grupo4
+    
+    Actualizaciones Grupo4
+
+commit 01138c80ec81abc1de666f575301f4d7b2622832
+Merge: 532e163 0be91fd
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 19 01:40:07 2025 -0600
+
+    Merge branch 'Rama-Angel' of https://github.com/JennBF/Proyectop12k25
+
+commit 0be91fdc92cf1f4808bc1a979bdc3670f42d2e8a
+Author: [Angel Mendez] <[lmendezf1@miumg.edu.gt]>
+Date:   Mon May 19 01:36:40 2025 -0600
+
+    Documentacion en mis codigos
+
+commit c1781ee7a6d61a9cd8a7f422456cf99c75592b3d
+Author: [Herson <[Herson>
+Date:   Mon May 19 00:24:05 2025 -0600
+
+    Implementacion de bin
+
+commit 9a1d0e315cf6a53337497bdd5a0589401f3fbfcb
+Author: [Xander <[xreyeso@miumg.edu.gt]>
+Date:   Mon May 19 00:07:39 2025 -0600
+
+    Actualizacion de implementacion de Nomina
+
+commit ec7f77158dc941401521b23dfcc53f2237da511e
+Author: Kevin Lopez <klopeze14@miumg.edu.gt>
+Date:   Sun May 18 23:28:57 2025 -0600
+
+    Resolución Conflictos
+
+commit cf69a7cdc48aec0a5433bcf048f8bbdd50384372
+Author: [Angel <[aroquelm1@miumg.edu.gt]>
+Date:   Sun May 18 23:27:23 2025 -0600
+
+    Implementación de calculo de nominas
+
+commit f88d937f3784fa0adffaeaa9eb062c1eb7e6856e
+Author: Marco Hernandez <mhernandezt23@miumg.edu.gt>
+Date:   Sun May 11 17:29:59 2025 -0600
+
+    aburrido
+
+commit ac2427aa6564eba0d0880eafa09ea58974d06008
+Author: Jonathan Samuel Gonzalez <jgonzalezi7@miumg.edu.gt>
+Date:   Sun May 18 23:01:42 2025 -0600
+
+    back up Jonathan Gonzalez
+
+commit a1ce703fb58193ebec376bfa344acb0c771c3480
+Merge: e7cb56f 101b6f6
+Author: Sarai Calgua <sarai.calgua701@gmaol.com>
+Date:   Sun May 18 22:48:04 2025 -0600
+
+    cambios
+
+commit e7cb56f84c89eb27c09566cba45d4ecd014e85ca
+Author: Sarai Calgua <sarai.calgua701@gmaol.com>
+Date:   Sun May 18 22:45:37 2025 -0600
+
+    cambios
+
+commit 532e1633a254ecb65f8420a31eca97dbde1d5419
+Merge: e74e892 1a0dff5
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sun May 18 22:42:22 2025 -0600
+
+    merme rama angoly
+
+commit 1a0dff55747d165ad6ee5a79f539fb66c506b21d
+Author: ¨[Angoly <¨[aaraujom@miumg.edu.gt]¨>
+Date:   Sun May 18 22:39:50 2025 -0600
+
+    Documentación
+
+commit aba77e698705791122c8c812907c075adf9c8638
+Merge: 69b8bd4 29a221b
+Author: astridrl <astridruizz05@gmail.com>
+Date:   Sun May 18 22:33:49 2025 -0600
+
+    Merge branch 'main' into pagos
+
+commit 101b6f61ac5f08bdb096bfe8d0d4c5eaf7cf36f8
+Author: Ivan774gt <deleonboris6@gmail.com>
+Date:   Sun May 18 22:32:40 2025 -0600
+
+    Se agregan archivos binarios en algunas clases 9959-24-6203
+
+commit 2c076fb01d2669c3d6dcb20b82dea6d79374515b
+Merge: 667f642 676c5a2
+Author: Kevin Lopez <klopeze14@miumg.edu.gt>
+Date:   Sun May 18 22:32:07 2025 -0600
+
+    Resolviendo Conflictos
+
+commit e74e892a34d3ad22c73e078f4581fddd767a483e
+Merge: 00704c0 1325565
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sun May 18 22:31:14 2025 -0600
+
+    merge kari
+
+commit 00704c081f8b955c84e548028f142cbe0a067fba
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sun May 18 22:30:34 2025 -0600
+
+    documentando cpp
+
+commit 667f642f750b475aec34615172f578aa32938219
+Merge: b62451d a379ad0
+Author: Kevin Lopez <klopeze14@miumg.edu.gt>
+Date:   Sun May 18 22:26:05 2025 -0600
+
+    Resolviendo Conflictos
+
+commit 69b8bd41393de3850f9e92f5654bffd7ed29d233
+Author: [Britany Hernandez] <[britanyhernandezmd@gmail.com]>
+Date:   Sun May 18 22:13:31 2025 -0600
+
+    Subiendo pagos
+
+commit 13255656594d2c78d8ff8c60ced8ad0a23fc3663
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Sun May 18 22:09:22 2025 -0600
+
+    documentacion
+
+commit 4761503b6e22f171814929e5e6c2e5ce339c9884
+Author: Sarai Calgua <sarai.calgua701@gmaol.com>
+Date:   Sun May 18 22:05:41 2025 -0600
+
+    se agrego las excepciones
+
+commit 676c5a2da2fe568f997f228d4e4cce2fd9f7b763
+Author: Ferdynand.Monroy <fmonroys@miumg.edu.gt>
+Date:   Sun May 18 22:01:10 2025 -0600
+
+    bitacora.dat
+
+commit d793363b539e88486d4025a85956af57a74aa1e4
+Merge: b75b3f7 6073975
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sun May 18 21:58:53 2025 -0600
+
+    Uniendo rama ANGOLY
+
+commit 6073975641cd1ff94558f987538d9f11131fbf3b
+Author: ¨[Angoly <¨[aaraujom@miumg.edu.gt]¨>
+Date:   Sun May 18 21:54:39 2025 -0600
+
+    Nuevos cambios en facturación y proveedores
+
+commit b62451dcb3c3f2c9a3121e91b164446b1d16a1e3
+Author: Kevin Lopez <klopeze14@miumg.edu.gt>
+Date:   Sun May 18 21:51:47 2025 -0600
+
+    Ferdynand monroy 9959 24 14049 Actualización de bitacora y agregue archivos binarios
+
+commit 455e3896cfc2dc103f5dd5ae020fa7b96f7a2df5
+Merge: 7f7764c 98f0eb2
+Author: Sarai Calgua <sarai.calgua701@gmaol.com>
+Date:   Sun May 18 21:45:27 2025 -0600
+
+    Resuelto conflicto: manteniendo versión remota de MenuSistemaBanco.layout
+
+commit 7f7764ce0b7971f431c943d23ecc2432bf28bd71
+Author: Sarai Calgua <sarai.calgua701@gmaol.com>
+Date:   Sun May 18 21:32:12 2025 -0600
+
+    Guardando cambios de MenuSistemaBanco.layout antes del pull
+
+commit 1d80544f04d33063933115cd065a280f64728340
+Merge: 17337e7 e699370
+Author: [Britany Hernandez] <[britanyhernandezmd@gmail.com]>
+Date:   Sun May 18 21:31:47 2025 -0600
+
+    Subiendo
+
+commit 17337e79de805e6f9972bf45e6da9d800de42d58
+Author: [Britany Hernandez] <[britanyhernandezmd@gmail.com]>
+Date:   Sun May 18 21:29:29 2025 -0600
+
+    Subiendo
+
+commit a379ad062c820496aa9cab95b4650717a66fbb11
+Merge: 1bbd92a 631de28
+Author: Kevin Rodrigo López Espinoza <klopeze14@miumg.edu.gt>
+Date:   Sun May 18 21:23:42 2025 -0600
+
+    menú de usuarios terminado, creación de la clase proveedor
+    
+    menú de usuarios terminado, creación de la clase proveedor
+
+commit 631de28a5d5e724e974159bee0e38ce66f2dd8ce
+Merge: 160434c 1bbd92a
+Author: Kevin Rodrigo López Espinoza <klopeze14@miumg.edu.gt>
+Date:   Sun May 18 21:23:22 2025 -0600
+
+    Merge branch 'Grupo4' into luis-valenzuela-9959-24-12583
+
+commit 98f0eb2fad41ca61b7a189b79a6497dca8d38fd8
+Author: KarlaRuiz8 <kruizo@miumg.edu.gt>
+Date:   Sun May 18 21:16:38 2025 -0600
+
+    Se modificaron las bitacoras y la documentación
+
+commit eb8d21e2fe5b54619b69be0f5e7b2f2fee1d904c
+Merge: 29a221b 160434c
+Author: Kevin Rodrigo López Espinoza <klopeze14@miumg.edu.gt>
+Date:   Sun May 18 21:15:25 2025 -0600
+
+    Merge pull request #14 from KevinRLE/luis-valenzuela-9959-24-12583
+    
+    menú de usuarios terminado, creación de la clase proveedor
+
+commit 1bbd92af5f952b51b6b4548bc85babd842ffefff
+Author: Anthony Suc <asucg@miumg.edu.gt>
+Date:   Sun May 18 21:08:34 2025 -0600
+
+    actualizacion en menu y main
+
+commit b75b3f7b8f6985ec986b3093924963a0d34cd81d
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sun May 18 21:01:49 2025 -0600
+
+    Ayudando a arreglar errores de clase inventarios
+
+commit 4d8d0cfa59d9a1b653f0004d6b0b1cc669a47e65
+Author: Ferdynand.Monroy <fmonroys@miumg.edu.gt>
+Date:   Sun May 18 21:00:11 2025 -0600
+
+    Cambios de bitacora y archivo binario .dat agregado
+
+commit 160434cb7c64cd37870e4e2f23bd9b150903af76
+Author: L-A-V-2-2 <lav80111@gmail.com>
+Date:   Sun May 18 20:58:04 2025 -0600
+
+    menú de usuarios terminado, creación de la clase proveedor
+
+commit 7bcb2131e663384709674fd8a7c680c45fd7259e
+Merge: 09a2ebf 29a221b
+Author: Isaías Cedillo <123830438+IsaiasC-8bit@users.noreply.github.com>
+Date:   Sun May 18 20:57:13 2025 -0600
+
+    Merge branch 'edelaguila:main' into IsaCedillo9959241672
+
+commit 09a2ebf7689cb3f08858c54aa37f12db788ec029
+Author: IsaC8-bit <isaiascedillo1313@gmail.com>
+Date:   Sun May 18 20:51:33 2025 -0600
+
+    Mejora de bitacora e implementacion a clase empleados
+
+commit 54bd5bb4fc5d02321ce8445e389d1b54ea46a280
+Merge: 796b577 9cb98a9
+Author: [Armando De Leon] <[adeleono7@miumg.edu.gt]>
+Date:   Sun May 18 20:47:15 2025 -0600
+
+    Merge branch 'AndreCastellanos9959-24-3019' of https://github.com/ArmandoAJD/Proyectop12k25
+
+commit 796b57715ce1fd47b9fc1dab6ca67e01518e79a9
+Author: [Armando De Leon] <[adeleono7@miumg.edu.gt]>
+Date:   Sun May 18 20:40:29 2025 -0600
+
+    Compras binarios
+
+commit 9cb98a9c88e10e254eaab2709b0770f02c6b0384
+Author: AndreCastellanos12 <mcastellanosm12@miumg.edu.gt>
+Date:   Sun May 18 20:35:21 2025 -0600
+
+    Crud andre
+
+commit 9df6f959e16c02beae6560139cc26161a7499c5b
+Merge: cc8aed5 db2ef0c
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sun May 18 19:55:28 2025 -0600
+
+    Merge rama Kari
+
+commit db2ef0cf16f5e4433c9c8164ddb50a66db218295
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Sun May 18 19:51:18 2025 -0600
+
+    inventario pt2
+
+commit 03c475c36348eda906248326e371fb1d5a6416c8
+Merge: 2d4cd44 965a24a
+Author: [Armando De Leon] <[adeleono7@miumg.edu.gt]>
+Date:   Sun May 18 19:30:56 2025 -0600
+
+    Merge branch 'ArmandoDeLeon9959-24-155'
+
+commit 965a24acd6c501d047d0cc552bf8b810de303414
+Author: [Armando De Leon] <[adeleono7@miumg.edu.gt]>
+Date:   Sun May 18 19:29:48 2025 -0600
+
+    Bitacora general
+
+commit cc8aed5effbcbbb7ad7050ce81a14beba49d5edf
+Merge: b7b032c 969d0da
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sun May 18 18:22:10 2025 -0600
+
+    uniendo la rama de KARINA
+
+commit b7b032c2616b704afd829406c6580274edd87b99
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sun May 18 18:21:07 2025 -0600
+
+    Agregando el diseño y cout de Backup
+
+commit 969d0daebbc9eddb741396054b70664881184479
+Merge: f164bf8 1c8cc66
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Sun May 18 17:53:12 2025 -0600
+
+    archivos
+
+commit f164bf87d92a27576249c7aa81d8f10a6357ec46
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Sun May 18 17:46:45 2025 -0600
+
+    archivos
+
+commit 1c8cc6669e5de301fb23991185b69675197ef7fb
+Author: GabrilEscob <jescobarc26@miumg.edu.gt>
+Date:   Sun May 18 17:45:10 2025 -0600
+
+    reportes modificaciones
+
+commit 0d82bad2e50adb9119e835636f31fcee4fa38c32
+Merge: 35245a9 8d085ac
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sun May 18 17:17:38 2025 -0600
+
+    merge Rama Angel
+
+commit 8d085ac640d55d6c0b3fa7cef7374693afb1347b
+Author: [Angel Mendez] <[lmendezf1@miumg.edu.gt]>
+Date:   Sun May 18 17:13:09 2025 -0600
+
+    Modificacion menu clientes y arreglos
+
+commit 35245a999994ce2ee6c4064fea9ade42b7530840
+Merge: 0f5a378 62c5fa2
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sun May 18 16:42:47 2025 -0600
+
+    Uniendo Rama Angel
+
+commit 62c5fa27b2c01c75661775ee499260891c6027e2
+Author: [Angel Mendez] <[lmendezf1@miumg.edu.gt]>
+Date:   Sun May 18 16:37:28 2025 -0600
+
+    Arreglos de bitacora y binario
+
+commit 0f5a37875276785f57791765f7c98388fdd9a863
+Merge: e6cca07 48272b4
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sun May 18 16:29:29 2025 -0600
+
+    Uniendo rama de Angoly
+
+commit e6cca077d88504716391d390f3697276f6e7124d
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sun May 18 16:27:18 2025 -0600
+
+    Ayudando y tratando de corregir errores en inventario. Correciones en Productos
+
+commit 90e64ded8d986482f7418e93c24f7995cd80a8b4
+Merge: 54ed62a 29a221b
+Author: sarai701 <sarai.calgua701@gmail.com>
+Date:   Sun May 18 15:47:01 2025 -0600
+
+    Merge branch 'edelaguila:main' into main
+
+commit 48272b46800959aae78e9d62f3c7b8e6938a3564
+Author: ¨[Angoly <¨[aaraujom@miumg.edu.gt]¨>
+Date:   Sun May 18 15:36:17 2025 -0600
+
+    Cambios Camila
+
+commit 54ed62a4a43b6644f73099deee3b3f9024cbd724
+Author: Sarai Calgua <sarai.calgua701@gmaol.com>
+Date:   Sun May 18 15:31:26 2025 -0600
+
+    Actulización de menus
+
+commit 0a42a379104dd1d9a5767b0ab8cb6122d39cdf7e
+Author: GabrilEscob <jescobarc26@miumg.edu.gt>
+Date:   Sun May 18 14:35:50 2025 -0600
+
+    modificaciones
+
+commit c9d8a90edc8f3e94284a4897facd8bec4021f3bb
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sun May 18 13:30:42 2025 -0600
+
+    tratando de arreglar el codigo de ale e incluyendo bien las clases
+
+commit 8b8ac6e243eabfa235876624ce68f0ca7cb7f48a
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Sun May 18 13:17:33 2025 -0600
+
+    corrigiendo errores pt2
+
+commit efa4ab430ae035c37f034e2742938912262f3a53
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Sun May 18 12:47:35 2025 -0600
+
+    poquitos errores
+
+commit 9499c68cf7ea27819ee1a57b604be25fbf2119fb
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Sun May 18 12:04:53 2025 -0600
+
+    inventario mejoras
+
+commit b55cd530158102fb951922f3fa63b920a05b655f
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Sun May 18 11:54:36 2025 -0600
+
+    mejoras inventario
+
+commit 7e15bb5b46245220eaddf8bd85236010d249c93e
+Merge: e9b2c65 5a65c92
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Sun May 18 11:46:06 2025 -0600
+
+    mejoras inventario
+
+commit e9b2c65d891fe5d9c4d2f4ad7f71c7af3ff91fec
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Sun May 18 11:43:41 2025 -0600
+
+    mejoras inventario
+
+commit 5a65c92ccab82300f344ad48eadc2e2d63e07041
+Merge: 17e2d41 06213e2
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sun May 18 11:34:57 2025 -0600
+
+    uniendo cambios de angel
+
+commit 06213e2a7593c2c519cf32a6481efe3964f5ffc6
+Author: [Angel Mendez] <[lmendezf1@miumg.edu.gt]>
+Date:   Sun May 18 11:31:34 2025 -0600
+
+    Agregue binarios y correcion de errores varios
+
+commit 17e2d410418c5735922e19a324d04c651d3b164b
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sun May 18 10:43:02 2025 -0600
+
+    corrigiendo errores de headers y probando el programa
+
+commit f8cb4cee61c477a57481b5aae1ca6dd352ab0d13
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Sun May 18 10:41:53 2025 -0600
+
+    inventario
+
+commit 0ae2aa8bc0f4a99d34089906331d286aa3a49bfa
+Merge: e098a7a 8985f6e
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sun May 18 10:28:46 2025 -0600
+
+    Uniendo rama ale
+
+commit e098a7a6644807b5ce3d1c0cfb016c1eb893e59f
+Merge: ffd3338 27b7cee
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sun May 18 10:27:55 2025 -0600
+
+    uniendo rama de Angel
+
+commit f21bf7a10f1b384e03b7987d4bb2a8b83bb8f0fb
+Merge: 1534e67 8985f6e
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Sun May 18 08:52:25 2025 -0600
+
+    restauración usuarios e inventario
+
+commit 1534e67445f1a9943d77a9916dd4ff1404ee965b
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Sun May 18 08:49:09 2025 -0600
+
+    restauración usuarios e inventario
+
+commit 73c4af2b4875205dac230d0d703072aad6a33ec0
+Author: KarlaRuiz8 <kruizo@miumg.edu.gt>
+Date:   Sun May 18 03:57:43 2025 -0600
+
+    Se agrego clases de Cuentas
+
+commit 27b7cee60f7cab43935bc70ee832239e9daa0484
+Author: [Angel Mendez] <[lmendezf1@miumg.edu.gt]>
+Date:   Sun May 18 00:45:38 2025 -0600
+
+    Agregue mejoras en envios
+
+commit cbe625ce8ba9b2578ace0e4da88ca288fcd46307
+Merge: d139a11 ffd3338
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Sun May 18 00:08:29 2025 -0600
+
+    errores
+
+commit 8985f6eeb8c73d0b3978067a7bd7297bc29d1fbb
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Sat May 17 23:55:25 2025 -0600
+
+    errores
+
+commit ffd3338976ae7d3d40875f6f300ac94460248d9a
+Merge: 643a6ba 5bbe8af
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sat May 17 22:57:16 2025 -0600
+
+    merge rama de camila
+
+commit 5bbe8afdfb45178f0648659a4a1e6e9e6ac5a8bf
+Author: ¨[Angoly <¨[aaraujom@miumg.edu.gt]¨>
+Date:   Sat May 17 22:53:25 2025 -0600
+
+    Nuevos cambios esteticos
+
+commit 643a6ba3a57d3de805653840c1a4082208ee8d49
+Merge: f09ce97 a1836cf
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sat May 17 22:04:31 2025 -0600
+
+    merge rama ale
+
+commit f09ce97dbaa5851e38c70e18169c04a05b0feaf4
+Merge: d0f4d2f 045646a
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sat May 17 22:03:38 2025 -0600
+
+    Merge de rama angel
+
+commit a1836cfc7a05be1a66acd5eca09aaac9c98ba1b2
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Sat May 17 22:01:39 2025 -0600
+
+    mejoras inventario
+
+commit 045646afd118a874f0d9691f1b5605904354cb58
+Author: [Angel Mendez] <[lmendezf1@miumg.edu.gt]>
+Date:   Sat May 17 21:59:18 2025 -0600
+
+    Mejoras en envios y añadi ID de identificacion de envios
+
+commit d0f4d2f66f9274a8afd4c0d053ffda3d042f8512
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sat May 17 21:36:06 2025 -0600
+
+    actualizacion de bitacora y prueba a facturas
+
+commit 601f6a6698b9271d217460c62ff3ffd757fdc9cd
+Author: ¨[Angoly <¨[aaraujom@miumg.edu.gt]¨>
+Date:   Sat May 17 21:18:21 2025 -0600
+
+    Cambios Facturación
+
+commit f4fd1487eadf7d94b9cabb38e0b3740a90c950b8
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sat May 17 20:59:18 2025 -0600
+
+    pruebas del programa
+
+commit 59c7eb2cea3f34d12e6c3f76b851b62663bc6126
+Merge: 149fd8c 20f49ed
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sat May 17 20:41:57 2025 -0600
+
+    Merge Rama Angel
+
+commit 20f49edd6f110e44afb2740cf074d028f889317d
+Author: [Angel Mendez] <[lmendezf1@miumg.edu.gt]>
+Date:   Sat May 17 20:38:13 2025 -0600
+
+    Cambios y mejorar respecto a envios
+
+commit 10086b26ac039cfca058ee632417f906a4226d11
+Merge: 43ca939 0c7c8c3
+Author: marlondeleon17 <100364159+marlondeleon17@users.noreply.github.com>
+Date:   Sat May 17 20:00:30 2025 -0600
+
+    Merge pull request #5 from marlondeleon17/marlon19460--5001
+    
+    actualizazacion bit
+
+commit 0c7c8c3412376dd3afbd7bd885872817deca2b3b
+Author: marlon de leon <mdeleong17@miumg.edu.gt>
+Date:   Sat May 17 19:56:18 2025 -0600
+
+    actualizazacion bit
+
+commit 149fd8cacd87ef13f0eaaea5cd25947438c970f3
+Merge: 09c5af3 85227e0
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sat May 17 19:49:23 2025 -0600
+
+    Merge cambios de rama-ale
+
+commit 09c5af3a943aab77e4633373c131d58c435687d2
+Merge: 296cd50 4d18b73
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sat May 17 19:47:38 2025 -0600
+
+    Merge branch 'Camila17623' of https://github.com/JennBF/Proyectop12k25 #
+    Please enter a commit message to explain why this merge is necessary,
+
+commit d139a11331050f6bea296b7c11d5e421ff697251
+Merge: c615a4c 296cd50
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Sat May 17 19:36:26 2025 -0600
+
+    id usuarios e inventario
+
+commit c615a4cdf059c311ac3506f18222829664d9c308
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Sat May 17 19:29:46 2025 -0600
+
+    mejoras usuarios e inventarios
+
+commit 4d18b73a5ed873e575e648dceb20276955969d35
+Author: ¨[Angoly <¨[aaraujom@miumg.edu.gt]¨>
+Date:   Sat May 17 19:16:28 2025 -0600
+
+    cambios camila
+
+commit 85227e0923dcbcb72ba4c91960f0768d804107cc
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Sat May 17 18:58:57 2025 -0600
+
+    id agregados
+
+commit 296cd50756a892cdc97a9b778a2a348ccc059bd2
+Merge: 89ea422 d5100bd
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sat May 17 18:37:59 2025 -0600
+
+    Merge de rama-angel
+
+commit d5100bdb0f5841b2a9a5ce8c27155987ff727e6e
+Author: [Angel Mendez] <[lmendezf1@miumg.edu.gt]>
+Date:   Sat May 17 18:30:10 2025 -0600
+
+    Cambios en envios, menu y funciones
+
+commit 89ea422cf63786696e7d19f28db958ecea96c9ec
+Merge: 1263460 41bb3a0
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sat May 17 16:56:25 2025 -0600
+
+    añadiendo inventarios, uniendo rama ale
+
+commit 41bb3a00910ca4696bd03c7869804716f8c396f2
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Sat May 17 16:53:32 2025 -0600
+
+    proceso inventario
+
+commit 1263460ab83321fee4fdbfaeea403be15f49a187
+Merge: 8ae5f8f 862a41f
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sat May 17 16:43:32 2025 -0600
+
+    Merge rama ale
+
+commit 8ae5f8fbd73ca3e5d3d1f1d7086b9dd948cae6e5
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sat May 17 16:42:45 2025 -0600
+
+    probando el funcionamiento
+
+commit 88960b96581777233c44188c95e24e61fa495841
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Sat May 17 16:37:52 2025 -0600
+
+    proceso inventario
+
+commit 12c98a29746d2c2137e85c354b3cf930cbce2b04
+Author: [Angel Mendez] <[lmendezf1@miumg.edu.gt]>
+Date:   Sat May 17 15:41:55 2025 -0600
+
+    Mejoras
+
+commit a3f675adc009529380f543f43e31d86fe6303677
+Author: GabrilEscob <jescobarc26@miumg.edu.gt>
+Date:   Sat May 17 14:28:11 2025 -0600
+
+    almacen modificado
+
+commit cbe65db93d396d2a2aa31dcfe74d2658ec2307cf
+Merge: 80096d1 913672c
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sat May 17 12:33:34 2025 -0600
+
+    Merge branch 'main' of https://github.com/JennBF/Proyectop12k25
+
+commit 80096d159d7ec26a51d71018dd5ea85d44d24454
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sat May 17 12:32:44 2025 -0600
+
+    Arreglando concordancias con envios y pedidos, probando bitacora
+
+commit ea9edd5ec7a6ed5e5f4f70d5af3dab980158e35d
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sat May 17 12:11:49 2025 -0600
+
+    Bitacora, probando envíos
+
+commit 862a41fe662cb937addea89707b9880e9c7dce70
+Merge: 66f31c5 29a221b
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Sat May 17 11:29:43 2025 -0600
+
+    Merge branch 'ramaale' of https://github.com/JennBF/Proyectop12k25 into ramaale
+
+commit 66f31c55fcc341c9036851d5b446726f52798723
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Sat May 17 11:25:38 2025 -0600
+
+    contraseña confirmacion
+
+commit 913672ca2c3b3381c0f31aeef21234ee7a7509a8
+Merge: 7f0018e 29a221b
+Author: Jennifer Barrios <jennifer.barrios001@gmail.com>
+Date:   Sat May 17 11:17:26 2025 -0600
+
+    Merge branch 'edelaguila:main' into main
+
+commit 0b72fd98f4dbac7ab57f8e434c26ef536f5dc9e3
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Sat May 17 10:58:47 2025 -0600
+
+    commits perdidos
+
+commit b4358f179fe7c3605c995bde723468acd0218206
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Sat May 17 10:46:29 2025 -0600
+
+    commits pendientes
+
+commit 7f0018ecb8dd9f9c60211b5f71d94b32ddbdf9a6
+Author: ¨[Angoly <¨[aaraujom@miumg.edu.gt]¨>
+Date:   Sat May 17 01:53:50 2025 -0600
+
+    Cambios nuevos...
+
+commit cd923a72fe8945d2abffdc115529237d309b8ce8
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sat May 17 01:25:06 2025 -0600
+
+    Solucionando Errores
+
+commit 7cf96d43f6925dc9edadd9cec7ac49c7a28e53f5
+Merge: 6f8bbc0 dc83ce1
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sat May 17 01:04:26 2025 -0600
+
+    Uniendo Rama-Angel a main, corrección de errores
+
+commit dc83ce10af27a5df6ca8763ad9d0f39604cf6974
+Author: [Angel Mendez] <[lmendezf1@miumg.edu.gt]>
+Date:   Sat May 17 01:02:30 2025 -0600
+
+    Arreglos para inicializacion de programa
+
+commit 6f8bbc097c3a6b742b3fc8b40f5386b2758c3136
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Sat May 17 00:31:00 2025 -0600
+
+    Corrigiendo errores de merge
+
+commit fdd39f34235453eb68fa811a7a023b9cdb072c8f
+Merge: baf3704 7f81aae
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Fri May 16 23:17:31 2025 -0600
+
+    Añadiendo las mejoras de pedidos y productos
+
+commit 7f81aaee9ffed8c4e12e446808bcf5a8e43037e3
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Fri May 16 23:14:09 2025 -0600
+
+    Corrigiendo Errores pedidos y actualizando menus
+
+commit 982013baa4d8bcf51a60b447777d42a280941270
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Fri May 16 22:51:18 2025 -0600
+
+    Corrigiendo errores de pedidos y productos, pasando de texto a binario
+
+commit baf370427a8f2d9340705ab8516593b7b378a3b4
+Author: [Angel Mendez] <[lmendezf1@miumg.edu.gt]>
+Date:   Fri May 16 22:35:31 2025 -0600
+
+    Muchos cambios
+
+commit dd0c351759e91fce32f0adee9fe41ecbb40d9af1
+Merge: aa627ec aa9a3cd
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Fri May 16 20:50:37 2025 -0600
+
+    Uniendo Rama Ale
+
+commit 29a221b39792ebf66d18f5be38494c311963f442
+Merge: 467202f aa9a3cd
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Fri May 16 20:10:13 2025 -0600
+
+    Merge pull request #50 from JennBF/ramaale
+    
+    Ramaale
+
+commit 467202fd1cac2db99865404244451fbcc012e831
+Merge: 0bc32bf a0c5d01
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Fri May 16 20:09:49 2025 -0600
+
+    Merge pull request #49 from ArmandoAJD/ArmandoDeLeon9959-24-155
+    
+    CRUD Armando
+
+commit 0bc32bf9c93f68fe73892b5416ce241faadd3681
+Merge: f8a82c8 d76578c
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Fri May 16 20:09:28 2025 -0600
+
+    Merge pull request #48 from astridrl/CPactualizado
+    
+    C pactualizado
+
+commit f8a82c86e21e70c36666585c34c3857f003b4b2a
+Merge: c25eff6 a2b9a79
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Fri May 16 20:08:59 2025 -0600
+
+    Merge pull request #47 from Marice26/steven_11528
+    
+    mantenimiento  de ventas
+
+commit aa9a3cdd2da258c43d9bd53a505bd4c8e50d3c9f
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Fri May 16 20:03:19 2025 -0600
+
+    modificaciones admin y user
+
+commit aa627ec9f75bde37ab8f58fcefe4263f2206ca57
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Fri May 16 18:57:46 2025 -0600
+
+    Modificando Bitacora .txt
+
+commit 8343015f0f7317d7186b6308cf0a09321287c41a
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Fri May 16 18:26:57 2025 -0600
+
+    Contraseña usuario
+
+commit a0c5d01d47d83b2d16d9a23319d0e49bd5c8f272
+Merge: a7b6667 c25eff6
+Author: ArmandoAJD <adeleono7@miumg.edu.gt>
+Date:   Fri May 16 13:02:10 2025 -0600
+
+    Merge branch 'edelaguila:main' into ArmandoDeLeon9959-24-155
+
+commit 6046cb46d9edb40c34ee445b2b96110bc588119b
+Merge: f124592 953166e
+Author: Ferdynand.Monroy <fmonroys@miumg.edu.gt>
+Date:   Fri May 16 10:34:21 2025 -0600
+
+    Solucion
+
+commit 2d4cd4435519e106599a6b63240083be47eefdd9
+Author: [Armando De Leon] <[adeleono7@miumg.edu.gt]>
+Date:   Fri May 16 10:16:38 2025 -0600
+
+    CRUD Armando
+
+commit a2b9a793637729382d3be58516ac45b62470a7f3
+Author: steven vasquez <svasquezc12@miumg.edu.gt>
+Date:   Fri May 16 10:09:50 2025 -0600
+
+    5002
+
+commit 96d82fe219a27185a289cf7ec07ecb90e1fc9266
+Merge: a33cdb5 c25eff6
+Author: [Armando De Leon] <[adeleono7@miumg.edu.gt]>
+Date:   Fri May 16 09:37:22 2025 -0600
+
+    Merge branch 'main' of https://github.com/ArmandoAJD/Proyectop12k25
+
+commit d76578c9be0053ab10572fe15b51018e023847d6
+Merge: 9e2dc4d c25eff6
+Author: astridrl <astridruizz05@gmail.com>
+Date:   Thu May 15 20:40:44 2025 -0600
+
+    Merge branch 'main' into CPactualizado
+
+commit e6993706f0502f46a3374cd9fd8aa862b1ede42a
+Merge: ccb2d65 9e2dc4d
+Author: [Astrid Ruíz] <[astridruizz05@gmail.com]>
+Date:   Thu May 15 20:31:30 2025 -0600
+
+    subiendo cambios
+
+commit ccb2d659b2906489002f0a149a450c5cf0025b26
+Author: [Astrid Ruíz] <[astridruizz05@gmail.com]>
+Date:   Thu May 15 20:30:21 2025 -0600
+
+    Guardando bitacora
+
+commit 9e2dc4df2e4741ff1bec7737c74ace018bc7e39d
+Author: [Dulce Martínez] <[dulce.10arev@gmail.com]>
+Date:   Thu May 15 17:50:06 2025 -0600
+
+    Correcciones de bitácora y clientes txt
+
+commit e565ec54e1097a68b4b917ec1e0ca855fc7341ef
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Thu May 15 15:34:42 2025 -0600
+
+    Agregando y modificando. Para el trabajo de Pedidos transaccional
+
+commit c25eff670fd39aa29535ec2a0ffdabe483cba8b2
+Merge: 83faa04 953166e
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed May 14 10:23:33 2025 -0600
+
+    Merge pull request #46 from KevinRLE/main
+    
+    Actualización de Bitacora y Menus
+
+commit a33cdb5a6fa7b3b6ccbc58a348758f19c9eed9d7
+Merge: a5aeb80 a7b6667
+Author: [Armando De Leon] <[adeleono7@miumg.edu.gt]>
+Date:   Wed May 14 10:14:03 2025 -0600
+
+    Merge branch 'ArmandoDeLeon9959-24-155'
+
+commit a7b6667f8fdc6a476124a3cd14ec5850b37976de
+Author: [Armando De Leon] <[adeleono7@miumg.edu.gt]>
+Date:   Wed May 14 10:12:35 2025 -0600
+
+    CRUD Armandi
+
+commit 953166e857eb01af8ab86d68be3e8128177915cd
+Merge: 83faa04 0228b7f
+Author: Kevin Rodrigo López Espinoza <klopeze14@miumg.edu.gt>
+Date:   Mon May 12 19:34:26 2025 -0600
+
+    Merge pull request #13 from KevinRLE/Grupo4
+    
+    Grupo4
+
+commit 0228b7fce6b47a4fb405e303e67eae703ebfba90
+Merge: bf29069 83faa04
+Author: Kevin Rodrigo López Espinoza <klopeze14@miumg.edu.gt>
+Date:   Mon May 12 19:34:18 2025 -0600
+
+    Merge branch 'main' into Grupo4
+
+commit f1245921c9a3716a3771754740303b457a0e7bed
+Author: Ferdynand.Monroy <fmonroys@miumg.edu.gt>
+Date:   Mon May 12 16:52:07 2025 -0600
+
+    Agregando archivo de inventario.txt
+
+commit 63499eb3ba72a4a02c57e536c71f9004202c1e10
+Author: Ferdynand.Monroy <fmonroys@miumg.edu.gt>
+Date:   Mon May 12 16:05:14 2025 -0600
+
+    Cambios locales antes de hacer pull
+
+commit 83faa04c935f1e14edae7178327d09f654269792
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon May 12 10:18:30 2025 -0600
+
+    Update .gitignore
+
+commit 299de41a8c368cd3cd82d09d1f534d339eeaa04b
+Merge: b430d04 c468919
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon May 12 07:26:29 2025 -0600
+
+    Merge pull request #45 from JennBF/main
+    
+    MANTENIMIENTO LOGISTICA CATALOGOS
+
+commit b430d04ef7f53413b1d49c32b782b76fbab84ff3
+Merge: 4a1072a ac7b10a
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon May 12 07:26:15 2025 -0600
+
+    Merge pull request #44 from JennBF/KariRama
+    
+    Kari rama
+
+commit 4a1072a6ff04a8389d4f2e212e33b4a1759ff7eb
+Merge: 58d6a52 59cc700
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon May 12 07:25:23 2025 -0600
+
+    Merge pull request #42 from sarai701/main
+    
+    Actualización de almacenes maestros
+
+commit 58d6a5255fe12c517b220f04ece6c1a36addead7
+Merge: 864ff62 5e983ce
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon May 12 07:25:11 2025 -0600
+
+    Merge pull request #41 from ArmandoAJD/AndreCastellanos9959-24-3019
+    
+    Andre castellanos9959 24 3019
+
+commit 864ff62b0b47c40081ac372b7497ce5380b5b3e4
+Merge: 7c47a84 bd59eb5
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon May 12 07:23:42 2025 -0600
+
+    Merge pull request #40 from HersonGiron/main
+    
+    CRUDS proyecto nominas fase 3
+
+commit 7c47a8424190c3a06856b01d916980b29ae3cf1f
+Merge: 74f031f bc40338
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon May 12 07:23:30 2025 -0600
+
+    Merge pull request #39 from Marice26/marice3775
+    
+    Marice3775
+
+commit 74f031f04badf5c46d6993713c21000217d95d8c
+Merge: 71b924a b31e9bf
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon May 12 07:22:29 2025 -0600
+
+    Merge pull request #37 from astridrl/facturas
+    
+    Facturas
+
+commit 71b924a3ac7a86b52853488a1554c8f90603c7eb
+Merge: 341967c 56a98b7
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon May 12 07:22:08 2025 -0600
+
+    Merge pull request #36 from astridrl/archivos
+    
+    Archivos
+
+commit 341967c1185b14bc77e21071dd16caedbd5ec5ad
+Merge: b46bd5e 8b07566
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon May 12 07:20:14 2025 -0600
+
+    Merge pull request #35 from astridrl/bitacora
+    
+    Documentacion y mejoras bitacora
+
+commit b46bd5ee1d9aa2148e7b56e8001c62ea702427a8
+Merge: 6926ac1 9bbdf73
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon May 12 07:19:09 2025 -0600
+
+    Merge pull request #33 from Marice26/marlon19460
+    
+    actualizacion de usuario
+
+commit 6926ac1b7c188b64a6ec4da077c131cdad804590
+Merge: 769572a f44a1fc
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon May 12 07:18:54 2025 -0600
+
+    Merge pull request #32 from ArmandoAJD/main
+    
+    actualizacion
+
+commit c468919aaa4b831f7788b5a7a33002135c62a8b0
+Merge: ac7b10a 42bffdf
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 12 02:26:33 2025 -0600
+
+    Añadiendo Parte final Coord Jennifer
+
+commit 42bffdfe9f0965f150ef71064bd77ac7f733dd2a
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 12 02:24:52 2025 -0600
+
+    Agregando clases y logica finales. Corrigiendo Usuarios
+
+commit c52cde2792fd2995215f37325df967d1b2b73f9b
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 12 02:01:44 2025 -0600
+
+    añadiendo mas clases
+
+commit ac7b10ad4d81fe542b16cb288e4570cdcbcbd433
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Mon May 12 01:49:24 2025 -0600
+
+    usuario.txt
+
+commit 81ac5543e63385e5a6a05fc468619a3ab1d4741d
+Merge: 382b67a c6f6f4a
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 12 01:41:12 2025 -0600
+
+    Corrigiendo Errores
+
+commit 382b67a20bbc415e1161e01d37623fc4bf114fcc
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 12 01:35:18 2025 -0600
+
+    agregando menus
+
+commit c6f6f4a894f2c1659cb71f527e61b0141636a336
+Merge: 7b3845b b2cbddb
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Mon May 12 01:31:47 2025 -0600
+
+    Transportistas, administración, inventario y usuario
+
+commit bf29069760d3185ab55c06a0a7b6784f93d5c4db
+Author: Kevin Lopez <klopeze14@miumg.edu.gt>
+Date:   Mon May 12 01:29:31 2025 -0600
+
+    Corrección de Bitacora
+
+commit 88ad1cbe89413aba5202b8721564e32ee609f0f6
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 12 01:22:43 2025 -0600
+
+    agregando mas clases
+
+commit 7b3845bdbbcaa70179baabcdad1270e98602d5c6
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Mon May 12 01:20:33 2025 -0600
+
+    transportistas
+
+commit 2d3df48f40cff455dd4f632f7b72fe88db7a7acf
+Merge: f074a4a b2cbddb
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 12 01:19:29 2025 -0600
+
+    arreglando errores
+
+commit b2cbddbe8128821155a51742549900d1a63df08c
+Merge: 871d61f 9f8241c
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 12 01:05:12 2025 -0600
+
+    agregando reportes
+
+commit 9f8241c64aecba9e3cf9ff250d74fa2645ca03d8
+Author: GabrilEscob <jescobarc26@miumg.edu.gt>
+Date:   Mon May 12 01:02:08 2025 -0600
+
+    agregue reportes
+
+commit 871d61f2fefe4bae369d5ab20629e6b31db95f6f
+Merge: ef4fedd 6b35c58
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 12 01:00:51 2025 -0600
+
+    arreglando errores de clases de Cami
+
+commit ef4fedd9d11e90c0649f3805d621d961edf0e0ca
+Merge: d23fd3a 9f633e6
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 12 00:56:13 2025 -0600
+
+     Agregando Rama de Gabriela Escobar Mantenimiento Logistica
+
+commit 6b35c58ecc32f90b91e63e97331727ec2a994c57
+Author: ¨[Angoly <¨[aaraujom@miumg.edu.gt]¨>
+Date:   Mon May 12 00:53:38 2025 -0600
+
+    Nuevos cambios
+
+commit d23fd3a55a2d4af8a3f64b9dfb849371abbc1659
+Merge: 1f05c82 769572a
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 12 00:51:37 2025 -0600
+
+    Merge branch 'RamaKarina' of https://github.com/JennBF/Proyectop12k25
+
+commit 9f633e634a31d8160a3d7cf632663e2b75098cef
+Author: GabrilEscob <jescobarc26@miumg.edu.gt>
+Date:   Mon May 12 00:48:44 2025 -0600
+
+    almacenes
+
+commit 9cd84fd2f5e34c775e9e557257cb6d8c7ac88448
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Mon May 12 00:48:10 2025 -0600
+
+    administracion, transportistas
+
+commit f074a4a157694a335a205c3fdc77ea109e3f3dc6
+Merge: eeab54d 1f05c82
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 12 00:45:59 2025 -0600
+
+    añadiendo lo nuevo
+
+commit 1f05c824e5f73cd9d5d8a48a13ae1dca32db3b97
+Merge: 5bb21e5 2aadaa6
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 12 00:41:09 2025 -0600
+
+    Agregando Trabajo de Camila Araujo Mantenimiento Logistica
+
+commit 96e84bed0556b38ea4abb570c744dffcc1019fbf
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Mon May 12 00:36:25 2025 -0600
+
+    Transportistas
+
+commit eeab54d7bdb5edf2e6866c31a1a031c7810a0d7b
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 12 00:34:18 2025 -0600
+
+    añadiendo parte de coord
+
+commit 2aadaa68be5096fb36079cea72d88cbca3362f2a
+Author: ¨[Angoly <¨[aaraujom@miumg.edu.gt]¨>
+Date:   Mon May 12 00:33:37 2025 -0600
+
+    Proveedores
+
+commit 5bb21e552a2080e5e4f951fefdfbdeaeb0303a1c
+Author: [Angel Mendez] <[lmendezf1@miumg.edu.gt]>
+Date:   Mon May 12 00:31:31 2025 -0600
+
+    Mantenimiento bitacora, menuclientes y clientes
+
+commit eabc57a1bd0b780d50f28473c4cf91113eeb99e2
+Merge: 77f1af4 c2dd98f
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Mon May 12 00:23:23 2025 -0600
+
+    error
+
+commit 77f1af48da14c42d6aceaf95a54d4034841cf1fa
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Mon May 12 00:21:17 2025 -0600
+
+    error
+
+commit c2dd98f6893dcf4e06a25520b6c5b1c536fe86b8
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 12 00:12:28 2025 -0600
+
+    v2 logistica
+
+commit 7d87910099a2cf4c70f6c1723adfc407b6c1f315
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 12 00:10:16 2025 -0600
+
+    corrigiendo errores
+
+commit 96f311b6f889bf4e7302d1f5e79967f4fea2ff53
+Merge: bbf8db9 5ac1bf7
+Author: Kevin Lopez <klopeze14@miumg.edu.gt>
+Date:   Mon May 12 00:06:59 2025 -0600
+
+    correción archivos
+
+commit bbf8db9a02e6e0275f277601116f797d9f7ead88
+Author: Kevin Lopez <klopeze14@miumg.edu.gt>
+Date:   Sun May 11 23:10:32 2025 -0600
+
+    Actualización de archivos
+
+commit 5e983ce513cf0df291fafbab7e7e05dae4ec0823
+Author: AndreCastellanos12 <mcastellanosm12@miumg.edu.gt>
+Date:   Sun May 11 22:16:40 2025 -0600
+
+    andre castellanos CRU
+
+commit 59cc700a24b3feaa8a911c1795a9ecdc769cae6e
+Author: Ivan774gt <deleonboris6@gmail.com>
+Date:   Sun May 11 21:44:23 2025 -0600
+
+    Se actualiza la clase clientes 9959-24-6203
+
+commit 3a6d931f4232f6382902596f42e4767bb152d2d4
+Author: Jonathan Samuel Gonzalez <jgonzalezi7@miumg.edu.gt>
+Date:   Sun May 11 21:20:15 2025 -0600
+
+    modificaciones en bancos Jonathan Gonzalez
+
+commit 590467234c7658cb5b3f2b4eebf2f5fce9ce3dce
+Merge: 0c782ad 883a544
+Author: Sarai Calgua <sarai.calgua701@gmaol.com>
+Date:   Sun May 11 21:02:36 2025 -0600
+
+    Resueltos conflictos del merge con TiposdeCuentas9959-24-6859
+
+commit 5ac1bf792a663f1b56d9a6e9060c9a14568a6794
+Merge: 9c2ce42 b810232
+Author: Ferdynand.Monroy <fmonroys@miumg.edu.gt>
+Date:   Sun May 11 21:02:17 2025 -0600
+
+    Merge resuelto: conflicto en .layout
+
+commit 0c782ad92e93a2636c7ee172506220947f860260
+Author: Sarai Calgua <sarai.calgua701@gmaol.com>
+Date:   Sun May 11 21:00:28 2025 -0600
+
+    antes del pull
+
+commit 9c2ce42f37378e86c82648f49202e1a43c5c8ed9
+Author: Ferdynand.Monroy <fmonroys@miumg.edu.gt>
+Date:   Sun May 11 20:55:56 2025 -0600
+
+    conflictos de .depend resueltos
+
+commit 883a5443c7cd0fb4ad4aa847ae9a4f0972ec9fda
+Author: KarlaRuiz8 <kruizo@miumg.edu.gt>
+Date:   Sun May 11 20:53:07 2025 -0600
+
+    Se agrego Tipos de Cuentas
+
+commit b810232ddfec8c78a09cfede2ec27dc91d75b4c2
+Merge: 4f69d65 feee411
+Author: Kevin Rodrigo López Espinoza <klopeze14@miumg.edu.gt>
+Date:   Sun May 11 20:44:15 2025 -0600
+
+    funcionalidad de lista de usuarios, Luis Valenzuela
+    
+    funcionalidad de lista de usuarios, Luis Valenzuela
+
+commit feee411547827ff95d67988b7e63f4e5e2d9571a
+Merge: 13334e9 4f69d65
+Author: Kevin Rodrigo López Espinoza <klopeze14@miumg.edu.gt>
+Date:   Sun May 11 20:43:57 2025 -0600
+
+    Merge branch 'Grupo4' into luis-valenzuela-9959-24-12583
+
+commit 13334e99a77893d876b20ecfc47c822183f32bd6
+Author: L-A-V-2-2 <lav80111@gmail.com>
+Date:   Sun May 11 20:30:47 2025 -0600
+
+    funcionalidad de lista de usuarios, Luis Valenzuela
+
+commit bd59eb58ac0b3d6cc0c16ddd149f6f38c5f44de2
+Author: [Angel <[aroquelm1@miumg.edu.gt]>
+Date:   Sun May 11 20:22:19 2025 -0600
+
+    Actualizacion
+
+commit b6931ec779b5746af87eceb9a8283ecc57ce65eb
+Author: Ferdynand.Monroy <fmonroys@miumg.edu.gt>
+Date:   Sun May 11 20:10:18 2025 -0600
+
+    Cambios de la bitacora
+
+commit 4f69d650a255f5fb90a5a4a580a4c8eb703baf70
+Merge: 4e69840 d3aa1d5
+Author: Kevin Rodrigo López Espinoza <klopeze14@miumg.edu.gt>
+Date:   Sun May 11 20:08:53 2025 -0600
+
+    Merge pull request #10 from KevinRLE/Anthony_Suc_9959-24-389
+    
+    Anthony suc 9959 24 389
+
+commit d3aa1d5b221010a6067bc4d0b431fc719ad67224
+Merge: be606fd 4e69840
+Author: Kevin Rodrigo López Espinoza <klopeze14@miumg.edu.gt>
+Date:   Sun May 11 20:08:37 2025 -0600
+
+    Merge branch 'Grupo4' into Anthony_Suc_9959-24-389
+
+commit 4e69840112b138a7747bf6a6d6177aa82368b895
+Author: Kevin Lopez <klopeze14@miumg.edu.gt>
+Date:   Sun May 11 20:04:57 2025 -0600
+
+    Actualizacón de archivos
+
+commit 8d3c95607722f79d6af6cb021ce7ab257f881f0a
+Author: [Angel <[aroquelm1@miumg.edu.gt]>
+Date:   Sun May 11 20:01:49 2025 -0600
+
+    Implementacion de orden de menus
+
+commit 8b0d5af870f7bda351760d54155d075fb95a2d51
+Author: Ferdynand.Monroy <fmonroys@miumg.edu.gt>
+Date:   Sun May 11 19:42:46 2025 -0600
+
+    Cambios agreagos en la bitacora por Ferdynand
+
+commit be606fd90e58748fd8347de26cb41d801953860f
+Author: Anthony Suc <asucg@miumg.edu.gt>
+Date:   Sun May 11 19:40:58 2025 -0600
+
+    Mantenimiento menus
+
+commit 1f32e6cd496480c9bd075538ad5d79b87dbcab00
+Author: Jonathan Samuel Gonzalez <jgonzalezi7@miumg.edu.gt>
+Date:   Sun May 11 19:01:00 2025 -0600
+
+    clase bancos Jonathan Gonzalez
+
+commit a5caec08c50749bcf8de6b8b2caf950b16163510
+Author: Ferdynand.Monroy <fmonroys@miumg.edu.gt>
+Date:   Sun May 11 18:51:58 2025 -0600
+
+    Cambios realizados en la bitacora
+
+commit 8e2975123029296c26065e2c218aca84f9e5c2dc
+Merge: 07df1cc 3e7e199
+Author: Ferdynand.Monroy <fmonroys@miumg.edu.gt>
+Date:   Sun May 11 18:49:29 2025 -0600
+
+    Cambios realizados en bitacora
+
+commit f44a1fced3daf31618c2b64c0f0f3f89b1a69d21
+Merge: 2c28f31 769572a
+Author: ArmandoAJD <adeleono7@miumg.edu.gt>
+Date:   Sun May 11 16:37:45 2025 -0600
+
+    Merge branch 'edelaguila:main' into main
+
+commit bc40338046d9f0f1af7dbc9b58182d7486d5e0c5
+Author: Marice Mayen <¨mmayeni1@miumg.edu.gt¨>
+Date:   Sun May 11 15:26:17 2025 -0600
+
+    3775 mante clientes 5004
+
+commit 4add6372a901ee230275ca48d0c161476ba44eec
+Merge: b31e9bf 5146112
+Author: [Astrid Ruíz] <[astridruizz05@gmail.com]>
+Date:   Sun May 11 12:15:10 2025 -0600
+
+    agregando correcciones
+
+commit 5146112496d9c8d6b92a3fa298b46a4da780ddb1
+Author: [Dulce Martínez] <[dulce.10arev@gmail.com]>
+Date:   Sun May 11 12:06:24 2025 -0600
+
+    Actualizacion de clientes y proveedores
+
+commit 3e7e19998b1cfe11f9c17f1baeeb14eb2f019514
+Merge: 3f3a8c0 29ca292
+Author: Kevin Rodrigo López Espinoza <klopeze14@miumg.edu.gt>
+Date:   Sun May 11 12:04:33 2025 -0600
+
+    Menu principal main
+    
+    Menu principal main
+
+commit 29ca29251ecb2e50e940b84d0ac6f9c8bd5f6648
+Merge: 93ae828 3f3a8c0
+Author: Kevin Rodrigo López Espinoza <klopeze14@miumg.edu.gt>
+Date:   Sun May 11 12:04:05 2025 -0600
+
+    Merge branch 'main' into kevin_lopez_9959_24_3309
+
+commit 93ae828f5127e9525977388f71948e5c1addc7fc
+Author: Kevin Lopez <klopeze14@miumg.edu.gt>
+Date:   Sun May 11 11:47:01 2025 -0600
+
+    Menu principal main
+
+commit b31e9bf128a65a60d74e06f66be3ae556743f096
+Author: [Dulce18rt] <[dreyesp11@miumg.edu.gt]>
+Date:   Sun May 11 10:33:10 2025 -0600
+
+    mejoras acreedores2
+
+commit cb19e0e7753eff7378d985db2ffdfa96099eec7e
+Merge: 29430bd 84b0d7e
+Author: [Dulce18rt] <[dreyesp11@miumg.edu.gt]>
+Date:   Sun May 11 09:23:48 2025 -0600
+
+    Resuelto conflicto de fusión en Cuentas Corrientes.layout
+
+commit 84b0d7e774358762d5fc1d30c751f269c4849627
+Author: [Dulce18rt] <[dreyesp11@miumg.edu.gt]>
+Date:   Sun May 11 09:17:06 2025 -0600
+
+    documentación y mejoras de acreedores
+
+commit 29430bdef4ec25425be1151f10cf71a4f7edd202
+Merge: 56a98b7 519229c
+Author: [Dulce18rt] <[dreyesp11@miumg.edu.gt]>
+Date:   Sun May 11 08:46:43 2025 -0600
+
+    Resuelto conflicto de merge en bitacora.txt
+
+commit c6045906734d6c79f6452fafeb490870a50951ee
+Merge: dad5808 7089f74
+Author: [Dulce Martínez] <[dulce.10arev@gmail.com]>
+Date:   Sun May 11 08:29:26 2025 -0600
+
+    actualizando
+
+commit 519229cde6cb4a7467bcf11e6a0c20d8ff733818
+Author: [Dulce18rt] <[dreyesp11@miumg.edu.gt]>
+Date:   Sun May 11 08:15:04 2025 -0600
+
+    documentación y mejoras acreedores
+
+commit 56a98b7184c55be7a2128e6ebed7ec5a49d02152
+Author: [Astrid Ruíz] <[astridruizz05@gmail.com]>
+Date:   Sun May 11 04:14:19 2025 -0600
+
+    Agregando sistema de seguridad usuarios y menu archivos Astrid
+
+commit 27380fb04875cc383a3e00f382382c73a8dbb4fc
+Merge: 84e958b 8b07566
+Author: [Astrid Ruíz] <[astridruizz05@gmail.com]>
+Date:   Sat May 10 23:20:13 2025 -0600
+
+    Subiendo cambios
+
+commit 84e958ba8d9b773cd9b87860fad9e6a6640e4456
+Author: [Astrid Ruíz] <[astridruizz05@gmail.com]>
+Date:   Sat May 10 23:17:43 2025 -0600
+
+    Guardando mis cambios
+
+commit 8b07566a77f57c3bf4460f4fe62b5eded80e6ab0
+Author: [Britany Hernandez] <[britanyhernandezmd@gmail.com]>
+Date:   Sat May 10 23:07:07 2025 -0600
+
+    Documentacion y mejoras bitacora
+
+commit 43ca9394c9aa22c3121fb88af8c1c79fe01c3560
+Merge: 66e5631 4e7497d
+Author: Meilyn García <133615693+MEILYNGRC@users.noreply.github.com>
+Date:   Fri May 9 21:40:59 2025 -0600
+
+    Merge pull request #3 from MEILYNGRC/meilyn2317838
+    
+    bitacora5003
+
+commit 4e7497d769196e2ff3ea0060df202a6ff52bda8b
+Author: meilyn garcia <grcmeilyn@gmail.com>
+Date:   Fri May 9 20:33:06 2025 -0600
+
+    5002
+
+commit 9bbdf73c6a8942e7402da0845271f1db62102312
+Author: Marice Mayen <¨mmayeni1@miumg.edu.gt¨>
+Date:   Fri May 9 19:43:55 2025 -0600
+
+    actualizacion de usuario
+
+commit 82e55f6a4d93accc4275f68fd3a3dfad1d23d9bb
+Author: meilyn garcia <grcmeilyn@gmail.com>
+Date:   Fri May 9 19:29:05 2025 -0600
+
+    bitacora
+
+commit af7d417be7c03e18a5348dab0828aa8b3fca4e63
+Author: [Herson <[Herson>
+Date:   Fri May 9 18:20:29 2025 -0600
+
+    Primer envio de clase prestaciones
+
+commit 8f33cb4df85b70e53c69d3e71a5bf0badda0ab29
+Author: [Herson <[Herson>
+Date:   Fri May 9 17:44:49 2025 -0600
+
+    actualizacion de clase empleados
+
+commit 731bfc9c938e847a171bc51d556144862eb0f954
+Merge: 29e9223 4017566
+Author: [Herson <[Herson>
+Date:   Fri May 9 17:41:33 2025 -0600
+
+    actualizaciones empleados
+
+commit 66e5631bfe8fc33afd3f5ffb06cdea5f09addbb3
+Merge: 2215438 726b468
+Author: marlondeleon17 <100364159+marlondeleon17@users.noreply.github.com>
+Date:   Fri May 9 13:38:40 2025 -0600
+
+    Merge pull request #2 from marlondeleon17/marlon19460
+    
+    actualizacion
+
+commit 726b4685b4d273d89c833b7724db05384c8fca7d
+Author: marlon de leon <mdeleong17@miumg.edu.gt>
+Date:   Fri May 9 13:35:56 2025 -0600
+
+    actualizacion
+
+commit 4017566d1904ef6d7aecacb6b804551b6c2338bc
+Author: IsaC8-bit <isaiascedillo1313@gmail.com>
+Date:   Thu May 8 21:06:04 2025 -0600
+
+    Clase Empleados
+
+commit 29e922344f5382875981d5f3654fb4112f77f854
+Merge: 6602a5b 6fa2d12
+Author: [Herson <[Herson>
+Date:   Wed May 7 10:06:55 2025 -0600
+
+    Actualizacion bitacora
+
+commit 6602a5b7fb9d18b91275d120a16b117f59493275
+Author: [Herson <[Herson>
+Date:   Wed May 7 09:57:39 2025 -0600
+
+    h
+
+commit 2c28f31d0ca7503d42014cb1b26568ab6b4ffe45
+Merge: a5aeb80 7f5523f
+Author: ArmandoAJD <adeleono7@miumg.edu.gt>
+Date:   Wed May 7 09:54:57 2025 -0600
+
+    usuarios ingreso
+    
+    Andre castellanos9959 24 3019
+
+commit 6fa2d12efd24c73df4d34caeffd4e5ce1d653327
+Merge: 3a2fdac 769572a
+Author: Herson Girón <gironnnherson@gmail.com>
+Date:   Wed May 7 09:53:03 2025 -0600
+
+    Merge branch 'edelaguila:main' into bitacora_9959241733
+
+commit 3f3a8c0bebd226f16307875611855beae57f746e
+Merge: 769572a f683d25
+Author: Kevin Rodrigo López Espinoza <klopeze14@miumg.edu.gt>
+Date:   Wed May 7 09:50:01 2025 -0600
+
+    Merge pull request Grupo4
+    
+    actualización de bitacora.txt
+
+commit f683d253c7ad70b9f7bc262a3fa6db80ae2f32fe
+Author: Kevin Lopez <klopeze14@miumg.edu.gt>
+Date:   Wed May 7 09:49:05 2025 -0600
+
+    actualización de bitacora.txt
+
+commit 3a2fdacc6b9d45253b01e97aa449a50afe1ffca9
+Author: [Xander <[xreyeso@miumg.edu.gt]>
+Date:   Wed May 7 09:43:42 2025 -0600
+
+    Primera implementacion bitacora
+
+commit cbd3394818dbd3559a4f264d26223b59a1af0072
+Author: Marice Mayen <¨mmayeni1@miumg.edu.gt¨>
+Date:   Wed May 7 09:42:55 2025 -0600
+
+    actualizacion
+
+commit 769572a66cbb9d7efafaa8e0b52c2d1b07105876
+Merge: 81e9ae1 7f1c6e4
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Tue May 6 05:19:29 2025 -0600
+
+    Merge pull request #31 from JennBF/main
+    
+    MANTENIMIENTO LOGISTICA
+
+commit 81e9ae1ba2332b123f00129ccd5bd641336150bf
+Merge: d5d35bd 43a5f49
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Tue May 6 05:19:10 2025 -0600
+
+    Merge pull request #30 from sarai701/main
+    
+    Proyecto de mantenimiento de sistema bancario
+
+commit d5d35bd4ec1cac36b77b95c76c91a0ec0c0b98e9
+Merge: 516d2c3 2215438
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Tue May 6 05:18:46 2025 -0600
+
+    Merge pull request #29 from Marice26/main
+    
+    menuventa
+
+commit 516d2c335710848d03036248dc4bb492c73ab703
+Merge: 40d09aa fdfbe04
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Tue May 6 05:18:29 2025 -0600
+
+    Merge pull request #28 from JennBF/RamaKarina
+    
+    Rama Karina
+
+commit 40d09aae8908580aed615a36f170c05771fbdf11
+Merge: 75f841e f2c668a
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Tue May 6 05:18:13 2025 -0600
+
+    Merge pull request #27 from ArmandoAJD/ArmandoDeLeon9959-24-155
+    
+    Armando de leon9959 24 155
+
+commit 75f841e57c1cf3d26d5522e9f13530e5a2169e70
+Merge: 022c727 7089f74
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Tue May 6 05:17:57 2025 -0600
+
+    Merge pull request #26 from astridrl/facturas
+    
+    enviando clases de facturas
+
+commit 2215438690e431a38ca9e46c4fe2d3c74b1fdfcc
+Author: steven vasquez <svasquezc12@miumg.edu.gt>
+Date:   Mon May 5 22:57:15 2025 -0600
+
+    Mantenimiento archivo .h
+
+commit 7f1c6e4fcdf1139e815634aa7fbf6180466f7803
+Merge: e0c46b0 fdfbe04
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 5 22:55:16 2025 -0600
+
+    Solucion de Inventario
+
+commit fff1aa301d10fb33e94544956fc4498e693e6917
+Author: steven vasquez <svasquezc12@miumg.edu.gt>
+Date:   Mon May 5 22:54:20 2025 -0600
+
+    Mantenimiento archivo .cpp
+
+commit e0c46b085ea2af5b14184d5a7b7c75b517d5c8c3
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 5 22:53:14 2025 -0600
+
+    Solucion y detectando errores
+
+commit fdfbe04d52cb748d72d25ca4bb49773be595646e
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Mon May 5 22:46:07 2025 -0600
+
+    inventario
+
+commit 21c355d405fa99352a5c561ea550976c4033475c
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 5 22:42:30 2025 -0600
+
+    solucionando errores
+
+commit 43a5f496208c02fb31f9e43ecf1abacf097591c1
+Author: Sarai Calgua <sarai.calgua701@gmaol.com>
+Date:   Mon May 5 22:30:38 2025 -0600
+
+    Programa sin errores
+
+commit 5a9ebc057c89f36cff60f83a565af41e1e6a45b6
+Merge: 79d07c3 9867bac
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 5 22:22:59 2025 -0600
+
+    Merge branch 'rama-angel' of https://github.com/JennBF/Proyectop12k25
+
+commit 9867bac64ded3b61c5c9d723c701709140eacdb3
+Author: [Angel Mendez] <[lmendezf1@miumg.edu.gt]>
+Date:   Mon May 5 22:17:32 2025 -0600
+
+    Bitacora
+
+commit 79d07c3968221329e00cbc707962207b4e658d6a
+Merge: 65dada2 ca393a8
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 5 22:11:07 2025 -0600
+
+    Añadiendo Rama Gabriela Main y Reportes
+
+commit ca393a83c924ce1d12c4575fd68b5948129d2cfe
+Author: GabrilEscob <jescobarc26@miumg.edu.gt>
+Date:   Mon May 5 22:05:29 2025 -0600
+
+    Reportes
+
+commit 65dada2d7ce61c65d7d5158044d128d751c57e01
+Merge: 4e26c71 743b243
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 5 22:05:12 2025 -0600
+
+    Añadiendo Clases Usuarios e Inventarios
+
+commit c646972eb254ba1d5bf388e70c30c708dfafb63f
+Merge: 49d7342 8b33fe4
+Author: Sarai Calgua <sarai.calgua701@gmaol.com>
+Date:   Mon May 5 22:01:33 2025 -0600
+
+    contabilidad-9959-23-3184
+
+commit 743b2431957846a1194acb9a901eeb71698f67ea
+Merge: 7d0784b 022c727
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Mon May 5 22:00:14 2025 -0600
+
+    inventario y usuarios
+
+commit 7d0784b70d8decc5164ab2f40580add03f2a2ff4
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Mon May 5 21:53:42 2025 -0600
+
+    usuarios e inventario
+
+commit 4e26c71cd6ca73063c86ae37a94d1f15fb297015
+Merge: c4f3f37 1b40196
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 5 21:49:59 2025 -0600
+
+    Uniendo Rama de Camila Clase Facturacion
+
+commit c4f3f37a05cdbb07b7198c57569d70d3036782d2
+Merge: facd60d 9b62d48
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 5 21:47:40 2025 -0600
+
+    Uniendo rama Coord De clase de Envio y clase pedidos
+
+commit 9b62d481b163cfa36e2680b143bb07f58addea46
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 5 21:45:40 2025 -0600
+
+    Clase Pedidos y Clase Envios
+
+commit 8b33fe42d0419989d49c8c78957c66ac41406032
+Author: Jonathan Samuel Gonzalez <jgonzalezi7@miumg.edu.gt>
+Date:   Mon May 5 21:45:09 2025 -0600
+
+    modificacion de contabilidad Jonathan Gonzalez
+
+commit 1b40196f5cd22bfdda0b7f9be538bb3a948c42bf
+Author: ¨[Angoly <¨[aaraujom@miumg.edu.gt]¨>
+Date:   Mon May 5 21:34:10 2025 -0600
+
+    Actualización Facturación
+
+commit 49d73424fccbc8a25b60439c7032747ef240c0d4
+Merge: df8f652 1ffb036
+Author: Sarai Calgua <sarai.calgua701@gmaol.com>
+Date:   Mon May 5 21:25:36 2025 -0600
+
+    Conflictos resueltos tras hacer merge con EmpleadosyBitacora-9959-24-6859
+
+commit 1ffb03612c47ce1169541ede7ad209ab9ac9dae4
+Author: KarlaRuiz8 <kruizo@miumg.edu.gt>
+Date:   Mon May 5 21:07:11 2025 -0600
+
+    Se agrego la clase Empleados y clase Bitacoras
+
+commit facd60d38662663b04688a670be13a7c0f57eae6
+Merge: 0bba44b 0515d3c
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 5 18:30:42 2025 -0600
+
+    Merge branch 'RamaKarina' of https://github.com/JennBF/Proyectop12k25
+
+commit 0515d3cd347200d2d80352ca468d03bad906442a
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Mon May 5 18:27:34 2025 -0600
+
+    Modificación Inventario
+
+commit 0bba44b7a39e25effe69a501a91d90a164af9a24
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 5 18:18:23 2025 -0600
+
+    Correcciones
+
+commit 8441fca558fbb0dce44586f614daa4a08a27b794
+Merge: 58799eb a08f063
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 5 18:05:34 2025 -0600
+
+    Resolviendo conflicto con archivo Header Camila
+
+commit 58799eb716235548526a1a4c80baa5edd7d4cbdb
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 5 18:03:58 2025 -0600
+
+    Agregando Trabajo de Jennifer
+
+commit a08f063ccb8778b2055a415dcd6c05958ad91bbd
+Author: ¨[Angoly <¨[aaraujom@miumg.edu.gt]¨>
+Date:   Mon May 5 18:00:52 2025 -0600
+
+    Cambios Facturación
+
+commit 8e5e6053e2e2ccb0dfa98bf817829bbd3d204278
+Merge: 1b4e587 3a2d7c3
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 5 17:48:17 2025 -0600
+
+    Resolviendo Conflictos Rama Karina
+
+commit 7f5523f7e178e14b5ac8051d075cdb2d19e38754
+Author: AndreCastellanos12 <mcastellanosm12@miumg.edu.gt>
+Date:   Mon May 5 15:03:49 2025 -0600
+
+    ramas pruebas
+
+commit 80a37ae4f3c9a1c182110b16419128094b248c61
+Author: Marice Mayen <¨mmayeni1@miumg.edu.gt¨>
+Date:   Mon May 5 15:02:06 2025 -0600
+
+    menuventa
+
+commit 3a2d7c3c88c68ba28eec6d67c1c18d29a7eedca8
+Author: [Karina Arriaza] <[karriazao@miumg.edu.gt]>
+Date:   Mon May 5 14:11:39 2025 -0600
+
+    Inventario e Usuarios
+
+commit df8f65243628c010091d5bb5665d889ee347a86d
+Merge: cc88eb5 3509a45
+Author: Sarai Calgua <sarai.calgua701@gmaol.com>
+Date:   Mon May 5 10:35:59 2025 -0600
+
+    Prueba de empleados y bitacora
+
+commit 3509a453d075eb4d294700013dae9ae14bc31c71
+Author: KarlaRuiz8 <kruizo@miumg.edu.gt>
+Date:   Mon May 5 10:29:26 2025 -0600
+
+    Se agregaron las clases de Empleados y Bitacoras
+
+commit a5aeb80fb9fdfdd891925461391563147013b648
+Merge: 72d0fbf ced3976
+Author: [Armando De Leon] <[adeleono7@miumg.edu.gt]>
+Date:   Mon May 5 10:29:03 2025 -0600
+
+    Merge branch 'EmilioReyes9959-23-3303' of https://github.com/ArmandoAJD/Proyectop12k25
+
+commit dad5808c4f2202448041e370c4a9b6f326cbb937
+Merge: be8f6c2 6ad5661
+Author: [Dulce Martínez] <[dulce.10arev@gmail.com]>
+Date:   Mon May 5 10:12:33 2025 -0600
+
+    actualizando
+
+commit cc88eb5dc7fd826df241cb23f6d21dfcba002a4c
+Author: Sarai Calgua <sarai.calgua701@gmaol.com>
+Date:   Mon May 5 10:10:52 2025 -0600
+
+    actualización de bitacora-9959-23-450
+
+commit 077e1b1e9a3e94b82d9fbfce4b3e69933b827fec
+Merge: 687313d 9f11dc3
+Author: Sarai Calgua <sarai.calgua701@gmaol.com>
+Date:   Mon May 5 10:01:43 2025 -0600
+
+    solucuón de error
+
+commit f2c668a67ce844ad74c056ecbbd9a47fc45407e3
+Merge: 6448c7e 72d0fbf
+Author: [Armando De Leon] <[adeleono7@miumg.edu.gt]>
+Date:   Mon May 5 10:00:04 2025 -0600
+
+    Merge branch 'main' into ArmandoDeLeon9959-24-155
+
+commit 1b4e5879cdc7ba99dd4380962ea6bf24ad87fcfa
+Merge: c5adc82 d36d114
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 5 09:54:43 2025 -0600
+
+    Resolviendo Conflictos Rama Gabriela
+
+commit c5adc822ab50346958524a59e1be375b2685b073
+Merge: 63ae498 c552e36
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 5 09:53:18 2025 -0600
+
+    Resolviendo Conflictos Rama Angel Eq3
+
+commit 687313d11e9c8f3b15be4638c875ae1887bd4930
+Author: Sarai Calgua <sarai.calgua701@gmaol.com>
+Date:   Mon May 5 09:50:09 2025 -0600
+
+    Guardando cambios locales antes de hacer pull
+
+commit d36d11456fb2d713be769bfa6fe945354e61408f
+Author: GabrilEscob <jescobarc26@miumg.edu.gt>
+Date:   Mon May 5 09:47:56 2025 -0600
+
+    Reportes
+
+commit 9f11dc35f933c5b2be44cacd008b06452054efbf
+Author: Ivan774gt <deleonboris6@gmail.com>
+Date:   Mon May 5 09:44:33 2025 -0600
+
+    Bitacora ver1 por Boris de Leon 9959-24-6203
+
+commit 63ae4986b94db8c6cfa45fb72484ea2004ac50c6
+Merge: 7636b0c 022c727
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 5 09:41:50 2025 -0600
+
+     Resolucion conflicto rama Camila
+
+commit 7089f74027bc95a7f499a060c93850f247e5f731
+Author: [Dulce18rt] <[dreyesp11@miumg.edu.gt]>
+Date:   Mon May 5 09:41:28 2025 -0600
+
+    enviando clases de facturas
+
+commit 2f13db6967d5089ef7997e4d8b99575eeb7f983b
+Author: [Xander <[xreyeso@miumg.edu.gt]>
+Date:   Mon May 5 09:38:29 2025 -0600
+
+    Actualizacion de bitacora
+
+commit 7636b0c40d684de4a30d387b56dda0f9b0d9b3ee
+Merge: 8c6fe99 138f369
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 5 09:30:55 2025 -0600
+
+    Merge branch 'CamilaRama' of https://github.com/JennBF/Proyectop12k25
+
+commit 138f3691ccf2adc343026967d421ab2b0fee26e5
+Author: ¨[Angoly <¨[aaraujom@miumg.edu.gt]¨>
+Date:   Mon May 5 09:24:25 2025 -0600
+
+    Cambios Facturación
+
+commit 6448c7e8386bd17e4ba73cbecfa8a5ae5e583639
+Merge: 0eb523b 760dfb7
+Author: [Armando De Leon] <[adeleono7@miumg.edu.gt]>
+Date:   Mon May 5 09:23:07 2025 -0600
+
+    Merge branch 'AndreCastellanos9959-24-3019' of https://github.com/ArmandoAJD/Proyectop12k25 into ArmandoDeLeon9959-24-155
+
+commit c552e36f71bdee4f5c4db1806f54ee91baa94b53
+Author: [Angel Mendez] <[lmendezf1@miumg.edu.gt]>
+Date:   Mon May 5 09:20:47 2025 -0600
+
+    Prueba de rama
+
+commit 8c6fe99df4ac24fcd01edbf30ce438782f0c1efa
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon May 5 09:18:19 2025 -0600
+
+    Agregando clases de pedidos y envíos
+
+commit 07df1ccce7210b77d0056c7b4325611c167b84f7
+Author: Ferdynand.Monroy <fmonroys@miumg.edu.gt>
+Date:   Mon May 5 09:08:51 2025 -0600
+
+    Guardando cambios locales
+
+commit be8f6c29cc53eb718776338cc0b9ab8ad024f04a
+Author: [Dulce Martínez] <[dulce.10arev@gmail.com]>
+Date:   Mon May 5 08:08:42 2025 -0600
+
+    cambios locales para actualizar
+
+commit 022c7278e9d5e9217747d5075df0f16e08dfb487
+Merge: eb51dd6 38d5daf
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon May 5 05:52:41 2025 -0600
+
+    Merge pull request #18 from HersonGiron/commitIsaC
+    
+    Sistema de trabajadores isaias
+
+commit eb51dd6c554d53641711d13c5b52fb81b44ae783
+Merge: ade577f 760dfb7
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon May 5 05:52:26 2025 -0600
+
+    Merge pull request #17 from ArmandoAJD/AndreCastellanos9959-24-3019
+    
+    Andre castellanos9959 24 3019
+
+commit ade577f56b49879f1679714e615dcbbec3400c3f
+Merge: 9082852 e59eac6
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon May 5 05:52:11 2025 -0600
+
+    Merge pull request #16 from JennBF/RamaCamila
+    
+    Rama camila
+
+commit 90828521cef35530ce8dac5ffec85a803c127a7a
+Merge: 2f690f4 dd4d3dc
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon May 5 05:51:52 2025 -0600
+
+    Merge pull request #15 from JennBF/rama-angel
+    
+    Rama angel
+
+commit 2f690f4237639c42d35df7fbe9f4583da4c39f7d
+Merge: c34d1d3 d175d6e
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon May 5 05:51:30 2025 -0600
+
+    Merge pull request #14 from HersonGiron/commitAngel
+    
+    Proyecto nominas sistema login
+
+commit c34d1d38c95370886f67e9cb3c1fc6dd84103406
+Merge: c5574a5 383fcdc
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon May 5 05:51:11 2025 -0600
+
+    Merge pull request #13 from sarai701/Clientes_Proveedores-2959-24-6203
+    
+    Clientes proveedores 2959 24 6203
+
+commit c5574a560ccc0f344159ed28427b8b1f5b00ba06
+Merge: 9016899 f1af56c
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon May 5 05:50:46 2025 -0600
+
+    Merge pull request #10 from KevinRLE/Grupo4
+    
+    Grupo4
+
+commit 90168999dcce6a358123ade69f5e125e67e1c947
+Merge: 108fdef cd9f5e9
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon May 5 05:50:28 2025 -0600
+
+    Merge pull request #9 from Marice26/main
+    
+    Carpeta Equipo 7
+
+commit 108fdef5b04b2d921ccca93ef7f0908ebd4e778b
+Merge: 25a2378 6ad5661
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon May 5 05:48:28 2025 -0600
+
+    Merge pull request #8 from astridrl/main
+    
+    Subiendo mantenimiento clientes
+
+commit 25a23787c2dc39b6b26d3ee1bad6090f36c58570
+Merge: dcb5fd7 c02a959
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon May 5 05:48:11 2025 -0600
+
+    Merge pull request #7 from sarai701/Equipo5-9959-23-450
+    
+    Equipo5 9959 23 450
+
+commit 6ad56619e7b5284eab0880eb50fa314d941501a1
+Author: [Astrid Ruíz] <[astridruizz05@gmail.com]>
+Date:   Mon May 5 03:33:32 2025 -0600
+
+    Agregando menu de procesos y clase transacciones
+
+commit 206d6f1f60edd65ae81465723bbaa1fd424eda0d
+Merge: a589856 02eb9d0
+Author: [Astrid Ruíz] <[astridruizz05@gmail.com]>
+Date:   Sun May 4 23:48:32 2025 -0600
+
+    Resolver conflicto en Cuentas Corrientes.layout
+
+commit a5898566cd4679701a6e472373d62a3e82e0e77c
+Author: [Astrid Ruíz] <[astridruizz05@gmail.com]>
+Date:   Sun May 4 23:37:07 2025 -0600
+
+    Guardar cambios en Cuentas Corrientes.layout
+
+commit 02eb9d03b28b106b7b0227cafb328831a8cfd3b6
+Author: [Britany Hernandez] <[britanyhernandezmd@gmail.com]>
+Date:   Sun May 4 23:12:06 2025 -0600
+
+    Mantenimiento Clientes/Proveedores
+
+commit 38d5daf972e11349eb87c8b5d19d72e8ad1d37e9
+Author: IsaC-8bBit (laptop) <isaiascedillo1313@gmail.com>
+Date:   Sun May 4 22:04:42 2025 -0600
+
+    mi commit acerca de los empleados
+
+commit 5993c6eb760dd728b0e647089bce5a0e48048203
+Author: IsaC-8bBit (laptop) <isaiascedillo1313@gmail.com>
+Date:   Sun May 4 22:01:47 2025 -0600
+
+    Bobes ponja (Prueba de branch)
+
+commit dd4d3dce36383f692ee15dee4300a988d2a380d4
+Author: [Angel Mendez] <[lmendezf1@miumg.edu.gt]>
+Date:   Sun May 4 21:36:45 2025 -0600
+
+    Cambios en documentacion
+
+commit ced3976db1a5b2712f50095f5b8518b2431b593e
+Author: emilioreyess <ereyesa10@miumg.edu.gt>
+Date:   Sun May 4 21:31:23 2025 -0600
+
+    bitacora
+
+commit 0eb523b69fc13f17f7c6f7b720beb43d7ce3e7af
+Author: [Armando De Leon] <[adeleono7@miumg.edu.gt]>
+Date:   Sun May 4 21:31:13 2025 -0600
+
+    compras
+
+commit 760dfb7e87a190a08c3e523abdc253887f8b6b52
+Author: [andre castellanos] <[mcastellanosm12@miumg.edu.gt]>
+Date:   Sun May 4 21:31:01 2025 -0600
+
+    usuario
+
+commit e59eac6540a86d2d48a5204bc628877a26509b1e
+Author: ¨[Angoly <¨[aaraujom@miumg.edu.gt]¨>
+Date:   Sun May 4 21:20:46 2025 -0600
+
+    Facturación
+
+commit 20582001c7c4affbce7ce29f3ec04feb53b841f2
+Author: [Angel Mendez] <[lmendezf1@miumg.edu.gt]>
+Date:   Sun May 4 21:20:31 2025 -0600
+
+    Bitacora
+
+commit d175d6efc68aebe98fe24de8cdefed94c438d8f2
+Author: [Angel <[aroquelm1@miumg.edu.gt]>
+Date:   Sun May 4 20:25:12 2025 -0600
+
+    Proyecto de nominas con sistema de seguridad login
+
+commit 383fcdcced5e57fa24389050abe5f963badeb298
+Merge: fbbf9fd dcb5fd7
+Author: sarai701 <sarai.calgua701@gmail.com>
+Date:   Sun May 4 19:15:06 2025 -0600
+
+    Merge branch 'edelaguila:main' into Clientes_Proveedores-2959-24-6203
+
+commit fbbf9fdb244778a2b858412f0b113f86c28f3267
+Author: Ivan774gt <deleonboris6@gmail.com>
+Date:   Sun May 4 18:42:55 2025 -0600
+
+    Se agregaron la clase proveedor y la clase cliente
+
+commit d86e8726a5c5cce0c99a69680c4a04169bf96ee9
+Merge: 9aa28f4 dcb5fd7
+Author: Jennifer Barrios <jennifer.barrios001@gmail.com>
+Date:   Sat May 3 11:47:12 2025 -0600
+
+    Merge branch 'edelaguila:main' into main
+
+commit c02a95927f4d726109577cec83d10ec8045d9918
+Merge: 132b4a6 ccc9928
+Author: Sarai Calgua <sarai.calgua701@gmaol.com>
+Date:   Fri May 2 23:01:54 2025 -0600
+
+    Resuelto MenuSistemaBanco.layout
+
+commit f1af56c7b78aab6810d5da2e58ecb7d508ae339f
+Merge: 2c9c4b6 0d6563e
+Author: Kevin Rodrigo López Espinoza <klopeze14@miumg.edu.gt>
+Date:   Fri May 2 22:35:08 2025 -0600
+
+    Merge pull request/kevin_lopez_9959_24_3309
+    
+    Kevin lopez 9959 24 3309
+
+commit 0d6563e6119558ceda3bdab3da775f06332d5f7f
+Author: Kevin Lopez <klopeze14@miumg.edu.gt>
+Date:   Fri May 2 22:31:06 2025 -0600
+
+    Correcciones de Clases y Funcionamiento de Programa/Kevin López
+
+commit 50908ed93ff1fc6e17afc6e9fb013dded1566b17
+Author: Kevin Lopez <klopeze14@miumg.edu.gt>
+Date:   Fri May 2 22:23:42 2025 -0600
+
+    Correcciones de Clases y Funcionamiento de Programa/Kevin López
+
+commit 2c9c4b6672fa0f2f6361544dcef352ae28bbc1e5
+Merge: c30ed81 30994a8
+Author: Kevin Rodrigo López Espinoza <klopeze14@miumg.edu.gt>
+Date:   Fri May 2 21:16:22 2025 -0600
+
+    Merge pull request luis-valenzuela-9959-24-12583
+    
+    correción errores de desbordamiento, Luis
+
+commit 30994a8927226ed36cefe725557cc8c32e05c056
+Author: L-A-V-2-2 <lav80111@gmail.com>
+Date:   Fri May 2 21:11:40 2025 -0600
+
+    correción errores de desbordamiento, Luis
+
+commit 72d0fbfbaef434e7e7c3ed601b6a955e9f3bb2da
+Merge: d7d2b3a 862da5a
+Author: ArmandoAJD <adeleono7@miumg.edu.gt>
+Date:   Fri May 2 21:03:08 2025 -0600
+
+    Primer commit
+    
+    Grupo 6
+
+commit 862da5a8e134ca4106eb83e9f3a68b0a4ccfdfea
+Author: Emilio Reyes <ereyesa10@miumg.edu.gt>
+Date:   Fri May 2 20:56:57 2025 -0600
+
+    Grupo 6
+
+commit c30ed8163c6218018ba73d7575b0b81048a304ef
+Merge: 41a5380 fda22b6
+Author: Kevin Lopez <klopeze14@miumg.edu.gt>
+Date:   Fri May 2 20:11:51 2025 -0600
+
+    resolución problemas/Kevin López
+
+commit 41a538020ce975f6304ca349a4855fde946aa2c4
+Merge: d410aa1 bf5c2b5
+Author: Kevin Lopez <klopeze14@miumg.edu.gt>
+Date:   Fri May 2 20:08:01 2025 -0600
+
+    resolución problemas/Kevin López
+
+commit fda22b6b61c60c48c1dde52ece767a1a6c4f45ee
+Merge: bf5c2b5 fbf4922
+Author: Kevin Rodrigo López Espinoza <klopeze14@miumg.edu.gt>
+Date:   Fri May 2 20:00:47 2025 -0600
+
+    Merge pull request/Anthony_Suc_9959-24-389
+    
+    Anthony suc 9959 24 389
+
+commit fbf4922eacdaaf6351765e5d791be84bd2446958
+Merge: 8eab7cb bf5c2b5
+Author: Kevin Rodrigo López Espinoza <klopeze14@miumg.edu.gt>
+Date:   Fri May 2 20:00:16 2025 -0600
+
+    Merge branch 'Grupo4' into Anthony_Suc_9959-24-389
+
+commit d410aa1ee46b35b9dbc1a45000f6d298d45f4d30
+Author: Kevin Lopez <klopeze14@miumg.edu.gt>
+Date:   Fri May 2 19:51:39 2025 -0600
+
+    Merge rama Anthony_Suc_9959-24-389
+
+commit 8eab7cbb2cdf3097cc3f185a49e0fce3f3f15bf0
+Author: Anthony Suc <asucg@miumg.edu.gt>
+Date:   Fri May 2 19:21:52 2025 -0600
+
+    Implementacion archivos para producto y menu, por Anthony Suc
+
+commit bf5c2b52057931cbff4eefcc8e0f57857d9e56c8
+Merge: 23d4074 7e5bec2
+Author: Kevin Rodrigo López Espinoza <klopeze14@miumg.edu.gt>
+Date:   Fri May 2 18:50:45 2025 -0600
+
+    Inventario/Salidas/Marco_Hernandez_9959_24_6201
+    
+    Inventario/salidas by Marco Hernandez
+
+commit 7e5bec2d4eb978874a43724f3dcd5f8a27143f11
+Author: Marco Hernandez <mhernandezt23@miumg.edu.gt>
+Date:   Fri May 2 18:48:33 2025 -0600
+
+    Inventario/salidas by Marco Hernandez
+
+commit d7d2b3ab2793f79c23df60c8041acddf49d0a8c1
+Merge: dcb5fd7 0ee74c8
+Author: ArmandoAJD <adeleono7@miumg.edu.gt>
+Date:   Fri May 2 11:24:36 2025 -0600
+
+    Grupo6
+    
+    Grupo 6
+
+commit 0ee74c82e4a27f35133acffd200bf8fc5eb85098
+Author: Emilio Reyes <ereyesa10@miumg.edu.gt>
+Date:   Fri May 2 11:23:16 2025 -0600
+
+    Grupo 6
+
+commit 23d40741133a65d30dee8fd78c2306c52577d936
+Merge: d1f196f c465a6b
+Author: Kevin Rodrigo López Espinoza <klopeze14@miumg.edu.gt>
+Date:   Fri May 2 11:10:40 2025 -0600
+
+    Merge pull request #2 from KevinRLE/Ferdynand_Monroy_9959_24_14049
+    
+    Modificacion de bitacora por Ferdynand Monroy
+
+commit c465a6be2c8229c5fd578b13576d2c9af85541e5
+Merge: 0574d9c d1f196f
+Author: Kevin Rodrigo López Espinoza <klopeze14@miumg.edu.gt>
+Date:   Fri May 2 11:10:32 2025 -0600
+
+    Merge branch 'Grupo4' into Ferdynand_Monroy_9959_24_14049
+
+commit 5a9c161bdaf68df8f932bf43f3e266f4517e4c02
+Merge: dcb5fd7 d1f196f
+Author: Kevin Rodrigo López Espinoza <klopeze14@miumg.edu.gt>
+Date:   Fri May 2 10:57:39 2025 -0600
+
+    Merge pull request #1 from KevinRLE/Grupo4
+    
+    Grupo4
+
+commit 132b4a6bc9303298d4df97acb35160c3204b9224
+Author: Sarai Calgua <sarai.calgua701@gmaol.com>
+Date:   Fri May 2 10:24:35 2025 -0600
+
+    Actualizacion del Programa Priscila Guzmán 9959-23-450
+
+commit d1f196f5b7dc2affecbb762c3045da16b02373a2
+Merge: 21e6055 dcb5fd7
+Author: LuisValenzuelaaa <lvalenzuelaa1@miumg.edu.gt>
+Date:   Fri May 2 10:22:59 2025 -0600
+
+    Merge branch 'edelaguila:main' into Grupo4
+
+commit 0574d9cadb64c9d15bcdbb14259fd894d6f16fe7
+Merge: dcb5fd7 21e6055
+Author: Ferdynand.Monroy <fmonroys@miumg.edu.gt>
+Date:   Fri May 2 10:09:46 2025 -0600
+
+    Modificacion de bitacora por Ferdynand Monroy
+
+commit cd9f5e95f73e29521a68fb5f44413d0d6807dc26
+Merge: 38cef11 dcb5fd7
+Author: Marice26 <mmayeni1@miumg.edu.gt>
+Date:   Fri May 2 11:08:39 2025 -0500
+
+    Merge branch 'edelaguila:main' into main
+
+commit ff72071f8cdf6eac4bc88fa950c4a55313fab400
+Author: Ivan774gt <deleonboris6@gmail.com>
+Date:   Fri May 2 10:06:07 2025 -0600
+
+    Archivo de prueba para la rama
+
+commit d834623780d6947318d836200c5dabde02b2f913
+Author: [Dulce Martínez] <[dulce.10arev@gmail.com]>
+Date:   Fri May 2 10:03:48 2025 -0600
+
+    mantenimiento clientes
+
+commit 6ac1937550329615464b8cdb47ae405142cb27f0
+Author: [Angel <[aroquelm1@miumg.edu.gt]>
+Date:   Fri May 2 10:00:11 2025 -0600
+
+    Primera prueba
+
+commit ccc9928bbc0d9820ea30cea4bd19430089ef2ae6
+Author: Sarai Calgua <sarai.calgua701@gmaol.com>
+Date:   Fri May 2 09:59:44 2025 -0600
+
+    Actualizacion de clase nominas y usuario Priscila Guzmán 9959-23-450
+
+commit dcb5fd7532e5e5224ec794945dc664be1d73666f
+Merge: 98d133d a94dd52
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Fri May 2 09:55:24 2025 -0600
+
+    Merge pull request #6 from HersonGiron/main
+    
+    Agregando carpeta equipo 1
+
+commit 38cef11f4cf70a57e95e0b4bc3a001466d7a4ffa
+Author: Marice Mayen <¨mmayeni1@miumg.edu.gt¨>
+Date:   Fri May 2 09:53:43 2025 -0600
+
+    carpeta equipo 7
+
+commit 21e6055deb7e155e016b60bf411b29234c873cf2
+Author: Kevin Lopez <klopeze14@miumg.edu.gt>
+Date:   Fri May 2 09:48:13 2025 -0600
+
+    Sistema Inventarios
+
+commit 26592d611d597e254f5dcfb9791b3c46aed8f2bf
+Author: [Astrid Ruíz] <[astridruizz05@gmail.com]>
+Date:   Fri May 2 09:47:42 2025 -0600
+
+    Subiendo codigo base
+
+commit 9aa28f4a42e2ed68dd346061928346e882db0241
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Fri May 2 09:46:39 2025 -0600
+
+    Carpeta de Logistica
+
+commit a94dd52caf0b170ead78fdd2b9129c5c362b65d0
+Merge: 8f40fa5 98d133d
+Author: [Herson <[Herson>
+Date:   Fri May 2 09:45:56 2025 -0600
+
+    Archivo prueba equipo 1
+
+commit 8f40fa503ef32e235e262dde8b8f3baacf5b3c75
+Merge: 6943baf 07d9b4d
+Author: [Herson <[Herson>
+Date:   Fri May 2 09:37:39 2025 -0600
+
+    Archivo prueba grupo 1
+
+commit 98d133d8170edcb7da10a09c67ccdac6366924d4
+Merge: 07d9b4d e5988a8
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Fri May 2 09:34:51 2025 -0600
+
+    Merge pull request #5 from sarai701/Equipo5
+    
+    Carga de Programa
+
+commit 6943baf661d2ae8afbd2a8cb39d5a2c737489129
+Author: [Herson <[Herson>
+Date:   Fri May 2 09:33:41 2025 -0600
+
+    archivo prueba grupo 1
+
+commit aab6da63b225fe68dfedd6a6c0d658ae76f3ec20
+Merge: 07d9b4d e5988a8
+Author: Sarai Calgua <sarai.calgua701@gmaol.com>
+Date:   Fri May 2 09:12:14 2025 -0600
+
+    Merge branch 'Equipo5'
+     especially if it merges an updated upstream into a topic branch.
+
+commit e5988a891b24344596ee65cea7c0e80608d776fc
+Author: Sarai Calgua <sarai.calgua701@gmaol.com>
+Date:   Fri May 2 09:10:50 2025 -0600
+
+    Carga de Programa
+
+commit 07d9b4df71a6749c88eec6e4238b361ef2b4cdba
+Merge: f718204 126b856
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Fri May 2 08:57:43 2025 -0600
+
+    Merge pull request #4 from JennBF/main
+    
+    Envio de Carpeta
+
+commit 126b85638cb5e9fe3dbf36e6deaf4c316bd6ce18
+Merge: 1c7cfd2 f718204
+Author: Jennifer Barrios <jennifer.barrios001@gmail.com>
+Date:   Fri May 2 08:55:37 2025 -0600
+
+    Merge branch 'edelaguila:main' into main
+
+commit f7182048f77ad62dbe2ffa9a46c9e661915511c9
+Merge: 559e44c 7bd81f3
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Fri May 2 08:53:52 2025 -0600
+
+    Merge pull request #3 from sarai701/Equipo5
+    
+    Equipo5
+
+commit 7bd81f3922d74eed7eeecebd343a7ec3579946fe
+Author: Sarai Calgua <sarai.calgua701@gmaol.com>
+Date:   Wed Apr 30 23:08:16 2025 -0600
+
+    Equipo5
+
+commit ff6d85adb8adfb095f1f4f73f67d2a521c17eb61
+Merge: 1919f0d 559e44c
+Author: sarai701 <sarai.calgua701@gmail.com>
+Date:   Wed Apr 30 22:26:28 2025 -0600
+
+    Merge branch 'edelaguila:main' into main
+
+commit 559e44cac0cbd9092bd8cceb4901e5fb2ce4fe1f
+Merge: 222f3e7 5251d36
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed Apr 30 10:03:31 2025 -0600
+
+    Merge pull request #2 from KevinRLE/Grupo4
+    
+    Grupo4
+
+commit 222f3e79d0f41567e4785adc91ea3fce124c6f1e
+Merge: b6f9e69 8f26824
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Wed Apr 30 10:02:48 2025 -0600
+
+    Merge pull request #1 from astridrl/main
+    
+    Subiendo archivo de prueba
+
+commit 5251d362defc5d3fc64447d8172b64305d0d138d
+Author: Kevin Lopez <klopeze14@miumg.edu.gt>
+Date:   Mon Apr 28 10:12:43 2025 -0600
+
+    Grupo4
+
+commit 8f268243908f293f9d3ee78c1d6c7232b145c8ef
+Author: [Astrid Ruíz] <[astridruizz05@gmail.com]>
+Date:   Mon Apr 28 09:59:22 2025 -0600
+
+    Subiendo archivo de prueba
+
+commit 1c7cfd2f9c56ea6e8c5de3a83c979b13c2a275b6
+Author: [JennBF] <[jennifer.barrios001@gmail.com]>
+Date:   Mon Apr 28 09:54:42 2025 -0600
+
+    Creando Carpeta Equipo 3
+
+commit 1919f0da2ca8db8b14eeccd4604f9efb5926cc6f
+Author: Sarai Calgua <sarai.calgua701@gmaol.com>
+Date:   Mon Apr 28 09:52:44 2025 -0600
+
+    Equipo5
+
+commit b6f9e6966099314bb9585033095d075e06da2393
+Author: edelaguila <54811781+edelaguila@users.noreply.github.com>
+Date:   Mon Apr 28 09:25:32 2025 -0600
+
+    Initial commit
