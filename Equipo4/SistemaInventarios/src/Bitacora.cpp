@@ -10,14 +10,15 @@
 #include<vector>
 #include<sstream>
 #include<cstring>
-
+//bitacora por Ferdynand Monroy 9959-24-14049
+//inicio de bitacora abril 2025
 using namespace std;
 
 void bitacora::menu()
 {
     int choice;
     do {
-        system("cls");
+        system("cls"); //tabla menú
 
         cout<<"\t\t\t-------------------------------"<<endl;
         cout<<"\t\t\t |   SISTEMA GESTION BITACORA  |"<<endl;
@@ -74,7 +75,7 @@ void bitacora::insertar(string nombre, int codigoDummy, string aplicacion, strin
     if (nuevoCodigo > 2999) {
         cout << "❌ Límite de bitácoras alcanzado (2999)" << endl;
         return;
-    }
+    } //limite establecido para Grupo4
 
     // Llenar campos
     entrada.codigo = nuevoCodigo;
@@ -99,7 +100,7 @@ void bitacora::desplegar() {
     fstream binFile;
     EntradaBitacora entrada;
     int total = 0;
-
+    //se muestra la bitacora con usuario, fecha, hora y lo que se realizo
     cout << "\n------------------- Bitácora -------------------\n";
     binFile.open("bitacora.dat", ios::in | ios::binary);
     if (!binFile) {

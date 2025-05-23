@@ -1,7 +1,7 @@
 #ifndef BITACORA_H
 #define BITACORA_H
 #include<iostream>
-
+//bitacora.h por Ferdynand Monroy 9959-24-14049
 using std::string;
 
 class bitacora

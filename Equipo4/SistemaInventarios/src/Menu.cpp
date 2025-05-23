@@ -1,5 +1,5 @@
 //funcionamiento del menú (kevin)
-//funcionamiento del menú (Luis)
+//funcionamiento del menú (Luis Valenzuela 9959-24-12583)
 //Actualizacion (Anthony)
 #include "Menu.h"
 #include "Bitacora.h"
